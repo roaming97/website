@@ -1,0 +1,61 @@
+# EVERYDAYS - THE FIRST 365 DAY STREAK
+
+by roaming97
+
+TL;DR: I wanted to continue but for various reasons that won't be possible, back to the two posts per year schedule.
+WARNING: This article is still unfinished, I just wanted to get it out for day 366, I will very likely finish writing it tomorrow, it's pretty long.
+
+## Preface
+
+Hello! It's been a while since I've left these humongous walls of text for you to read (although I'm 99% sure you won't, that's why I left the note above) which describe with a lot of detail certain situation I am currently in... that sounded way darker than it should have.
+I figured it'd be a good idea to finally talk about all of what has been going on behind the scenes, or rather, inside my mind on how in the world I even got the motivation to start this, and not only that, but keep going and achieve this barely significant milestone, I thought it would be a good read for anybody that is interested, which I highly doubt, but I'll give it the benefit of the doubt, one never knows.
+
+So buckle up! Grab a drink if you want and get ready, because this is going to be an extremely long read.
+
+## Introduction
+
+Surely, the first question that will come to mind is along the words of: "What motivated you to begin this artistic journey? / How did you get the idea to start this?", and I would answer with an "I don't even know" like I usually do but thinking retrospectively, I actually do know this time.
+2020 (I am of course taking for granted the obvious fact about that year that goes completely without saying) was a pretty standard year for me when it came to creating content for roaming97, two videos per year and not many posts outside of the usual retweet about a commission I did for someone, 04 Collective releases and whatnot. I had finally managed to establish an original logo and it was the year I can say I could exclude my more jokey side from the project which was something I had been trying to do for 3 years at that point and finally give it a more professional image.
+
+2021 came along and I was determined to create more content than ever before, 04 Collective closed so I was pretty much "unemployed", so that meant I had to also create portfolio material to show to clients, I felt like the current content in my website back then was a tiny bit lackluster. So with that, I entered an event that consisted of doing a piece of music or visual art within 24 hours hosted by FORM, a group of creatives or something like that. I, of course, didn't win the grand prize of being the face of the album cover, but I was happy with the result anyways.
+That left me with that drive of wanting to try the challenge once again, so I did just that after finishing a huge commission that coincidentally was also made in an extremely short period of time, a 30 minute video within a weekend. I made a quick artwork titled "JUICE" on March 24th, 2021, exactly one year before this huge chunk of text was posted! After that artwork was made I was happy I could pull off that in the same time frame as that one event I participated in, it was good... but not perfect. And that's how it begins ladies and gentlemen!
+
+## Every single day
+
+I should probably mention this right off the bat: my everydays are clearly inspired by Beeple's, but it's not like he is the copyright owner of something so ambiguous as making, finishing, and posting a piece of artwork every day so I would not necessarily call mine a direct ripoff.
+This series was divided into 4 seasons, 96 days each, I didn't know I was going to follow this pattern from the very beginning, but I felt like it was the right thing to do when day 97 arrived, switching to a new layout. The layout for these is very simple: have my nickname there somewhere, the title of the artwork, the current day, the current date, and the software I used to create that piece in particular.
+
+One of the reasons that mainly stopped me from making content in the past was the dreaded by almost every artist creative block, making me only post four times a year at most since 2018, Twitter, YouTube, and Vimeo being pretty much the only places I did. The more daily artwork, the closest I was to realize that was actually helping me as a way to exercise my mind my forcing myself to make artwork every day of the week, no Sunday breaks or anything. It started out simple enough with some landscapes and abstract stuff made in renders with Blender 2.92 and Photoshop, which turned out to be the usual software I used for almost all of the first season of these.
+
+Something that I probably don't mention often but it might be obvious especially for those who have followed me before 2020: I didn't like my own work. Call it perfectionism/pessimism, but that used to be the way I saw my own work, and I think thanks to these that sort of changed. For good.
+
+Around late April 2021, I had this one dream about a landscape where I'd really like to be at. This definitely wasn't the first time it happens, ever since I can remember, but the everydays were a perfect catalyst to finally bring one of those ideas to life, as I had to do it quickly while still keeping some quality to it. Thus, day 33 happened, and something happened that up until then hadn't ever happened before in the almost 5 years (at the time) I had been doing art and video stuff: I actually liked something I'd made. This of course doesn't sound like too much when written like that, but it definitely meant a lot to myself, the fact that I could finally create something that I was happy with, it was truly something special.
+
+After the first season, I got the hang of it. I knew what to usually do, the thought process, the software, techniques, etc. Well, those were the only factors that I think were involved during the creation of these pieces, I also thought this series was going to last more than a year back then.
+
+## The obstacle(s)
+
+The variables that were involved _of course_ turned out to be many more and much more important than I expected, it wasn't only the ideas and render times, but it was also what circumstances surrounded me, for example if I was going to be out of town (which did happen while the everydays were happening, I had to create two pieces on a single day so I could upload the second one the next day through my phone), or I was sick and whatnot, I didn't consider those possibilities, or rather, didn't put too much thought to them when I started the series.
+
+One of the main concerns evidently was time, there would be occasions when I would not be able to use a computer, let alone the creative software I usually utilize for these pieces of artwork.
+
+(TO BE FINISHED)
+
+<style>
+    h1,h2,p {
+        margin: 0.5rem 1rem;
+        text-align: center;
+    }
+    h2 {
+
+    }
+    hr {
+        width: 90vw;
+    }
+    @media (min-width: 1000px) {
+        h1,h2,p {
+            text-align: left;
+            margin: 1rem;
+        }
+    }
+</style>

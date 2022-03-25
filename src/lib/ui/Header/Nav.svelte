@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-
-	const links = [
-		['/', 'Home'],
-		['/about', 'About']
-	]
+	export let links = []
 </script>
 
 <template lang="pug">
@@ -13,7 +9,7 @@
 		ul
 			+each('links as [path, title], i (title)')
 
-				li(class:active='{$page.path === path}')
+				li(class:active='{$page.url.pathname === path}')
 
 					a(
 						sveltekit:prefetch
@@ -22,15 +18,37 @@
 
 </template>
 
-<style>
+<style lang="scss">
+	@use '../../../../styles/media' as *;
 	nav {
-		display: flex;
+		display: none;
 		justify-content: center;
+		a {
+			display: flex;
+			align-items: center;
+			padding: 0 4rem 0 4rem;
+
+			height: 100%;
+
+			font-size: 1rem;
+			font-weight: 300;
+
+			color: var(--dark-a);
+
+			transition: background-color 0.2s linear;
+
+			text-transform: uppercase;
+			text-decoration: none;
+			letter-spacing: 20%;
+			&:hover {
+				background-color: var(--light-b);
+				color: var(--brand-b);
+			}
+		}
 	}
 
 	ul {
 		display: flex;
-		gap: 2rem;
 
 		z-index: 1;
 	}
@@ -38,26 +56,9 @@
 	li {
 		list-style: none;
 	}
-
-	nav a {
-		display: flex;
-		align-items: center;
-
-		height: 100%;
-
-		font-size: 0.8rem;
-		font-weight: 700;
-
-		color: var(--dark-a);
-
-		transition: color 0.15s linear;
-
-		text-transform: uppercase;
-		text-decoration: none;
-		letter-spacing: 10%;
-	}
-
-	a:hover {
-		color: var(--brand-a);
+	@include media('>desktop') {
+		nav {
+			display: flex;
+		}
 	}
 </style>
