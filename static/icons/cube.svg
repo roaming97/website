@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 3000 3000">
+  <circle cx="1500" cy="1500" r="1500" fill="#c281e4"/>
+  <path fill="#d7c0ef" d="M1500 0c827.9 0 1500 672.1 1500 1500s-672.1 1500-1500 1500S0 2327.9 0 1500 672.1 0 1500 0Zm0 36c808 0 1464 656 1464 1464s-656 1464-1464 1464S36 2308 36 1500 692 36 1500 36Z"/>
+  <g>
+    <path fill="#dfa8fb" d="m2680.6 1132.8-962.5-495.6L812.8 523l1105.4 667 762.4-57.1"/>
+    <path fill="#f5e2ff" d="M1346.4 2610 1923 1190 812.8 522.9 522 1747.5l824.3 862.4Z"/>
+    <path fill="#bc96e6" d="m2680.6 1132.7-514.6 1034-820.3 443.2 577-1421 758-56.2Z"/>
+  </g>
+</svg>

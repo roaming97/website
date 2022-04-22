@@ -31,7 +31,7 @@
 		position: fixed;
 		display: flex;
 
-		background-color: var(--light-a);
+		background-color: rgba(var(--light-a-rgb), 0.95);
 
 		width: 100vw;
 		height: 3rem;

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+	import Link from './Link.svelte'
 	export let links = []
+
+	let open = false
 </script>
 
 <template lang="pug">
@@ -8,13 +11,8 @@
 	nav
 		ul
 			+each('links as [path, title], i (title)')
-
 				li(class:active='{$page.url.pathname === path}')
-
-					a(
-						sveltekit:prefetch
-						href='{path}'
-					) {title}
+					Link(path="{path}", title='{title}')
 
 </template>
 
@@ -23,28 +21,6 @@
 	nav {
 		display: none;
 		justify-content: center;
-		a {
-			display: flex;
-			align-items: center;
-			padding: 0 4rem 0 4rem;
-
-			height: 100%;
-
-			font-size: 1rem;
-			font-weight: 300;
-
-			color: var(--dark-a);
-
-			transition: background-color 0.2s linear;
-
-			text-transform: uppercase;
-			text-decoration: none;
-			letter-spacing: 20%;
-			&:hover {
-				background-color: var(--light-b);
-				color: var(--brand-b);
-			}
-		}
 	}
 
 	ul {

@@ -1,41 +1,32 @@
 <script lang="ts">
+	import { opacity } from '$lib/transitionStore'
+	import { Hamburger } from 'svelte-hamburgers'
+	import { prefetch } from '$app/navigation'
+	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
+	import Link from './Link.svelte'
 
 	export let links: []
-	$: show = false
+	let open = false
 
-	const toggle = () => (show = !show)
+	const toggle = () => (open = !open)
 </script>
 
 <template lang="pug">
 
-	.toggleBtn(on:click='{toggle}') {!show ? '☰' : 'X'}
+	.burg(style="z-index: 1; max-height: 3rem;" class:open)
+		Hamburger(on:click='{toggle}' "--color"="var(--dark-a)" "--padding"="0.7rem" type="squeeze")
 
-	nav(class:show)
+	nav(class:open)
 		ul
 			+each('links as [path, title], i (title)')
-
 				li(class:active='{$page.url.pathname === path}')
-
-					a(
-						sveltekit:prefetch
-						href='{path}'
-					) {title}
+					Link({path} {title} on:closeMenu='{toggle}')
 
 </template>
 
 <style lang="scss">
 	@use '../../../../styles/media' as *;
-	.toggleBtn {
-		position: fixed;
-		cursor: pointer;
-		left: 0.5rem;
-
-		font-size: 2rem;
-		color: var(--dark-a);
-
-		z-index: 1;
-	}
 	nav {
 		position: fixed;
 		top: 0;
@@ -54,6 +45,9 @@
 
 		transform: translateX(-100%);
 		transition: 0.5s;
+		&.open {
+			box-shadow: 24px 0 16px rgba(0, 0, 0, 0.4);
+		}
 		ul {
 			top: 10%;
 			display: flex;
@@ -62,42 +56,18 @@
 
 			z-index: 1;
 		}
-		a {
-			display: flex;
-
-			width: 100%;
-			height: 100%;
-
-			padding: 1rem 2rem 1rem 0.5rem;
-
-			font-size: 1rem;
-			font-weight: 300;
-
-			color: var(--dark-a);
-
-			transition: color 0.2s linear;
-			transition: background-color 0.2s linear;
-
-			text-transform: uppercase;
-			text-decoration: none;
-			letter-spacing: 20%;
-			&:hover {
-				background-color: var(--light-b);
-				color: var(--brand-a);
-			}
-		}
 	}
 	li {
 		list-style: none;
 	}
-	.show {
-		transform: translateX(0);
+	.open {
+		transform: translatex(0);
 	}
 	@include media('>desktop') {
-		.toggleBtn {
+		.open {
 			display: none;
 		}
-		.show {
+		.burg {
 			display: none;
 		}
 	}

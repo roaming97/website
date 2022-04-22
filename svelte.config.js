@@ -22,6 +22,9 @@ const config = {
                 hmr: {
                     overlay: false
                 }
+            },
+            optimizeDeps: {
+                include: ['highlight.js', 'highlight.js/lib/core']
             }
         }
     }

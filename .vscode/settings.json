@@ -17,6 +17,9 @@
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": "active",
+
 	"workbench.iconTheme": "material-icon-theme",
 
 	//* More subtle Template Tags

@@ -1,0 +1,30 @@
+---
+title: Website 5.0 Alpha is out!
+date: 2022-04-21
+---
+
+# {title}
+
+<template>
+	<p style="font-size:1rem;opacity:0.5;font-style:italic;">
+		{new Date(Date.parse(date)).toLocaleDateString('en-US')}
+	</p>
+</template>
+
+Hi! After over a year of work, I finally got my stuff together in Svelte and the first alpha for my website is finally here! Looks extremely basic for now but it'll be getting better with time, you know, it'll eventually look exactly how I want it to look.
+This will do for the time being.
+
+_-roaming97_
+
+<style>
+    * {
+        margin: 1.5rem;
+    }
+    h1 {
+        margin: 1.5rem 0;
+        text-align: left;
+    }
+    em {
+        margin: 1.5rem 0;
+    }
+</style>

@@ -1,26 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-	<defs>
-		<style>
-			.cls-1 {
-				fill: none;
-				stroke: var(--dark-b);
-				stroke-miterlimit: 10;
-				stroke-width: 4px;
-			}
-		</style>
-	</defs>
-	<title>r97Logo</title>
-	<line class="cls-1" x1="278.67" y1="372.28" x2="278.67" y2="514.95" />
-	<line class="cls-1" x1="192.26" y1="339.67" x2="280.3" y2="407.34" />
-	<line class="cls-1" x1="192.26" y1="341.3" x2="280.3" y2="273.64" />
-	<line class="cls-1" x1="365.9" y1="339.67" x2="277.85" y2="407.34" />
-	<line class="cls-1" x1="365.9" y1="340.49" x2="277.85" y2="273.64" />
-	<line class="cls-1" x1="327.58" y1="310.33" x2="542.8" y2="175" />
-	<line class="cls-1" x1="469.43" y1="625" x2="582.74" y2="541.03" />
-	<line class="cls-1" x1="581.93" y1="200.27" x2="581.93" y2="542.66" />
-	<line class="cls-1" x1="541.17" y1="175" x2="582.74" y2="201.9" />
-	<line class="cls-1" x1="322.69" y1="529.62" x2="471.06" y2="625" />
-	<line class="cls-1" x1="321.88" y1="372.28" x2="581.93" y2="542.66" />
-	<line class="cls-1" x1="465.35" y1="465.22" x2="581.93" y2="379.62" />
-	<line class="cls-1" x1="581.93" y1="311.14" x2="464.54" y2="224.73" />
-</svg>
+<script lang="ts">
+	import { draw } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
+	import { OnMount } from 'fractils'
+</script>
+
+<OnMount>
+	<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="-16 0 454 454">
+		<path
+			in:draw={{ duration: 25000, easing: quintOut }}
+			d="M88 199v34m0 0v1m0-1L2 167m86 67v108m0-108v-1m0 1h-1M1 167h1m0 0-1 1m1-1 86-65m0 131 1 1m-1-1 44-33m-44-98 1-1m-1 1 86 65m-86-65-1-1m88 66h-1m0 0-42 33m42-33h1m-43 33-1-1m1 1 258 169M137 137 351 3m0 0 1-1m-1 1-1-1m1 1 40 25M278 452l1-1m0 0 111-82m-111 82-147-94m147 94 1 1m110-83h1m-1 0 1 1v-1m0 0 1-1m-1 1V207m0-180v1m0 0v110m0-110 1 1m-1 109v69m0-69L274 52m117 155-117 85"
+			stroke="var(--dark-a)"
+			stroke-width="4"
+			stroke-miterlimit="10"
+		/>
+	</svg>
+</OnMount>

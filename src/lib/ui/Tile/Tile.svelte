@@ -24,7 +24,7 @@
 			a(href="{link}" target="_blank") 
 				.tile(
 					style='background-image: url({picture}); background-size: cover; background-position: center;' 
-					transition:fly='{{y: 50, easing: quadOut, duration: 800}}'
+					in:fly='{{y: 50, easing: quadOut, duration: 800}}'
 					)
 					span {caption}
 

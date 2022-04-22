@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Logo from '$lib/ui/Logo.svelte'
+	import { Logo } from '$lib/ui'
 </script>
 
 <template lang="pug">
     .intro-container
-        .logo
-           Logo 
         .text
             h1 WELCOME.
-            span This is my website, here you can check out my portfolio which showcases my recent digital art and video production work. I also made a small personal blog where I post about any other projects I'm doing.
+            span This is my website. Here you can check out my portfolio which showcases my recent digital art and video production work. I also made a small personal blog where I post about any other projects I'm doing.
+        .logo
+           Logo 
 
 </template>
 
@@ -25,7 +25,8 @@
 		display: flex;
 	}
 	.logo {
-		width: clamp(35vw, 4rem, 50vw);
+		padding: 2rem;
+		width: clamp(20vw, 4rem, 30vw);
 	}
 	.text {
 		text-align: center;
@@ -40,14 +41,14 @@
 	@include media('>desktop') {
 		.intro-container {
 			justify-content: space-around;
-			flex-direction: row-reverse;
+			flex-direction: row;
 			align-items: initial;
 
 			padding: 4rem;
 			.logo {
 				width: clamp(12.5vw, 3rem, 50vw);
-
-				margin: auto;
+				padding: 2rem;
+				margin: 1rem;
 			}
 			.text {
 				padding: 1rem;

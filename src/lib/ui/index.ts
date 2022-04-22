@@ -1,7 +1,7 @@
 export { Header } from './Header'
+export { default as Logo } from './Logo.svelte'
 export { Footer } from './Footer'
-export type GalleryTile = {
-	caption?: string
-	picture: string
-	link: string
-}
+export { Tile } from './Tile'
+export { Tooltip } from './Tooltip'
+export { Icon } from './Icon'
+export { CodeBlock } from './CodeBlock'
