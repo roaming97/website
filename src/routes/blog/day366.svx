@@ -3,31 +3,10 @@ title: EVERYDAYS - THE FIRST 365 DAYS STREAK
 date: 2022-03-24
 ---
 
-# {title}
-
-<template>
-	<p style="font-size:1rem;opacity:0.5;font-style:italic;">
-		{new Date(Date.parse(date)).toLocaleDateString('en-US')}
-	</p>
-</template>
-
 This article has been temporarily taken down, I just wanted to get it out for day 366 initially but it turned out to be way longer than I thought, it will be back up when it's finished.
 
 <style>
-    p {
-        margin: 0 1.5rem;
-    }
     h1 {
-        margin: 1rem;
-
-        font-weight: bold;
-        text-align: left;
-        font-size: 4rem;
-    }
-    a,
-    a:hover,
-    a:focus,
-    a:visited {
-        text-decoration: none;
+        font-size: 2rem;
     }
 </style>

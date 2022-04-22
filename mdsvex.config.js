@@ -17,6 +17,9 @@ const mdsvexConfig = {
         ],
         abbr
     ],
+    layout: {
+        _: './src/lib/bloglayout.svelte'
+    },
     rehypePlugins: [
         slug, [
             autolinkHeadings,
