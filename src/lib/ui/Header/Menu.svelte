@@ -15,13 +15,13 @@
 <template lang="pug">
 
 	.burg(style="z-index: 1; max-height: 3rem;" class:open)
-		Hamburger(on:click='{toggle}' "--color"="var(--dark-a)" "--padding"="0.7rem" type="squeeze")
+		Hamburger(bind:open "--color"="var(--dark-a)" "--padding"="0.7rem" type="squeeze")
 
 	nav(class:open)
 		ul
 			+each('links as [path, title], i (title)')
 				li(class:active='{$page.url.pathname === path}')
-					Link({path} {title} on:closeMenu='{toggle}')
+					Link({path} {title} on:closeMenu!='{() => open = false}')
 
 </template>
 

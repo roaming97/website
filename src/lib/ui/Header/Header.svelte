@@ -25,10 +25,9 @@
 </template>
 
 <style lang="scss">
-	@use '../../../../styles/media' as *;
 	header {
 		justify-content: space-between;
-		position: fixed;
+		position: relative;
 		display: flex;
 
 		background-color: rgba(var(--light-a-rgb), 0.95);
@@ -56,11 +55,5 @@
 
 	:global(#theme .icon) {
 		font-size: 1.5rem;
-	}
-
-	@include media('>desktop') {
-		header {
-			position: relative;
-		}
 	}
 </style>

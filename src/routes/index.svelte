@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
-	import { onMount } from 'svelte'
+	import { onMount, onDestroy } from 'svelte'
 	import Gallery from './_home/components/Gallery.svelte'
 	import Intro from './_home/components/Intro.svelte'
 	export const prerender = true
@@ -17,8 +17,15 @@
 	}
 
 	let filename = 'banner.webp'
+	let interval: NodeJS.Timeout
 
-	onMount(() => setInterval(() => changeRole(), 2500))
+	onMount(() => {
+		interval = setInterval(() => changeRole(), 2500)
+	})
+
+	onDestroy(() => {
+		clearInterval(interval)
+	})
 </script>
 
 <template lang="pug">

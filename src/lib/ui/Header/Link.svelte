@@ -12,10 +12,13 @@
 	const dispatch = createEventDispatcher()
 
 	const navigate = (path: string) => {
-		if (navigating) return
-		navigating = true
+		dispatch('closeMenu', {
+			open: false
+		})
 
-		dispatch('closeMenu')
+		if (navigating) return
+
+		navigating = true
 
 		$opacity = 0
 
@@ -42,10 +45,11 @@
 </template>
 
 <style lang="scss">
+	@use '../../../../styles/media' as *;
 	.a {
 		display: flex;
 		align-items: center;
-		padding: 0 4rem 0 4rem;
+		padding: 2rem 1rem;
 
 		height: 100%;
 
@@ -64,6 +68,11 @@
 		&:hover {
 			background-color: var(--light-b);
 			color: var(--brand-b);
+		}
+	}
+	@include media('>desktop') {
+		.a {
+			padding: 0 4rem;
 		}
 	}
 </style>
