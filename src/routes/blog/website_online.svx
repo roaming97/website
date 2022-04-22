@@ -1,4 +1,5 @@
 ---
+layout: template
 title: Website 5.0 Alpha is out!
 date: 2022-04-21
 ---
@@ -17,14 +18,20 @@ This will do for the time being.
 _-roaming97_
 
 <style>
-    * {
-        margin: 1.5rem;
+    p {
+        margin: 0 1.5rem;
     }
     h1 {
-        margin: 1.5rem 0;
+        margin: 1rem;
+
+        font-weight: bold;
         text-align: left;
+        font-size: 4rem;
     }
-    em {
-        margin: 1.5rem 0;
+    a,
+    a:hover,
+    a:focus,
+    a:visited {
+        text-decoration: none;
     }
 </style>

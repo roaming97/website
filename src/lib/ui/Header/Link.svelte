@@ -29,14 +29,13 @@
 				$opacity = 1
 				navigating = false
 			}, 1)
-		}, 250)
+		}, 300)
 	}
 </script>
 
 <template lang="pug">
 	.a(
 		class:mobile!='{$mobile}'
-		type="submit"
 		role="link"
 		on:mouseover!='{() => prefetch(path)}'
 		on:focus!='{() => prefetch(path)}'

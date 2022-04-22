@@ -31,7 +31,7 @@ specifiers:
   svelte-highlight: ^6.0.1
   svelte-preprocess: 4.9.8
   tippy.js: ^6.3.7
-  tslib: ^2.3.1
+  tslib: ^2.4.0
   typescript: ^4.6.3
 
 dependencies:
@@ -67,7 +67,7 @@ devDependencies:
   svelte-highlight: 6.0.1
   svelte-preprocess: 4.9.8_78d4fe9f0a0c199cb9a7ebbad4fe46be
   tippy.js: 6.3.7
-  tslib: 2.3.1
+  tslib: 2.4.0
   typescript: 4.6.3
 
 packages:
@@ -532,7 +532,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-db: 1.0.30001332
-      electron-to-chromium: 1.4.117
+      electron-to-chromium: 1.4.118
     dev: true
 
   /browserslist/4.20.2:
@@ -541,7 +541,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001332
-      electron-to-chromium: 1.4.117
+      electron-to-chromium: 1.4.118
       escalade: 3.1.1
       node-releases: 2.0.3
       picocolors: 1.0.0
@@ -1057,8 +1057,8 @@ packages:
       sigmund: 1.0.1
     dev: true
 
-  /electron-to-chromium/1.4.117:
-    resolution: {integrity: sha512-ypZHxY+Sf/PXu7LVN+xoeanyisnJeSOy8Ki439L/oLueZb4c72FI45zXcK3gPpmTwyufh9m6NnbMLXnJh/0Fxg==}
+  /electron-to-chromium/1.4.118:
+    resolution: {integrity: sha512-maZIKjnYDvF7Fs35nvVcyr44UcKNwybr93Oba2n3HkKDFAtk0svERkLN/HyczJDS3Fo4wU9th9fUQd09ZLtj1w==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -4070,8 +4070,8 @@ packages:
       yn: 3.1.1
     dev: false
 
-  /tslib/2.3.1:
-    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: true
 
   /type-fest/0.18.1:

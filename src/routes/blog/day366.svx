@@ -14,11 +14,20 @@ date: 2022-03-24
 This article has been temporarily taken down, I just wanted to get it out for day 366 initially but it turned out to be way longer than I thought, it will be back up when it's finished.
 
 <style>
-    * {
-        margin: 1.5rem;
+    p {
+        margin: 0 1.5rem;
     }
     h1 {
-        margin: 1.5rem 0;
+        margin: 1rem;
+
+        font-weight: bold;
         text-align: left;
+        font-size: 4rem;
+    }
+    a,
+    a:hover,
+    a:focus,
+    a:visited {
+        text-decoration: none;
     }
 </style>

@@ -12,11 +12,20 @@ date: 2001-01-01
 </template>
 
 <style>
-    * {
-        margin: 1.5rem;
+    p {
+        margin: 0 1.5rem;
     }
     h1 {
-        margin: 1.5rem 0;
+        margin: 1rem;
+
+        font-weight: bold;
         text-align: left;
+        font-size: 4rem;
+    }
+    a,
+    a:hover,
+    a:focus,
+    a:visited {
+        text-decoration: none;
     }
 </style>

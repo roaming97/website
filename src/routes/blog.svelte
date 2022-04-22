@@ -1,6 +1,8 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
 	import type { Post } from '$lib/types'
+	import { opacity } from '$lib/transitionStore'
+	import { goto, prefetch } from '$app/navigation'
 
 	export const load: Load = async () => {
 		const files = import.meta.glob('./blog/*.svx')
@@ -32,6 +34,24 @@
 
 <script lang="ts">
 	export let posts: Post[]
+	let navigating = false
+
+	const navigate = (path: string) => {
+		if (navigating) return
+
+		navigating = true
+
+		$opacity = 0
+
+		setTimeout(() => {
+			goto(path)
+
+			setTimeout(() => {
+				$opacity = 1
+				navigating = false
+			}, 1)
+		}, 300)
+	}
 </script>
 
 <template lang="pug">
@@ -39,7 +59,11 @@
 	.blog-container
 		ul
 			+each('posts as post')
-				a(href="{post.name.split('./')[1].split('.')[0]}")
+				.a(
+					role="link"
+					on:focus!="{() => prefetch(post.name.split('./')[1].split('.')[0])}"
+					on:mouseover!="{() => prefetch(post.name.split('./')[1].split('.')[0])}"
+					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
 					li
 						h2 {post.meta.title}
 						p {new Date(Date.parse(post.meta.date)).toLocaleDateString('en-US')}
@@ -72,22 +96,18 @@
 			font-family: var(--font-mono);
 		}
 	}
-	a {
+	.a {
 		margin: auto 1rem;
 		padding: 1rem;
+
+		cursor: pointer;
 
 		transition: 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 		* {
 			transition: 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 		}
 	}
-	a,
-	a:hover,
-	a:focus,
-	a:visited {
-		text-decoration: none;
-	}
-	a:hover {
+	.a:hover {
 		background-color: var(--light-b);
 		h2 {
 			color: var(--brand-c);

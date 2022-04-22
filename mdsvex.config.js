@@ -4,28 +4,27 @@ import slug from 'rehype-slug'
 import abbr from 'remark-abbr'
 
 const mdsvexConfig = {
-	extensions: ['.svelte.md', '.md', '.svx'],
-	smartypants: {
-		dashes: 'oldschool'
-	},
-	remarkPlugins: [
-		[
-			github,
-			{
-				repository: 'https://github.com/fractal-hq/svelte-playground-kit.git'
-			}
-		],
-		abbr
-	],
-	rehypePlugins: [
-		slug,
-		[
-			autolinkHeadings,
-			{
-				behavior: 'wrap'
-			}
-		]
-	]
+    extensions: ['.svelte.md', '.md', '.svx'],
+    smartypants: {
+        dashes: 'oldschool'
+    },
+    remarkPlugins: [
+        [
+            github,
+            {
+                repository: 'https://github.com/fractal-hq/svelte-playground-kit.git'
+            }
+        ],
+        abbr
+    ],
+    rehypePlugins: [
+        slug, [
+            autolinkHeadings,
+            {
+                behavior: 'wrap'
+            }
+        ]
+    ]
 }
 
 export default mdsvexConfig
