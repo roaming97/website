@@ -7,7 +7,7 @@
 
 	h1 {title}
 	.content
-		p(style="font-size:1rem;opacity:0.5;font-style:italic;") {new Date(Date.parse(date)).toLocaleDateString('en-US')}
+		p(style="font-size:1rem;opacity:0.5;font-style:italic;") {new Date(Date.parse(date)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
 		slot
 
 </template>

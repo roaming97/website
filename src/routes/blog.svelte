@@ -9,17 +9,19 @@
 		const promises: Promise<Post>[] = []
 		const getPost = async (post: string) =>
 			new Promise<Post>(async (res) => {
-				const file = await files[post]()
-				res({
-					name: files[post].name,
-					meta: file.metadata
-				})
+				try {
+					const file = await files[post]()
+					res({
+						name: files[post].name,
+						meta: file.metadata
+					})
+				} catch (err) {
+					console.error(err)
+				}
 			})
 
 		for (const post in files) {
-			if (post != './blog/template.svx') {
-				promises.push(getPost(post))
-			}
+			promises.push(getPost(post))
 		}
 		const posts = await Promise.all(promises)
 		posts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
@@ -66,7 +68,7 @@
 					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
 					li
 						h2 {post.meta.title}
-						p {new Date(Date.parse(post.meta.date)).toLocaleDateString('en-US')}
+						p {new Date(Date.parse(post.meta.date) + 1).toLocaleDateString('en-US')}
 </template>
 
 <style lang="scss">
@@ -99,6 +101,8 @@
 	.a {
 		margin: auto 1rem;
 		padding: 1rem;
+
+		border-radius: 12px;
 
 		cursor: pointer;
 

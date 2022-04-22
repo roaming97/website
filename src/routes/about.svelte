@@ -5,7 +5,7 @@
 	import Logo from '$lib/ui/Logo.svelte'
 	import ProgressBar from './_about/components/ProgressBar.svelte'
 
-	$: action = $mobile ? 'hover over' : 'tap'
+	$: action = !$mobile ? 'hover over' : 'tap'
 </script>
 
 <template lang="pug">
