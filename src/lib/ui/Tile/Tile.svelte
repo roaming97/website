@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { OnMount, visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
-	import { quadOut } from 'svelte/easing'
+	import { quartOut } from 'svelte/easing'
 
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
@@ -11,6 +11,7 @@
 	export let caption: string
 	export let picture: string
 	export let link: string
+	export let index = 0
 </script>
 
 <template lang="pug">
@@ -24,7 +25,7 @@
 			a(href="{link}" target="_blank") 
 				.tile(
 					style='background-image: url({picture}); background-size: cover; background-position: center;' 
-					in:fly='{{y: 50, easing: quadOut, duration: 800}}'
+					in:fly='{{y: 50, easing: quartOut, duration: 800, delay: index * 50}}'
 					)
 					span {caption}
 

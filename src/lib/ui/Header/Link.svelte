@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores'
 	import { goto, prefetch } from '$app/navigation'
 	import { opacity } from '$lib/transitionStore'
 	import { createEventDispatcher } from 'svelte'
@@ -12,6 +13,7 @@
 	const dispatch = createEventDispatcher()
 
 	const navigate = (path: string) => {
+		if ($page.url.pathname == path) return
 		dispatch('closeMenu', {
 			open: false
 		})

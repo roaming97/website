@@ -10,11 +10,12 @@
 	h1 {title}
 	+if('thumbs') 
 		.tiles 
-			+each('thumbs as t')
+			+each('thumbs as t, i')
 				Tile(
 					caption='{t.caption}'
 					picture='{t.picture}',
-					link='{t.link}'
+					link='{t.link}',
+					index='{i}'
 				)
 
 </template>
