@@ -1,6 +1,6 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').ErrorLoad} */
-	export function load({ error, status }) {
+<script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit'
+	export const load: Load = ({ error, status }) => {
 		return {
 			props: {
 				title: `${status}`,
@@ -10,13 +10,15 @@
 	}
 </script>
 
-<script>
-	export let title
-	export let description
+<script lang="ts">
+	export let title: string
+	export let description: string
 </script>
 
-<h1>{title}</h1>
-<p>{description}</p>
+<template lang="pug">
+	h1 {title}
+	p {description}
+</template>
 
 <style lang="scss">
 	::selection {

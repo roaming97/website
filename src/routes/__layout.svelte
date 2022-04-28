@@ -1,8 +1,3 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-	export const load: Load = async ({ url }) => ({ props: { url } })
-</script>
-
 <script lang="ts">
 	import { Fractils } from 'fractils'
 	import { mobileThreshold } from 'fractils/stores/Device.svelte'
@@ -20,7 +15,6 @@
 	}
 
 	$mobileThreshold = 1024
-	$: key = $page.url
 </script>
 
 <template lang="pug">

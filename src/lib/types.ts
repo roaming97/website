@@ -20,3 +20,10 @@ export interface Post {
 		date: Date
 	}
 }
+export interface ViewData {
+	title: string
+	collection?: string
+	picture: string
+	date: Date
+	description?: string
+}

@@ -1,3 +1,4 @@
+export { Arrow } from './Arrow'
 export { Header } from './Header'
 export { default as Logo } from './Logo.svelte'
 export { Footer } from './Footer'

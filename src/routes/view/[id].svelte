@@ -1,0 +1,158 @@
+<script context="module" lang="ts">
+	import { everydayData } from '$lib/data'
+	import type { Load } from '@sveltejs/kit'
+
+	export const load: Load = async ({ params }) => {
+		const getItem = () =>
+			new Promise<ViewData>(async (res) => {
+				try {
+					const index = parseInt(params.id) - 1
+					const item = everydayData[index]
+					res({
+						title: item.title,
+						collection: item.collection,
+						picture: item.picture,
+						date: item.date,
+						description: item.description
+					})
+				} catch (err) {
+					console.error(err)
+				}
+			})
+
+		const data = await getItem()
+
+		return {
+			props: {
+				data
+			}
+		}
+	}
+</script>
+
+<script lang="ts">
+	import type { ViewData } from '$lib/types'
+	import { page } from '$app/stores'
+	import { OnMount, visibility } from 'fractils'
+	import { onMount } from 'svelte'
+	import { quintOut, backOut } from 'svelte/easing'
+	import { fade, fly } from 'svelte/transition'
+	import ViewControls from '../_view/components/ViewControls.svelte'
+
+	export let data: ViewData
+
+	let visible: boolean
+	let options = { threshold: 0.75, once: true }
+	$: parsed_date = data.date.toLocaleDateString('en-US', { timeZone: 'Etc/GMT+5' })
+	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
+</script>
+
+<template lang="pug">
+	.view-container
+		.controls(in:fade='{{duration: 600, delay: 100}}')
+			ViewControls
+		img(in:fade='{{duration: 500, delay: 200}}' src="{data.picture}", alt=`{data.title}`)
+		hr
+		.visibleControl(
+			use:visibility='{options}'
+			on:change='{handleChange}'
+		)
+			+if('visible')
+				.description
+					.initial-info
+						h1(in:fly='{{x: -40, duration: 800, delay: 300, easing: quintOut}}') {data.title}
+						h3(in:fly='{{x: -40, duration: 800, delay: 600, easing: quintOut}}') {parsed_date}
+					+if('data.collection')
+						.collection
+							p(in:fly='{{x: 40, duration: 800, delay: 450, easing: quintOut}}') Collection
+							h1(in:fly='{{x: 40, duration: 800, delay: 750, easing: quintOut}}') {data.collection}
+				+if('data.description')
+					p(in:fly='{{y: 20, duration: 800, delay: 1000, easing: backOut }}') {data.description}
+</template>
+
+<style lang="scss">
+	@use '../../../styles/media' as *;
+	.view-container {
+		background-color: rgba(var(--light-b-rgb), 0.3);
+		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);
+
+		border-radius: 24px;
+		padding: 2.5rem;
+		margin: 1rem;
+
+		justify-content: center;
+		flex-direction: column;
+		display: flex;
+		h1 {
+			text-align: left;
+
+			letter-spacing: 0px;
+			font-weight: bold;
+			font-size: 2rem;
+		}
+		h3 {
+			font-family: var(--font-mono);
+			color: var(--light-d);
+			font-weight: 400;
+		}
+		img {
+			margin: 0.5rem;
+
+			width: 100%;
+			height: auto;
+		}
+		hr {
+			background-color: var(--light-d);
+
+			width: 100%;
+		}
+		p {
+			margin: 1.5rem 0;
+			font-size: 1rem;
+		}
+		.collection {
+			text-align: left;
+			h1 {
+				font-family: var(--font-mono);
+				font-weight: 100;
+				font-size: 2rem;
+			}
+			p {
+				color: var(--dark-d);
+				margin: 0.5rem 0;
+			}
+		}
+	}
+	@include media('>desktop') {
+		.view-container {
+			margin: 1rem auto;
+			width: 70vw;
+			h1 {
+				text-align: left;
+				font-size: 4.5vw;
+			}
+			img {
+				padding: 2rem;
+			}
+			hr {
+				width: 100%;
+			}
+			p {
+				font-size: 1.25rem;
+			}
+			.description {
+				flex-direction: row;
+				display: flex;
+
+				.collection {
+					margin-left: auto;
+
+					text-align: right;
+					h1 {
+						font-size: 4vw;
+					}
+				}
+			}
+		}
+	}
+</style>

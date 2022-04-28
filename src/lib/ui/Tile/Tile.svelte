@@ -6,7 +6,7 @@
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
 
-	const handleChange = (e: any) => (visible = e.detail.isVisible)
+	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
 
 	export let caption: string
 	export let picture: string

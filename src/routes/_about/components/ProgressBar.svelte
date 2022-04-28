@@ -49,7 +49,7 @@
 	.progress {
 		justify-content: flex-end;
 		display: flex;
-		background-image: linear-gradient(to right, pink, var(--brand-c), var(--brand-b));
+		background-image: linear-gradient(to right, pink, var(--brand-c), var(--brand-a));
 		height: 4rem;
 		width: 50vw;
 	}
@@ -82,7 +82,7 @@
 			justify-content: flex-start;
 			min-height: 12rem;
 			max-width: 4rem;
-			background-image: linear-gradient(to top, pink, var(--brand-c), var(--brand-b));
+			background-image: linear-gradient(to top, pink, var(--brand-c), var(--brand-a));
 		}
 		.bar {
 			border-radius: 0.8rem;
