@@ -5,6 +5,7 @@
 
 	export let direction: 'left' | 'right'
 	export let link: string
+	export let disabled = false
 	const arrow = direction === 'left' ? '<-' : '->'
 
 	let duration = 150
@@ -24,12 +25,12 @@
 		setTimeout(() => (animating = false), duration)
 	}
 	const triggerSpring = () => {
-		if (!animating) animating = true
+		if (!animating && !disabled) animating = true
 	}
 	let navigating = false
 
 	const navigate = (path: string) => {
-		if (navigating) return
+		if (navigating || disabled) return
 
 		navigating = true
 
@@ -52,8 +53,9 @@
 			on:click='{navigate(link)}'
 			on:mouseover='{prefetch(link)}' 
 			on:focus='{prefetch(link)}'
-			on:mouseenter="{triggerSpring}")
-			p(style='{style}') {arrow}
+			on:mouseenter="{triggerSpring}"
+			class:disabled)
+			p(style='{style}' class:disabled) {arrow}
 </template>
 
 <style lang="scss">
@@ -72,5 +74,11 @@
 
 		font-family: var(--font-mono);
 		font-size: 2rem;
+	}
+	.disabled {
+		color: var(--light-d);
+		opacity: 0.5;
+
+		cursor: default;
 	}
 </style>

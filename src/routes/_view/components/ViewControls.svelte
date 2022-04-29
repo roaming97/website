@@ -1,15 +1,20 @@
 <script lang="ts">
+	import { everydayData } from '$lib/data'
 	import { page } from '$app/stores'
-	import { OnMount } from 'fractils'
 	import { Arrow } from '$lib/ui'
 	$: id = parseInt($page.url.pathname.split('/')[2])
 </script>
 
 <template lang="pug">
-	OnMount
-		.view-controls
+	.view-controls
+		+if('id == 1')
+			Arrow(link='' direction='left' disabled=true)
+			+else()
 			Arrow(link='/view/{id-1}' direction='left')
-			p {id}
+		p {id}
+		+if('id >= everydayData.length')
+			Arrow(link='/view/{id+1}' direction='right' disabled=true)
+			+else()
 			Arrow(link='/view/{id+1}' direction='right')
 </template>
 
@@ -18,6 +23,10 @@
 		justify-content: space-around;
 		flex-direction: row;
 		display: flex;
+
+		background-color: rgba(var(--light-b-rgb), 0.5);
+		box-shadow: 0 0.5rem 32px rgba(0, 0, 0, 0.25);
+		border-radius: 16px;
 
 		width: 100%;
 		p {

@@ -1,13 +1,15 @@
 <script context="module" lang="ts">
-	import { everydayData } from '$lib/data'
 	import type { Load } from '@sveltejs/kit'
 
 	export const load: Load = async ({ params }) => {
+		const dataFile = await import('$lib/data')
+		const targetArray = dataFile.everydayData
+		const index = parseInt(params.id) - 1
+		const errorMessage = `Item ${index + 1} not found, max is ${targetArray.length}`
 		const getItem = () =>
-			new Promise<ViewData>(async (res) => {
+			new Promise<ViewData>(async (res, rej) => {
 				try {
-					const index = parseInt(params.id) - 1
-					const item = everydayData[index]
+					const item = targetArray[index]
 					res({
 						title: item.title,
 						collection: item.collection,
@@ -16,16 +18,25 @@
 						description: item.description
 					})
 				} catch (err) {
-					console.error(err)
+					rej()
 				}
+			}).catch(() => {
+				return undefined
 			})
 
 		const data = await getItem()
 
-		return {
-			props: {
-				data
+		if (data) {
+			return {
+				props: {
+					data
+				}
 			}
+		}
+
+		return {
+			status: 404,
+			error: errorMessage
 		}
 	}
 </script>
@@ -38,6 +49,8 @@
 	import { quintOut, backOut } from 'svelte/easing'
 	import { fade, fly } from 'svelte/transition'
 	import ViewControls from '../_view/components/ViewControls.svelte'
+	import Error from '../__error.svelte'
+	import About from '../about.svelte'
 
 	export let data: ViewData
 
