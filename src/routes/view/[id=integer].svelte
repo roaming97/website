@@ -139,19 +139,20 @@
 	@include media('>desktop') {
 		.view-container {
 			margin: 1rem auto;
+
 			width: 70vw;
 			h1 {
 				text-align: left;
-				font-size: 4.5vw;
+				font-size: 4vw;
 			}
 			img {
-				padding: 2rem;
+				padding: 1rem;
 			}
 			hr {
 				width: 100%;
 			}
 			p {
-				font-size: 1.25rem;
+				font-size: 1rem;
 			}
 			.description {
 				flex-direction: row;
@@ -162,7 +163,7 @@
 
 					text-align: right;
 					h1 {
-						font-size: 4vw;
+						font-size: 3vw;
 					}
 				}
 			}

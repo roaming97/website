@@ -13,7 +13,7 @@
 			Arrow(link='/view/{id-1}' direction='left')
 		p {id}
 		+if('id >= everydayData.length')
-			Arrow(link='/view/{id+1}' direction='right' disabled=true)
+			Arrow(link='' direction='right' disabled=true)
 			+else()
 			Arrow(link='/view/{id+1}' direction='right')
 </template>

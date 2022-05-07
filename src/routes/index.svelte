@@ -1,26 +1,51 @@
 <script lang="ts">
-	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
-	import { onMount, onDestroy } from 'svelte'
+	import Waves from './_home/components/Waves.svelte'
+	import WaveDown from './_home/components/WaveDown.svelte'
 	import Gallery from './_home/components/Gallery.svelte'
 	import Intro from './_home/components/Intro.svelte'
+	import { fly } from 'svelte/transition'
+	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
+	import { onMount, onDestroy } from 'svelte'
+	import { quartInOut } from 'svelte/easing'
+	import { mobile } from 'fractils'
+	import { prefetch } from '$app/navigation'
 	export const prerender = true
 
-	const roles: string[] = ['Visual Artist', 'Graphic Designer', 'Photographer']
-	const len = roles.length
+	const roles = ['Visual Artist', 'Graphic Designer', 'Photographer', 'Developer']
+	const path_list = [
+		'videothumbs/dr2019.webp',
+		'artwork/193.webp',
+		'photo/flower.webp',
+		'code.webp'
+	]
 
-	let index = 0
-	$: curr = roles[index]
+	$: index = 0
+	$: unit = $mobile ? 'rem' : 'vw'
+	$: off = $mobile ? 2.5 : 6.15
+	$: current_image = path_list[index]
 
-	const changeRole = () => {
-		index = (index + 1) % len
-		curr = roles[index]
-	}
-
-	let filename = 'banner.webp'
 	let interval: NodeJS.Timeout
 
+	let fading = false
+	let opacity = 0.1
+	const fadeImage = () => {
+		if (fading) return
+		fading = true
+		opacity = 0
+
+		setTimeout(() => {
+			index = (index + 1) % roles.length
+			setTimeout(() => {
+				opacity = 0.1
+				fading = false
+			}, 1)
+		}, 300)
+	}
+
 	onMount(() => {
-		interval = setInterval(() => changeRole(), 2500)
+		interval = setInterval(() => {
+			fadeImage()
+		}, 2500)
 	})
 
 	onDestroy(() => {
@@ -31,57 +56,118 @@
 <template lang="pug">
 
 	.hello
-		.banner-bg(style="background-image: url({filename});")
-		h1(style="font-size: clamp(3rem, 12vw, 6rem); font-weight: 100") roaming97
-		h1.curr {curr}
+		.banner(style='background-image: url({current_image}); opacity:{opacity}')
+		.hello-content
+			h1(style="font-size: clamp(4rem, 12vw, 6rem); font-weight: 100") roaming97
+			.roles(style="transform: translateY(-{index*off}{unit})")
+				+each('roles as r, i')
+						h1.curr(class:active='{i === index}') {r}
 
 	.content
 		Intro
-		Gallery(title='Artwork', thumbs="{artworkGallery}")
-		Gallery(title='Videos', thumbs="{videoGallery}")
-		Gallery(title='Everydays', thumbs="{everydayGallery}")
-		Gallery(title='Photography', thumbs="{pictureGallery}")
+		Waves
+		.actual-content
+			Gallery(title='Artwork', thumbs="{artworkGallery}")
+			Gallery(title='Videos', thumbs="{videoGallery}")
+			Gallery(title='Everydays', thumbs="{everydayGallery}")
+			Gallery(title='Photography', thumbs="{pictureGallery}")
+		WaveDown
 
 </template>
 
 <style lang="scss">
+	@use '../../styles/media' as *;
 	.hello {
-		padding: 8rem 0 8rem 0;
-
-		background-color: rgba(0, 0, 0, 0.5);
-
-		h1 {
-			color: white;
-		}
+		padding: 6rem 0;
 	}
-	.banner-bg {
+	.banner {
+		height: 100vh;
+		width: 100%;
+
 		position: absolute;
-		left: 0;
 		top: 0;
 
-		min-height: min(50vh, 20rem);
-		min-width: 100vw;
+		opacity: 0.5;
 
+		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
 
-		mask-image: -webkit-gradient(
-			linear,
-			left 90%,
-			left bottom,
-			from(rgba(0, 0, 0, 1)),
-			to(rgba(0, 0, 0, 0))
-		);
-
-		z-index: -1;
+		transition: opacity 150ms;
 	}
-	.curr {
-		font-size: clamp(1rem, 2vw, 2rem);
-		text-transform: uppercase;
-		font-weight: 700;
+	.hello-content {
+		flex-direction: column;
+		display: flex;
+
+		h1 {
+			color: var(--dark-a);
+		}
+		.curr {
+			opacity: 0;
+
+			user-select: none;
+
+			font-size: clamp(1rem, 2vw, 2rem);
+			font-family: var(--font-mono);
+			font-weight: 700;
+
+			transition: opacity 300ms;
+		}
+	}
+	.active {
+		opacity: 1 !important;
+
+		transition: opacity 300ms;
+	}
+	.roles {
+		flex-direction: column;
+		display: flex;
+
+		h1 {
+			margin: 0.5rem;
+		}
+
+		transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
 	}
 	.content {
-		padding: 1rem 0 1rem 0;
-		z-index: 2;
+		position: relative;
+		margin: 1rem 0;
+		z-index: 1;
+	}
+	.actual-content {
+		background-color: var(--brand-b);
+		margin: 0;
+
+		position: relative;
+		z-index: 3;
+	}
+	@include media('>desktop') {
+		.content {
+			margin: 0;
+		}
+		.hello-content {
+			justify-content: center;
+			flex-direction: row;
+
+			transform: translateY(30%);
+
+			h1 {
+				text-align: left;
+				margin: 0 4rem;
+			}
+			.curr {
+				opacity: 0.05;
+
+				font-size: 4vw;
+			}
+		}
+		.roles {
+			flex-direction: column;
+			z-index: -2;
+			margin: 0;
+			h1 {
+				margin: 0.5rem;
+			}
+		}
 	}
 </style>

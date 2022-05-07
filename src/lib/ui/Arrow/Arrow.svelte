@@ -37,13 +37,14 @@
 		$opacity = 0
 
 		setTimeout(() => {
+			prefetch(link)
 			goto(path)
 
 			setTimeout(() => {
 				$opacity = 1
 				navigating = false
 			}, 1)
-		}, 150)
+		}, 250)
 	}
 </script>
 

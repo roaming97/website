@@ -52,7 +52,7 @@
 				$opacity = 1
 				navigating = false
 			}, 1)
-		}, 300)
+		}, 250)
 	}
 </script>
 

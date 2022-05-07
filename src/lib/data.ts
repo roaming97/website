@@ -7,9 +7,19 @@ export const artworkGallery: Anchor[] = [
 		link: './artwork/219.webp'
 	},
 	{
+		caption: 'ABOUT IT REMIXES',
+		picture: './artwork/aboutitremixes.webp',
+		link: 'https://soundcloud.com/colorcase/sets/about-it-remixes'
+	},
+	{
 		caption: 'FIELD RINGS',
 		picture: './artwork/236.webp',
 		link: './artwork/236.webp'
+	},
+	{
+		caption: 'ABOUT IT',
+		picture: './artwork/aboutit.webp',
+		link: 'https://soundcloud.com/colorcase/colorcase-about-it-feat-your-neighbors'
 	},
 	{
 		caption: 'Splash screen',
@@ -60,14 +70,64 @@ export const videoGallery: Anchor[] = [
 		link: 'https://vimeo.com/659859916'
 	},
 	{
+		caption: 'GEKQO Teaser',
+		picture: './videothumbs/GEKQO.webp',
+		link: 'https://twitter.com/gekqomgmt/status/1442958462732824579'
+	},
+	{
 		caption: 'Demo Reel 2020',
 		picture: './videothumbs/dr2020.webp',
 		link: 'https://vimeo.com/495956496'
 	},
 	{
-		caption: 'Monomosh',
-		picture: './videothumbs/mono.webp',
-		link: 'https://vimeo.com/443884104'
+		caption: 'Nebula',
+		picture: './videothumbs/nebula.webp',
+		link: 'https://www.youtube.com/watch?v=-oduk_c16Y4'
+	},
+	{
+		caption: 'Edges',
+		picture: './videothumbs/edges.webp',
+		link: 'https://www.youtube.com/watch?v=BCPsQ1-ygcQ'
+	},
+	{
+		caption: 'Eyesore',
+		picture: './videothumbs/eyesore.webp',
+		link: 'https://www.youtube.com/watch?v=vccbpbW1yfU'
+	},
+	{
+		caption: 'Anarchy',
+		picture: './videothumbs/anarchy.webp',
+		link: 'https://www.youtube.com/watch?v=vOKBqE87cTg'
+	},
+	{
+		caption: 'Element',
+		picture: './videothumbs/element.webp',
+		link: 'https://www.youtube.com/watch?v=_9TDnpsDtIo'
+	},
+	{
+		caption: 'Lightning',
+		picture: './videothumbs/lightning.webp',
+		link: 'https://www.youtube.com/watch?v=Iw_7cLrpmSc'
+	},
+	{
+		caption: 'Step By Step',
+		picture: './videothumbs/stepbystep.webp',
+		link: 'https://www.youtube.com/watch?v=fx5AdA1Knts'
+	},
+	{
+		caption: 'Willpower',
+		picture: './videothumbs/willpower.webp',
+		link: 'https://www.youtube.com/watch?v=17_g6EUXugM'
+	},
+	{
+		caption: 'Genesis',
+		picture: './videothumbs/genesis.webp',
+		link: 'https://www.youtube.com/watch?v=R8O-f3pnT3I'
+	},
+	{
+		caption: 'Blind',
+		picture: './videothumbs/blind.webp',
+		link: 'https://www.youtube.com/watch?v=RORuJuvQcTM'
 	},
 	{
 		caption: 'Demo Reel 2019',
@@ -107,8 +167,8 @@ export const everydayGallery: Anchor[] = [
 export const pictureGallery: Anchor[] = [
 	{
 		caption: '2019',
-		picture: './photo/flower.webp',
-		link: '/photo/flower.webp'
+		picture: './photo/frog.webp',
+		link: '/photo/frog.webp'
 	}
 ]
 
@@ -2271,7 +2331,9 @@ export const everydayData: ViewData[] = [
 		title: 'DO',
 		collection: 'EVERYDAYS',
 		date: new Date('2022/02/22'),
-		picture: '/artwork/336.webp'
+		picture: '/artwork/336.webp',
+		description:
+			'This artwork is actually a 22 second video, published on: https://www.youtube.com/watch?v=wcSrJ2SqIVE'
 	},
 	{
 		title: 'bleed',

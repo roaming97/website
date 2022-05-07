@@ -5,7 +5,7 @@
 	import Logo from '$lib/ui/Logo.svelte'
 	import ProgressBar from './_about/components/ProgressBar.svelte'
 
-	$: action = !$mobile ? 'hover over' : 'tap'
+	$: action = !$mobile ? 'Hover over' : 'Tap'
 </script>
 
 <template lang="pug">
@@ -20,7 +20,7 @@
 			.logo
 				Logo
 	.section
-		p(style="padding:1rem;color:var(--light-d)") Tip: You can {action} the icons for more information.
+		p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
 		h2 Creative skills
 		.bars
 			+each("array1 as s, i")
@@ -48,14 +48,17 @@
 		align-items: center;
 		display: flex;
 		.logo {
-			padding: 1.5rem;
+			border-radius: 50%;
+
 			background-color: var(--light-b);
-			border-radius: 15%;
-			width: clamp(30vw, 4rem, 50vw);
+			outline: solid 2px var(--dark-c);
+
+			width: clamp(35vw, 3rem, 55vw);
+			padding: 2rem;
 		}
 		.paragraphs {
-			margin: 0.5rem 1rem;
 			text-align: 2rem center;
+			margin: 0.5rem 1rem;
 			p {
 				margin: 1rem 0;
 			}
