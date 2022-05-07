@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { everydayData } from '$lib/data'
+	import { viewData } from '$lib/data'
 	import { page } from '$app/stores'
 	import { Arrow } from '$lib/ui'
 	$: id = parseInt($page.url.pathname.split('/')[2])
@@ -12,7 +12,7 @@
 			+else()
 			Arrow(link='/view/{id-1}' direction='left')
 		p {id}
-		+if('id >= everydayData.length')
+		+if('id >= viewData.length')
 			Arrow(link='' direction='right' disabled=true)
 			+else()
 			Arrow(link='/view/{id+1}' direction='right')

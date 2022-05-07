@@ -48,12 +48,12 @@
 		align-items: center;
 		display: flex;
 		.logo {
-			border-radius: 50%;
+			border-radius: 100%;
 
 			background-color: var(--light-b);
-			outline: solid 2px var(--dark-c);
+			outline: solid 2px var(--light-d);
 
-			width: clamp(35vw, 3rem, 55vw);
+			width: clamp(35vw, 3rem, 50vw);
 			padding: 2rem;
 		}
 		.paragraphs {
@@ -72,11 +72,6 @@
 		width: 85vw;
 	}
 	@include media('>desktop') {
-		.section {
-			.logo {
-				padding: 3rem;
-			}
-		}
 		.section-content {
 			flex-direction: row;
 			align-items: center;
@@ -85,6 +80,9 @@
 			.paragraphs {
 				margin: 1rem 2rem;
 				text-align: left;
+			}
+			.logo {
+				padding: 3.5rem;
 			}
 		}
 		.bars {

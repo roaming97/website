@@ -1,10 +1,10 @@
-import type { Anchor, Price, ProgressInterface, ViewData } from './types'
+import type { Anchor, Price, ProgressInterface, ViewItem } from './types'
 
 export const artworkGallery: Anchor[] = [
 	{
 		caption: 'CHAMBER',
 		picture: './artwork/219.webp',
-		link: './artwork/219.webp'
+		link: '/view/219'
 	},
 	{
 		caption: 'ABOUT IT REMIXES',
@@ -14,7 +14,7 @@ export const artworkGallery: Anchor[] = [
 	{
 		caption: 'FIELD RINGS',
 		picture: './artwork/236.webp',
-		link: './artwork/236.webp'
+		link: '/view/236'
 	},
 	{
 		caption: 'ABOUT IT',
@@ -24,45 +24,39 @@ export const artworkGallery: Anchor[] = [
 	{
 		caption: 'Splash screen',
 		picture: './artwork/273.webp',
-		link: './artwork/273.webp'
+		link: '/view/273'
 	},
 	{
 		caption: 'REBUILT',
 		picture: './artwork/301.webp',
-		link: './artwork/301.webp'
-	},
-	{
-		caption: 'BUMPS',
-		picture: './artwork/307.webp',
-		link: './artwork/307.webp'
+		link: 'view/301'
 	},
 	{
 		caption: 'RESTRUCTURE',
 		picture: './artwork/319.webp',
-		link: './artwork/319.webp'
-	},
-	{
-		caption: 'WA',
-		picture: './artwork/329.webp',
-		link: './artwork/329.webp'
+		link: '/view/319'
 	},
 	{
 		caption: '333',
 		picture: './artwork/333.webp',
-		link: './artwork/333.webp'
+		link: '/view/333'
 	},
 	{
 		caption: 'COMPONENT',
 		picture: './artwork/335.webp',
-		link: './artwork/335.webp'
+		link: '/view/335'
 	},
 	{
 		caption: 'MINDCASTER',
 		picture: './artwork/338.webp',
-		link: './artwork/338.webp'
+		link: '/view/338'
+	},
+	{
+		caption: 'MSKD Sounds Banner',
+		picture: './artwork/mskdbanner.webp',
+		link: 'https://www.youtube.com/c/MSKDSounds/'
 	}
 ]
-
 export const videoGallery: Anchor[] = [
 	{
 		caption: 'Demo Reel 2021',
@@ -140,7 +134,6 @@ export const videoGallery: Anchor[] = [
 		link: 'https://vimeo.com/381550497'
 	}
 ]
-
 export const everydayGallery: Anchor[] = [
 	{
 		caption: 'Season 4',
@@ -163,7 +156,6 @@ export const everydayGallery: Anchor[] = [
 		link: '/view/1'
 	}
 ]
-
 export const pictureGallery: Anchor[] = [
 	{
 		caption: '2019',
@@ -316,7 +308,7 @@ export const pricesB: Price[] = [
 	}
 ]
 
-export const everydayData: ViewData[] = [
+export const viewData: ViewItem[] = [
 	{
 		title: 'JUICE',
 		collection: 'EVERYDAYS',

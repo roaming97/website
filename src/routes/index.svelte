@@ -27,7 +27,7 @@
 	let interval: NodeJS.Timeout
 
 	let fading = false
-	let opacity = 0.1
+	let opacity = 0.25
 	const fadeImage = () => {
 		if (fading) return
 		fading = true
@@ -36,7 +36,7 @@
 		setTimeout(() => {
 			index = (index + 1) % roles.length
 			setTimeout(() => {
-				opacity = 0.1
+				opacity = 0.25
 				fading = false
 			}, 1)
 		}, 300)
@@ -54,6 +54,10 @@
 </script>
 
 <template lang="pug">
+
+	svelte:head
+		+each('path_list as p')
+			link(rel="preload prefetch" as="image" href="{p}" crossorigin="anonymous")
 
 	.hello
 		.banner(style='background-image: url({current_image}); opacity:{opacity}')
@@ -87,11 +91,11 @@
 		position: absolute;
 		top: 0;
 
-		opacity: 0.5;
-
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
+
+		filter: blur(8px);
 
 		transition: opacity 150ms;
 	}

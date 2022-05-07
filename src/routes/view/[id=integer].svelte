@@ -3,11 +3,11 @@
 
 	export const load: Load = async ({ params }) => {
 		const dataFile = await import('$lib/data')
-		const targetArray = dataFile.everydayData
+		const targetArray = dataFile.viewData
 		const index = parseInt(params.id) - 1
 		const errorMessage = `Item ${index + 1} not found, max is ${targetArray.length}`
 		const getItem = () =>
-			new Promise<ViewData>(async (res, rej) => {
+			new Promise<ViewItem>(async (res, rej) => {
 				try {
 					const item = targetArray[index]
 					res({
@@ -18,6 +18,7 @@
 						description: item.description
 					})
 				} catch (err) {
+					console.error(err)
 					rej()
 				}
 			}).catch(() => {
@@ -42,7 +43,7 @@
 </script>
 
 <script lang="ts">
-	import type { ViewData } from '$lib/types'
+	import type { ViewItem } from '$lib/types'
 	import { page } from '$app/stores'
 	import { OnMount, visibility } from 'fractils'
 	import { onMount } from 'svelte'
@@ -52,7 +53,7 @@
 	import Error from '../__error.svelte'
 	import About from '../about.svelte'
 
-	export let data: ViewData
+	export let data: ViewItem
 
 	let visible: boolean
 	let options = { threshold: 0.75, once: true }
@@ -61,6 +62,9 @@
 </script>
 
 <template lang="pug">
+	svelte:head
+		link(rel="preload prefetch" as="image" href="{data.picture}" crossorigin="anonymous")
+
 	.view-container
 		.controls(in:fade='{{duration: 600, delay: 100}}')
 			ViewControls

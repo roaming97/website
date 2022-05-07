@@ -52,7 +52,7 @@
 		transition: cubic-bezier(0.33, 1, 0.68, 1) 300ms;
 
 		filter: grayscale(50%) brightness(0.4);
-		box-shadow: 0 0 8px var(--dark-a);
+		box-shadow: 0 0 8px black;
 
 		text-transform: uppercase;
 		font-weight: 100;
@@ -74,7 +74,7 @@
 		&:hover {
 			transform: scale(105%);
 
-			box-shadow: 0 0 16px var(--dark-a);
+			box-shadow: 0 0 16px black;
 			filter: grayscale(0%);
 			z-index: 1;
 		}

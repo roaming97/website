@@ -37,7 +37,6 @@
 		$opacity = 0
 
 		setTimeout(() => {
-			prefetch(link)
 			goto(path)
 
 			setTimeout(() => {

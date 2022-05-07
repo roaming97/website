@@ -20,7 +20,7 @@ export interface Post {
 		date: Date
 	}
 }
-export interface ViewData {
+export interface ViewItem {
 	title: string
 	collection?: string
 	picture: string

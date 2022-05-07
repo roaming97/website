@@ -41,6 +41,7 @@
 	const navigate = (path: string) => {
 		if (navigating) return
 
+		prefetch(path)
 		navigating = true
 
 		$opacity = 0
@@ -63,8 +64,6 @@
 			+each('posts as post')
 				.a(
 					role="link"
-					on:focus!="{() => prefetch(post.name.split('./')[1].split('.')[0])}"
-					on:mouseover!="{() => prefetch(post.name.split('./')[1].split('.')[0])}"
 					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
 					li
 						h2 {post.meta.title}
