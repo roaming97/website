@@ -56,7 +56,7 @@
 
 	svelte:head
 		+each('path_list as p')
-			link(rel="prefetch" as="image" href="{p}" crossorigin="anonymous")
+			link(rel="prefetch" as="image" href="/banner/{p}" crossorigin="anonymous")
 
 	.hello
 		.banner(style='background-image: url(/banner/{current_image}); opacity:{opacity}')
