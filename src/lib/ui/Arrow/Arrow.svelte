@@ -50,10 +50,10 @@
 <template lang="pug">
 	.arrow-container
 		.a(
-			on:click='{navigate(link)}'
-			on:mouseover='{prefetch(link)}' 
-			on:focus='{prefetch(link)}'
-			on:mouseenter="{triggerSpring}"
+			on:click!='{navigate(link)}'
+			on:mouseover!='{prefetch(link)}' 
+			on:focus!='{prefetch(link)}'
+			on:mouseenter!="{triggerSpring}"
 			class:disabled)
 			p(style='{style}' class:disabled) {arrow}
 </template>

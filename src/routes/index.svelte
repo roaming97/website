@@ -1,23 +1,22 @@
+<script lang="ts" context="module">
+	export const prerender = true
+</script>
+
 <script lang="ts">
-	import Waves from './_home/components/Waves.svelte'
-	import WaveDown from './_home/components/WaveDown.svelte'
-	import Gallery from './_home/components/Gallery.svelte'
-	import Intro from './_home/components/Intro.svelte'
-	import { fly } from 'svelte/transition'
 	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
+	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
 	import { mobile } from 'fractils'
 	import { prefetch } from '$app/navigation'
-	export const prerender = true
+
+	import Waves from './_home/components/Waves.svelte'
+	import WaveDown from './_home/components/WaveDown.svelte'
+	import Gallery from './_home/components/Gallery.svelte'
+	import Intro from './_home/components/Intro.svelte'
 
 	const roles = ['Visual Artist', 'Graphic Designer', 'Photographer', 'Developer']
-	const path_list = [
-		'videothumbs/dr2019.webp',
-		'artwork/193.webp',
-		'photo/flower.webp',
-		'code.webp'
-	]
+	const path_list = ['dr2021.webp', '193.webp', 'flower.webp', 'code.webp']
 
 	$: index = 0
 	$: unit = $mobile ? 'rem' : 'vw'
@@ -57,10 +56,10 @@
 
 	svelte:head
 		+each('path_list as p')
-			link(rel="preload prefetch" as="image" href="{p}" crossorigin="anonymous")
+			link(rel="prefetch" as="image" href="{p}" crossorigin="anonymous")
 
 	.hello
-		.banner(style='background-image: url({current_image}); opacity:{opacity}')
+		.banner(style='background-image: url(/banner/{current_image}); opacity:{opacity}')
 		.hello-content
 			h1(style="font-size: clamp(4rem, 12vw, 6rem); font-weight: 100") roaming97
 			.roles(style="transform: translateY(-{index*off}{unit})")

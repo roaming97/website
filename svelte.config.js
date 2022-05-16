@@ -8,7 +8,8 @@ const config = {
     extensions: ['.svelte', ...mdsvexConfig.extensions],
     preprocess: [
         preprocess({
-            postcss: true
+            postcss: true,
+            default: true
         }),
         mdsvex(mdsvexConfig)
     ],

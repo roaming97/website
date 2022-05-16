@@ -2,9 +2,10 @@
 	import { OnMount, visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quartOut } from 'svelte/easing'
+	import { onMount } from 'svelte'
 
 	let visible: boolean
-	let options = { threshold: 0.6, once: true }
+	let options = { threshold: 0.8, once: true }
 
 	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
 
@@ -24,7 +25,7 @@
 		+if('visible')
 			a(href="{link}" target="_blank") 
 				.tile(
-					style='background-image: url({picture}); background-size: cover; background-position: center;' 
+					style='background-image: url({picture}); background-size: cover; background-position: center;'
 					in:fly='{{y: 50, easing: quartOut, duration: 800, delay: index * 50}}'
 					)
 					span {caption}
