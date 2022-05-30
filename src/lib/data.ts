@@ -1,4 +1,5 @@
-import type { Anchor, Price, ProgressInterface, ViewItem } from './types'
+import type { Anchor, Price, ProgressInterface, StatType, ViewItem } from './types'
+const year = 12 * 30 * 24 * 60 * 60 * 1000
 
 export const artworkGallery: Anchor[] = [
 	{
@@ -84,6 +85,11 @@ export const videoGallery: Anchor[] = [
 		link: 'https://www.youtube.com/watch?v=BCPsQ1-ygcQ'
 	},
 	{
+		caption: 'MONOMOSH',
+		picture: './videothumbs/mono.webp',
+		link: 'https://vimeo.com/443884104'
+	},
+	{
 		caption: 'Eyesore',
 		picture: './videothumbs/eyesore.webp',
 		link: 'https://www.youtube.com/watch?v=vccbpbW1yfU'
@@ -163,8 +169,34 @@ export const pictureGallery: Anchor[] = [
 		link: '/photo/frog.webp'
 	}
 ]
+export const devGallery: Anchor[] = [
+	{
+		caption: 'Almond',
+		picture: '/dev/almond.webp',
+		link: 'https://github.com/roaming97/Almond'
+	}
+]
 
-export const array1: ProgressInterface[] = [
+export const statsArray: StatType[] = [
+	{
+		num: Math.round((Date.now().valueOf() - new Date('2016/05/23').valueOf()) / year),
+		name: 'Years'
+	},
+	{
+		num: 18,
+		name: 'Clients'
+	},
+	{
+		num: 300,
+		name: 'Artworks',
+		suffix: '+'
+	},
+	{
+		num: 57,
+		name: 'Videos'
+	}
+]
+export const creativeSkills: ProgressInterface[] = [
 	{
 		caption: 'Video_Editing',
 		picture: '/icons/video.svg',
@@ -201,7 +233,7 @@ export const array1: ProgressInterface[] = [
 		percent: 40
 	}
 ]
-export const array2: ProgressInterface[] = [
+export const softwareSkills: ProgressInterface[] = [
 	{
 		caption: 'Vegas_Pro',
 		picture: '/icons/vegas.svg',
@@ -253,6 +285,53 @@ export const array2: ProgressInterface[] = [
 		percent: 100
 	}
 ]
+export const devSkills: ProgressInterface[] = [
+	{
+		caption: 'Python',
+		picture: '/icons/python.svg',
+		percent: 85
+	},
+	{
+		caption: 'HTML',
+		picture: '/icons/html.svg',
+		percent: 80
+	},
+	{
+		caption: 'CSS',
+		picture: '/icons/css.svg',
+		percent: 75
+	},
+	{
+		caption: 'Git',
+		picture: '/icons/git.svg',
+		percent: 65
+	},
+	{
+		caption: 'TypeScript',
+		picture: '/icons/typescript.svg',
+		percent: 60
+	},
+	{
+		caption: 'JavaScript',
+		picture: '/icons/javascript.svg',
+		percent: 55
+	},
+	{
+		caption: 'Svelte',
+		picture: '/icons/svelte.svg',
+		percent: 50
+	},
+	{
+		caption: 'Vue',
+		picture: '/icons/vue.svg',
+		percent: 45
+	},
+	{
+		caption: 'C',
+		picture: '/icons/c.svg',
+		percent: 10
+	}
+]
 
 export const socialLinks: Anchor[] = [
 	{
@@ -299,7 +378,8 @@ export const pricesA: Price[] = [
 export const pricesB: Price[] = [
 	{
 		category: 'Artwork',
-		price: 50
+		price: 50,
+		description: 'Cover art, promotional material, etc.'
 	},
 	{
 		category: 'Express',

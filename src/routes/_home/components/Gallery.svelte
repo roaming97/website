@@ -21,13 +21,25 @@
 </template>
 
 <style lang="scss">
+	@use '../../../../styles/media' as *;
 	h1 {
 		margin: 1rem;
+
+		text-transform: uppercase;
+		text-align: center;
+
+		font-weight: 800;
+		font-size: 2rem;
 	}
 	.tiles {
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		display: flex;
+	}
+	@include media('>desktop') {
+		h1 {
+			font-size: 4rem;
+		}
 	}
 </style>

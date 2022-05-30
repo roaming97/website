@@ -7,12 +7,13 @@
 	import Social from './_contact/components/Social.svelte'
 
 	let visible: boolean
-	let options = { threshold: 0.7, once: true }
+	let options = { threshold: 0.6, once: true }
 
 	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
 </script>
 
 <template lang="pug">
+
 	h1 Contact
 	.section
 		h2 Social links
@@ -27,32 +28,28 @@
 		.section-content
 			h3 Video
 			+each('pricesA as a, i')
-				.visibleControl(
-					use:visibility='{options}' 
-					on:change='{handleChange}'
-				)
-				+if('visible')
-					+if('i % 2 == 0')
-						.price(in:fly='{{x: -30, duration: 700, easing: quintOut, delay: i*200}}')
-							PricePanel(name='{a.category}', price="{a.price}", description=`{a.description}`)
-						+else()
-						.price(in:fly='{{x: 30, duration: 700, easing: quintOut, delay: i*200}}')
-							PricePanel(name='{a.category}', price="{a.price}", description=`{a.description}`)
+				+if('i % 2 == 0')
+					.price(in:fly='{{x: -30, duration: 700, easing: quintOut, delay: i*200}}')
+						PricePanel(name='{a.category}', price="{a.price}", description=`{a.description}`)
+					+else()
+					.price(in:fly='{{x: 30, duration: 700, easing: quintOut, delay: i*200}}')
+						PricePanel(name='{a.category}', price="{a.price}", description=`{a.description}`)
 		hr(style="width:80vw;color:var(--light-d)")
 		.section-content
 			h3 Artwork 
-			+each('pricesB as b, j')
-				.visibleControl(
-					use:visibility='{options}' 
-					on:change='{handleChange}'
-				)
+			.visibleControl(
+				use:visibility='{options}' 
+				on:change='{handleChange}'
+			)
 				+if('visible')
-					+if('j % 2 == 0')
-						.price(in:fly='{{x: 30, duration: 400, easing: quintOut, delay: j*200}}')
-							PricePanel(name='{b.category}', price="{b.price}", description=`{b.description}`)
-						+else()
-						.price(in:fly='{{x: -30, duration: 400, easing: quintOut, delay: j*200}}')
-							PricePanel(name='{b.category}', price="{b.price}", description=`{b.description}`)
+					+each('pricesB as b, j')
+						+if('j % 2 == 0')
+							.price(in:fly='{{x: 30, duration: 400, easing: quintOut, delay: j*200}}')
+								PricePanel(name='{b.category}', price="{b.price}", description=`{b.description}`)
+							+else()
+							.price(in:fly='{{x: -30, duration: 400, easing: quintOut, delay: j*200}}')
+								PricePanel(name='{b.category}', price="{b.price}", description=`{b.description}`)
+
 </template>
 
 <style lang="scss">

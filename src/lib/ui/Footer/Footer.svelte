@@ -3,13 +3,13 @@
 	footer
 		hr
 		p roaming97© 2016-2022 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank") Frackit]
-		p(style="opacity: 0.5;") Website 5.0 Alpha
+		p(style="color:var(--dark-d);") Website 5.0 Alpha
 
 </template>
 
 <style lang="scss">
 	footer {
-		padding: 1rem 0 1rem 0;
+		padding: 1rem 0;
 
 		text-align: center;
 		font-size: clamp(0.6rem, 1vw, 0.75rem);

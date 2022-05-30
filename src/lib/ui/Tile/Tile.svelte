@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { OnMount, visibility } from 'fractils'
+	import { visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quartOut } from 'svelte/easing'
 	import { onMount } from 'svelte'
@@ -17,11 +17,13 @@
 
 <template lang="pug">
 
-	OnMount
-		.visibleControl(
-			use:visibility='{options}' 
-			on:change='{handleChange}'
-		)
+	svelte:head
+		link(rel="prefetch" as="image" href="{picture}" crossorigin="anonymous")
+
+	.visibleControl(
+		use:visibility='{options}' 
+		on:change='{handleChange}'
+	)
 		+if('visible')
 			a(href="{link}" target="_blank") 
 				.tile(

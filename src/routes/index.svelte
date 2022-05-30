@@ -3,7 +3,13 @@
 </script>
 
 <script lang="ts">
-	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
+	import {
+		artworkGallery,
+		videoGallery,
+		everydayGallery,
+		pictureGallery,
+		devGallery
+	} from '$lib/data'
 	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
@@ -74,6 +80,7 @@
 			Gallery(title='Videos', thumbs="{videoGallery}")
 			Gallery(title='Everydays', thumbs="{everydayGallery}")
 			Gallery(title='Photography', thumbs="{pictureGallery}")
+			Gallery(title='Developing', thumbs="{devGallery}")
 		WaveDown
 
 </template>

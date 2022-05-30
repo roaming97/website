@@ -1,9 +1,22 @@
 <script lang="ts">
-	import { mobile } from 'fractils'
+	import { fly } from 'svelte/transition'
+	import Stat from './_about/components/Stat.svelte'
+	import { mobile, visibility } from 'fractils'
 	import { CodeBlock, Icon } from '$lib/ui'
-	import { array1, array2 } from '$lib/data'
+	import { creativeSkills, softwareSkills, devSkills, statsArray } from '$lib/data'
 	import Logo from '$lib/ui/Logo.svelte'
 	import ProgressBar from './_about/components/ProgressBar.svelte'
+	import { quintOut } from 'svelte/easing'
+
+	const bio = `Hi, I am roaming97, a visual artist and graphic designer who had been creating, designing, 
+	developing, and producing content since 2016. Despite my work usually consisting of experimental, 
+	abstract, geometric compositions in both static art and image sequences, I am very capable of approaching 
+	different styles of design and art when creating.`
+
+	let visible: boolean
+	let options = { threshold: 0.5, once: true }
+
+	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
 
 	$: action = !$mobile ? 'Hover over' : 'Tap'
 </script>
@@ -12,24 +25,34 @@
 
 	h1 About
 	.section
-		h2 Who am I?
+		h2(style='font-size:3rem;font-weight:200') Who am I?
 		.section-content
 			.paragraphs
-				p Hi, I am roaming97, a visual artist and graphic designer who has been making experimental artwork and videos since 2016, mostly videos. My work usually consists of experimental, abstract and geometric compositions in both static art and image sequences. 
-				p I worked for currently suspended eletronic music label 04 Collective (owned by Canadian music artist Paper Skies) as the lead animator, as well as having made work for electronic music artists and promoters such as COLORCASE, eccentric, MSKD Sounds, TrueBlue, GEKQO, and many more.
+				p {bio}
 			.logo
 				Logo
-	.section
-		p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
-		h2 Creative skills
-		.bars
-			+each("array1 as s, i")
-				ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i}')
-		hr(style="width:80vw;color:var(--light-d)")
-		h2 Creative software experience 
-		.bars
-			+each("array2 as s, i")
-				ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
+		hr(style="width:80vw;color:var(--light-d);")
+		.section-content
+				+each("statsArray as s, i")
+					Stat(num='{s.num}', stat="{s.name}", suffix=`{s.suffix}`, delay='{i*100}')
+	.visibleControl(
+		use:visibility='{options}'
+		on:change='{handleChange}'
+	)
+			.section
+				p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
+				h2 Creative skills
+				+if('visible')
+					.bars
+						+each("creativeSkills as s, i")
+							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i}')
+				hr(style="width:80vw;color:var(--light-d)")
+				h2 Creative software experience 
+				+if('visible')
+					.bars
+						+each("softwareSkills as s, i")
+							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
+
 </template>
 
 <style lang="scss">
@@ -73,6 +96,7 @@
 	}
 	@include media('>desktop') {
 		.section-content {
+			justify-content: space-around;
 			flex-direction: row;
 			align-items: center;
 			margin: 0.5rem auto;
@@ -80,6 +104,9 @@
 			.paragraphs {
 				margin: 1rem 2rem;
 				text-align: left;
+				p {
+					font-size: 1.5rem;
+				}
 			}
 			.logo {
 				padding: 3.5rem;

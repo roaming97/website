@@ -27,3 +27,9 @@ export interface ViewItem {
 	date: Date
 	description?: string
 }
+
+export interface StatType {
+	num: number
+	name: string
+	suffix?: string
+}
