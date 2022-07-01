@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
 	import type { Post } from '$lib/types'
-	import { opacity } from '$lib/transitionStore'
+	import { opacity } from '$lib/stores'
 	import { goto, prefetch } from '$app/navigation'
 
 	export const load: Load = async () => {
@@ -24,7 +24,10 @@
 			promises.push(getPost(post))
 		}
 		const posts = await Promise.all(promises)
-		posts.sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+		posts.sort(
+			(a, b) =>
+				new Date(b.meta.date_created).getTime() - new Date(a.meta.date_created).getTime()
+		)
 
 		return {
 			props: {
@@ -67,7 +70,7 @@
 					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
 					li
 						h2 {post.meta.title}
-						p {new Date(Date.parse(post.meta.date) + 1).toLocaleDateString('en-US')}
+						p {new Date(Date.parse(post.meta.date_created) + 1).toLocaleDateString('en-US')}
 </template>
 
 <style lang="scss">
@@ -117,6 +120,10 @@
 		}
 	}
 	@include media('>desktop') {
+		.blog-container {
+			margin: 1rem auto;
+			width: 90vw;
+		}
 		li {
 			h2 {
 				font-size: 2rem;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto, prefetch } from '$app/navigation'
-	import { opacity } from '$lib/transitionStore'
+	import { opacity } from '$lib/stores'
 	import { spring } from 'svelte/motion'
 
 	export let direction: 'left' | 'right'

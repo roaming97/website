@@ -172,8 +172,18 @@ export const pictureGallery: Anchor[] = [
 export const devGallery: Anchor[] = [
 	{
 		caption: 'Almond',
-		picture: '/dev/almond.webp',
-		link: 'https://github.com/roaming97/Almond'
+		link: 'https://github.com/roaming97/Almond',
+		description: 'Video database app made with Python using Flask.'
+	},
+	{
+		caption: 'roaming97.com',
+		link: 'https://roaming97.com',
+		description: 'This website! Initially designed in Vue.js and then remade in SvelteKit.'
+	},
+	{
+		caption: 'Mango',
+		link: 'https://github.com/roaming97/Mango',
+		description: 'Image templating utility made using Python.'
 	}
 ]
 
@@ -194,6 +204,38 @@ export const statsArray: StatType[] = [
 	{
 		num: 57,
 		name: 'Videos'
+	}
+]
+export const clientArray: Anchor[] = [
+	{
+		caption: '04 Collective',
+		picture: '/clients/04.jpg',
+		link: 'https://solo.to/04collective',
+		description: 'Music record label'
+	},
+	{
+		caption: 'MSKD Sounds',
+		picture: '/clients/mskd.jpg',
+		link: 'https://www.youtube.com/c/MSKDSounds',
+		description: 'Music promoter'
+	},
+	{
+		caption: 'RJ Blue',
+		picture: '/clients/rj.jpg',
+		link: 'https://www.youtube.com/channel/UCVYrt6K44ebE_Ru66sKFFdA',
+		description: 'Electronic music artist'
+	},
+	{
+		caption: 'colorcase',
+		picture: '/clients/colorcase.jpg',
+		link: 'http://colorca.se',
+		description: 'Electronic music artist'
+	},
+	{
+		caption: 'Paper Skies',
+		picture: '/clients/paperskies.jpg',
+		link: 'https://solo.to/paperskies',
+		description: 'Electronic music artist'
 	}
 ]
 export const creativeSkills: ProgressInterface[] = [
@@ -304,7 +346,7 @@ export const devSkills: ProgressInterface[] = [
 	{
 		caption: 'Git',
 		picture: '/icons/git.svg',
-		percent: 65
+		percent: 60
 	},
 	{
 		caption: 'TypeScript',
@@ -319,7 +361,7 @@ export const devSkills: ProgressInterface[] = [
 	{
 		caption: 'Svelte',
 		picture: '/icons/svelte.svg',
-		percent: 50
+		percent: 45
 	},
 	{
 		caption: 'Vue',
@@ -327,9 +369,9 @@ export const devSkills: ProgressInterface[] = [
 		percent: 45
 	},
 	{
-		caption: 'C',
-		picture: '/icons/c.svg',
-		percent: 10
+		caption: 'Flask',
+		picture: '/icons/flask.svg',
+		percent: 45
 	}
 ]
 
@@ -2588,3 +2630,7 @@ export const viewData: ViewItem[] = [
 		picture: '/artwork/366.webp'
 	}
 ]
+
+export const clamp = (min: number, num: number, max: number) => {
+	return Math.min(Math.max(num, min), max)
+}

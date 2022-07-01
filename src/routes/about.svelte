@@ -1,7 +1,8 @@
 <script lang="ts">
+	import ClientList from './_about/components/ClientList.svelte'
 	import { fly } from 'svelte/transition'
 	import Stat from './_about/components/Stat.svelte'
-	import { mobile, visibility } from 'fractils'
+	import { mobile, visibility, type VisibilityEvent } from 'fractils'
 	import { CodeBlock, Icon } from '$lib/ui'
 	import { creativeSkills, softwareSkills, devSkills, statsArray } from '$lib/data'
 	import Logo from '$lib/ui/Logo.svelte'
@@ -15,8 +16,7 @@
 
 	let visible: boolean
 	let options = { threshold: 0.5, once: true }
-
-	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
+	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 
 	$: action = !$mobile ? 'Hover over' : 'Tap'
 </script>
@@ -37,7 +37,17 @@
 					Stat(num='{s.num}', stat="{s.name}", suffix=`{s.suffix}`, delay='{i*100}')
 	.visibleControl(
 		use:visibility='{options}'
-		on:change='{handleChange}'
+		on:f-change='{handleChange}'
+	)
+		.section
+			h1 Clients
+			p(style="color:var(--dark-d);font-size:0.75rem;") (Some of them)
+			+if('visible')
+				.client-list-transition(in:fly!='{{y: 50, duration: 500, easing: quintOut}}')
+					ClientList
+	.visibleControl(
+		use:visibility='{options}'
+		on:f-change='{handleChange}'
 	)
 			.section
 				p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
@@ -51,6 +61,12 @@
 				+if('visible')
 					.bars
 						+each("softwareSkills as s, i")
+							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
+				hr(style="width:80vw;color:var(--light-d)")
+				h2 Developing experience
+				+if('visible')
+					.bars
+						+each("devSkills as s, i")
 							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
 
 </template>

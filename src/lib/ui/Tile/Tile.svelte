@@ -1,13 +1,14 @@
 <script lang="ts">
+	import type { VisibilityEvent } from 'fractils'
 	import { visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quartOut } from 'svelte/easing'
 	import { onMount } from 'svelte'
 
 	let visible: boolean
-	let options = { threshold: 0.8, once: true }
+	let options = { threshold: 0.7, once: true }
 
-	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
+	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 
 	export let caption: string
 	export let picture: string
@@ -22,7 +23,7 @@
 
 	.visibleControl(
 		use:visibility='{options}' 
-		on:change='{handleChange}'
+		on:f-change='{handleChange}'
 	)
 		+if('visible')
 			a(href="{link}" target="_blank") 
@@ -50,12 +51,12 @@
 		width: 45vw;
 		height: 45vw;
 
-		margin: 0.5rem;
+		margin: 0rem;
 
 		transition: cubic-bezier(0.33, 1, 0.68, 1) 300ms;
 
-		filter: grayscale(50%) brightness(0.4);
-		box-shadow: 0 0 8px black;
+		filter: grayscale(50%) brightness(0.2);
+		//box-shadow: 0 0 8px black;
 
 		text-transform: uppercase;
 		font-weight: 100;
@@ -87,8 +88,8 @@
 	}
 	@include media('>desktop') {
 		.tile {
-			width: 20vw;
-			height: 20vw;
+			width: 15vw;
+			height: 15vw;
 		}
 	}
 </style>

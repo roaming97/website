@@ -1,6 +1,6 @@
 ---
 title: EVERYDAYS - THE FIRST 365 DAYS STREAK
-date: 2022/03/24
+date_created: 2022/03/24
 ---
 
 This article has been temporarily taken down, I just wanted to get it out for day 366 initially but it turned out to be way longer than I thought, it will be back up when it's finished.

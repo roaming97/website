@@ -43,6 +43,7 @@
 </script>
 
 <script lang="ts">
+	import type { VisibilityEvent } from 'fractils'
 	import type { ViewItem } from '$lib/types'
 	import { page } from '$app/stores'
 	import { OnMount, visibility } from 'fractils'
@@ -58,7 +59,7 @@
 	let visible: boolean
 	let options = { threshold: 0.75, once: true }
 	$: parsed_date = data.date.toLocaleDateString('en-US', { timeZone: 'Etc/GMT+5' })
-	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
+	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 </script>
 
 <template lang="pug">
@@ -72,7 +73,7 @@
 		hr
 		.visibleControl(
 			use:visibility='{options}'
-			on:change='{handleChange}'
+			on:f-change='{handleChange}'
 		)
 			+if('visible')
 				.description

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { VisibilityEvent } from 'fractils'
 	import { visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
@@ -9,7 +10,7 @@
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
 
-	const handleChange = (e: CustomEvent) => (visible = e.detail.isVisible)
+	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 </script>
 
 <template lang="pug">
@@ -39,7 +40,7 @@
 			h3 Artwork 
 			.visibleControl(
 				use:visibility='{options}' 
-				on:change='{handleChange}'
+				on:f-change='{handleChange}'
 			)
 				+if('visible')
 					+each('pricesB as b, j')

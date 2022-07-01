@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores'
 	import { goto, prefetch } from '$app/navigation'
-	import { opacity } from '$lib/transitionStore'
+	import { opacity } from '$lib/stores'
 	import { createEventDispatcher } from 'svelte'
 	import { mobile } from 'fractils'
 

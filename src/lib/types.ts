@@ -1,7 +1,8 @@
 export interface Anchor {
 	caption?: string
-	picture: string
+	picture?: string
 	link: string
+	description?: string
 }
 export interface ProgressInterface extends Omit<Anchor, 'link'> {
 	tooltipIndex?: number
@@ -17,7 +18,8 @@ export interface Post {
 	name: string
 	meta: {
 		title: string
-		date: Date
+		date_created: Date
+		date_modified?: Date
 	}
 }
 export interface ViewItem {

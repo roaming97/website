@@ -29,17 +29,13 @@
 		text-align: center;
 
 		font-weight: 800;
-		font-size: 2rem;
+		font-size: 3rem;
 	}
 	.tiles {
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		display: flex;
-	}
-	@include media('>desktop') {
-		h1 {
-			font-size: 4rem;
-		}
+		margin: 1rem 0;
 	}
 </style>

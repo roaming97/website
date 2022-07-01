@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { opacity } from '$lib/transitionStore'
+	import { opacity } from '$lib/stores'
 	import { Hamburger } from 'svelte-hamburgers'
 	import { prefetch } from '$app/navigation'
 	import { goto } from '$app/navigation'

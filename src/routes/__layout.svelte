@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { Fractils } from 'fractils'
-	import { mobileThreshold } from 'fractils/stores/Device.svelte'
+	import { Fractils, mobileThreshold } from 'fractils'
 	import { fade } from 'svelte/transition'
 	import { Header, Footer } from '$lib/ui'
-	import { opacity } from '$lib/transitionStore'
+	import { opacity } from '$lib/stores'
 	import { page } from '$app/stores'
 	import 'greset/css/greset.css'
 	import '../../styles/app.scss'

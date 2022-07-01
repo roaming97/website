@@ -29,7 +29,7 @@
 <style lang="scss">
 	@use '../../../../styles/media' as *;
 	.waves {
-		transform: translateY(2rem);
+		transform: translateY(2.5rem);
 	}
 	.w1-1 {
 		animation: flow 5s linear infinite;

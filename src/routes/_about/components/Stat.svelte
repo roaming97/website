@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-
 	import { quartInOut, quintOut } from 'svelte/easing'
 	import { tweened } from 'svelte/motion'
 	import { fly } from 'svelte/transition'

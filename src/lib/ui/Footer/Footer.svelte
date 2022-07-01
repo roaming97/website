@@ -3,7 +3,7 @@
 	footer
 		hr
 		p roaming97© 2016-2022 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank") Frackit]
-		p(style="color:var(--dark-d);") Website 5.0 Alpha
+		p(style="color:var(--dark-d);") Website 5.0
 
 </template>
 
@@ -13,15 +13,13 @@
 
 		text-align: center;
 		font-size: clamp(0.6rem, 1vw, 0.75rem);
-
 		hr {
+			margin: 1rem 0;
 			max-width: 80vw;
 			opacity: 0.1;
 		}
-
 		p {
 			font-weight: 300;
-			margin-top: 1rem;
 		}
 	}
 </style>

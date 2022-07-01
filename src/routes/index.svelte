@@ -1,15 +1,10 @@
 <script lang="ts" context="module">
+	import Dev from './_home/components/Dev.svelte'
 	export const prerender = true
 </script>
 
 <script lang="ts">
-	import {
-		artworkGallery,
-		videoGallery,
-		everydayGallery,
-		pictureGallery,
-		devGallery
-	} from '$lib/data'
+	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
 	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
@@ -53,9 +48,7 @@
 		}, 2500)
 	})
 
-	onDestroy(() => {
-		clearInterval(interval)
-	})
+	onDestroy(() => clearInterval(interval))
 </script>
 
 <template lang="pug">
@@ -78,10 +71,9 @@
 		.actual-content
 			Gallery(title='Artwork', thumbs="{artworkGallery}")
 			Gallery(title='Videos', thumbs="{videoGallery}")
-			Gallery(title='Everydays', thumbs="{everydayGallery}")
 			Gallery(title='Photography', thumbs="{pictureGallery}")
-			Gallery(title='Developing', thumbs="{devGallery}")
 		WaveDown
+		Dev
 
 </template>
 
@@ -145,8 +137,10 @@
 		z-index: 1;
 	}
 	.actual-content {
-		background-color: var(--brand-b);
+		background: linear-gradient(var(--brand-b), var(--brand-a));
 		margin: 0;
+
+		transform: translateY(1rem);
 
 		position: relative;
 		z-index: 3;
