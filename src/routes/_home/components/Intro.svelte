@@ -6,7 +6,7 @@
     .intro-container
         .text
             h1 WELCOME.
-            span I am roaming97, and this is my website. Here you can check out my portfolio which showcases my recent digital art and video production work. I also made a small personal blog where I post about any other projects I'm doing.
+            span I am roaming97, and this is my website. Here you can check my portfolio out which showcases my recent digital art and video production work. I also made a small personal blog where I post about any other projects I'm doing.
         .logo
            Logo 
 

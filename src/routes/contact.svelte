@@ -4,8 +4,7 @@
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
 	import { socialLinks, pricesA, pricesB } from '$lib/data'
-	import PricePanel from './_contact/components/PricePanel.svelte'
-	import Social from './_contact/components/Social.svelte'
+	import { Social, PricePanel } from './_contact'
 
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
@@ -15,7 +14,7 @@
 
 <template lang="pug">
 
-	h1 Contact
+	h1.page-title Contact 
 	.section
 		h2 Social links
 		.section-content
@@ -23,6 +22,8 @@
 				+each('socialLinks as l, i')
 					.socialtransition(in:fly="{{y: 20, duration: 400, delay: i*100}}")
 						Social(link='{l}') 
+			p <b>E-mail</b>: roaming98a@gmail.com
+			p(style="color:var(--dark-d)") (Custom e-mail coming soon)
 	.section
 		h2 Commissions pricing
 		p(style="color:var(--light-d)") All prices are in USD.
@@ -72,16 +73,15 @@
 		flex-direction: row;
 		align-items: center;
 		display: flex;
-
-		padding: 1rem;
 	}
 	.section-content {
-		margin: 2rem auto;
+		margin: 1rem auto;
 		width: 100%;
 	}
 	@include media('>desktop') {
 		.links {
 			margin: 1rem auto;
+			padding: 1rem;
 		}
 		.section-content {
 			width: 30vw;

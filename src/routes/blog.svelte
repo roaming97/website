@@ -61,7 +61,7 @@
 </script>
 
 <template lang="pug">
-	h1 Blog
+	h1.page-title Blog
 	.blog-container
 		ul
 			+each('posts as post')

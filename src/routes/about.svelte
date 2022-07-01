@@ -1,13 +1,11 @@
 <script lang="ts">
-	import ClientList from './_about/components/ClientList.svelte'
 	import { fly } from 'svelte/transition'
-	import Stat from './_about/components/Stat.svelte'
 	import { mobile, visibility, type VisibilityEvent } from 'fractils'
 	import { CodeBlock, Icon } from '$lib/ui'
 	import { creativeSkills, softwareSkills, devSkills, statsArray } from '$lib/data'
-	import Logo from '$lib/ui/Logo.svelte'
-	import ProgressBar from './_about/components/ProgressBar.svelte'
 	import { quintOut } from 'svelte/easing'
+	import { Logo } from '$lib/ui'
+	import { ClientList, Stat, ProgressBar } from './_about'
 
 	const bio = `Hi, I am roaming97, a visual artist and graphic designer who had been creating, designing, 
 	developing, and producing content since 2016. Despite my work usually consisting of experimental, 
@@ -15,7 +13,7 @@
 	different styles of design and art when creating.`
 
 	let visible: boolean
-	let options = { threshold: 0.5, once: true }
+	let options = { threshold: 0.7, once: true }
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 
 	$: action = !$mobile ? 'Hover over' : 'Tap'
@@ -23,7 +21,7 @@
 
 <template lang="pug">
 
-	h1 About
+	h1.page-title About
 	.section
 		h2(style='font-size:3rem;font-weight:200') Who am I?
 		.section-content
@@ -65,9 +63,10 @@
 				hr(style="width:80vw;color:var(--light-d)")
 				h2 Developing experience
 				+if('visible')
-					.bars
+					.icons
 						+each("devSkills as s, i")
-							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
+							.icon(in:fly!="{{y: 40, duration: 500, easing: quintOut, delay: i*200}}" )
+								Icon(src!='{s.picture}', alt!="{s.caption}", tipindex!=`{i}` tip='{s.caption}' '--size'="5rem") 
 
 </template>
 
@@ -109,6 +108,11 @@
 		margin: 0.5rem 0;
 		display: flex;
 		width: 85vw;
+	}
+	.icons {
+		justify-content: center;
+		flex-wrap: wrap;
+		display: flex;
 	}
 	@include media('>desktop') {
 		.section-content {

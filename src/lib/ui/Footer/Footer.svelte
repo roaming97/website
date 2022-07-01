@@ -2,8 +2,9 @@
 
 	footer
 		hr
-		p roaming97© 2016-2022 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank") Frackit]
-		p(style="color:var(--dark-d);") Website 5.0
+		p roaming97© 2016-2022
+		p(style="color:var(--dark-d);") Website 5.0 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank") Frackit]
+
 
 </template>
 

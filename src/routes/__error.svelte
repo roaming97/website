@@ -4,7 +4,7 @@
 		return {
 			props: {
 				title: `${status}`,
-				description: `${error.message}`
+				description: `${error?.message}`
 			}
 		}
 	}

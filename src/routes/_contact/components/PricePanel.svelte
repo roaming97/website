@@ -27,6 +27,7 @@
 		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);
 
 		h1 {
+			font-family: var(--font-mono);
 			font-size: 25vw;
 		}
 	}

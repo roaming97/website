@@ -4,7 +4,7 @@
 </script>
 
 <template lang="pug">
-    a(href="{link}")
+    a(href="{link}" target="_blank")
         .button-container
             span {text}
 </template>
@@ -16,8 +16,8 @@
 		justify-content: center;
 		align-items: center;
 
-		width: 90vw;
-		margin: 0 auto;
+		width: max-content;
+		margin: 1rem 0;
 
 		text-decoration: none;
 	}

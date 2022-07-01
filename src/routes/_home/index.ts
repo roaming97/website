@@ -1,0 +1,5 @@
+export { default as Gallery } from './components/Gallery.svelte'
+export { default as Dev } from './components/Dev.svelte'
+export { default as Intro } from './components/Intro.svelte'
+export { default as Waves } from './components/Waves.svelte'
+export { default as WaveDown } from './components/WaveDown.svelte'

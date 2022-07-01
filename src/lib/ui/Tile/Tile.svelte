@@ -1,37 +1,20 @@
 <script lang="ts">
-	import type { VisibilityEvent } from 'fractils'
-	import { visibility } from 'fractils'
-	import { fly } from 'svelte/transition'
-	import { quartOut } from 'svelte/easing'
-	import { onMount } from 'svelte'
+	import type { Anchor } from '$lib/types'
 
-	let visible: boolean
-	let options = { threshold: 0.7, once: true }
-
-	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
-
-	export let caption: string
-	export let picture: string
-	export let link: string
-	export let index = 0
+	export let thumb: Anchor
+	const { picture, link, caption } = thumb
 </script>
 
 <template lang="pug">
 
 	svelte:head
-		link(rel="prefetch" as="image" href="{picture}" crossorigin="anonymous")
+		link(rel="prefetch" as="image" href!="{picture}" crossorigin="anonymous")
 
-	.visibleControl(
-		use:visibility='{options}' 
-		on:f-change='{handleChange}'
-	)
-		+if('visible')
-			a(href="{link}" target="_blank") 
-				.tile(
-					style='background-image: url({picture}); background-size: cover; background-position: center;'
-					in:fly='{{y: 50, easing: quartOut, duration: 800, delay: index * 50}}'
-					)
-					span {caption}
+	a(href!="{link}" target="_blank") 
+		.tile(
+			style='background-image: url({picture}); background-size: cover; background-position: center;'
+			)
+			span {caption}
 
 </template>
 

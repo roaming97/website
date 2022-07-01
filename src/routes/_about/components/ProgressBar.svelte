@@ -20,9 +20,9 @@
 	+key('animate')
 		+if('mounted')
 			.progress-bar-container(in:slide="{{duration: 1000, easing: quintOut}}")
-				Icon(src='{icon}', alt="{name}", tipindex="{index}", tip='{name}' '--size'="5rem") 
+				Icon(src!='{icon}', alt!="{name}", tipindex!=`{index}`, tip!="{name}" '--size'="5rem") 
 				.progress
-					.bar-container(style="{direction}: {100 - percent}%")
+					.bar-container(style!="{direction}: {100 - percent}%")
 						.bar
 </template>
 

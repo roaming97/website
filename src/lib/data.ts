@@ -3,6 +3,21 @@ const year = 12 * 30 * 24 * 60 * 60 * 1000
 
 export const artworkGallery: Anchor[] = [
 	{
+		caption: 'Everlasting Saturation',
+		picture: './artwork/everlasting.webp',
+		link: '/view/384'
+	},
+	{
+		caption: 'The boundary that goes along with it',
+		picture: './artwork/boundary.webp',
+		link: '/view/383'
+	},
+	{
+		caption: 'parallélisme inhérent',
+		picture: './artwork/paral.webp',
+		link: '/view/382'
+	},
+	{
 		caption: 'CHAMBER',
 		picture: './artwork/219.webp',
 		link: '/view/219'
@@ -166,24 +181,21 @@ export const pictureGallery: Anchor[] = [
 	{
 		caption: '2019',
 		picture: './photo/frog.webp',
-		link: '/photo/frog.webp'
+		link: '/view/367'
 	}
 ]
 export const devGallery: Anchor[] = [
 	{
 		caption: 'Almond',
+		picture: '/icons/almond.svg',
 		link: 'https://github.com/roaming97/Almond',
 		description: 'Video database app made with Python using Flask.'
 	},
 	{
 		caption: 'roaming97.com',
-		link: 'https://roaming97.com',
+		picture: 'logo.png',
+		link: 'https://github.com/roaming97/website',
 		description: 'This website! Initially designed in Vue.js and then remade in SvelteKit.'
-	},
-	{
-		caption: 'Mango',
-		link: 'https://github.com/roaming97/Mango',
-		description: 'Image templating utility made using Python.'
 	}
 ]
 
@@ -197,7 +209,7 @@ export const statsArray: StatType[] = [
 		name: 'Clients'
 	},
 	{
-		num: 300,
+		num: 350,
 		name: 'Artworks',
 		suffix: '+'
 	},
@@ -255,7 +267,7 @@ export const creativeSkills: ProgressInterface[] = [
 		percent: 80
 	},
 	{
-		caption: 'Animation',
+		caption: 'Animation⁄Motion_Graphics',
 		picture: '/icons/animation.svg',
 		percent: 80
 	},
@@ -372,6 +384,11 @@ export const devSkills: ProgressInterface[] = [
 		caption: 'Flask',
 		picture: '/icons/flask.svg',
 		percent: 45
+	},
+	{
+		caption: 'Figma',
+		picture: '/icons/figma.svg',
+		percent: 40
 	}
 ]
 
@@ -2628,9 +2645,110 @@ export const viewData: ViewItem[] = [
 		collection: 'EVERYDAYS',
 		date: new Date('2022/03/24'),
 		picture: '/artwork/366.webp'
+	},
+	{
+		title: 'Frog',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/09/14'),
+		picture: '/photo/frog.webp'
+	},
+	{
+		title: 'Flower1',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0041.webp'
+	},
+	{
+		title: 'Flower2',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0043.webp'
+	},
+	{
+		title: 'Flower3',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0045.webp'
+	},
+	{
+		title: 'Flower4',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0061.webp'
+	},
+	{
+		title: 'Sunset',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0083.webp'
+	},
+	{
+		title: 'Satellite',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0087.webp'
+	},
+	{
+		title: 'Cloudy Trees',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0102.webp'
+	},
+	{
+		title: 'Flower5',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0114.webp'
+	},
+	{
+		title: 'Flower6',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0120.webp'
+	},
+	{
+		title: 'Leaves',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0124.webp'
+	},
+	{
+		title: 'Flower7',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0136.webp'
+	},
+	{
+		title: 'Flower8',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/05/13'),
+		picture: '/photo/IMG_0137.webp'
+	},
+	{
+		title: 'Leaves2',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/09/13'),
+		picture: '/photo/IMG_1050.webp'
+	},
+	{
+		title: 'The Sky Is Pink.001',
+		collection: 'PHOTO 2019',
+		date: new Date('2019/12/29'),
+		picture: '/photo/IMG_1119.webp'
+	},
+	{
+		title: 'Parallélisme Inhérent',
+		date: new Date('2022/05/05'),
+		picture: '/artwork/paral.webp'
+	},
+	{
+		title: 'The boundary that goes along with it.',
+		date: new Date('2022/05/25'),
+		picture: '/artwork/boundary.webp'
+	},
+	{
+		title: 'Everlasting saturation',
+		date: new Date('2022/06/18'),
+		picture: '/artwork/everlasting.webp'
 	}
 ]
-
-export const clamp = (min: number, num: number, max: number) => {
-	return Math.min(Math.max(num, min), max)
-}

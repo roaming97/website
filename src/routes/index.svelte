@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script context="module">
 	export const prerender = true
 </script>
 
@@ -10,10 +10,7 @@
 	import { mobile } from 'fractils'
 	import { prefetch } from '$app/navigation'
 
-	import Waves from './_home/components/Waves.svelte'
-	import WaveDown from './_home/components/WaveDown.svelte'
-	import Gallery from './_home/components/Gallery.svelte'
-	import Intro from './_home/components/Intro.svelte'
+	import { Waves, WaveDown, Gallery, Intro, Dev } from './_home'
 
 	const roles = ['Visual Artist', 'Graphic Designer', 'Photographer', 'Developer']
 	const path_list = ['dr2021.webp', '193.webp', 'flower.webp', 'code.webp']
@@ -52,10 +49,6 @@
 
 <template lang="pug">
 
-	svelte:head
-		+each('path_list as p')
-			link(rel="prefetch" as="image" href="/banner/{p}" crossorigin="anonymous")
-
 	.hello
 		.banner(style='background-image: url(/banner/{current_image}); opacity:{opacity}')
 		.hello-content
@@ -70,8 +63,9 @@
 		.actual-content
 			Gallery(title='Artwork', thumbs="{artworkGallery}")
 			Gallery(title='Videos', thumbs="{videoGallery}")
-			Gallery(title='Photography', thumbs="{pictureGallery}")
+			Gallery(title='Photo', thumbs="{pictureGallery}")
 		WaveDown
+		Dev
 
 </template>
 
