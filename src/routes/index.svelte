@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-	import Dev from './_home/components/Dev.svelte'
 	export const prerender = true
 </script>
 
@@ -73,7 +72,6 @@
 			Gallery(title='Videos', thumbs="{videoGallery}")
 			Gallery(title='Photography', thumbs="{pictureGallery}")
 		WaveDown
-		Dev
 
 </template>
 
