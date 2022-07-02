@@ -1,5 +1,4 @@
 import autolinkHeadings from 'rehype-autolink-headings'
-import github from 'remark-github'
 import slug from 'rehype-slug'
 import abbr from 'remark-abbr'
 
@@ -8,15 +7,7 @@ const mdsvexConfig = {
     smartypants: {
         dashes: 'oldschool'
     },
-    remarkPlugins: [
-        [
-            github,
-            {
-                repository: 'https://github.com/fractal-hq/svelte-playground-kit.git'
-            }
-        ],
-        abbr
-    ],
+    remarkPlugins: [abbr],
     layout: {
         _: './src/lib/bloglayout.svelte'
     },

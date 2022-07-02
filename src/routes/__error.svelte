@@ -3,36 +3,54 @@
 	export const load: Load = ({ error, status }) => {
 		return {
 			props: {
-				title: `${status}`,
-				description: `${error?.message}`
+				status,
+				error
 			}
 		}
 	}
 </script>
 
 <script lang="ts">
-	export let title: string
-	export let description: string
+	import { CodeBlock } from '$lib/ui'
+	import { dev } from '$app/env'
+	export let status: string
+	export let error: Error
+
+	if (dev) console.error(error)
 </script>
 
 <template lang="pug">
-	h1 {title}
-	p {description}
+	h1 {status}
+	CodeBlock(code!='{error.message}')
+
+	+if('dev')
+		.error
+			pre {error.stack}
 </template>
 
 <style lang="scss">
+	@use '../../styles/media' as *;
 	::selection {
-		background-color: rgb(145, 15, 26);
+		background-color: rgb(145, 15, 26) !important;
 	}
 	h1 {
 		margin: 2rem 0;
-		font-size: 20vw;
+		font-size: 40vw;
 		font-weight: 100;
 		color: rgb(228, 48, 63);
 	}
-	p {
-		font-size: 1em;
-		text-align: center;
-		margin: 2rem 0 2rem 0;
+	pre {
+		color: var(--light-d);
+
+		white-space: pre-wrap;
+	}
+	@include media('>desktop') {
+		h1 {
+			font-size: 20vw;
+		}
+		.error {
+			margin: 0 auto;
+			width: 60vw;
+		}
 	}
 </style>
