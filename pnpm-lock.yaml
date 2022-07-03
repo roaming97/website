@@ -4,7 +4,7 @@ specifiers:
   '@sendgrid/mail': ^7.7.0
   '@sveltejs/adapter-vercel': next
   '@sveltejs/kit': next
-  '@types/node': ^18.0.0
+  '@types/node': ^18.0.1
   '@vercel/node': ^1.15.4
   autoprefixer: ^10.4.7
   cssnano: ^5.1.12
@@ -25,7 +25,7 @@ specifiers:
   sass: ^1.53.0
   svelte: ^3.48.0
   svelte-hamburgers: ^4.0.1
-  svelte-highlight: ^6.1.1
+  svelte-highlight: ^6.1.2
   svelte-preprocess: ^4.10.7
   tippy.js: ^6.3.7
   tslib: ^2.4.0
@@ -40,7 +40,7 @@ dependencies:
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.59
   '@sveltejs/kit': 1.0.0-next.357_sass@1.53.0+svelte@3.48.0
-  '@types/node': 18.0.0
+  '@types/node': 18.0.1
   autoprefixer: 10.4.7_postcss@8.4.14
   cssnano: 5.1.12_postcss@8.4.14
   fractils: 2.0.3
@@ -58,7 +58,7 @@ devDependencies:
   sass: 1.53.0
   svelte: 3.48.0
   svelte-hamburgers: 4.0.1
-  svelte-highlight: 6.1.1
+  svelte-highlight: 6.1.2
   svelte-preprocess: 4.10.7_evysmvomgbwvricq5gyuchd7lm
   tippy.js: 6.3.7
   tslib: 2.4.0
@@ -214,8 +214,8 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /@types/node/18.0.0:
-    resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
+  /@types/node/18.0.1:
+    resolution: {integrity: sha512-CmR8+Tsy95hhwtZBKJBs0/FFq4XX7sDZHlGGf+0q+BRZfMbOTkzkj0AFAuTyXbObDIoanaBBW0+KEW+m3N16Wg==}
 
   /@types/pug/2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
@@ -224,7 +224,7 @@ packages:
   /@types/sass/1.43.1:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.1
     dev: true
 
   /@types/unist/2.0.6:
@@ -257,7 +257,7 @@ packages:
   /@vercel/node/1.15.4:
     resolution: {integrity: sha512-45fV7qVVw1cWCD6tWBXH0i4pSfYck4yF2qNKlJb1gmbO9JHWRqMYm0uxNWISD6E6Z69Pl1KDvfa+l48w/qEkaw==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.1
       '@vercel/node-bridge': 2.2.2
       ts-node: 8.9.1_typescript@4.3.4
       typescript: 4.3.4
@@ -333,7 +333,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.1
-      caniuse-lite: 1.0.30001361
+      caniuse-lite: 1.0.30001362
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -398,7 +398,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001361
+      caniuse-lite: 1.0.30001362
       electron-to-chromium: 1.4.177
       node-releases: 2.0.5
       update-browserslist-db: 1.0.4_browserslist@4.21.1
@@ -423,13 +423,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.1
-      caniuse-lite: 1.0.30001361
+      caniuse-lite: 1.0.30001362
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001361:
-    resolution: {integrity: sha512-ybhCrjNtkFji1/Wto6SSJKkWk6kZgVQsDq5QI83SafsF6FXv2JB4df9eEdH6g8sdGgqTXrFLjAxqBGgYoU3azQ==}
+  /caniuse-lite/1.0.30001362:
+    resolution: {integrity: sha512-PFykHuC7BQTzCGQFaV6wD8IDRM3HpI83BXr99nNJhoOyDufgSuKlt0QVlWYt5ZJtEYFeuNVF5QY3kJcu8hVFjQ==}
     dev: true
 
   /character-parser/2.2.0:
@@ -2113,8 +2113,8 @@ packages:
     resolution: {integrity: sha512-5xm430w5XNukmxyJ4tW2ln7oSA9qQ4TiKiIfbaDmwmUuCpnW6GD4cDSTG5U/2PwerI7AFNhIhB5iNwnzE2RQXA==}
     dev: true
 
-  /svelte-highlight/6.1.1:
-    resolution: {integrity: sha512-XV1PFddLqMyWnTge9ZRnG45CuZ2GGtxirJyFmhCtz4HWxCWBRuyVS+7a8iiUnubf5t5/QTAESrhs3FGq6MIw5A==}
+  /svelte-highlight/6.1.2:
+    resolution: {integrity: sha512-Oe78gBhU8YrQSA9K8mBYn23oNLtitEi7dO0AvKmDKHqNvQR9WCBFT6BhPPWXC7ONInH8F6dv4hRrgJYJM7iXOw==}
     dependencies:
       highlight.js: 11.5.0
     dev: true

@@ -23,7 +23,6 @@
 					.socialtransition(in:fly="{{y: 20, duration: 400, delay: i*100}}")
 						Social(link='{l}') 
 			p <b>E-mail</b>: roaming98a@gmail.com
-			p(style="color:var(--dark-d)") (Custom e-mail coming soon)
 	.section
 		h2 Commissions pricing
 		p(style="color:var(--light-d)") All prices are in USD.

@@ -33,7 +33,7 @@
 			margin: auto 0;
 
 			font-family: var(--font-mono);
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 
 			color: var(--dark-b);
 		}

@@ -21,7 +21,7 @@
 
 <template lang="pug">
 	h1 {status}
-	CodeBlock(code!='{error.message}')
+	CodeBlock(code!='{error.message}' lang="plaintext")
 
 	+if('dev')
 		.error

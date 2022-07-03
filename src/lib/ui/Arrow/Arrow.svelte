@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { thumbnailIsActive } from '$lib/stores'
 	import { goto, prefetch } from '$app/navigation'
 	import { opacity } from '$lib/stores'
 	import { spring } from 'svelte/motion'
@@ -38,12 +39,13 @@
 
 		setTimeout(() => {
 			goto(path)
+			if ($thumbnailIsActive) $thumbnailIsActive = false
 
 			setTimeout(() => {
 				$opacity = 1
 				navigating = false
-			}, 1)
-		}, 250)
+			}, 249)
+		}, 500)
 	}
 </script>
 
@@ -73,7 +75,7 @@
 		user-select: none;
 
 		font-family: var(--font-mono);
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	.disabled {
 		color: var(--light-d);
