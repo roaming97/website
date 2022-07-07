@@ -1,21 +1,21 @@
 /// <reference types="@sveltejs/kit" />
-declare interface Anchor {
+interface Anchor {
 	caption?: string
 	picture?: string
 	link: string
 	description?: string
 }
-declare interface ProgressInterface extends Omit<Anchor, 'link'> {
+interface ProgressInterface extends Omit<Anchor, 'link'> {
 	tooltipIndex?: number
 	tooltip?: string
 	percent: number
 }
-declare interface Price {
+interface Price {
 	category: string
 	price: number
 	description?: string
 }
-declare interface Post {
+interface Post {
 	name: string
 	meta: {
 		title: string
@@ -23,7 +23,7 @@ declare interface Post {
 		date_modified?: Date
 	}
 }
-declare interface ViewItem {
+interface ViewItem {
 	title: string
 	collection?: string
 	picture: string
@@ -31,7 +31,7 @@ declare interface ViewItem {
 	description?: string
 }
 
-declare interface StatType {
+interface StatType {
 	num: number
 	name: string
 	suffix?: string
