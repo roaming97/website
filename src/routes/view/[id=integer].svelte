@@ -41,7 +41,6 @@
 </script>
 
 <script lang="ts">
-	import type { ViewItem } from '$lib/types'
 	import { thumbnailIsActive } from '$lib/stores'
 	import { page } from '$app/stores'
 	import type { VisibilityEvent } from 'fractils'

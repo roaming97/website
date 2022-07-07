@@ -9,7 +9,7 @@ const mdsvexConfig = {
     },
     remarkPlugins: [abbr],
     layout: {
-        _: './src/lib/bloglayout.svelte'
+        _: './src/routes/_bloglayout.svelte'
     },
     rehypePlugins: [
         slug, [

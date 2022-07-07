@@ -2,7 +2,6 @@
 	import { fly } from 'svelte/transition'
 	import { clientArray } from '$lib/data'
 	import { client_index } from '$lib/stores'
-	import type { Anchor } from '$lib/types'
 	import { quintOut } from 'svelte/easing'
 	import { onMount } from 'svelte'
 	$: item_prev = clientArray[$client_index - 1]

@@ -9,6 +9,7 @@
 
 	const pageTitle = (path: string) => {
 		if (path === '/') return 'roaming97'
+		if ($page.error) return `${$page.status}`
 		const title = path.split('/')[1]
 		return title.charAt(0).toUpperCase() + title.slice(1) + ' - roaming97'
 	}

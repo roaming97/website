@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
-	import type { Post } from '$lib/types'
 	import { opacity } from '$lib/stores'
 	import { goto, prefetch } from '$app/navigation'
 

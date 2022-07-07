@@ -14,20 +14,7 @@ const config = {
         mdsvex(mdsvexConfig)
     ],
     kit: {
-        adapter: vercel(),
-        vite: {
-            server: {
-                fs: {
-                    allow: ['..']
-                },
-                hmr: {
-                    overlay: false
-                }
-            },
-            optimizeDeps: {
-                include: ['highlight.js', 'highlight.js/lib/core']
-            }
-        }
+        adapter: vercel()
     }
 }
 

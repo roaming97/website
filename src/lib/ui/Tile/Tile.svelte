@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Anchor } from '$lib/types'
-
 	export let thumb: Anchor
 	const { picture, link, caption } = thumb
 </script>

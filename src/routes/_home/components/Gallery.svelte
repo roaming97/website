@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Tile } from '$lib/ui'
-	import type { Anchor } from '$lib/types'
 	export let title: string
 	export let thumbs: Anchor[]
 </script>

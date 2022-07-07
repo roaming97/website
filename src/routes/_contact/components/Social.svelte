@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Icon } from '$lib/ui'
-	import type { Anchor } from '$lib/types'
 	export let link: Anchor
 </script>
 
