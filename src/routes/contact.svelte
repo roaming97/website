@@ -22,10 +22,13 @@
 				+each('socialLinks as l, i')
 					.socialtransition(in:fly="{{y: 20, duration: 400, delay: i*100}}")
 						Social(link='{l}') 
-			p <b>E-mail</b>: roaming98a@gmail.com
+			p 
+				b E-mail
+				| : 
+				| roaming98a@gmail.com
 	.section
 		h2 Commissions pricing
-		p(style="color:var(--light-d)") All prices are in USD.
+		p(style="color:var(--dark-d)") All prices are in USD.
 		.section-content
 			h3 Video
 			+each('pricesA as a, i')
@@ -39,8 +42,8 @@
 		.section-content
 			h3 Artwork 
 			.visibleControl(
-				use:visibility='{options}' 
-				on:f-change='{handleChange}'
+				use:visibility!='{options}' 
+				on:f-change!='{handleChange}'
 			)
 				+if('visible')
 					+each('pricesB as b, j')

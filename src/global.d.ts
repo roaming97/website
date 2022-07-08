@@ -10,12 +10,12 @@ interface ProgressInterface extends Omit<Anchor, 'link'> {
 	tooltip?: string
 	percent: number
 }
-interface Price {
+type Price = {
 	category: string
 	price: number
 	description?: string
 }
-interface Post {
+type Post = {
 	name: string
 	meta: {
 		title: string
@@ -23,7 +23,7 @@ interface Post {
 		date_modified?: Date
 	}
 }
-interface ViewItem {
+type ViewItem = {
 	title: string
 	collection?: string
 	picture: string
@@ -31,7 +31,7 @@ interface ViewItem {
 	description?: string
 }
 
-interface StatType {
+type StatType = {
 	num: number
 	name: string
 	suffix?: string
