@@ -1,4 +1,3 @@
-import type { Anchor, Price, ProgressInterface, StatType, ViewItem } from './types'
 const year = 12 * 30 * 24 * 60 * 60 * 1000
 
 export const artworkGallery: Anchor[] = [
@@ -192,10 +191,16 @@ export const devGallery: Anchor[] = [
 		description: 'Video database app made with Python using Flask.'
 	},
 	{
+		caption: 'Vulgo',
+		picture: '/icons/vulgo.svg',
+		link: 'https://github.com/roaming97/Vulgo',
+		description: 'Minimalistic blog template made with SvelteKit and mdsvex.'
+	},
+	{
 		caption: 'roaming97.com',
 		picture: 'logo.png',
 		link: 'https://github.com/roaming97/website',
-		description: 'This website! Initially designed in Vue.js and then remade in SvelteKit.'
+		description: 'This website! Initially designed in Vue.js but remade in SvelteKit.'
 	}
 ]
 
@@ -327,6 +332,11 @@ export const softwareSkills: ProgressInterface[] = [
 		caption: 'Affinity_Designer',
 		picture: '/icons/designer.svg',
 		percent: 50
+	},
+	{
+		caption: 'DaVinci_Resolve',
+		picture: '/icons/resolve.svg',
+		percent: 45
 	},
 	{
 		caption: 'Lightroom',

@@ -18,12 +18,12 @@
 		width: max-content;
 	}
 	:global(.scoped .icon-container) {
-		width: 20vw !important;
+		width: 30vw !important;
 	}
 	@include media('>desktop') {
 		:global(.scoped .icon-container) {
 			width: 10vw !important;
-			margin: 0.5rem;
+			margin: 1rem;
 		}
 	}
 </style>

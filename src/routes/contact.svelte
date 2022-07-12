@@ -73,7 +73,6 @@
 	.links {
 		justify-content: center;
 		flex-direction: row;
-		align-items: center;
 		display: flex;
 	}
 	.section-content {
@@ -81,12 +80,8 @@
 		width: 100%;
 	}
 	@include media('>desktop') {
-		.links {
-			margin: 1rem auto;
-			padding: 1rem;
-		}
 		.section-content {
-			width: 30vw;
+			width: 50vw;
 			margin: 1rem;
 		}
 	}
