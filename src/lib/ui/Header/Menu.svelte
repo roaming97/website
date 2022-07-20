@@ -46,7 +46,7 @@
 		transform: translateX(-100%);
 		transition: 0.5s;
 		&.open {
-			box-shadow: 24px 0 16px rgba(0, 0, 0, 0.4);
+			box-shadow: 18px 0 24px rgba(0, 0, 0, 0.2);
 		}
 		ul {
 			top: 10%;

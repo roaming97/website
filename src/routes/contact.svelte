@@ -81,7 +81,7 @@
 	}
 	@include media('>desktop') {
 		.section-content {
-			width: 50vw;
+			width: 40vw;
 			margin: 1rem;
 		}
 	}

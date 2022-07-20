@@ -15,9 +15,9 @@
     --brand-c-rgb: 222, 139, 255;
     --always-dark: #0b0e11;
     &[theme='light'] {
-        @include variables( ( dark-a: #100e13, dark-b: #1c1e21, dark-c: #212427, dark-d: #3a3a44, light-a: #ffffff, light-b: #dfe1e9, light-c: #c3c4c7, light-d: #acacb4));
+        @include variables( ( dark-a: #100e13, dark-b: #18171b, dark-c: #212427, dark-d: #3a3a44, light-a: #ffffff, light-b: #e3e3e9, light-c: #d1d1db, light-d: #c3c4c7));
     }
     &[theme='dark'] {
-        @include variables( ( light-a: #100e13, light-b: #1c1e21, light-c: #212427, light-d: #3a3a44, dark-a: #ffffff, dark-b: #dfe1e9, dark-c: #c3c4c7, dark-d: #acacb4));
+        @include variables( ( light-a: #100e13, light-b: #18171b, light-c: #212427, light-d: #3a3a44, dark-a: #ffffff, dark-b: #e3e3e9, dark-c: #d1d1db, dark-d: #c3c4c7));
     }
 }

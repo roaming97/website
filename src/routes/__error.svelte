@@ -40,7 +40,8 @@
 		color: rgb(228, 48, 63);
 	}
 	pre {
-		color: var(--light-d);
+		color: var(--dark-a);
+		opacity: 0.75;
 
 		white-space: pre-wrap;
 	}

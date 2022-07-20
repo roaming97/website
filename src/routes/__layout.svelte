@@ -4,7 +4,7 @@
 	import { Header, Footer } from '$lib/ui'
 	import { opacity } from '$lib/stores'
 	import { page } from '$app/stores'
-	import 'greset/css/greset.css'
+	import 'greset/greset.css'
 	import '../../styles/app.scss'
 
 	const pageTitle = (path: string) => {

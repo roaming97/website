@@ -2,7 +2,7 @@
 	import { theme } from 'fractils'
 	import { onMount } from 'svelte'
 	import { Highlight, HighlightAuto } from 'svelte-highlight'
-	import { materialDarker, github } from 'svelte-highlight/styles'
+	import { materialDarker, atomOneLight } from 'svelte-highlight/styles'
 	export let code: string
 	export let lang: string | undefined = undefined
 	export let footer: string | undefined = undefined
@@ -22,10 +22,10 @@
 		+if('$theme == "dark"')
 			+html('materialDarker')
 			+else()
-				+html('github')
+				+html('atomOneLight')
 	.codeblock
 		+if('lang')
-			Highlight(language="{language}" '{code}') 
+			Highlight(language!="{language}" '{code}') 
 			+else()
 				HighlightAuto('{code}')
 		+if('footer')
@@ -59,13 +59,13 @@
 
 		hr {
 			color: var(--light-b);
+			margin: 0;
 		}
 
 		.footer {
-			color: var(--dark-a);
-			opacity: 0.5;
-			margin: 1rem;
+			padding: 1rem;
 			span {
+				color: var(--dark-b);
 				font-size: 0.75rem;
 			}
 		}

@@ -8,17 +8,17 @@
 <template lang="pug">
 
 	.article-container
-		h1(in:fly='{{x: -10, duration: 500, easing: quartOut}}') {title}
+		h1(in:fly!='{{x: -10, duration: 500, easing: quartOut}}').article-title {title}
 		.article-info
 			.logo
 				Logo
 			.date
-				p Written by roaming97
-				p(in:fly='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:1rem;opacity:0.5;font-style:italic;") {new Date(Date.parse(date_created)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
+				p by roaming97
+				p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:1rem;opacity:0.75;font-style:italic;") {new Date(Date.parse(date_created)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
 				+if('date_modified')
-					p(in:fly='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:0.75rem;opacity:0.5;font-style:italic;") Last edited: {new Date(Date.parse(date_modified)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
+					p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:0.75rem;opacity:0.75;font-style:italic;") Last edited: {new Date(Date.parse(date_modified)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
 		hr
-		.content(in:fly='{{x: -10, delay: 250, duration: 500, easing: quartOut}}')
+		.content(in:fly!='{{x: -10, delay: 250, duration: 500, easing: quartOut}}')
 			slot
 
 </template>
@@ -48,12 +48,12 @@
 	.date p {
 		margin: 0;
 	}
-	h1 {
-		margin: 0.5rem 1.5rem;
+	.article-title {
+		margin: 1rem 1.5rem;
 
 		font-weight: bold;
 		text-align: left;
-		font-size: 3rem;
+		font-size: 2.5rem;
 	}
 	p {
 		margin: 0.5rem 1.5rem;
@@ -63,7 +63,7 @@
 		margin: 1.5rem 0;
 	}
 	@media (min-width: 1024px) {
-		h1 {
+		.article-title {
 			font-size: 3.5rem;
 		}
 		.article-container {

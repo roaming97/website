@@ -29,7 +29,7 @@
 				p {bio}
 			.logo
 				Logo
-		hr(style="width:80vw;color:var(--light-d);")
+		hr(style="width:80vw;margin: 1rem auto;color:var(--light-d);")
 		.section-content
 				+each("statsArray as s, i")
 					Stat(num='{s.num}', stat="{s.name}", suffix=`{s.suffix}`, delay='{i*100}')

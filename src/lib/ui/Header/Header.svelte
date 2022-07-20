@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ThemeToggle } from 'fractils'
+	import { ThemeToggle, scrollY } from 'fractils'
 	import Nav from './Nav.svelte'
 	import Menu from './Menu.svelte'
 
@@ -9,11 +9,16 @@
 		['/contact', 'Contact'],
 		['/blog', 'Blog']
 	]
+
+	let headerHeight = '3rem'
+	// 3rem = 48px
+	let scrollThreshold = 48
+	$: scroll = $scrollY > scrollThreshold
 </script>
 
 <template lang="pug">
 
-	header
+	header(class:scroll style="--height: {headerHeight};")
 		Menu({links})
 
 		span
@@ -25,17 +30,23 @@
 </template>
 
 <style lang="scss">
+	@use '../../../../styles/media' as *;
 	header {
 		justify-content: space-between;
 		position: relative;
 		display: flex;
 
-		background-color: rgba(var(--light-a-rgb), 0.95);
+		background-color: rgba(var(--light-a-rgb), 0.9);
+		// not supported in firefox stable yet :(
+		backdrop-filter: blur(16px);
 
 		width: 100vw;
-		height: 3rem;
+		height: var(--height);
 
 		z-index: 50;
+		&.scroll {
+			position: fixed;
+		}
 	}
 
 	span {
@@ -55,5 +66,13 @@
 
 	:global(#theme .icon) {
 		font-size: 1.5rem;
+	}
+
+	@include media('>desktop') {
+		header {
+			&.scroll {
+				position: relative;
+			}
+		}
 	}
 </style>

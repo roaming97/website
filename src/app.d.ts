@@ -1,4 +1,5 @@
 /// <reference types="@sveltejs/kit" />
+
 interface Anchor {
 	caption?: string
 	picture?: string

@@ -1,7 +1,5 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit'
-	import { opacity } from '$lib/stores'
-	import { goto, prefetch } from '$app/navigation'
 
 	export const load: Load = async () => {
 		const files = import.meta.glob('./blog/*.svx')
@@ -12,6 +10,7 @@
 					const file = await files[post]()
 					res({
 						name: files[post].name,
+						//@ts-ignore
 						meta: file.metadata
 					})
 				} catch (err) {
@@ -19,14 +18,12 @@
 				}
 			})
 
-		for (const post in files) {
-			promises.push(getPost(post))
-		}
-		const posts = await Promise.all(promises)
-		posts.sort(
-			(a, b) =>
-				new Date(b.meta.date_created).getTime() - new Date(a.meta.date_created).getTime()
-		)
+		for (const post in files) promises.push(getPost(post))
+		const posts = await Promise.all(promises).then((posts) => {
+			return posts.sort((a, b) => {
+				return a.meta.date_created > b.meta.date_created ? -1 : 1
+			})
+		})
 
 		return {
 			props: {
@@ -37,6 +34,9 @@
 </script>
 
 <script lang="ts">
+	import { opacity } from '$lib/stores'
+	import { goto, prefetch } from '$app/navigation'
+
 	export let posts: Post[]
 	let navigating = false
 
@@ -100,10 +100,15 @@
 		}
 	}
 	.a {
-		margin: auto 1rem;
 		padding: 1rem;
+		margin: 1rem;
 
-		border-radius: 12px;
+		border-radius: 24px;
+
+		background-color: var(--light-b);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+			0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+			0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 
 		cursor: pointer;
 
@@ -113,7 +118,7 @@
 		}
 	}
 	.a:hover {
-		background-color: var(--light-b);
+		background-color: var(--light-c);
 		h2 {
 			color: var(--brand-c);
 		}
@@ -121,7 +126,7 @@
 	@include media('>desktop') {
 		.blog-container {
 			margin: 1rem auto;
-			width: 90vw;
+			width: 70vw;
 		}
 		li {
 			h2 {

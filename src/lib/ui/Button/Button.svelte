@@ -4,7 +4,7 @@
 </script>
 
 <template lang="pug">
-    a(href="{link}" target="_blank")
+    a(href!="{link}" target="_blank")
         .button-container
             span {text}
 </template>
@@ -26,7 +26,7 @@
 
 		text-align: center;
 
-		border: 2px solid white;
+		border: 2px solid var(--dark-a);
 
 		transition: 300ms;
 		span {
@@ -36,10 +36,10 @@
 			transition: 300ms;
 		}
 		&:hover {
-			background-color: white;
+			background-color: var(--dark-a);
 		}
 		&:hover > span {
-			color: black;
+			color: var(--light-a);
 		}
 	}
 	@include media('>desktop') {
