@@ -1,4 +1,19 @@
+import { page } from '$app/stores'
+import { get } from 'svelte/store'
 const year = 12 * 30 * 24 * 60 * 60 * 1000
+
+export const excludedURLs = ['/intro']
+export const pageTitle = (path: string) => {
+	if (path === '/' || '/landing') return 'roaming97'
+	if (get(page).error) return `${get(page).status}`
+	const title = path.split('/')[1]
+	return title.charAt(0).toUpperCase() + title.slice(1) + ' - roaming97'
+}
+
+export const bio = `Hi, I am roaming97, a visual artist and graphic designer who has been creating, designing, 
+developing, and producing content since 2016. Despite my work usually consisting of experimental, 
+abstract, geometric compositions in both static art and image sequences, I am very capable of approaching 
+different styles of design and art when creating.`
 
 export const artworkGallery: Anchor[] = [
 	{
@@ -2761,4 +2776,28 @@ export const viewData: ViewItem[] = [
 		date: new Date('2022/06/18'),
 		picture: '/artwork/everlasting.webp'
 	}
+]
+
+export const cardExclude: string[] = [
+	'31',
+	'47',
+	'80',
+	'94',
+	'112',
+	'137',
+	'140',
+	'145',
+	'190',
+	'198',
+	'199',
+	'200',
+	'201',
+	'205',
+	'210',
+	'276',
+	'283',
+	'318',
+	'343',
+	'366',
+	'mskdbanner'
 ]

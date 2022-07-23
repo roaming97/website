@@ -11,7 +11,7 @@
 		h1(in:fly!='{{x: -10, duration: 500, easing: quartOut}}').article-title {title}
 		.article-info
 			.logo
-				Logo
+				Logo(animate!='{false}')
 			.date
 				p by roaming97
 				p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:1rem;opacity:0.75;font-style:italic;") {new Date(Date.parse(date_created)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
@@ -38,7 +38,6 @@
 		width: 64px;
 
 		outline: solid 2px var(--light-d);
-		background-color: var(--light-b);
 	}
 	.article-info .date {
 		justify-content: center;
@@ -68,7 +67,7 @@
 		}
 		.article-container {
 			margin: 2rem auto;
-			width: 70vw;
+			width: 60vw;
 		}
 	}
 </style>

@@ -17,7 +17,7 @@
 
 	$: index = 0
 	$: unit = $mobile ? 'rem' : 'vw'
-	$: off = $mobile ? 2.5 : 6.15
+	$: off = $mobile ? 2.5 : 5.45
 	$: current_image = path_list[index]
 
 	let interval: NodeJS.Timeout
@@ -61,9 +61,9 @@
 		Intro
 		Waves
 		.actual-content
-			Gallery(title='Artwork', thumbs="{artworkGallery}")
-			Gallery(title='Videos', thumbs="{videoGallery}")
-			Gallery(title='Photo', thumbs="{pictureGallery}")
+			Gallery(title='Artwork', thumbs!="{artworkGallery}")
+			Gallery(title='Videos', thumbs!="{videoGallery}")
+			Gallery(title='Photo', thumbs!="{pictureGallery}")
 		WaveDown
 		Dev
 

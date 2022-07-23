@@ -45,9 +45,9 @@
 	import { page } from '$app/stores'
 	import type { VisibilityEvent } from 'fractils'
 	import { OnMount, visibility } from 'fractils'
+	import { ViewControls } from '../_view'
 	import { quintOut, backOut } from 'svelte/easing'
 	import { fade, fly } from 'svelte/transition'
-	import ViewControls from '../_view/components/ViewControls.svelte'
 	import Error from '../__error.svelte'
 	import About from '../about.svelte'
 

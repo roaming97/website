@@ -11,8 +11,8 @@
 	nav
 		ul
 			+each('links as [path, title], i (title)')
-				li(class:active='{$page.url.pathname === path}')
-					Link(path="{path}", title='{title}')
+				li(class:active!='{$page.url.pathname === path}')
+					Link(path!="{path}", title!='{title}')
 
 </template>
 

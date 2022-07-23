@@ -2,8 +2,8 @@
 	import { Tooltip } from '$lib/ui'
 	export let src: string
 	export let alt: string
-	export let tip: string | undefined = undefined
-	export let tipindex: number | undefined = undefined
+	export let tip: string
+	export let tipindex: string
 </script>
 
 <template lang="pug">

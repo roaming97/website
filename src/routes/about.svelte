@@ -2,15 +2,10 @@
 	import { fly } from 'svelte/transition'
 	import { mobile, visibility, type VisibilityEvent } from 'fractils'
 	import { CodeBlock, Icon } from '$lib/ui'
-	import { creativeSkills, softwareSkills, devSkills, statsArray } from '$lib/data'
+	import { creativeSkills, softwareSkills, devSkills, statsArray, bio } from '$lib/data'
 	import { quintOut } from 'svelte/easing'
 	import { Logo } from '$lib/ui'
 	import { ClientList, Stat, ProgressBar } from './_about'
-
-	const bio = `Hi, I am roaming97, a visual artist and graphic designer who had been creating, designing, 
-	developing, and producing content since 2016. Despite my work usually consisting of experimental, 
-	abstract, geometric compositions in both static art and image sequences, I am very capable of approaching 
-	different styles of design and art when creating.`
 
 	let visible: boolean
 	let options = { threshold: 0.7, once: true }
@@ -32,10 +27,10 @@
 		hr(style="width:80vw;margin: 1rem auto;color:var(--light-d);")
 		.section-content
 				+each("statsArray as s, i")
-					Stat(num='{s.num}', stat="{s.name}", suffix=`{s.suffix}`, delay='{i*100}')
+					Stat(num!='{s.num}', stat!="{s.name}", suffix!=`{s.suffix}`, delay!='{i*100}')
 	.visibleControl(
-		use:visibility='{options}'
-		on:f-change='{handleChange}'
+		use:visibility!='{options}'
+		on:f-change!='{handleChange}'
 	)
 		.section
 			h1 Clients
@@ -44,8 +39,8 @@
 				.client-list-transition(in:fly!='{{y: 50, duration: 500, easing: quintOut}}')
 					ClientList
 	.visibleControl(
-		use:visibility='{options}'
-		on:f-change='{handleChange}'
+		use:visibility!='{options}'
+		on:f-change!='{handleChange}'
 	)
 			.section
 				p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
@@ -53,20 +48,20 @@
 				+if('visible')
 					.bars
 						+each("creativeSkills as s, i")
-							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i}')
+							ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i}')
 				hr(style="width:80vw;color:var(--light-d)")
 				h2 Creative software experience 
 				+if('visible')
 					.bars
 						+each("softwareSkills as s, i")
-							ProgressBar(name="{s.caption}", icon='{s.picture}', percent=`{s.percent}`, index='{i+10}')
+							ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i+10}')
 				hr(style="width:80vw;color:var(--light-d)")
 				h2 Developing experience
 				+if('visible')
 					.icons
 						+each("devSkills as s, i")
 							.icon(in:fly!="{{y: 40, duration: 500, easing: quintOut, delay: i*200}}" )
-								Icon(src!='{s.picture}', alt!="{s.caption}", tipindex!=`{i}` tip='{s.caption}' '--size'="5rem") 
+								Icon(src!='{s.picture}', alt!="{s.caption}", tipindex!=`{i}` tip!="{s.caption}" '--size'="5rem") 
 
 </template>
 

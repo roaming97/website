@@ -18,6 +18,7 @@
 		width: 100vw;
 
 		padding: 1.5rem 1rem;
+		margin: 1.5rem 0;
 
 		background-color: var(--light-a);
 
