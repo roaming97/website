@@ -419,7 +419,7 @@ export const devSkills: ProgressInterface[] = [
 
 export const linkSVGs: SVGAnchor[] = [
 	{
-		link: 'https://twitter.com/roaming97',
+		link: 'https://twitter.com/roaming98',
 		color: '#00acee',
 		size: 128,
 		viewX: -12,
