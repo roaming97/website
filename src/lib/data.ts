@@ -417,21 +417,52 @@ export const devSkills: ProgressInterface[] = [
 	}
 ]
 
-export const socialLinks: Anchor[] = [
+export const linkSVGs: SVGAnchor[] = [
 	{
-		caption: 'Twitter',
-		picture: '/icons/twitter.svg',
-		link: 'http://twitter.com/roaming98'
+		link: 'https://twitter.com/roaming97',
+		color: '#00acee',
+		size: 128,
+		viewX: -12,
+		viewY: -48,
+		d: 'M511 49c-19 9-40 14-60 17 21-14 38-34 45-57-20 12-42 20-66 24a106 106 0 0 0-178 95C167 125 89 86 36 20 8 67 22 129 68 159c-17 0-34-6-48-13 0 51 37 94 85 104-16 4-32 4-48 1 14 41 53 71 99 71-44 35-100 51-156 44a312 312 0 0 0 164 47 297 297 0 0 0 295-310c22-14 39-33 53-54',
+		caption: 'Twitter'
 	},
 	{
-		caption: 'YouTube',
-		picture: '/icons/youtube.svg',
-		link: 'https://www.youtube.com/channel/UCzOsf8SUERLIwclvIdnTmsg'
+		link: 'https://www.youtube.com/channel/UCzOsf8SUERLIwclvIdnTmsg',
+		color: '#ff0000',
+		size: 128,
+		d: 'M512 256 0 512V0l512 256Z',
+		caption: 'YouTube'
 	},
 	{
-		caption: 'Vimeo',
-		picture: '/icons/vimeo.svg',
-		link: 'http://vimeo.com/roaming97'
+		link: 'https://vimeo.com/roaming97',
+		color: '#00adef',
+		size: 128,
+		viewY: -48,
+		d: 'M512 103c-2 50-37 118-104 205-70 90-129 135-177 135-30 0-55-27-76-82l-41-152c-16-55-32-83-50-83-4 0-17 8-40 24L0 119l75-66c33-29 59-45 76-46 39-4 64 23 73 81 10 63 17 103 21 118 11 52 24 78 38 78 11 0 27-17 48-51 22-34 33-59 35-77 3-29-9-44-35-44-12 0-25 3-38 8C318 38 367-2 437 1c53 1 78 35 75 102Z',
+		caption: 'Vimeo'
+	}
+]
+export const linkSVGsAlt: SVGAnchor[] = [
+	{
+		link: 'https://twitter.com/roaming98',
+		color: '#fff',
+		size: 32,
+		viewY: -36,
+		d: 'M511 49c-19 9-32 14-60 17 21-14 38-34 45-57-20 12-42 20-66 24a106 106 0 0 0-178 95C167 125 89 86 36 20 8 67 22 129 68 159c-17 0-34-6-48-13 0 51 37 94 85 104-16 4-32 4-48 1 14 41 53 71 99 71-44 35-100 51-156 44a312 312 0 0 0 164 47 297 297 0 0 0 295-310c22-14 39-33 53-54'
+	},
+	{
+		link: 'https://www.youtube.com/channel/UCzOsf8SUERLIwclvIdnTmsg',
+		color: '#fff',
+		size: 32,
+		d: 'M512 256 0 512V0l512 256Z'
+	},
+	{
+		link: 'https://vimeo.com/roaming97',
+		color: '#fff',
+		size: 32,
+		viewY: -32,
+		d: 'M512 103c-2 50-37 118-104 205-70 90-129 135-177 135-30 0-55-27-76-82l-41-152c-16-55-32-83-50-83-4 0-17 8-32 24L0 119l75-66c33-29 59-45 76-46 39-4 64 23 73 81 10 63 17 103 21 118 11 52 24 78 38 78 11 0 27-17 48-51 22-34 33-59 35-77 3-29-9-44-35-44-12 0-25 3-38 8C318 38 367-2 437 1c53 1 78 35 75 102Z'
 	}
 ]
 export const pricesA: Price[] = [
@@ -2778,15 +2809,17 @@ export const viewData: ViewItem[] = [
 	}
 ]
 
-export const cardExclude: string[] = [
+export const cardExclude = [
 	'31',
 	'47',
+	'48',
 	'80',
 	'94',
 	'112',
 	'137',
 	'140',
 	'145',
+	'152',
 	'190',
 	'198',
 	'199',
@@ -2794,10 +2827,12 @@ export const cardExclude: string[] = [
 	'201',
 	'205',
 	'210',
+	'258',
 	'276',
 	'283',
 	'318',
 	'343',
+	'349',
 	'366',
 	'mskdbanner'
 ]

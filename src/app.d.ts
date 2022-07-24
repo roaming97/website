@@ -6,11 +6,23 @@ interface Anchor {
 	link: string
 	description?: string
 }
+
 interface ProgressInterface extends Omit<Anchor, 'link'> {
 	tooltipIndex?: number
 	tooltip?: string
 	percent: number
 }
+
+type SVGAnchor = {
+	link: string
+	color: string
+	size: number
+	d: string
+	viewX?: number
+	viewY?: number
+	caption?: string
+}
+
 type Price = {
 	category: string
 	price: number
@@ -24,6 +36,7 @@ type Post = {
 		date_modified?: Date
 	}
 }
+
 type ViewItem = {
 	title: string
 	collection?: string

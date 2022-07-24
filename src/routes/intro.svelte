@@ -24,9 +24,9 @@
 	import { OnMount, screenW, screenH } from 'fractils'
 	import { quintOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
-	import { artworkGallery, socialLinks, pricesA, pricesB, bio, cardExclude } from '$lib/data'
+	import { linkSVGsAlt, artworkGallery, pricesA, pricesB, bio, cardExclude } from '$lib/data'
 	import { Canvas } from './_intro'
-	import { Logo } from '$lib/ui'
+	import { Logo, IconSVG } from '$lib/ui'
 
 	export let artwork: URL[]
 	export let names: string[]
@@ -42,9 +42,9 @@
 					Logo(animate!='{false}')
 				h1 roaming97
 				.links
-					+each('socialLinks as i')
-						a(href!='{i.link}' target="_blank") 
-							p {i.caption}
+					+each('linkSVGsAlt as l, i')
+						.tr(in:fly!="{{y: 20, duration: 500, delay: 500+i*100}}")
+							IconSVG(svg!='{l}' id!="{i}") 
 			.content
 				.text-container
 					h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 350}}') Hi!
@@ -54,7 +54,7 @@
 					.comms
 						.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1000}}')
 							h3 Video
-							+each('pricesA.slice(0, 3) as a')
+							+each('pricesA as a')
 								p 
 									| {a.category}: 
 									b ${a.price} 
@@ -67,7 +67,6 @@
 				hr
 				.img-container
 					img(src!="{image}" alt="roaming97" width="100%")
-			hr
 			a(href='/') Go to full website
 </template>
 
@@ -89,8 +88,10 @@
 
 		border-radius: 24px;
 
-		margin: 0.5rem auto;
-		padding: 1rem;
+		margin: 0.25rem auto;
+		padding: 0.5rem;
+
+		padding-bottom: 0.5rem;
 
 		text-align: center;
 
@@ -105,21 +106,18 @@
 			font-weight: 100;
 		}
 		.links {
-			justify-content: space-around;
-			flex-direction: row;
-			align-items: center;
+			justify-content: center;
 			display: flex;
 
 			width: 100%;
-			a {
-				text-decoration: none;
-				margin: 0 1rem;
-				p {
-					font-weight: 800;
-					&:hover {
-						text-decoration: underline;
-					}
+			.tr {
+				&* {
+					margin: 0.25rem;
+					padding: 1rem;
 				}
+				background: rgba(var(--brand-b-rgb), 0.5);
+
+				border-radius: 50%;
 			}
 		}
 		.content {
@@ -166,13 +164,16 @@
 			}
 		}
 		hr {
-			color: var(--light-c);
-			width: 80%;
+			color: var(--dark-d);
+			width: 90%;
 			height: 0;
 		}
 	}
 	@include media('>desktop') {
 		.card {
+			padding: 0;
+			padding-bottom: 1rem;
+
 			max-width: 50vw;
 			h1 {
 				padding: 0;
@@ -193,12 +194,13 @@
 				}
 				.text-container {
 					padding: 0.5rem;
-					width: 40%;
+					width: 50%;
 
 					text-align: left;
 				}
 				.img-container {
-					max-width: 50%;
+					max-width: 45%;
+					margin: 0 auto;
 				}
 				.comms {
 					justify-content: space-between;

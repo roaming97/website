@@ -8,12 +8,12 @@
 
 <template lang="pug">
 	+if('tip')
-		Tooltip(content="{tip}" i='{tipindex}')
+		Tooltip(content!="{tip}" i!='{tipindex}')
 			.icon-container
-				img(src='{src}', alt="{alt}")
+				img(src!='{src}', alt!="{alt}")
 		+else()
 			.icon-container
-				img(src='{src}', alt="{alt}")
+				img(src!='{src}', alt!="{alt}")
 </template>
 
 <style lang="scss">
