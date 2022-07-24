@@ -36,45 +36,52 @@
 <template lang="pug">
 	OnMount
 		Canvas
-		.card(in:fly!='{{y: 50, duration: 2000, easing: quintOut}}')
-			.name
-				.logo
-					Logo(animate!='{false}')
-				h1 roaming97
-				.links
-					+each('linkSVGsAlt as l, i')
-						.tr(in:fly!="{{y: 20, duration: 500, delay: 500+i*100}}")
-							IconSVG(svg!='{l}' id!="{i}") 
-			.content
-				.text-container
-					h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 350}}') Hi!
-					p(style="padding-bottom: 1rem" in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 500}}') {bio.split('.')[0].substr(4)}.
-					h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 700}}') Commission Info
-					p(style="color:var(--dark-d)" in:fly!='{{y: 25, duration: 750, easing: quintOut, delay: 700}}') All prices are in USD.
-					.comms
-						.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1000}}')
-							h3 Video
-							+each('pricesA as a')
-								p 
-									| {a.category}: 
-									b ${a.price} 
-						.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1250}}')
-							h3 Artwork
-							+each('pricesB as b')
-								p 
-									| {b.category}: 
-									b ${b.price} 
-				hr
-				.img-container
-					img(src!="{image}" alt="roaming97" width="100%")
-			a(href='/') Go to full website
+		.card-container
+			.card(in:fly!='{{y: 50, duration: 2000, easing: quintOut}}')
+				.name
+					.logo
+						Logo(animate!='{false}')
+					h1 roaming97
+					.links
+						+each('linkSVGsAlt as l, i')
+							a(href!='{l.link}' target='_blank')
+								.tr(in:fly!="{{y: 20, duration: 500, delay: 500+i*100}}")
+									IconSVG(svg!='{l}' id!="{i}") 
+				.content
+					.text-container
+						h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 350}}') Hi!
+						p(style="padding-bottom: 1rem" in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 500}}') {bio.split('.')[0].substr(4)}.
+						h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 700}}') Commission Info
+						p(style="color:var(--dark-d)" in:fly!='{{y: 25, duration: 750, easing: quintOut, delay: 700}}') All prices are in USD.
+						.comms
+							.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1000}}')
+								h3 Video
+								+each('pricesA as a')
+									p 
+										| {a.category}: 
+										b ${a.price} 
+							.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1250}}')
+								h3 Artwork
+								+each('pricesB as b')
+									p 
+										| {b.category}: 
+										b ${b.price} 
+					hr
+					.img-container
+						img(src!="{image}" alt="roaming97" width="100%")
+				a(href='/') Go to full website
 </template>
 
 <style lang="scss">
 	@use './../../styles/media' as *;
-	.card {
+	.card-container {
+		justify-content: center;
 		flex-direction: column;
 		align-items: center;
+		display: flex;
+	}
+	.card {
+		flex-direction: column;
 		position: relative;
 		display: flex;
 
@@ -86,12 +93,7 @@
 			0px 36.6px 69.3px -4px rgba(0, 0, 0, 0.116),
 			0px 54.4px 109.7px -4px rgba(0, 0, 0, 0.131), 0px 96px 163px -4px rgba(0, 0, 0, 0.15);
 
-		border-radius: 24px;
-
-		margin: 0.25rem auto;
 		padding: 0.5rem;
-
-		padding-bottom: 0.5rem;
 
 		text-align: center;
 
@@ -110,12 +112,15 @@
 			display: flex;
 
 			width: 100%;
-			.tr {
+			a {
 				&* {
 					margin: 0.25rem;
 					padding: 1rem;
 				}
-				background: rgba(var(--brand-b-rgb), 0.5);
+				background: var(--brand-b);
+
+				height: 4rem;
+				width: 4rem;
 
 				border-radius: 50%;
 			}
@@ -170,9 +175,14 @@
 		}
 	}
 	@include media('>desktop') {
+		.card-container {
+			height: 100vh;
+		}
 		.card {
 			padding: 0;
 			padding-bottom: 1rem;
+
+			border-radius: 24px;
 
 			max-width: 50vw;
 			h1 {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconSVG } from '$lib/ui'
+	import { IconSVG, Tooltip } from '$lib/ui'
 	import type { VisibilityEvent } from 'fractils'
 	import { visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
@@ -21,8 +21,10 @@
 		.section-content
 			.links
 				+each('linkSVGs as l, i')
-					.tr(in:fly!="{{y: 20, duration: 400, delay: i*100}}")
-						IconSVG(svg!='{l}' id!="{i}") 
+					Tooltip(content!='{l.caption}' index!="{i}")
+						a(href!='{l.link}' target='_blank')
+							.tr(in:fly!="{{y: 20, duration: 400, delay: i*100}}")
+								IconSVG(svg!='{l}' id!="{i}") 
 			p 
 				b E-mail
 				| : 
