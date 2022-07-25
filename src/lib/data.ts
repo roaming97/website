@@ -17,6 +17,11 @@ different styles of design and art when creating.`
 
 export const artworkGallery: Anchor[] = [
 	{
+		caption: 'Myopia',
+		picture: '/artwork/myopia.webp',
+		link: '/view/385'
+	},
+	{
 		caption: 'Everlasting Saturation',
 		picture: './artwork/everlasting.webp',
 		link: '/view/384'
@@ -2806,7 +2811,12 @@ export const viewData: ViewItem[] = [
 		title: 'Everlasting saturation',
 		date: new Date('2022/06/18'),
 		picture: '/artwork/everlasting.webp'
-	}
+	},
+	{
+		title: 'Myopia',
+		date: new Date('2022/07/25'),
+		picture: '/artwork/myopia.webp'
+	},
 ]
 
 export const cardExclude = [
