@@ -4,7 +4,7 @@
 	import { visibility } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
-	import { linkSVGs, pricesA, pricesB } from '$lib/data'
+	import { linkSVGs, linkSVGColors, pricesA, pricesB } from '$lib/data'
 	import { PricePanel } from './_contact'
 
 	let visible: boolean
@@ -15,17 +15,17 @@
 
 <template lang="pug">
 
-	h1.page-title Contact 
+	h1.page-title Contact
 	.section
 		h2 Social links
 		.section-content
 			.links
 				+each('linkSVGs as l, i')
-					Tooltip(content!='{l.caption}' index!="{i}")
+					Tooltip(content!='{l.caption}' i!="{i}")
 						a(href!='{l.link}' target='_blank')
-							.tr(in:fly!="{{y: 20, duration: 400, delay: i*100}}")
-								IconSVG(svg!='{l}' id!="{i}") 
-			p 
+							.tr(in:fly!="{{y: 20, duration: 400, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
+								IconSVG(svg!='{l}' ignoreColor=true)
+			p
 				b E-mail
 				| : 
 				| roaming98a@gmail.com
@@ -87,15 +87,14 @@
 			margin: 1rem;
 
 			border-radius: 2rem;
-			background-color: var(--light-a);
-			box-shadow: inset 0px 1.5px 1.7px -4px rgba(0, 0, 0, 0.032),
-				inset 0px 4.7px 5.9px -4px rgba(0, 0, 0, 0.058),
-				inset 0px 9.5px 13.2px -4px rgba(0, 0, 0, 0.078),
-				inset 0px 16px 24.7px -4px rgba(0, 0, 0, 0.092),
-				inset 0px 24.7px 42.4px -4px rgba(0, 0, 0, 0.104),
-				inset 0px 36.6px 69.3px -4px rgba(0, 0, 0, 0.116),
-				inset 0px 54.4px 109.7px -4px rgba(0, 0, 0, 0.131),
-				inset 0px 96px 163px -4px rgba(0, 0, 0, 0.15);
+			box-shadow: 0px 1.5px 1.7px -4px rgba(0, 0, 0, 0.032),
+				0px 4.7px 5.9px -4px rgba(0, 0, 0, 0.058),
+				0px 9.5px 13.2px -4px rgba(0, 0, 0, 0.078),
+				0px 16px 24.7px -4px rgba(0, 0, 0, 0.092),
+				0px 24.7px 42.4px -4px rgba(0, 0, 0, 0.104),
+				0px 36.6px 69.3px -4px rgba(0, 0, 0, 0.116),
+				0px 54.4px 109.7px -4px rgba(0, 0, 0, 0.131),
+				0px 96px 163px -4px rgba(0, 0, 0, 0.15);
 		}
 	}
 	.section-content {

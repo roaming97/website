@@ -17,14 +17,14 @@
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
-        "@vercel/node": "^2.4.5"
+        "@vercel/node": "^2.5.2"
     },
     "devDependencies": {
         "@sveltejs/adapter-vercel": "next",
         "@sveltejs/kit": "next",
-        "@types/node": "^18.0.6",
+        "@types/node": "^18.6.3",
         "@types/remark-abbr": "^1.4.1",
-        "autoprefixer": "^10.4.7",
+        "autoprefixer": "^10.4.8",
         "cssnano": "^5.1.12",
         "fractils": "^2.0.3",
         "greset": "^2.0.0",
@@ -47,6 +47,6 @@
         "tippy.js": "^6.3.7",
         "tslib": "^2.4.0",
         "typescript": "^4.7.4",
-        "vite": "^3.0.2"
+        "vite": "^3.0.4"
     }
 }

@@ -1,5 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte'
+
 	export let svg: SVGAnchor
+	export let ignoreColor = false
+
+	onMount(() => {
+		if (ignoreColor) svg.color = '#fff'
+	})
 
 	$: vx = svg.viewX ? svg.viewX : 0
 	$: vy = svg.viewY ? svg.viewY : 0

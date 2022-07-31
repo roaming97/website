@@ -448,6 +448,7 @@ export const linkSVGs: SVGAnchor[] = [
 		caption: 'Vimeo'
 	}
 ]
+export const linkSVGColors = linkSVGs.map((i) => i.color)
 export const linkSVGsAlt: SVGAnchor[] = [
 	{
 		link: 'https://twitter.com/roaming98',
@@ -2816,7 +2817,7 @@ export const viewData: ViewItem[] = [
 		title: 'Myopia',
 		date: new Date('2022/07/25'),
 		picture: '/artwork/myopia.webp'
-	},
+	}
 ]
 
 export const cardExclude = [

@@ -18,7 +18,7 @@
 
 <template lang="pug">
 
-	header(class:scroll style="--height: {headerHeight};")
+	header(class:scroll style="--height: {headerHeight};--scroll: {$scrollY}")
 		Menu({links})
 
 		span
@@ -37,13 +37,12 @@
 		display: flex;
 
 		background-color: rgba(var(--light-a-rgb), 0.9);
-		// not supported in firefox stable yet :(
-		backdrop-filter: blur(16px);
+		backdrop-filter: blur(8px);
 
 		width: 100vw;
 		height: var(--height);
 
-		z-index: 50;
+		z-index: 10000;
 		&.scroll {
 			position: fixed;
 		}
