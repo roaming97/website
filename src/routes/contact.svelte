@@ -1,14 +1,25 @@
 <script lang="ts">
 	import { IconSVG, Tooltip } from '$lib/ui'
 	import type { VisibilityEvent } from 'fractils'
-	import { visibility } from 'fractils'
+	import { visibility, mobile } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
-	import { linkSVGs, linkSVGColors, pricesA, pricesB } from '$lib/data'
-	import { PricePanel } from './_contact'
+	import {
+		artworkGallery,
+		videoGallery,
+		linkSVGs,
+		linkSVGColors,
+		pricesA,
+		pricesB
+	} from '$lib/data'
+	import { PricePanel, Samples } from './_contact'
 
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
+
+	$: columns = $mobile ? 2 : 3
+	$: artworkList = artworkGallery.slice(2, columns + 2)
+	$: videoList = videoGallery.slice(0, columns)
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 </script>
@@ -32,29 +43,24 @@
 	.section
 		h2 Commissions pricing
 		p(style="color:var(--dark-d)") All prices are in USD.
-		.section-content
+		.section-content.prices-section
 			h3 Video
-			+each('pricesA as a, i')
-				+if('i % 2 == 0')
-					.price(in:fly!='{{x: -30, duration: 700, easing: quintOut, delay: i*200}}')
+			Samples(samples!='{videoList}')
+			.prices(style="--cols: {columns}")
+				+each('pricesA as a, i')
+					.price(in:fly!='{{y: -20, duration: 700, easing: quintOut, delay: i*200}}')
 						PricePanel(name!='{a.category}', price!="{a.price}", description!=`{a.description}`)
-					+else()
-					.price(in:fly!='{{x: 30, duration: 700, easing: quintOut, delay: i*200}}')
-						PricePanel(name!='{a.category}', price!="{a.price}", description!=`{a.description}`)
-		hr(style="width:80vw;color:var(--light-d)")
-		.section-content
+		.section-content.prices-section
 			h3 Artwork 
+			Samples(samples!='{artworkList}')
 			.visibleControl(
 				use:visibility!='{options}' 
 				on:f-change!='{handleChange}'
 			)
 				+if('visible')
-					+each('pricesB as b, j')
-						+if('j % 2 == 0')
-							.price(in:fly!='{{x: 30, duration: 400, easing: quintOut, delay: j*200}}')
-								PricePanel(name!='{b.category}', price!="{b.price}", description!=`{b.description}`)
-							+else()
-							.price(in:fly!='{{x: -30, duration: 400, easing: quintOut, delay: j*200}}')
+					.prices(style="--cols: {columns}")
+						+each('pricesB as b, j')
+							.price(in:fly!='{{y: -20, duration: 400, easing: quintOut, delay: j*200}}')
 								PricePanel(name!='{b.category}', price!="{b.price}", description!=`{b.description}`)
 
 </template>
@@ -71,7 +77,7 @@
 		background-color: rgba(var(--light-d-rgb), 0.1);
 
 		margin: 1rem 0;
-		padding: 1rem;
+		padding: 1rem 0;
 	}
 	.links {
 		justify-content: center;
@@ -81,7 +87,7 @@
 
 		width: 100%;
 
-		transform: scale(0.45);
+		transform: scale(0.5);
 		.tr {
 			padding: 2rem;
 			margin: 1rem;
@@ -97,17 +103,31 @@
 				0px 96px 163px -4px rgba(0, 0, 0, 0.15);
 		}
 	}
+	.prices {
+		grid-template-columns: repeat(var(--cols), 1fr);
+		justify-content: center;
+		align-items: center;
+		display: grid;
+	}
+	.price {
+		height: 100%;
+	}
 	.section-content {
-		margin: 1rem auto;
 		width: 100%;
+		&.prices-section {
+			margin: 0.5rem 0;
+			padding: 1rem 0;
+		}
 	}
 	@include media('>desktop') {
-		.section-content {
-			width: 40vw;
-			margin: 1rem;
+		.section {
+			padding: 1rem;
 		}
 		.links {
 			transform: scale(0.8);
+		}
+		.prices {
+			padding: 0.5rem;
 		}
 	}
 </style>
