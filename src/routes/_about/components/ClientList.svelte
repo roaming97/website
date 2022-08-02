@@ -35,13 +35,15 @@
 		flex-direction: row;
 		display: flex;
 
-		margin: 0.5rem 4rem;
+		margin: 0.5rem;
 
-		transform: translateX(calc(-15rem * var(--x)));
+		transform: translateX(calc(calc(15rem * 1.5) + calc(-15rem * var(--x))));
 		transition: 400ms transform cubic-bezier(0.23, 1, 0.32, 1);
 		.client-container {
 			img {
 				border-radius: 1rem;
+
+				user-select: none;
 
 				height: 15rem;
 				width: 15rem;
@@ -51,7 +53,7 @@
 				cursor: pointer;
 				&.inactive {
 					filter: grayscale(100%) brightness(0.05);
-					transform: scale(0.75) rotateX(15deg)
+					transform: perspective(450px) scale(0.75)
 						rotateY(clamp(-90deg, calc(22.5deg * var(--d)), 90deg));
 				}
 			}

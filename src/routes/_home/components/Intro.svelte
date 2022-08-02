@@ -17,7 +17,7 @@
 	.intro-container {
 		width: 100vw;
 
-		padding: 1.5rem 1rem;
+		padding: 6rem 1rem;
 		margin: 1.5rem 0;
 
 		background-color: var(--light-a);
@@ -47,7 +47,6 @@
 			flex-direction: row;
 			align-items: initial;
 
-			padding: 4rem;
 			.logo {
 				width: clamp(12.5vw, 4rem, 50vw);
 				margin: 1rem;
