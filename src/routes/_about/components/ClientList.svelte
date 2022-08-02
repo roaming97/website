@@ -1,91 +1,67 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
 	import { clientArray } from '$lib/data'
 	import { client_index } from '$lib/stores'
-	import { quintOut } from 'svelte/easing'
-	import { onMount } from 'svelte'
-	$: item_prev = clientArray[$client_index - 1]
-	$: item = clientArray[$client_index]
-	$: item_next = clientArray[$client_index + 1]
-	const handleChange = (val: number) => {
-		$client_index = val % clientArray.length
-	}
 </script>
 
 <template lang="pug">
-	.client-container
-		+if('item_prev != undefined')
-			.link.not-current.click(on:click!='{handleChange($client_index-1)}')
-				img(src!="{item_prev.picture}" alt!=`{item_prev.caption}`)
-			+else()
-			.link.not-current.default
-		.link
-			.current 
-				a(href!="{item.link}")
-					img(src!="{item.picture}" alt!=`{item.caption}`)
-		+if('item_next != undefined')
-			.link.not-current.click(on:click!='{handleChange($client_index+1)}')
-				img(src!="{item_next.picture}" alt!=`{item_next.caption}`)
-			+else()
-			.link.not-current.default
+	.client-list-container(style='--x: {$client_index}')
+		+each('clientArray as i, d')
+			.client-container(in:fly!='{{y: 50, duration: 900, easing: quintOut, delay: 150*d}}')
+				img(
+					src!=`{i.picture}` 
+					alt!="{i.caption}" 
+					class:inactive!=`{d!=$client_index}` 
+					style='--d: {$client_index - d}'
+					on:click!='{() => { if (d == $client_index) {window.open(i.link, "_blank")} else $client_index = d}}'
+				)
 	+key('$client_index')
-		h1(in:fly!='{{y: 10, duration: 500, easing: quintOut}}') {item.caption}
-		p(in:fly!='{{y: 10, duration: 500, delay: 200, easing: quintOut}}') {item.description}
+		h1(in:fly!='{{y: 10, duration: 500, easing: quintOut}}') {clientArray[$client_index].caption} 
+		p(in:fly!='{{y: 10, duration: 500, easing: quintOut}}') {clientArray[$client_index].description}
 </template>
 
 <style lang="scss">
 	@use '../../../../styles/media' as *;
-	.client-container {
-		justify-content: space-evenly;
-		margin: 1.5rem 0;
-		display: flex;
-	}
 	h1 {
 		letter-spacing: 1px;
 		font-weight: 800;
-		font-size: 2rem;
+		font-size: 3rem;
 	}
 	p {
 		font-size: 1rem;
 	}
-	.link {
-		margin: 1rem auto;
-		img {
-			border-radius: 1rem;
-			width: 17.5vh;
-			height: auto;
-		}
-	}
-	.not-current {
-		filter: grayscale(50%) brightness(0.2);
-		transform: scale(50%);
-	}
-	.default {
-		background-color: var(--light-c);
-		border-radius: 1rem;
-		width: 17.5vh;
-		height: auto;
-	}
-	.click {
-		cursor: pointer;
-	}
-	@include media('>desktop') {
+	.client-list-container {
+		flex-direction: row;
+		display: flex;
+
+		margin: 0.5rem 4rem;
+
+		transform: translateX(calc(-15rem * var(--x)));
+		transition: 400ms transform cubic-bezier(0.23, 1, 0.32, 1);
 		.client-container {
-			margin: auto;
-			width: 70vw;
-		}
-		h1 {
-			font-size: 3.5rem;
-		}
-		.link {
 			img {
-				border-radius: 2rem;
-				width: 40vh;
+				border-radius: 1rem;
+
+				height: 15rem;
+				width: 15rem;
+
+				transition: 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
+				cursor: pointer;
+				&.inactive {
+					filter: grayscale(100%) brightness(0.05);
+					transform: scale(0.75) rotateX(15deg)
+						rotateY(clamp(-90deg, calc(22.5deg * var(--d)), 90deg));
+				}
 			}
 		}
-		.default {
-			border-radius: 2rem;
-			width: 40vh;
+	}
+	/*
+	@include media('>desktop') {
+		.client-list-container {
+			transform: translateX(calc(36.6vw + calc(-15rem * var(--x))));
 		}
 	}
+	*/
 </style>

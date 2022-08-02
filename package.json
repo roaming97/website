@@ -30,7 +30,7 @@
         "greset": "^2.0.0",
         "highlight.js": "^11.6.0",
         "mdsvex": "^0.10.6",
-        "node-fetch": "^3.2.9",
+        "node-fetch": "^3.2.10",
         "postcss": "^8.4.14",
         "postcss-load-config": "^4.0.1",
         "prettier": "^2.7.1",
