@@ -1,19 +1,21 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
+	import { mobile } from 'fractils'
 	import { clientArray } from '$lib/data'
 	import { client_index } from '$lib/stores'
+	$: size = $mobile ? '10' : '15'
 </script>
 
 <template lang="pug">
-	.client-list-container(style='--x: {$client_index}')
+	.client-list-container(style='--x: calc({-size}rem * {$client_index}); --size: {size}rem')
 		+each('clientArray as i, d')
 			.client-container(in:fly!='{{y: 50, duration: 900, easing: quintOut, delay: 150*d}}')
 				img(
 					src!=`{i.picture}` 
 					alt!="{i.caption}" 
 					class:inactive!=`{d!=$client_index}` 
-					style='--d: {$client_index - d}'
+					style='--d: {$client_index - d}; --size: {size}rem'
 					on:click!='{() => { if (d == $client_index) {window.open(i.link, "_blank")} else $client_index = d}}'
 				)
 	+key('$client_index')
@@ -26,7 +28,7 @@
 	h1 {
 		letter-spacing: 1px;
 		font-weight: 800;
-		font-size: 3rem;
+		font-size: 2.5rem;
 	}
 	p {
 		font-size: 1rem;
@@ -35,9 +37,12 @@
 		flex-direction: row;
 		display: flex;
 
-		margin: 0.5rem;
+		height: var(--size);
+		width: var(--size);
 
-		transform: translateX(calc(calc(15rem * 1.5) + calc(-15rem * var(--x))));
+		margin: 1rem auto;
+
+		transform: translateX(var(--x));
 		transition: 400ms transform cubic-bezier(0.23, 1, 0.32, 1);
 		.client-container {
 			img {
@@ -45,8 +50,8 @@
 
 				user-select: none;
 
-				height: 15rem;
-				width: 15rem;
+				height: var(--size);
+				width: var(--size);
 
 				transition: 400ms cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -59,11 +64,9 @@
 			}
 		}
 	}
-	/*
 	@include media('>desktop') {
-		.client-list-container {
-			transform: translateX(calc(36.6vw + calc(-15rem * var(--x))));
+		h1 {
+			font-size: 3rem;
 		}
 	}
-	*/
 </style>

@@ -273,6 +273,12 @@ export const clientArray: Anchor[] = [
 		picture: '/clients/paperskies.jpg',
 		link: 'https://solo.to/paperskies',
 		description: 'Electronic music artist'
+	},
+	{
+		caption: 'eccentric',
+		picture: '/clients/eccentric.jpg',
+		link: 'https://twitter.com/eccentricedm',
+		description: 'Electronic music artist'
 	}
 ]
 export const creativeSkills: ProgressInterface[] = [
