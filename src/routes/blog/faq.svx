@@ -52,19 +52,6 @@ designed the current logo from scratch to finally leave that dependency of anoth
 -   Storage: 1TB HDD + 1TB SSD
 -   OS: Windows 10 Pro 64-bit
 
-<br />
-
-# What did you use to build your website?
-
-I used a lot of different technologies, but mainly:
-
--   [SvelteKit](https://kit.svelte.dev/) using a preset called [Frackit](https://github.com/FractalHQ/frackit/)
--   [Typescript](https://www.typescriptlang.org/)
--   [Pug](https://pugjs.org/)
--   [Sendgrid](https://sendgrid.com/)
--   [Figma](https://www.figma.com/)
--   [Git](https://git-scm.com/)
-
 <style>
     h1 {
         margin: 0.5rem 0;
