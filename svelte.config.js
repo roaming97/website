@@ -1,21 +1,13 @@
-import vercel from '@sveltejs/adapter-vercel'
-import mdsvexConfig from './mdsvex.config.js'
 import preprocess from 'svelte-preprocess'
+import vercel from '@sveltejs/adapter-vercel'
 import { mdsvex } from 'mdsvex'
+import mdsvexConfig from './mdsvex.config.js'
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
-    extensions: ['.svelte', ...mdsvexConfig.extensions],
-    preprocess: [
-        preprocess({
-            postcss: true,
-            default: true
-        }),
-        mdsvex(mdsvexConfig)
-    ],
-    kit: {
-        adapter: vercel()
-    }
+export default {
+	extensions: ['.svelte', ...mdsvexConfig.extensions],
+	preprocess: [preprocess(), mdsvex(mdsvexConfig)],
+	kit: {
+		adapter: vercel()
+	}
 }
-
-export default config

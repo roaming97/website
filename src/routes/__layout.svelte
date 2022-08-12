@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Fractils, mobileThreshold, initTheme, OnMount } from 'fractils'
+	import { Fractils, mobileThreshold, initTheme } from 'fractils'
 	import { fade } from 'svelte/transition'
 	import { pageTitle, excludedURLs } from '$lib/data'
 	import { Header, Footer } from '$lib/ui'

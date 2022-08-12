@@ -1,154 +1,163 @@
 @use './media' as *;
-@import './theme.scss';
+@use './theme.scss';
 
 /*	Work Sans */
 
 @font-face {
-    font-family: 'work-sans';
-    font-weight: 100 900;
-    font-style: normal;
-    src: url('/fonts/work-sans/worksans.ttf') format('truetype');
+	font-family: 'work-sans';
+	font-weight: 100 900;
+	font-style: normal;
+	src: url('/fonts/work-sans/worksans.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'work-sans-italic';
-    font-weight: 100 900;
-    font-style: italic;
-    src: url('/fonts/work-sans/worksans-italic.ttf') format('truetype');
+	font-family: 'work-sans-italic';
+	font-weight: 100 900;
+	font-style: italic;
+	src: url('/fonts/work-sans/worksans-italic.ttf') format('truetype');
 }
-
 
 /* JetBrains Mono */
 
 @font-face {
-    font-family: 'jetbrains-mono';
-    font-weight: 100 900;
-    font-style: normal;
-    src: url('/fonts/jetbrains-mono/jetbrainsmono.ttf') format('truetype');
+	font-family: 'jetbrains-mono';
+	font-weight: 100 900;
+	font-style: normal;
+	src: url('/fonts/jetbrains-mono/jetbrainsmono.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'jetbrains-mono-italic';
-    font-weight: 100 900;
-    font-style: italic;
-    src: url('/fonts/jetbrains-mono/jetbrainsmono-italic.ttf') format('truetype');
+	font-family: 'jetbrains-mono-italic';
+	font-weight: 100 900;
+	font-style: italic;
+	src: url('/fonts/jetbrains-mono/jetbrainsmono-italic.ttf') format('truetype');
 }
 
-$breakpoints: ( desktop: 1024px);
+$breakpoints: (
+	desktop: 1024px
+);
 :root {
-    --font-primary: 'work-sans', sans-serif;
-    --font-mono: 'jetbrains-mono', monospace;
-    --warn: #ff4040;
-    --column-width: 42rem;
-    --column-margin-top: 4rem;
+	--font-primary: 'work-sans', sans-serif;
+	--font-mono: 'jetbrains-mono', monospace;
+	--warn: #ff4040;
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
 }
 
 ::selection {
-    background-color: var(--brand-b) !important;
-    color: var(--light-a) !important;
+	background-color: var(--brand-b) !important;
+	color: var(--light-a) !important;
 }
 
 :focus {
-    outline: none !important;
+	outline: none !important;
 }
 
 body {
-    min-height: 100vh;
-    margin: 0;
-    background-color: var(--light-a);
-    transition: color 0.5s background 0.3s background-color 0.3s;
-    overflow-x: hidden;
+	min-height: 100vh;
+	margin: 0;
+	background-color: var(--light-a);
+	transition: color 0.5s background 0.3s background-color 0.3s;
+	overflow-x: hidden;
 }
 
 #svelte {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow-x: hidden;
 }
 
 h1,
 h2 {
-    font-family: var(--font-primary);
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    color: var(--dark-a);
+	font-family: var(--font-primary);
+	font-weight: 400;
+	letter-spacing: 1.2px;
+	color: var(--dark-a);
 }
 
 .page-title {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 p,
-li {
-    font-family: var(--font-primary);
-    font-size: 1.2em;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--dark-a, --text-color);
-    & a {
-        color: var(--dark-c);
-    }
+li,
+u {
+	font-family: var(--font-primary);
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.5;
+	color: var(--dark-a, --text-color);
+	& a {
+		color: var(--dark-c);
+	}
+}
+
+sup {
+	font-family: var(--font-primary);
+	vertical-align: super;
+	font-size: 0.8em;
+	color: var(--dark-a, --text-color);
 }
 
 a {
-    text-decoration: underline;
-    text-decoration-color: var(--light-d);
-    color: var(--dark-a);
+	text-decoration: underline;
+	text-decoration-color: var(--light-d);
+	color: var(--dark-a);
 }
 
 a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 h1 {
-    margin-bottom: 0 0 1em 0;
-    font-size: 2rem;
-    text-align: center;
+	margin-bottom: 0 0 1em 0;
+	font-size: 2rem;
+	text-align: center;
 }
 
 h2 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h3,
 h4,
 h5,
 section {
-    font-family: var(--font-primary);
-    color: var(--dark-a);
+	font-family: var(--font-primary);
+	color: var(--dark-a);
 }
 
 code,
 code span {
-    font-family: var(--font-mono);
-    background: transparent !important;
+	font-family: var(--font-mono);
+	background: transparent !important;
 }
 
 pre {
-    padding: 0.5em;
-    font-family: var(--font-mono);
-    color: var(--dark-a);
-    border-radius: 3px;
-    overflow-x: auto;
+	padding: 0.5em;
+	font-family: var(--font-mono);
+	color: var(--dark-a);
+	border-radius: 3px;
+	overflow-x: auto;
 }
 
 input,
 button {
-    font-size: inherit;
-    font-family: inherit;
+	font-size: inherit;
+	font-family: inherit;
 }
 
 button:focus:not(:focus-visible) {
-    outline: none;
+	outline: none;
 }
 
 span {
-    font-family: var(--font-primary);
+	font-family: var(--font-primary);
 }
 
 @include media('>desktop') {
-    h1 {
-        font-size: 2.4rem;
-    }
+	h1 {
+		font-size: 2.4rem;
+	}
 }

@@ -1,24 +1,28 @@
-import autolinkHeadings from 'rehype-autolink-headings'
-import slug from 'rehype-slug'
-import abbr from 'remark-abbr'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeSlug from 'rehype-slug'
 
-const mdsvexConfig = {
-    extensions: ['.svelte.md', '.md', '.svx'],
-    smartypants: {
-        dashes: 'oldschool'
-    },
-    remarkPlugins: [abbr],
-    layout: {
-        _: './src/routes/_bloglayout.svelte'
-    },
-    rehypePlugins: [
-        slug, [
-            autolinkHeadings,
-            {
-                behavior: 'wrap'
-            }
-        ]
-    ]
+import remarkAbbr from 'remark-abbr'
+
+/** @type {import('mdsvex').MdsvexOptions} */
+export default {
+	extensions: ['.svelte.md', '.md', '.svx'],
+	smartypants: {
+		dashes: 'oldschool'
+	},
+	remarkPlugins: [remarkAbbr],
+	layout: {
+		_: './src/routes/_bloglayout.svelte'
+	},
+	rehypePlugins: [
+		rehypeSlug,
+		[rehypeAutolinkHeadings, { behavior: 'wrap' }],
+		[
+			rehypeExternalLinks,
+			{
+				rel: ['nofollow', 'noopener', 'noreferrer', 'external'],
+				target: '_blank'
+			}
+		]
+	]
 }
-
-export default mdsvexConfig
