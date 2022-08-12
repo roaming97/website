@@ -62,6 +62,14 @@
 <template lang="pug">
 	h1.page-title Blog
 	.blog-container
+		p(style='text-align: center') 
+			| Hi, you have arrived at my 
+			b personal 
+			| blog.
+		p(style='text-align: center') 
+			| Despite this website being my professional portfolio, I shall leave this space as my own personal writing outlet.
+		p(style='text-align: center') 
+			| Whether it is me sharing random thoughts or talking about projects I may be doing, I will post it here.
 		ul
 			+each('posts as post')
 				.a(
@@ -75,6 +83,7 @@
 <style lang="scss">
 	@use '../../styles/media' as *;
 	.blog-container {
+		padding: 0 1rem;
 		margin: 2rem 0;
 	}
 	ul {
@@ -127,6 +136,7 @@
 		.blog-container {
 			margin: 1rem auto;
 			width: 70vw;
+			padding: 0;
 		}
 		li {
 			h2 {
