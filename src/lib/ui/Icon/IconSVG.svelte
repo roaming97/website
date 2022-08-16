@@ -10,6 +10,8 @@
 
 	$: vx = svg.viewX ? svg.viewX : 0
 	$: vy = svg.viewY ? svg.viewY : 0
+	$: vw = svg.viewW ? svg.viewW : 512
+	$: vh = svg.viewH ? svg.viewH : 512
 </script>
 
 <svg
@@ -21,7 +23,7 @@
 	clip-rule="evenodd"
 	width={svg.size}
 	height={svg.size}
-	viewBox="{vx} {vy} 512 512"
+	viewBox="{vx} {vy} {vw} {vh}"
 >
 	<path fill={svg.color} fill-rule="nonzero" d={svg.d} />
 </svg>

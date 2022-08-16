@@ -4,8 +4,8 @@
 	import { CodeBlock, Icon } from '$lib/ui'
 	import { creativeSkills, softwareSkills, devSkills, statsArray, bio } from '$lib/data'
 	import { quintOut } from 'svelte/easing'
-	import { Logo } from '$lib/ui'
-	import { ClientList, Stat, ProgressBar } from './_about'
+	import { Logo, Stat } from '$lib/ui'
+	import { ClientList, ProgressBar } from './_about'
 
 	let visible: boolean
 	let options = { threshold: 0.7, once: true }

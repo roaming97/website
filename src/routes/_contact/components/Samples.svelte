@@ -18,8 +18,15 @@
 			margin: 2rem 0;
 
 			width: 100%;
+
+			transform: scale(0.975);
+
+			transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
 			img {
 				width: 100%;
+			}
+			&:hover {
+				transform: scale(1);
 			}
 		}
 	}

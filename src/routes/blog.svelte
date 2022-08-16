@@ -77,7 +77,7 @@
 					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
 					li
 						h2 {post.meta.title}
-						p {new Date(Date.parse(post.meta.date_created) + 1).toLocaleDateString('en-US')}
+						p {new Date(Date.parse(post.meta.date_created) - 1).toLocaleDateString('en-US')}
 </template>
 
 <style lang="scss">

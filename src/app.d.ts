@@ -14,12 +14,14 @@ interface ProgressInterface extends Omit<Anchor, 'link'> {
 }
 
 type SVGAnchor = {
-	link: string
+	link?: string
 	color: string
 	size: number
 	d: string
 	viewX?: number
 	viewY?: number
+	viewW?: number
+	viewH?: number
 	caption?: string
 }
 
@@ -46,7 +48,7 @@ type ViewItem = {
 }
 
 type StatType = {
-	num: number
+	num: number | string
 	name: string
 	suffix?: string
 }

@@ -10,7 +10,7 @@
 		"pivaszbs.svelte-autoimport",
 		"dbaeumer.vscode-eslint",
 		"svelte.svelte-vscode", //? Svelte
-		"silvenon.mdx" //? MDSvex Language Support
+		"unifiedjs.vscode-mdx" //? MDSvex Language Support
 
 		/*
 		 * Honorable mentions

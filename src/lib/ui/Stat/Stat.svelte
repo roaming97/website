@@ -6,8 +6,11 @@
 
 	export let num: number
 	export let stat: string
-	export let suffix: string | undefined = undefined
+	export let suffix: string
 	export let delay = 0
+
+	export let round = true
+	export let dp = 2 // decimal places
 
 	const count = tweened(0, {
 		duration: 5000,
@@ -21,20 +24,29 @@
 <template lang="pug">
 	.stat-container(in:fly!='{{y: 20, duration: 600, delay: delay+200, easing: quintOut}}')
 		+if('suffix')
-			h1 {Math.round($count)}{suffix}
+			+if('round')
+				h1 {Math.round($count)}{suffix}
+				+else()
+				h1 {$count.toFixed(dp)}{suffix}
 			+else()
-			h1 {Math.round($count)}
-		p {stat}
+			+if('round')
+				h1 {Math.round($count)}
+				+else()
+				h1 {$count.toFixed(dp)}
+		+if('stat')
+			p {stat}
 </template>
 
 <style lang="scss">
 	@use '../../../../styles/media' as *;
 	.stat-container {
 		margin: 1rem;
+
+		width: max-content;
 		h1 {
 			font-family: var(--font-mono);
 			font-weight: 800;
-			font-size: 6rem;
+			font-size: 3rem;
 
 			text-align: center;
 
@@ -50,8 +62,10 @@
 		}
 	}
 	@include media('>desktop') {
-		h1 {
-			font-size: 8rem;
+		.stat-container {
+			h1 {
+				font-size: 6rem;
+			}
 		}
 	}
 </style>

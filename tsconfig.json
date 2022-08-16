@@ -30,13 +30,10 @@
 		"src/*.d.ts"
 	],
 	"exclude": [
-		".vercel_build_output/*",
 		"mdsvex.config.js",
 		"node_modules/*",
 		".svelte-kit/*",
-		"functions/*",
-		"coverage/*",
-		".svelte/*",
+		".vercel/*",
 		"build/*",
 		"dist/*"
 	]

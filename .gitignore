@@ -1,8 +1,8 @@
-/.vercel_build_output
 /node_modules
 /.svelte-kit
 /functions
 .DS_Store
+/.vercel
 /build
 .env
 *.sh
