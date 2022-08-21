@@ -60,7 +60,9 @@
 	}
 	img {
 		padding: 2rem;
-		width: 50vw;
+
+		height: auto;
+		width: 18rem;
 	}
 	@include media('>desktop') {
 		.title {

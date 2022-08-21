@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
+	import { mobile } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
-	import { mobile } from 'fractils'
 	import { prefetch } from '$app/navigation'
 
 	import { Waves, WaveDown, Gallery, Intro, Dev } from './_home'
@@ -87,9 +87,9 @@
 		transition: opacity 150ms;
 		img {
 			height: 100vh;
-			width: 100vw;
+			width: auto;
 
-			filter: blur(16px);
+			filter: blur(8px);
 		}
 	}
 	.hello-content {
@@ -148,8 +148,6 @@
 			img {
 				height: auto;
 				width: 100vw;
-
-				filter: blur(8px);
 			}
 		}
 		.hello-content {
