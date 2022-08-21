@@ -77,17 +77,16 @@
 		padding: 6rem 0;
 	}
 	.opacity {
-		justify-content: center;
 		align-items: center;
 		display: flex;
 
 		position: absolute;
-		top: 0;
+		top: 3rem;
 
 		transition: opacity 150ms;
 		img {
-			height: 100vh;
-			width: auto;
+			width: 100vw;
+			height: auto;
 
 			filter: blur(8px);
 		}
@@ -128,7 +127,6 @@
 	}
 	.content {
 		position: relative;
-		margin: 1rem 0;
 		z-index: 1;
 	}
 	.actual-content {
@@ -141,14 +139,8 @@
 		z-index: 3;
 	}
 	@include media('>desktop') {
-		.content {
-			margin: 0;
-		}
 		.opacity {
-			img {
-				height: auto;
-				width: 100vw;
-			}
+			top: 0;
 		}
 		.hello-content {
 			justify-content: center;

@@ -15,7 +15,7 @@
 						p.left {s.description}
 						.btn
 							Button(text='Source code' link!='{s.link}')
-					img(src!="{s.picture}" alt!=`{s.caption}`)
+					img(src!="{s.picture}" alt!=`{s.caption}` width='288' height='auto')
 				+else()
 				.project-info.right
 					.text
@@ -23,7 +23,7 @@
 						p.right {s.description}
 						.btn
 							Button(text='Source code' link!='{s.link}')
-					img(src!="{s.picture}" alt!=`{s.caption}`)
+					img(src!="{s.picture}" alt!=`{s.caption}` width='288' height='auto')
 </template>
 
 <style lang="scss">
@@ -60,9 +60,6 @@
 	}
 	img {
 		padding: 2rem;
-
-		height: auto;
-		width: 18rem;
 	}
 	@include media('>desktop') {
 		.title {
