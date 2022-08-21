@@ -1,61 +1,20 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-
-	export const load: Load = async ({ params }) => {
-		const dataFile = await import('$lib/data')
-		const targetArray = dataFile.viewData
-		const index = parseInt(params.id) - 1
-		const errorMessage = `Item ${index + 1} not found, max is ${targetArray.length}`
-		const getItem = () =>
-			new Promise<ViewItem>(async (res, rej) => {
-				try {
-					const item = targetArray[index]
-					res({
-						title: item.title,
-						collection: item.collection,
-						picture: item.picture,
-						date: item.date,
-						description: item.description
-					})
-				} catch (err) {
-					console.error(err)
-					rej()
-				}
-			}).catch(() => {
-				return undefined
-			})
-
-		const data = await getItem()
-		if (data) {
-			return {
-				props: {
-					data
-				}
-			}
-		}
-		return {
-			status: 404,
-			error: errorMessage
-		}
-	}
-</script>
-
 <script lang="ts">
 	import { thumbnailIsActive } from '$lib/stores'
 	import { page } from '$app/stores'
 	import type { VisibilityEvent } from 'fractils'
 	import { OnMount, visibility } from 'fractils'
-	import { ViewControls } from '../_view'
+	import { ViewControls } from '../../_view'
 	import { quintOut, backOut } from 'svelte/easing'
 	import { fade, fly } from 'svelte/transition'
-	import Error from '../__error.svelte'
-	import About from '../about.svelte'
+	import type { PageData } from './$types'
 
-	export let data: ViewItem
+	export let data: PageData
 
 	let visible: boolean
 	let options = { threshold: 0.75, once: true }
-	$: parsed_date = data.date.toLocaleDateString('en-US', { timeZone: 'Etc/GMT+5' })
+
+	$: item = data.item
+	$: parsed_date = item.date.toLocaleDateString('en-US', { timeZone: 'Etc/GMT+5' })
 	$: message = !$thumbnailIsActive ? 'expand' : 'shrink'
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
@@ -69,8 +28,8 @@
 				ViewControls
 			img(
 				in:fade!='{{duration: 500, delay: 200}}'
-				src!="{data.picture}"
-				alt!=`{data.title}`
+				src!="{item.picture}"
+				alt!=`{item.title}`
 				on:click!="{toggleActive}"
 				class:active!='{$thumbnailIsActive}'
 			)
@@ -83,18 +42,18 @@
 				+if('visible')
 					.description
 						.initial-info
-							h1(in:fly!='{{x: -40, duration: 800, delay: 300, easing: quintOut}}') {data.title}
+							h1(in:fly!='{{x: -40, duration: 800, delay: 300, easing: quintOut}}') {item.title}
 							h3(in:fly!='{{x: -40, duration: 800, delay: 600, easing: quintOut}}') {parsed_date}
-						+if('data.collection')
+						+if('item.collection')
 							.collection
 								p(in:fly!='{{x: 40, duration: 800, delay: 450, easing: quintOut}}') Collection
-								h1(in:fly!='{{x: 40, duration: 800, delay: 750, easing: quintOut}}') {data.collection}
-					+if('data.description')
-						p(in:fly!='{{y: 20, duration: 800, delay: 1000, easing: backOut }}') {data.description}
+								h1(in:fly!='{{x: 40, duration: 800, delay: 750, easing: quintOut}}') {item.collection}
+					+if('item.description')
+						p(in:fly!='{{y: 20, duration: 800, delay: 1000, easing: backOut }}') {item.description}
 </template>
 
 <style lang="scss">
-	@use '../../../styles/media' as *;
+	@use '../../../../styles/media' as *;
 	.view-container {
 		background-color: rgba(var(--light-b-rgb), 0.3);
 		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);

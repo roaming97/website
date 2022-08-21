@@ -12,7 +12,7 @@
 		pricesA,
 		pricesB
 	} from '$lib/data'
-	import { PricePanel, Samples } from './_contact'
+	import { PricePanel, Samples } from '../_contact'
 
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
@@ -34,11 +34,11 @@
 				+each('linkSVGs as l, i')
 					Tooltip(content!='{l.caption}' i!="{i}")
 						a(href!='{l.link}' target='_blank')
-							.tr(in:fly!="{{y: 20, duration: 400, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
+							.tr(in:fly!="{{y: 20, duration: 400, easing: quintOut, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
 								IconSVG(svg!='{l}' ignoreColor=true)
 			p
-				b E-mail
-				| : 
+				b E-mail:
+				|
 				| roaming98a@gmail.com
 	.section
 		h2 Commissions pricing
@@ -66,7 +66,7 @@
 </template>
 
 <style lang="scss">
-	@use '../../styles/media' as *;
+	@use '../../../styles/media' as *;
 	.section {
 		justify-content: center;
 		flex-direction: column;

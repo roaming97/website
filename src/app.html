@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<!-- General -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#9b70ff" />
 
-<head>
-    <!-- General -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#9b70ff">
+		<!-- Icons -->
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <!-- Icons -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<!-- PWA -->
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="msapplication-config" content="/browserconfig.xml" />
+		<meta name="msapplication-TileColor" content="#1d1d1d" />
 
-    <!-- PWA -->
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-config" content="/browserconfig.xml" />
-    <meta name="msapplication-TileColor" content="#1d1d1d">
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="roaming97" />
+		<meta name="title" content="roaming97" />
+		<meta name="description" content="Visual Artist - Designer - Photographer - Developer" />
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="roaming97">
-    <meta name="title" content="roaming97">
-    <meta name="description" content="Visual Artist - Graphic Designer - Photographer - Developer">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.roaming97.com/" />
+		<meta property="og:title" content="roaming97" />
+		<meta
+			property="og:description"
+			content="Visual Artist - Designer - Photographer - Developer"
+		/>
+		<meta property="og:image" content="https://www.roaming97.com/meta.png" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.roaming97.com/">
-    <meta property="og:title" content="roaming97">
-    <meta property="og:description" content="Visual Artist - Graphic Designer - Photographer - Developer">
-    <meta property="og:image" content="https://www.roaming97.com/meta.png">
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://www.roaming97.com/" />
+		<meta property="twitter:title" content="roaming97" />
+		<meta
+			property="twitter:description"
+			content="Visual Artist - Designer - Photographer - Developer"
+		/>
+		<meta property="twitter:image" content="https://roaming97.com/meta.png" />
+		%sveltekit.head%
+	</head>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.roaming97.com/">
-    <meta property="twitter:title" content="roaming97">
-    <meta property="twitter:description" content="Visual Artist - Graphic Designer - Photographer - Developer">
-    <meta property="twitter:image" content="https://roaming97.com/meta.png"> %sveltekit.head%
-</head>
-
-<body>
-    <div id="svelte">%sveltekit.body%</div>
-</body>
-
+	<body>
+		<div id="svelte">%sveltekit.body%</div>
+	</body>
 </html>
 
 <style>
-    @media (prefers-color-scheme: dark) {
-        html,
-        body {
-            background: var(--light-a);
-        }
-    }
+	@media (prefers-color-scheme: dark) {
+		html,
+		body {
+			background: var(--light-a);
+		}
+	}
 </style>

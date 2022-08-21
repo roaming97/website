@@ -1,16 +1,34 @@
 <script lang="ts">
-	import { theme } from 'fractils'
+	import type { SvelteComponent } from 'svelte'
 	import { onMount } from 'svelte'
-	import { Highlight, HighlightAuto } from 'svelte-highlight'
-	import { materialDarker, atomOneLight } from 'svelte-highlight/styles'
-	export let code: string
-	export let lang: string | undefined = undefined
-	export let footer: string | undefined = undefined
+	import { atomOneDark, atomOneLight } from 'svelte-highlight/styles'
+	import { theme } from 'fractils'
+	import Icon from '@iconify/svelte'
 
-	let language: any
+	export let code: string
+	export let lang: string
+	export let header: string
+	export let footer: string
+
+	export let showIcon: 'top' | 'bottom'
+	export let icon: string
+
+	let src: string
+	let language: string
+	let component: typeof SvelteComponent
+
+	$: style = $theme === 'dark' ? atomOneDark : atomOneLight
+	$: svelte = lang === 'svelte'
+
+	if (icon == undefined) icon = lang
 
 	onMount(async () => {
-		if (lang != undefined) {
+		if (svelte) {
+			component = (await import('svelte-highlight')).HighlightSvelte
+		} else {
+			component = lang
+				? (await import('svelte-highlight')).Highlight
+				: (await import('svelte-highlight')).HighlightAuto
 			const l = await import(`../../../../node_modules/svelte-highlight/languages/${lang}.js`)
 			language = l.default
 		}
@@ -19,26 +37,30 @@
 
 <template lang="pug">
 	svelte:head
-		+if('$theme == "dark"')
-			+html('materialDarker')
-			+else()
-				+html('atomOneLight')
+		+html('style')
 	.codeblock
-		+if('lang')
-			Highlight(language!="{language}" '{code}') 
+		+if('header')
+			.header
+				+if('showIcon == "top"')
+					.icon
+						Icon(icon!="{icon}")
+				span {header}
+			hr
+		+if('svelte')
+			svelte:component(this!='{component}' code!=`{code}`)
 			+else()
-				HighlightAuto('{code}')
+			svelte:component(this!='{component}' code!=`{code}` language!="{language}")
 		+if('footer')
 			hr
 			.footer
+				+if('showIcon == "bottom"')
+					.icon
+						Icon(icon!="{icon}")
 				span {footer}
 </template>
 
 <style lang="scss">
 	@use '../../../../styles/media' as *;
-	:global(.hljs) {
-		background: transparent !important;
-	}
 	.codeblock {
 		border-radius: 0.5rem;
 
@@ -55,18 +77,27 @@
 
 		white-space: pre-wrap;
 
-		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
 
 		hr {
 			color: var(--light-b);
 			margin: 0;
 		}
 
-		.footer {
-			padding: 1rem;
+		.footer,
+		.header {
+			padding: 0.75rem;
+
+			align-items: center;
+			display: flex;
 			span {
-				color: var(--dark-b);
+				color: var(--dark-d);
 				font-size: 0.75rem;
+			}
+			.icon {
+				margin-right: 0.5rem;
+
+				transform: scale(1.5);
 			}
 		}
 	}

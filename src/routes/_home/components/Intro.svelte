@@ -6,7 +6,7 @@
     .intro-container
         .text
             h1 WELCOME.
-            span I am roaming97, and this is my website. Here you can check my portfolio out which showcases my recent digital art and video production work. I also made a small personal blog where I post about any other projects I'm doing.
+            span I am roaming97, and this is my website. Here you can check my portfolio out which showcases my recent digital art and video production work. I also have a personal blog where I post about any other projects I'm doing.
         .logo
            Logo 
 
@@ -18,7 +18,7 @@
 		width: 100vw;
 
 		padding: 6rem 1rem;
-		margin: 1.5rem 0;
+		margin-top: 4rem;
 
 		background-color: var(--light-a);
 
@@ -59,7 +59,7 @@
 					text-align: left;
 				}
 				span {
-					font-size: clamp(0.75rem, 1.5rem, 2rem);
+					font-size: clamp(0.75rem, 1.25rem, 2rem);
 				}
 			}
 		}

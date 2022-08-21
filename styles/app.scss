@@ -36,6 +36,7 @@
 $breakpoints: (
 	desktop: 1024px
 );
+
 :root {
 	--font-primary: 'work-sans', sans-serif;
 	--font-mono: 'jetbrains-mono', monospace;
@@ -54,18 +55,23 @@ $breakpoints: (
 }
 
 body {
+	overflow-x: hidden;
 	min-height: 100vh;
 	margin: 0;
+
 	background-color: var(--light-a);
+
 	transition: color 0.5s background 0.3s background-color 0.3s;
-	overflow-x: hidden;
 }
 
 #svelte {
-	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	display: flex;
+
 	overflow-x: hidden;
+	min-height: 100vh;
+
+	font-display: swap;
 }
 
 h1,

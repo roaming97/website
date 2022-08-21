@@ -11,9 +11,6 @@ export default {
 		dashes: 'oldschool'
 	},
 	remarkPlugins: [remarkAbbr],
-	layout: {
-		_: './src/routes/_bloglayout.svelte'
-	},
 	rehypePlugins: [
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: 'wrap' }],

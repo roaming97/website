@@ -1,35 +1,16 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-	export const prerender = true
-
-	export const load: Load = async () => {
-		const images = import.meta.glob('../../static/artwork/*.webp', { as: 'raw' })
-		let artwork: URL[] = []
-		for (const i in images) {
-			const u = new URL(i, import.meta.url)
-			if (!cardExclude.includes(u.href.split('/').pop().split('.')[0])) artwork.push(u)
-		}
-		const names = artwork.map((a) => a.href.split('/').pop())
-		return {
-			props: {
-				artwork,
-				names
-			}
-		}
-	}
-</script>
-
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { OnMount, screenW, screenH } from 'fractils'
 	import { quintOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
-	import { linkSVGsAlt, artworkGallery, pricesA, pricesB, bio, cardExclude } from '$lib/data'
-	import { Canvas } from './_intro'
+	import { linkSVGsAlt, artworkGallery, pricesA, pricesB, bio } from '$lib/data'
+	import { Canvas } from '../_intro'
 	import { Logo, IconSVG } from '$lib/ui'
+	import type { PageData } from './$types'
 
-	export let artwork: URL[]
-	export let names: string[]
+	export let data: PageData
+	$: artwork = data.artwork
+	$: names = data.names
 	$: image = `artwork/${names[Math.round(Math.random() * artwork.length)]}`
 </script>
 
@@ -73,7 +54,7 @@
 </template>
 
 <style lang="scss">
-	@use './../../styles/media' as *;
+	@use '../../../styles/media' as *;
 	.card-container {
 		justify-content: center;
 		flex-direction: column;

@@ -1,8 +1,15 @@
-<script>
+<script lang="ts">
 	import { Logo } from '$lib/ui'
 	import { quartOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
-	export let title, date_created, date_modified
+	import type { PageData } from './$types'
+
+	export let data: PageData
+
+	$: title = data.title
+	$: date_created = data.date_created
+	$: date_modified = data.date_modified
+	$: content = data.content
 </script>
 
 <template lang="pug">
@@ -19,7 +26,7 @@
 					p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:0.75rem;opacity:0.75;font-style:italic;") Last edited: {new Date(Date.parse(date_modified)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
 		hr
 		.content(in:fly!='{{x: -10, delay: 250, duration: 500, easing: quartOut}}')
-			slot
+			svelte:component(this!='{content}')
 
 </template>
 

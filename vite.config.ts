@@ -8,6 +8,13 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 
 export default defineConfig({
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: undefined
+			}
+		}
+	},
 	mode: process.env.MODE || 'production',
 	css: {
 		postcss: {

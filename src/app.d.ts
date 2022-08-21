@@ -30,13 +30,11 @@ type Price = {
 	price: number
 	description?: string
 }
+
 type Post = {
-	name: string
-	meta: {
-		title: string
-		date_created: Date
-		date_modified?: Date
-	}
+	title: string
+	date_created: Date
+	date_modified?: Date
 }
 
 type ViewItem = {

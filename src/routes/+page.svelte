@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true
-</script>
-
 <script lang="ts">
 	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
 	import { fly } from 'svelte/transition'
@@ -12,8 +8,9 @@
 
 	import { Waves, WaveDown, Gallery, Intro, Dev } from './_home'
 
-	const roles = ['Visual Artist', 'Graphic Designer', 'Photographer', 'Developer']
-	const path_list = ['dr2021.webp', '193.webp', 'flower.webp', 'code.webp']
+	const roles = ['Visual Artist', 'Designer', 'Photographer', 'Developer']
+	const image_list = ['dr2021', '193', 'flower', 'code']
+	const path_list = image_list.map((p) => `/banner/${p}.webp`)
 
 	$: index = 0
 	$: unit = $mobile ? 'rem' : 'vw'
@@ -23,7 +20,7 @@
 	let interval: NodeJS.Timeout
 
 	let fading = false
-	let opacity = 0.25
+	let opacity = 0.4
 	const fadeImage = () => {
 		if (fading) return
 		fading = true
@@ -32,7 +29,7 @@
 		setTimeout(() => {
 			index = (index + 1) % roles.length
 			setTimeout(() => {
-				opacity = 0.25
+				opacity = 0.4
 				fading = false
 			}, 1)
 		}, 300)
@@ -49,8 +46,13 @@
 
 <template lang="pug">
 
+	svelte:head
+		+each('path_list as image')
+			link(rel="preload" as="image" href!="{image}")
+
 	.hello
-		.banner(style='background-image: url(/banner/{current_image}); opacity:{opacity}')
+		.opacity(style="opacity: {opacity}")
+			img(loading="lazy" src!="{current_image}" alt="banner")
 		.hello-content
 			h1(style="font-size: clamp(4rem, 12vw, 6rem); font-weight: 100") roaming97
 			.roles(style="transform: translateY(-{index*off}{unit})")
@@ -74,20 +76,21 @@
 	.hello {
 		padding: 6rem 0;
 	}
-	.banner {
-		height: 100vh;
-		width: 100%;
+	.opacity {
+		justify-content: center;
+		align-items: center;
+		display: flex;
 
 		position: absolute;
 		top: 0;
 
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-
-		filter: blur(8px);
-
 		transition: opacity 150ms;
+		img {
+			height: 100vh;
+			width: 100vw;
+
+			filter: blur(16px);
+		}
 	}
 	.hello-content {
 		flex-direction: column;
@@ -140,6 +143,14 @@
 	@include media('>desktop') {
 		.content {
 			margin: 0;
+		}
+		.opacity {
+			img {
+				height: auto;
+				width: 100vw;
+
+				filter: blur(8px);
+			}
 		}
 		.hello-content {
 			justify-content: center;

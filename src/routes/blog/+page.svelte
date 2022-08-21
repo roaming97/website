@@ -1,43 +1,9 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-
-	export const load: Load = async () => {
-		const files = import.meta.glob('./blog/*.svx')
-		const promises: Promise<Post>[] = []
-		const getPost = async (post: string) =>
-			new Promise<Post>(async (res) => {
-				try {
-					const file = await files[post]()
-					res({
-						name: files[post].name,
-						//@ts-ignore
-						meta: file.metadata
-					})
-				} catch (err) {
-					console.error(err)
-				}
-			})
-
-		for (const post in files) promises.push(getPost(post))
-		const posts = await Promise.all(promises).then((posts) => {
-			return posts.sort((a, b) => {
-				return a.meta.date_created > b.meta.date_created ? -1 : 1
-			})
-		})
-
-		return {
-			props: {
-				posts
-			}
-		}
-	}
-</script>
-
 <script lang="ts">
+	import type { PageData } from './$types'
 	import { opacity } from '$lib/stores'
 	import { goto, prefetch } from '$app/navigation'
 
-	export let posts: Post[]
+	export let data: PageData
 	let navigating = false
 
 	const navigate = (path: string) => {
@@ -57,6 +23,8 @@
 			}, 1)
 		}, 250)
 	}
+
+	$: posts = data.posts
 </script>
 
 <template lang="pug">
@@ -74,14 +42,14 @@
 			+each('posts as post')
 				.a(
 					role="link"
-					on:click!="{() => navigate(post.name.split('./')[1].split('.')[0])}")
+					on:click!="{() => navigate(`blog/${post.name.split('./')[1].split('.')[0]}`)}")
 					li
 						h2 {post.meta.title}
 						p {new Date(Date.parse(post.meta.date_created) - 1).toLocaleDateString('en-US')}
 </template>
 
 <style lang="scss">
-	@use '../../styles/media' as *;
+	@use '../../../styles/media' as *;
 	.blog-container {
 		padding: 0 1rem;
 		margin: 2rem 0;

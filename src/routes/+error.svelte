@@ -1,31 +1,18 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-	export const load: Load = ({ error, status }) => {
-		return {
-			props: {
-				status,
-				error
-			}
-		}
-	}
-</script>
-
 <script lang="ts">
 	import { CodeBlock } from '$lib/ui'
 	import { dev } from '$app/env'
-	export let status: string
-	export let error: Error
+	import { page } from '$app/stores'
 
-	if (dev) console.error(error)
+	if (dev) console.error($page.error.stack)
 </script>
 
 <template lang="pug">
-	h1 {status}
-	CodeBlock(code!='{error.message}' lang="plaintext")
+	h1 {$page.status}
+	CodeBlock(code!='{$page.error.message}' lang="plaintext")
 
-	+if('dev')
+	+if('dev && $page.error.stack')
 		.error
-			pre {error.stack}
+			pre {$page.error.stack}
 </template>
 
 <style lang="scss">
@@ -34,14 +21,17 @@
 		background-color: rgb(145, 15, 26) !important;
 	}
 	h1 {
-		margin: 2rem 0;
+		margin: 1rem 0;
 		font-size: 40vw;
 		font-weight: 100;
 		color: rgb(228, 48, 63);
+		text-shadow: 60px 0 80px #f05, -60px 0 80px #f20;
 	}
 	pre {
 		color: var(--dark-a);
 		opacity: 0.75;
+
+		font-size: 0.8rem;
 
 		white-space: pre-wrap;
 	}

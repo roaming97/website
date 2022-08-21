@@ -5,7 +5,7 @@
 	import { creativeSkills, softwareSkills, devSkills, statsArray, bio } from '$lib/data'
 	import { quintOut } from 'svelte/easing'
 	import { Logo, Stat } from '$lib/ui'
-	import { ClientList, ProgressBar } from './_about'
+	import { ClientList, ProgressBar } from '../_about'
 
 	let visible: boolean
 	let options = { threshold: 0.7, once: true }
@@ -66,7 +66,7 @@
 </template>
 
 <style lang="scss">
-	@use '../../styles/media' as *;
+	@use '../../../styles/media' as *;
 	.section {
 		background-color: rgba(var(--light-d-rgb), 0.1);
 		flex-direction: column;

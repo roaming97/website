@@ -8,7 +8,7 @@
 	svelte:head
 		link(rel="prefetch" as="image" href!="{picture}" crossorigin="anonymous")
 
-	a(href!="{link}" target="_blank") 
+	a(href!="{link}") 
 		.tile(
 			style='background-image: url({picture}); background-size: cover; background-position: center;'
 			)
