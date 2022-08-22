@@ -52,7 +52,7 @@
 
 	.hello
 		.opacity(style="opacity: {opacity}")
-			img(loading="lazy" src!="{current_image}" alt="banner")
+			img(src!="{current_image}" alt="banner")
 		.hello-content
 			h1(style="font-size: clamp(4rem, 12vw, 6rem); font-weight: 100") roaming97
 			.roles(style="transform: translateY(-{index*off}{unit})")

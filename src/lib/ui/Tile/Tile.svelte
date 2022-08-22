@@ -47,6 +47,8 @@
 
 		transition: cubic-bezier(0.33, 1, 0.68, 1) 300ms;
 
+		background-color: var(--light-b);
+
 		filter: grayscale(50%) brightness(0.2);
 		//box-shadow: 0 0 8px black;
 

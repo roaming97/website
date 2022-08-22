@@ -23,7 +23,7 @@
 			.paragraphs
 				p {bio}
 			.logo
-				Logo
+				Logo(animate!='{false}')
 		hr(style="width:80vw;margin: 1rem auto;color:var(--light-d);")
 		.section-content
 				+each("statsArray as s, i")
