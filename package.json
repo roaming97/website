@@ -27,7 +27,7 @@
         "@iconify/svelte": "^2.2.1",
         "@sveltejs/adapter-vercel": "next",
         "@sveltejs/kit": "1.0.0-next.418",
-        "@types/node": "^18.7.9",
+        "@types/node": "^18.7.11",
         "@types/remark-abbr": "^1.4.1",
         "autoprefixer": "^10.4.8",
         "cssnano": "^5.1.13",

@@ -7,8 +7,7 @@ export const excludedURLs = ['/intro']
 /**
  * Parses the url pathname and returns just the capitalized page title.
  * @param path - The current url pathname.
- * @example
- * ```svelte
+ * @example ```svelte
  * <svelte:head>
  *   <title> {pageTitle($page.url.pathname)} <title>
  * </svelte:head>
@@ -361,6 +360,11 @@ export const softwareSkills: ProgressInterface[] = [
 		percent: 70
 	},
 	{
+		caption: 'Figma',
+		picture: '/icons/figma.svg',
+		percent: 60
+	},
+	{
 		caption: 'Illustrator',
 		picture: '/icons/illustrator.svg',
 		percent: 50
@@ -389,53 +393,39 @@ export const softwareSkills: ProgressInterface[] = [
 export const devSkills: ProgressInterface[] = [
 	{
 		caption: 'Python',
-		picture: '/icons/python.svg',
-		percent: 85
+		picture: '/icons/python.svg'
 	},
 	{
 		caption: 'HTML',
-		picture: '/icons/html.svg',
-		percent: 80
+		picture: '/icons/html.svg'
 	},
 	{
 		caption: 'CSS',
-		picture: '/icons/css.svg',
-		percent: 75
+		picture: '/icons/css.svg'
 	},
 	{
 		caption: 'Git',
-		picture: '/icons/git.svg',
-		percent: 60
+		picture: '/icons/git.svg'
 	},
 	{
 		caption: 'TypeScript',
-		picture: '/icons/typescript.svg',
-		percent: 60
+		picture: '/icons/typescript.svg'
 	},
 	{
 		caption: 'JavaScript',
-		picture: '/icons/javascript.svg',
-		percent: 55
+		picture: '/icons/javascript.svg'
 	},
 	{
 		caption: 'Svelte',
-		picture: '/icons/svelte.svg',
-		percent: 45
+		picture: '/icons/svelte.svg'
 	},
 	{
 		caption: 'Vue',
-		picture: '/icons/vue.svg',
-		percent: 45
+		picture: '/icons/vue.svg'
 	},
 	{
 		caption: 'Flask',
-		picture: '/icons/flask.svg',
-		percent: 45
-	},
-	{
-		caption: 'Figma',
-		picture: '/icons/figma.svg',
-		percent: 40
+		picture: '/icons/flask.svg'
 	}
 ]
 

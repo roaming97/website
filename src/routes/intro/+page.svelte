@@ -25,7 +25,7 @@
 					h1 roaming97
 					.links
 						+each('linkSVGsAlt as l, i')
-							a(href!='{l.link}' target='_blank')
+							a(href!='{l.link}' target='_blank') {l.link}
 								.tr(in:fly!="{{y: 20, duration: 500, delay: 500+i*100}}")
 									IconSVG(svg!='{l}' id!="{i}") 
 				.content
@@ -100,6 +100,12 @@
 				}
 				background: var(--brand-b);
 
+				text-decoration: none;
+				line-height: 0;
+				font-size: 0;
+
+				color: transparent;
+
 				height: 4rem;
 				width: 4rem;
 
@@ -142,7 +148,7 @@
 			font-family: var(--font-mono);
 			text-decoration: none;
 
-			color: var(--dark-d);
+			color: var(--dark-b);
 
 			transition: 200ms;
 			&:hover {

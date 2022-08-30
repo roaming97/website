@@ -40,21 +40,12 @@
 		}
 
 		.desc {
-			font-size: 0.75rem;
+			font-size: 0.8rem;
 
 			margin: 0 auto;
 			width: 75%;
 
-			color: var(--dark-d);
+			color: var(--dark-c);
 		}
 	}
-	/*
-	@include media('>desktop') {
-		.price-container {
-			h1 {
-				font-size: 7rem;
-			}
-		}
-	}
-	*/
 </style>

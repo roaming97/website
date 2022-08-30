@@ -32,36 +32,29 @@
 		use:visibility!='{options}'
 		on:f-change!='{handleChange}'
 	)
-		.section
-			h1 Clients
-			p(style="color:var(--dark-d);font-size:0.75rem;") (Some of them)
-			+if('visible')
+		+if('visible')
+			.section
+				h1 Clients
+				p(style="color:var(--dark-d);font-size:0.75rem;") (Some of them)
 				.client-list-transition(in:fly!='{{y: 50, duration: 500, easing: quintOut}}')
 					ClientList
-	.visibleControl(
-		use:visibility!='{options}'
-		on:f-change!='{handleChange}'
-	)
 			.section
 				p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
 				h2 Creative skills
-				+if('visible')
-					.bars
-						+each("creativeSkills as s, i")
-							ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i}')
+				.bars
+					+each("creativeSkills as s, i")
+						ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i}')
 				hr(style="width:80vw;color:var(--light-d)")
 				h2 Creative software experience 
-				+if('visible')
-					.bars
-						+each("softwareSkills as s, i")
-							ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i+10}')
+				.bars
+					+each("softwareSkills as s, i")
+						ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i+10}')
 				hr(style="width:80vw;color:var(--light-d)")
 				h2 Developing experience
-				+if('visible')
-					.icons
-						+each("devSkills as s, i")
-							.icon(in:fly!="{{y: 40, duration: 500, easing: quintOut, delay: i*200}}" )
-								Icon(src!='{s.picture}', alt!="{s.caption}", tipindex!=`{i}` tip!="{s.caption}" '--size'="5rem") 
+				.icons
+					+each("devSkills as s, i")
+						.icon(in:fly!="{{y: 40, duration: 500, easing: quintOut, delay: i*200}}" )
+							Icon(src!='{s.picture}', alt!="{s.caption}", tipindex!=`{i}` tip!="{s.caption}" '--size'="5rem") 
 
 </template>
 

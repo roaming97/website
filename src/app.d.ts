@@ -10,7 +10,7 @@ interface Anchor {
 interface ProgressInterface extends Omit<Anchor, 'link'> {
 	tooltipIndex?: number
 	tooltip?: string
-	percent: number
+	percent?: number
 }
 
 type SVGAnchor = {

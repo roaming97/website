@@ -33,7 +33,7 @@
 			.links
 				+each('linkSVGs as l, i')
 					Tooltip(content!='{l.caption}' i!="{i}")
-						a(href!='{l.link}' target='_blank')
+						a(href!='{l.link}' target='_blank') {l.link}
 							.tr(in:fly!="{{y: 20, duration: 400, easing: quintOut, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
 								IconSVG(svg!='{l}' ignoreColor=true)
 			p
@@ -78,6 +78,13 @@
 
 		margin: 1rem 0;
 		padding: 1rem 0;
+	}
+	a {
+		text-decoration: none;
+		line-height: 0;
+		font-size: 0;
+
+		color: transparent;
 	}
 	.links {
 		justify-content: center;
