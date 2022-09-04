@@ -16,7 +16,7 @@
 
 	.visibleControl(
 		use:visibility!='{options}'
-		on:f-change!='{handleChange}'
+		on:v-change!='{handleChange}'
 	)
 		+if('visible')
 			a(href!="{link}" in:fade!='{{duration: 1000, easing: quintOut}}') 

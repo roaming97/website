@@ -6,9 +6,9 @@
 	import { ViewControls } from '../../_view'
 	import { quintOut, backOut } from 'svelte/easing'
 	import { fade, fly } from 'svelte/transition'
-	import type { PageData } from './$types'
+	import type { PageServerData } from './$types'
 
-	export let data: PageData
+	export let data: PageServerData
 
 	let visible: boolean
 	let options = { threshold: 0.75, once: true }
@@ -37,7 +37,7 @@
 			hr
 			.visibleControl(
 				use:visibility!='{options}'
-				on:f-change!='{handleChange}'
+				on:v-change!='{handleChange}'
 			)
 				+if('visible')
 					.description

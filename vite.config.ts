@@ -1,5 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite'
-import { defineConfig } from 'vite'
+import { defineConfig, type PluginOption } from 'vite'
 
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
@@ -30,7 +30,7 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [sveltekit()],
+	plugins: [sveltekit() as PluginOption[]],
 	server: {
 		port: 3000,
 		fs: {

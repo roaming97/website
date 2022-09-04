@@ -30,7 +30,7 @@
 					Stat(num!='{s.num}', stat!="{s.name}", suffix!=`{s.suffix}`, delay!='{i*100}')
 	.visibleControl(
 		use:visibility!='{options}'
-		on:f-change!='{handleChange}'
+		on:v-change!='{handleChange}'
 	)
 		+if('visible')
 			.section

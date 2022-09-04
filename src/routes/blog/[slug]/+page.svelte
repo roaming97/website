@@ -5,28 +5,24 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
-
-	$: title = data.title
-	$: date_created = data.date_created
-	$: date_modified = data.date_modified
-	$: content = data.content
+	$: post = { ...data }
 </script>
 
 <template lang="pug">
 
 	.article-container
-		h1(in:fly!='{{x: -10, duration: 500, easing: quartOut}}').article-title {title}
+		h1(in:fly!='{{x: -10, duration: 500, easing: quartOut}}').article-title {post.title}
 		.article-info
 			.logo
 				Logo(animate!='{false}')
 			.date
 				p by roaming97
-				p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:1rem;opacity:0.75;font-style:italic;") {new Date(Date.parse(date_created)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
-				+if('date_modified')
-					p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:0.75rem;opacity:0.75;font-style:italic;") Last edited: {new Date(Date.parse(date_modified)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
+				p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:1rem;opacity:0.75;font-style:italic;") {new Date(Date.parse(post.date_created)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
+				+if('post.date_modified')
+					p(in:fly!='{{x: -10, delay: 100, duration: 500, easing: quartOut}}' style="font-size:0.75rem;opacity:0.75;font-style:italic;") Last edited: {new Date(Date.parse(post.date_modified)).toLocaleDateString('en-US', {timeZone: 'Etc/GMT+5'})}
 		hr
 		.content(in:fly!='{{x: -10, delay: 250, duration: 500, easing: quartOut}}')
-			svelte:component(this!='{content}')
+			svelte:component(this!='{post.content}')
 
 </template>
 

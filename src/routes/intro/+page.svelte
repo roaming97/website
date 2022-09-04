@@ -9,9 +9,8 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
-	$: artwork = data.artwork
-	$: names = data.names
-	$: image = `artwork/${names[Math.round(Math.random() * artwork.length)]}`
+	$: meta = { ...data }
+	$: image = `artwork/${meta.names[Math.round(Math.random() * meta.artwork.length)]}`
 </script>
 
 <template lang="pug">

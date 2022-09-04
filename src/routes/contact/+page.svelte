@@ -55,7 +55,7 @@
 			Samples(samples!='{artworkList}')
 			.visibleControl(
 				use:visibility!='{options}' 
-				on:f-change!='{handleChange}'
+				on:v-change!='{handleChange}'
 			)
 				+if('visible')
 					.prices(style="--cols: {columns}")

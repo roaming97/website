@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { CodeBlock } from '$lib/ui'
-	import { dev } from '$app/env'
+	import { dev } from '$app/environment'
 	import { page } from '$app/stores'
 
 	if (dev) console.error($page.error.stack)

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PageData } from './$types'
+	import type { PageServerData } from './$types'
 	import { opacity } from '$lib/stores'
 	import { goto, prefetch } from '$app/navigation'
 
-	export let data: PageData
+	export let data: PageServerData
 	let navigating = false
 
 	const navigate = (path: string) => {
@@ -42,10 +42,10 @@
 			+each('posts as post')
 				.a(
 					role="link"
-					on:click!="{() => navigate(`blog/${post.name.split('./')[1].split('.')[0]}`)}")
+					on:click!="{() => navigate(`blog/${post.path}`)}")
 					li
-						h2 {post.meta.title}
-						p {new Date(Date.parse(post.meta.date_created) - 1).toLocaleDateString('en-US')}
+						h2 {post.title}
+						p {new Date(Date.parse(post.date_created) - 1).toLocaleDateString('en-US')}
 </template>
 
 <style lang="scss">
