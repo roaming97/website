@@ -104,6 +104,11 @@ export const artworkGallery: Anchor[] = [
 ]
 export const videoGallery: Anchor[] = [
 	{
+		caption: 'Rezonator',
+		picture: './videothumbs/rezonator.webp',
+		link: 'https://twitter.com/XynthAudio/status/1583966421712633857'
+	},
+	{
 		caption: 'Demo Reel 2021',
 		picture: './videothumbs/dr2021.webp',
 		link: 'https://vimeo.com/659859916'
@@ -236,11 +241,11 @@ export const devGallery: Anchor[] = [
 
 export const statsArray: StatType[] = [
 	{
-		num: Math.round((Date.now().valueOf() - new Date('2016/05/23').valueOf()) / year),
+		num: Math.floor((Date.now() - new Date('2016/05/23').valueOf()) / year),
 		name: 'Years'
 	},
 	{
-		num: 18,
+		num: 20,
 		name: 'Clients'
 	},
 	{
@@ -249,7 +254,7 @@ export const statsArray: StatType[] = [
 		suffix: '+'
 	},
 	{
-		num: 57,
+		num: 58,
 		name: 'Videos'
 	}
 ]
@@ -259,6 +264,12 @@ export const clientArray: Anchor[] = [
 		picture: '/clients/04.jpg',
 		link: 'https://solo.to/04collective',
 		description: 'Music record label'
+	},
+	{
+		caption: 'Xynth Audio',
+		picture: '/clients/xynth.webp',
+		link: 'https://solo.to/xynth',
+		description: 'Audio plugin company'
 	},
 	{
 		caption: 'MSKD Sounds',
