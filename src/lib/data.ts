@@ -27,6 +27,11 @@ different styles of design and art when creating.`
 
 export const artworkGallery: Anchor[] = [
 	{
+		caption: 'Trackway',
+		picture: '/artwork/trackway.webp',
+		link: '/view/386'
+	},
+	{
 		caption: 'Myopia',
 		picture: '/artwork/myopia.webp',
 		link: '/view/385'
@@ -309,14 +314,14 @@ export const creativeSkills: ProgressInterface[] = [
 		percent: 95
 	},
 	{
-		caption: 'Image_Editing',
-		picture: '/icons/image.svg',
+		caption: '_3D',
+		picture: '/icons/cube.svg',
 		percent: 85
 	},
 	{
-		caption: '_3D',
-		picture: '/icons/cube.svg',
-		percent: 80
+		caption: 'Image_Editing',
+		picture: '/icons/image.svg',
+		percent: 85
 	},
 	{
 		caption: 'Animation⁄Motion_Graphics',
@@ -373,7 +378,7 @@ export const softwareSkills: ProgressInterface[] = [
 	{
 		caption: 'Figma',
 		picture: '/icons/figma.svg',
-		percent: 60
+		percent: 70
 	},
 	{
 		caption: 'Illustrator',
@@ -393,7 +398,7 @@ export const softwareSkills: ProgressInterface[] = [
 	{
 		caption: 'Lightroom',
 		picture: '/icons/lightroom.svg',
-		percent: 40
+		percent: 30
 	},
 	{
 		caption: 'Flash⁄Animate',
@@ -415,10 +420,6 @@ export const devSkills: ProgressInterface[] = [
 		picture: '/icons/css.svg'
 	},
 	{
-		caption: 'Git',
-		picture: '/icons/git.svg'
-	},
-	{
 		caption: 'TypeScript',
 		picture: '/icons/typescript.svg'
 	},
@@ -427,8 +428,24 @@ export const devSkills: ProgressInterface[] = [
 		picture: '/icons/javascript.svg'
 	},
 	{
+		caption: 'Rust',
+		picture: '/icons/rust.svg'
+	},
+	{
+		caption: 'Node',
+		picture: '/icons/node.svg'
+	},
+	{
 		caption: 'Svelte',
 		picture: '/icons/svelte.svg'
+	},
+	{
+		caption: 'Pug',
+		picture: '/icons/pug.svg'
+	},
+	{
+		caption: 'Sass',
+		picture: '/icons/sass.svg'
 	},
 	{
 		caption: 'Vue',
@@ -437,6 +454,10 @@ export const devSkills: ProgressInterface[] = [
 	{
 		caption: 'Flask',
 		picture: '/icons/flask.svg'
+	},
+	{
+		caption: 'Git',
+		picture: '/icons/git.svg'
 	}
 ]
 
@@ -464,6 +485,15 @@ export const linkSVGs: SVGAnchor[] = [
 		viewY: -48,
 		d: 'M512 103c-2 50-37 118-104 205-70 90-129 135-177 135-30 0-55-27-76-82l-41-152c-16-55-32-83-50-83-4 0-17 8-40 24L0 119l75-66c33-29 59-45 76-46 39-4 64 23 73 81 10 63 17 103 21 118 11 52 24 78 38 78 11 0 27-17 48-51 22-34 33-59 35-77 3-29-9-44-35-44-12 0-25 3-38 8C318 38 367-2 437 1c53 1 78 35 75 102Z',
 		caption: 'Vimeo'
+	},
+	{
+		link: 'https://github.com/roaming97',
+		color: '#0d1117',
+		size: 128,
+		viewW: 120.78,
+		viewH: 117.79,
+		d: 'M60.39 0A60.4 60.4 0 0 0 41.3 117.69c3.02.56 4.13-1.31 4.13-2.91 0-1.44-.06-6.2-.08-11.24-16.8 3.65-20.34-7.12-20.34-7.12-2.75-6.98-6.7-8.84-6.7-8.84-5.48-3.75.41-3.67.41-3.67 6.06.43 9.26 6.22 9.26 6.22 5.39 9.23 14.13 6.56 17.57 5.02.54-3.9 2.11-6.57 3.83-8.08-13.41-1.53-27.51-6.71-27.51-29.84a23.4 23.4 0 0 1 6.22-16.21c-.63-1.52-2.69-7.66.58-15.98 0 0 5.07-1.62 16.61 6.19a57.68 57.68 0 0 1 30.25 0c11.53-7.81 16.59-6.19 16.59-6.19 3.29 8.32 1.22 14.46.59 15.98a23.34 23.34 0 0 1 6.21 16.21c0 23.19-14.13 28.3-27.57 29.8 2.17 1.87 4.1 5.55 4.1 11.18 0 8.08-.07 14.58-.07 16.57 0 1.61 1.09 3.49 4.15 2.9A60.39 60.39 0 0 0 60.39 0Z',
+		caption: 'GitHub'
 	}
 ]
 export const linkSVGColors = linkSVGs.map((i) => i.color)
@@ -2835,6 +2865,11 @@ export const viewData: ViewItem[] = [
 		title: 'Myopia',
 		date: new Date('2022/07/25'),
 		picture: '/artwork/myopia.webp'
+	},
+	{
+		title: 'Trackway',
+		date: new Date('2022/11/05'),
+		picture: '/artwork/trackway.webp'
 	}
 ]
 

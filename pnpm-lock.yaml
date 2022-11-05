@@ -25,7 +25,6 @@ specifiers:
   rehype-slug: ^5.0.1
   remark-abbr: ^1.4.1
   sass: ^1.55.0
-  svelidate: ^3.0.1
   svelte: 3.49.0
   svelte-hamburgers: ^4.0.1
   svelte-highlight: ^6.2.1
@@ -62,7 +61,6 @@ devDependencies:
   rehype-slug: 5.0.1
   remark-abbr: 1.4.1
   sass: 1.55.0
-  svelidate: 3.0.1
   svelte: 3.49.0
   svelte-hamburgers: 4.0.1
   svelte-highlight: 6.2.1
@@ -2747,10 +2745,6 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-    dev: true
-
-  /svelidate/3.0.1:
-    resolution: {integrity: sha512-PH6SEdHE6IFewdRQOH6B9EB97pWbXaUerz7GyD4HNArlew8s5xw/oytTdnDsJr+Xitc4PSEnWALFpSpyQHrfKg==}
     dev: true
 
   /svelte-hamburgers/4.0.1:
