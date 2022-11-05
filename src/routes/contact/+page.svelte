@@ -18,7 +18,7 @@
 	let options = { threshold: 0.6, once: true }
 
 	$: columns = $mobile ? 2 : 3
-	$: artworkList = artworkGallery.slice(2, columns + 2)
+	$: artworkList = [artworkGallery[0], artworkGallery[3], artworkGallery[4]]
 	$: videoList = videoGallery.slice(1, columns + 1)
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
