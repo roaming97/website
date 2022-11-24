@@ -2,12 +2,19 @@
 	export let name: string
 	export let price: number
 	export let description: string
+	export let deal_price: number
 </script>
 
 <template lang="pug">
 	.price-container
 		p {name}
-		h1 ${price}
+		+if('deal_price')
+			h3 
+				|$
+				strike {price}
+			h1 ${deal_price}
+			+else()
+				h1 ${price}
 		+if('description')
 			p.desc {description}
 </template>
@@ -37,6 +44,12 @@
 		h1 {
 			font-family: var(--font-mono);
 			font-size: 5rem;
+		}
+
+		h3 {
+			font-family: var(--font-mono);
+			color: var(--dark-d);
+			font-size: 2rem;
 		}
 
 		.desc {

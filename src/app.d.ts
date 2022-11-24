@@ -29,6 +29,7 @@ type Price = {
 	category: string
 	price: number
 	description?: string
+	deal_price?: number
 }
 
 type Post = {

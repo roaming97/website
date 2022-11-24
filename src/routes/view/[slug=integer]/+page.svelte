@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { thumbnailIsActive } from '$lib/stores'
 	import { page } from '$app/stores'
-	import type { VisibilityEvent } from 'fractils'
-	import { OnMount, visibility } from 'fractils'
 	import { ViewControls } from '../../_view'
 	import { quintOut, backOut } from 'svelte/easing'
 	import { fade, fly } from 'svelte/transition'
@@ -10,55 +8,56 @@
 
 	export let data: PageServerData
 
-	let visible: boolean
-	let options = { threshold: 0.75, once: true }
-
 	$: item = data.item
-	$: parsed_date = item.date.toLocaleDateString('en-US', { timeZone: 'Etc/GMT+5' })
-	$: message = !$thumbnailIsActive ? 'expand' : 'shrink'
 
-	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
+	const date_options: Intl.DateTimeFormatOptions = {
+		weekday: undefined,
+		year: '2-digit',
+		month: '2-digit',
+		day: '2-digit',
+		timeZone: 'Etc/GMT+5'
+	}
+
+	$: parsed_date = item.date.toLocaleDateString('en-US', date_options).replaceAll('/', '.')
+	$: message = $thumbnailIsActive ? 'shrink' : 'expand'
+
 	const toggleActive = () => ($thumbnailIsActive = !$thumbnailIsActive)
 </script>
 
 <template lang="pug">
-	OnMount
-		.view-container
-			.controls(in:fade!='{{duration: 600, delay: 100}}')
-				ViewControls
-			img(
-				in:fade!='{{duration: 500, delay: 200}}'
-				src!="{item.picture}"
-				alt!=`{item.title}`
-				on:click!="{toggleActive}"
-				class:active!='{$thumbnailIsActive}'
-			)
-			p.hint Click on the image to {message}. 
-			hr
-			.visibleControl(
-				use:visibility!='{options}'
-				on:v-change!='{handleChange}'
-			)
-				+if('visible')
-					.description
-						.initial-info
-							h1(in:fly!='{{x: -40, duration: 800, delay: 300, easing: quintOut}}') {item.title}
-							h3(in:fly!='{{x: -40, duration: 800, delay: 600, easing: quintOut}}') {parsed_date}
-						+if('item.collection')
-							.collection
-								p(in:fly!='{{x: 40, duration: 800, delay: 450, easing: quintOut}}') Collection
-								h1(in:fly!='{{x: 40, duration: 800, delay: 750, easing: quintOut}}') {item.collection}
-					+if('item.description')
-						p(in:fly!='{{y: 20, duration: 800, delay: 1000, easing: backOut }}') {item.description}
+	.view-container
+		.controls(in:fade!='{{duration: 600, delay: 100}}')
+			ViewControls
+		img(
+			in:fade!='{{duration: 500, delay: 200}}'
+			src!="{item.picture}"
+			alt!=`{item.title}`
+			on:click!="{toggleActive}"
+			class:active!='{$thumbnailIsActive}'
+		)
+		p.hint Click on the image to {message}.
+		hr
+		.description
+			.initial-info
+				h1 {item.title}
+				h3 {parsed_date}
+			+if('item.collection')
+				.collection
+					p(in:fly!='{{x: 40, duration: 800, delay: 450, easing: quintOut}}') Collection
+					h1(in:fly!='{{x: 40, duration: 800, delay: 750, easing: quintOut}}') {item.collection}
+		+if('item.description')
+			p(in:fly!='{{y: 20, duration: 800, delay: 1000, easing: backOut }}') {item.description}
 </template>
 
 <style lang="scss">
 	@use '../../../../styles/media' as *;
 	.view-container {
+		/*
 		background-color: rgba(var(--light-b-rgb), 0.3);
 		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);
-
 		border-radius: 24px;
+		*/
+
 		padding: 2.5rem;
 		margin: 1rem;
 
@@ -81,11 +80,6 @@
 			margin: 0.5rem auto;
 			cursor: pointer;
 		}
-		hr {
-			background-color: var(--light-d);
-
-			width: 100%;
-		}
 		p {
 			margin: 1.5rem 0;
 			font-size: 1rem;
@@ -106,6 +100,10 @@
 			}
 		}
 	}
+	hr {
+		color: var(--dark-b);
+		width: 100%;
+	}
 	@include media('>desktop') {
 		.view-container {
 			margin: 1rem auto;
@@ -118,9 +116,6 @@
 			img {
 				padding: 1rem;
 				width: 50%;
-			}
-			hr {
-				width: 100%;
 			}
 			p {
 				font-size: 1rem;

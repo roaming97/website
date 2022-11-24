@@ -537,22 +537,26 @@ export const pricesA: Price[] = [
 	},
 	{
 		category: 'Artwork + Music Video',
-		price: 100
+		price: 100,
+		deal_price: 50
 	},
 	{
 		category: 'Artwork + Short',
-		price: 65
+		price: 60,
+		deal_price: 30
 	}
 ]
 export const pricesB: Price[] = [
 	{
 		category: 'Artwork',
 		price: 50,
+		deal_price: 25,
 		description: 'Cover art, promotional material, etc.'
 	},
 	{
 		category: 'Express',
 		price: 70,
+		deal_price: 35,
 		description: 'For deadlines shorter than a week.'
 	}
 ]

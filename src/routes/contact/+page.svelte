@@ -18,7 +18,7 @@
 	let options = { threshold: 0.6, once: true }
 
 	$: columns = $mobile ? 2 : 3
-	$: artworkList = [artworkGallery[0], artworkGallery[3], artworkGallery[4]]
+	$: artworkList = artworkGallery.slice(2, columns + 2)
 	$: videoList = videoGallery.slice(1, columns + 1)
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
@@ -42,6 +42,13 @@
 				| roaming98a@gmail.com
 	.section
 		h2 Commissions pricing
+		h3.callout 
+			b Black Friday 
+			| sale! 
+			b 50% off 
+			| in all artwork tiers and bundles! Lasting 
+			b November 24-28
+			| .
 		p(style="color:var(--dark-d)") All prices are in USD.
 		.section-content.prices-section
 			h3 Video
@@ -49,7 +56,7 @@
 			.prices(style="--cols: {columns}")
 				+each('pricesA as a, i')
 					.price(in:fly!='{{y: -20, duration: 700, easing: quintOut, delay: i*200}}')
-						PricePanel(name!='{a.category}', price!="{a.price}", description!=`{a.description}`)
+						PricePanel(name!='{a.category}', price!="{a.price}", description!=`{a.description}`, deal_price!='{a.deal_price}')
 		.section-content.prices-section
 			h3 Artwork 
 			Samples(samples!='{artworkList}')
@@ -61,7 +68,7 @@
 					.prices(style="--cols: {columns}")
 						+each('pricesB as b, j')
 							.price(in:fly!='{{y: -20, duration: 400, easing: quintOut, delay: j*200}}')
-								PricePanel(name!='{b.category}', price!="{b.price}", description!=`{b.description}`)
+								PricePanel(name!='{b.category}', price!="{b.price}", description!=`{b.description}` deal_price!='{b.deal_price}')
 
 </template>
 
@@ -87,10 +94,10 @@
 		color: transparent;
 	}
 	.links {
+		grid-template-columns: repeat(2, 1fr);
 		justify-content: center;
-		flex-direction: row;
 		align-items: center;
-		display: flex;
+		display: grid;
 
 		width: 100%;
 
@@ -119,6 +126,21 @@
 	.price {
 		height: 100%;
 	}
+	.callout {
+		background-color: var(--always-dark);
+		outline: 2px solid var(--brand-b);
+		box-shadow: 0 0 16px var(--brand-b);
+		color: white;
+
+		font-weight: normal;
+		font-size: 1rem;
+
+		padding: 1rem;
+		margin: 1rem;
+		b {
+			font-weight: 800;
+		}
+	}
 	.section-content {
 		width: 100%;
 		&.prices-section {
@@ -131,10 +153,16 @@
 			padding: 1rem;
 		}
 		.links {
+			grid-template-columns: none;
 			transform: scale(0.8);
+			flex-direction: row;
+			display: flex;
 		}
 		.prices {
 			padding: 0.5rem;
+		}
+		.callout {
+			font-size: 1.25rem;
 		}
 	}
 </style>
