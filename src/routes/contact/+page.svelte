@@ -46,7 +46,7 @@
 			b Black Friday 
 			| sale! 
 			b 50% off 
-			| in all artwork tiers and bundles! Lasting 
+			| on all artwork tiers and bundles! Lasting 
 			b November 24-28
 			| .
 		p(style="color:var(--dark-d)") All prices are in USD.
