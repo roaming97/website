@@ -4,7 +4,7 @@
 	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
-	import { prefetch } from '$app/navigation'
+	import { preloadData } from '$app/navigation'
 
 	import { Waves, WaveDown, Gallery, Intro, Dev } from './_home'
 

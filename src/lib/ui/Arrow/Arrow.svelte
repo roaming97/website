@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { thumbnailIsActive } from '$lib/stores'
-	import { goto, prefetch } from '$app/navigation'
+	import { goto, preloadData } from '$app/navigation'
 	import { opacity } from '$lib/stores'
 	import { spring } from 'svelte/motion'
 
@@ -53,8 +53,8 @@
 	.arrow-container
 		.a(
 			on:click!='{navigate(link)}'
-			on:mouseover!='{prefetch(link)}' 
-			on:focus!='{prefetch(link)}'
+			on:mouseover!='{preloadData(link)}' 
+			on:focus!='{preloadData(link)}'
 			on:mouseenter!="{triggerSpring}"
 			class:disabled)
 			p(style='{style}' class:disabled) {arrow}

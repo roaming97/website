@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { opacity } from '$lib/stores'
 	import { Hamburger } from 'svelte-hamburgers'
-	import { prefetch } from '$app/navigation'
+	import { preloadData } from '$app/navigation'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import Link from './Link.svelte'

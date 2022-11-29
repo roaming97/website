@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	import { goto, prefetch } from '$app/navigation'
+	import { goto, preloadData } from '$app/navigation'
 	import { opacity } from '$lib/stores'
 	import { createEventDispatcher } from 'svelte'
 	import { mobile } from 'fractils'
@@ -39,8 +39,8 @@
 	.a(
 		class:mobile!='{$mobile}'
 		role="link"
-		on:mouseover!='{() => prefetch(path)}'
-		on:focus!='{() => prefetch(path)}'
+		on:mouseover!='{() => preloadData(path)}'
+		on:focus!='{() => preloadData(path)}'
 		on:click!="{() => navigate(path)}"
 	) {title}
 </template>

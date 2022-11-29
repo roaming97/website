@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageServerData } from './$types'
 	import { opacity } from '$lib/stores'
-	import { goto, prefetch } from '$app/navigation'
+	import { goto, preloadData } from '$app/navigation'
 
 	export let data: PageServerData
 	let navigating = false
@@ -9,7 +9,7 @@
 	const navigate = (path: string) => {
 		if (navigating) return
 
-		prefetch(path)
+		preloadData(path)
 		navigating = true
 
 		$opacity = 0
