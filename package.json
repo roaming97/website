@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
-        "@vercel/node": "^2.6.4"
+        "@vercel/node": "^2.7.0"
     },
     "devDependencies": {
         "@iconify/svelte": "^2.2.1",

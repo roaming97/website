@@ -42,13 +42,6 @@
 				| roaming98a@gmail.com
 	.section
 		h2 Commissions pricing
-		h3.callout 
-			b Black Friday 
-			| sale! 
-			b 50% off 
-			| on all artwork tiers and bundles! Lasting 
-			b November 24-28
-			| .
 		p(style="color:var(--dark-d)") All prices are in USD.
 		.section-content.prices-section
 			h3 Video
@@ -126,6 +119,7 @@
 	.price {
 		height: 100%;
 	}
+	/*
 	.callout {
 		background-color: var(--always-dark);
 		outline: 2px solid var(--brand-b);
@@ -141,6 +135,7 @@
 			font-weight: 800;
 		}
 	}
+	*/
 	.section-content {
 		width: 100%;
 		&.prices-section {
@@ -161,8 +156,10 @@
 		.prices {
 			padding: 0.5rem;
 		}
+		/*
 		.callout {
 			font-size: 1.25rem;
 		}
+		*/
 	}
 </style>
