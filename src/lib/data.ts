@@ -246,7 +246,7 @@ export const devGallery = [
 	},
 	{
 		caption: 'roaming97.com',
-		picture: 'logo.png',
+		picture: 'android-chrome-192x192.png',
 		link: 'https://github.com/roaming97/website',
 		description: 'This website! Initially designed in Vue.js but remade in SvelteKit.'
 	}

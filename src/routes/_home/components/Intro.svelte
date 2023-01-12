@@ -48,7 +48,7 @@
 					span(in:fly!='{{...flyOptions, delay: 400}}') {roles[index][2]}
 		.btns
 			+each('roles as r, i')
-				button(class:current!='{i===index}' on:click!="{() => changePage(i)}" id=`role_page{i+1}`)
+				button(class:current!='{i===index}' on:click!="{() => changePage(i)}" id=`role_page{i+1}` aria-label='Role page {i+1}')
 </template>
 
 <style lang="scss">
