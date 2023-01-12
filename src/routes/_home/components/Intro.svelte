@@ -48,7 +48,7 @@
 					span(in:fly!='{{...flyOptions, delay: 400}}') {roles[index][2]}
 		.btns
 			+each('roles as r, i')
-				button(class:current!='{i===index}' on:click!="{() => changePage(i)}")
+				button(class:current!='{i===index}' on:click!="{() => changePage(i)}" id=`role_page{i+1}`)
 </template>
 
 <style lang="scss">
@@ -99,7 +99,6 @@
 	}
 	.text {
 		text-align: center;
-		// position: absolute;
 		h1 {
 			letter-spacing: normal;
 			font-size: 32px;

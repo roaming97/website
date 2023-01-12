@@ -24,7 +24,7 @@
 					h1 roaming97
 					.links
 						+each('linkSVGsAlt as l, i')
-							a(href!='{l.link}' target='_blank') {l.link}
+							a(href!='{l.link}' target='_blank' rel="noreferrer") {l.link}
 								.tr(in:fly!="{{y: 20, duration: 500, delay: 500+i*100}}")
 									IconSVG(svg!='{l}' id!="{i}") 
 				.content
@@ -32,7 +32,7 @@
 						h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 350}}') Hi!
 						p(style="padding-bottom: 1rem" in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 500}}') {bio.split('.')[0].substr(4)}.
 						h2(in:fly!='{{y: 25, duration: 500, easing: quintOut, delay: 700}}') Commission Info
-						p(style="color:var(--dark-d)" in:fly!='{{y: 25, duration: 750, easing: quintOut, delay: 700}}') All prices are in USD.
+						p(style="color:var(--fg-d)" in:fly!='{{y: 25, duration: 750, easing: quintOut, delay: 700}}') All prices are in USD.
 						.comms
 							.comm-section(in:fly!='{{x: -50, duration: 1000, easing: quintOut, delay: 1000}}')
 								h3 Video
@@ -65,7 +65,7 @@
 		position: relative;
 		display: flex;
 
-		background-color: rgba(var(--light-b-rgb), 0.5);
+		background-color: rgba(var(--bg-b-rgb), 0.5);
 		backdrop-filter: blur(16px);
 		box-shadow: 0px 1.5px 1.7px -4px rgba(0, 0, 0, 0.032),
 			0px 4.7px 5.9px -4px rgba(0, 0, 0, 0.058), 0px 9.5px 13.2px -4px rgba(0, 0, 0, 0.078),
@@ -147,7 +147,7 @@
 			font-family: var(--font-mono);
 			text-decoration: none;
 
-			color: var(--dark-b);
+			color: var(--fg-b);
 
 			transition: 200ms;
 			&:hover {
@@ -155,7 +155,7 @@
 			}
 		}
 		hr {
-			color: var(--dark-d);
+			color: var(--fg-d);
 			width: 90%;
 			height: 0;
 		}

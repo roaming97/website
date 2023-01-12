@@ -13,7 +13,7 @@
 	$: index = 0
 	$: unit = $mobile ? 'rem' : 'vw'
 	$: off = $mobile ? 2.5 : 5.45
-	$: src = $theme === 'light' ? 'logo2022.png' : 'logo2022_dark.png'
+	$: src = $theme === 'light' ? 'logo2022.webp' : 'logo2022_dark.webp'
 	$: ag = artworkGallery.slice(0, 5)
 	$: vg = videoGallery.slice(0, 5)
 
