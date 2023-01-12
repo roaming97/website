@@ -28,7 +28,7 @@
 		text-shadow: 60px 0 80px #f05, -60px 0 80px #f20;
 	}
 	pre {
-		color: var(--dark-a);
+		color: var(--fg-a);
 		opacity: 0.75;
 
 		font-size: 0.8rem;

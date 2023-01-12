@@ -42,7 +42,9 @@
 			+each('posts as post')
 				.a(
 					role="link"
-					on:click!="{() => navigate(`blog/${post.path}`)}")
+					on:click!="{() => navigate(`blog/${post.path}`)}"
+					on:keypress!="{() => {}}"
+					)
 					li
 						h2 {post.title}
 						p {new Date(Date.parse(post.date_created) - 1).toLocaleDateString('en-US')}
@@ -59,7 +61,7 @@
 		display: flex;
 	}
 	li {
-		color: var(--dark-a);
+		color: var(--fg-a);
 		width: 100%;
 
 		flex-direction: column;
@@ -82,10 +84,10 @@
 
 		border-radius: 24px;
 
-		background-color: var(--light-b);
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
-			0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
-			0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+		background-color: var(--bg-a);
+		box-shadow: 0 1px 2px rgba(var(--fg-a-rgb), 0.07), 0 2px 4px rgba(var(--fg-a-rgb), 0.07),
+			0 4px 8px rgba(var(--fg-a-rgb), 0.07), 0 8px 16px rgba(var(--fg-a-rgb), 0.07),
+			0 16px 32px rgba(var(--fg-a-rgb), 0.07), 0 32px 64px rgba(var(--fg-a-rgb), 0.07);
 
 		cursor: pointer;
 
@@ -95,7 +97,7 @@
 		}
 	}
 	.a:hover {
-		background-color: var(--light-c);
+		background-color: var(--bg-b);
 		h2 {
 			color: var(--brand-c);
 		}

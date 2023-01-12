@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+	import { getContext } from 'svelte'
 	import Link from './Link.svelte'
-	export let links = []
 
+	let links: string[][] = getContext('links')
 	let open = false
 </script>
 

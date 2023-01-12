@@ -17,9 +17,9 @@
 	let visible: boolean
 	let options = { threshold: 0.6, once: true }
 
-	$: columns = $mobile ? 2 : 3
-	$: artworkList = [artworkGallery[0], artworkGallery[3], artworkGallery[4]]
-	$: videoList = videoGallery.slice(1, columns + 1)
+	$: columns = $mobile ? 1 : 3
+	$: artworkList = [artworkGallery[0], artworkGallery[3], artworkGallery[4]].slice(0, columns)
+	$: videoList = [videoGallery[0], videoGallery[2], videoGallery[3]].slice(0, columns)
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 </script>
@@ -33,7 +33,7 @@
 			.links
 				+each('linkSVGs as l, i')
 					Tooltip(content!='{l.caption}' i!="{i}")
-						a(href!='{l.link}' target='_blank') {l.link}
+						a(href!='{l.link}' target='_blank' rel="noreferrer") {l.link}
 							.tr(in:fly!="{{y: 20, duration: 400, easing: quintOut, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
 								IconSVG(svg!='{l}' ignoreColor=true)
 			p
@@ -42,7 +42,7 @@
 				| roaming98a@gmail.com
 	.section
 		h2 Commissions pricing
-		p(style="color:var(--dark-d)") All prices are in USD.
+		p(style="color:var(--fg-d); font-weight: normal;") All prices are in USD.
 		.section-content.prices-section
 			h3 Video
 			Samples(samples!='{videoList}')
@@ -74,7 +74,7 @@
 		text-align: center;
 		display: flex;
 
-		background-color: rgba(var(--light-d-rgb), 0.1);
+		background-color: rgba(var(--bg-d-rgb), 0.1);
 
 		margin: 1rem 0;
 		padding: 1rem 0;

@@ -36,7 +36,7 @@
 	$: if (container && instance) instance.setContent(content.split('_').join(' '))
 </script>
 
-<div id={`${content}-${i}`} tabindex="0" style="display: {display};">
+<div id={`${content}-${i}`} tabindex="-1" style="display: {display};">
 	<slot />
 </div>
 
@@ -58,10 +58,10 @@
 
 		outline: 0;
 		border-radius: 4px;
-		color: var(--dark-c);
-		background-color: var(--light-b);
+		color: var(--fg-c);
+		background-color: var(--bg-b);
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		border: 0.25px solid rgba(var(--light-d-rgb), 0.1);
+		border: 0.25px solid rgba(var(--bg-d-rgb), 0.1);
 
 		transition-property: transform, visibility, opacity;
 
@@ -76,7 +76,7 @@
 		left: 0;
 
 		border-width: 8px 8px 0;
-		border-top: 7px solid rgba(var(--light-d-rgb), 0.1);
+		border-top: 7px solid rgba(var(--bg-d-rgb), 0.1);
 
 		transform-origin: center top;
 	}
@@ -88,7 +88,7 @@
 		left: 0;
 
 		border-width: 0 8px 8px;
-		border-bottom: 7px solid rgba(var(--light-d-rgb), 0.1);
+		border-bottom: 7px solid rgba(var(--bg-d-rgb), 0.1);
 
 		transform-origin: center bottom;
 	}
@@ -99,7 +99,7 @@
 		right: -7px;
 
 		border-width: 8px 0 8px 8px;
-		border-left: 7px solid rgba(var(--light-d-rgb), 0.1);
+		border-left: 7px solid rgba(var(--bg-d-rgb), 0.1);
 
 		transform-origin: center left;
 	}
@@ -111,7 +111,7 @@
 
 		border-width: 8px 8px 8px 0;
 		border-right-color: initial;
-		border-right: 7px solid rgba(var(--light-d-rgb), 0.1);
+		border-right: 7px solid rgba(var(--bg-d-rgb), 0.1);
 
 		transform-origin: center right;
 	}
@@ -126,7 +126,7 @@
 		width: 16px;
 		height: 16px;
 
-		color: var(--light-d);
+		color: var(--bg-d);
 	}
 	:global(.tippy-arrow:before) {
 		position: absolute;
@@ -148,16 +148,24 @@
 	:global(.tippy-box[data-animation='shift-away-subtle'][data-state='hidden']) {
 		opacity: 0;
 	}
-	:global(.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='top']) {
+	:global(
+			.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='top']
+		) {
 		transform: translateY(5px);
 	}
-	:global(.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='bottom']) {
+	:global(
+			.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='bottom']
+		) {
 		transform: translateY(-5px);
 	}
-	:global(.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='left']) {
+	:global(
+			.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='left']
+		) {
 		transform: translateX(5px);
 	}
-	:global(.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='right']) {
+	:global(
+			.tippy-box[data-animation='shift-away-subtle'][data-state='hidden'][data-placement^='right']
+		) {
 		transform: translateX(-5px);
 	}
 </style>

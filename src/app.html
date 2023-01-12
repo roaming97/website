@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html theme="%frackit.theme%" lang="en">
 	<head>
 		<!-- General -->
 		<meta charset="utf-8" />
@@ -45,15 +45,12 @@
 	</head>
 
 	<body>
-		<div id="svelte">%sveltekit.body%</div>
+		<div id="svelte" style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
 
 <style>
-	@media (prefers-color-scheme: dark) {
-		html,
-		body {
-			background: var(--light-a);
-		}
+	body {
+		background: var(--bg-a);
 	}
 </style>

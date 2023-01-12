@@ -58,7 +58,7 @@
 		}
 		p {
 			text-transform: capitalize;
-			color: var(--dark-d);
+			color: var(--fg-d);
 		}
 	}
 	@include media('>desktop') {

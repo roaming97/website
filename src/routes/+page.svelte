@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
-	import { mobile } from 'fractils'
+	import { roles, artworkGallery, videoGallery, everydayGallery, pictureGallery } from '$lib/data'
+	import { Button } from '$lib/ui'
+	import { capitalized } from '$lib/utils'
+	import { mobile, theme } from 'fractils'
 	import { fly } from 'svelte/transition'
 	import { onMount, onDestroy } from 'svelte'
 	import { quartInOut } from 'svelte/easing'
@@ -8,14 +10,12 @@
 
 	import { Waves, WaveDown, Gallery, Intro, Dev } from './_home'
 
-	const roles = ['Visual Artist', 'Designer', 'Photographer', 'Developer']
-	const image_list = ['dr2021', '193', 'flower', 'code']
-	const path_list = image_list.map((p) => `/banner/${p}.webp`)
-
 	$: index = 0
 	$: unit = $mobile ? 'rem' : 'vw'
 	$: off = $mobile ? 2.5 : 5.45
-	$: current_image = path_list[index]
+	$: src = $theme === 'light' ? 'logo2022.png' : 'logo2022_dark.png'
+	$: ag = artworkGallery.slice(0, 5)
+	$: vg = videoGallery.slice(0, 5)
 
 	let interval: NodeJS.Timeout
 
@@ -46,28 +46,30 @@
 
 <template lang="pug">
 
-	svelte:head
-		+each('path_list as image')
-			link(rel="preload" as="image" href!="{image}")
-
 	.hello
-		.opacity(style="opacity: {opacity}")
-			img(src!="{current_image}" alt="banner")
+		.banner
+			img(src!="banner/{src}" alt="banner")
 		.hello-content
-			h1(style="font-size: clamp(4rem, 12vw, 6rem); font-weight: 100") roaming97
+			h1 roaming97
 			.roles(style="transform: translateY(-{index*off}{unit})")
 				+each('roles as r, i')
-						h1.curr(class:active='{i === index}') {r}
+						h1.curr(class:active='{i === index}') {capitalized(r[0])}
 
 	.content
 		Intro
 		Waves
 		.actual-content
-			Gallery(title='Artwork', thumbs!="{artworkGallery}")
-			Gallery(title='Videos', thumbs!="{videoGallery}")
-			Gallery(title='Photo', thumbs!="{pictureGallery}")
+			Gallery(title='Artwork' thumbs!="{ag}")
+			+if('ag.length !== artworkGallery.length')
+				.show-more(on:click!='{() => {ag = artworkGallery}}' on:keypress!="{() => {}}")
+					Button(text="Show more")
+			Gallery(title='Videos' thumbs!="{vg}")
+			+if('vg.length !== videoGallery.length')
+				.show-more(on:click!='{() => {vg = videoGallery}}' on:keypress!="{() => {}}")
+					Button(text="Show more")
+			Gallery(title='Photo' thumbs!="{pictureGallery}")
+			Dev
 		WaveDown
-		Dev
 
 </template>
 
@@ -76,27 +78,27 @@
 	.hello {
 		padding: 6rem 0;
 	}
-	.opacity {
+	.banner {
 		align-items: center;
 		display: flex;
 
 		position: absolute;
 		top: 3rem;
-
-		transition: opacity 150ms;
 		img {
 			width: 100vw;
 			height: auto;
-
-			filter: blur(8px);
+			mask-image: radial-gradient(ellipse at center, white, rgba(0, 0, 0, 0.05) 90%);
 		}
 	}
 	.hello-content {
 		flex-direction: column;
 		display: flex;
 
+		padding: 2rem 0;
 		h1 {
-			color: var(--dark-a);
+			color: var(--fg-a);
+			font-size: clamp(4rem, 12vw, 6rem);
+			font-weight: 100;
 		}
 		.curr {
 			opacity: 0;
@@ -130,6 +132,11 @@
 		z-index: 1;
 	}
 	.actual-content {
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		display: flex;
+
 		background: linear-gradient(var(--brand-b), var(--brand-a));
 		margin: 0;
 
@@ -139,8 +146,11 @@
 		z-index: 3;
 	}
 	@include media('>desktop') {
-		.opacity {
+		.banner {
 			top: 0;
+			img {
+				mask-image: radial-gradient(ellipse at right, white, rgba(0, 0, 0, 0.05) 70%);
+			}
 		}
 		.hello-content {
 			justify-content: center;

@@ -40,6 +40,9 @@
 		align-items: center;
 		margin: 1.5rem 0;
 		display: flex;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	.left,
 	.right {

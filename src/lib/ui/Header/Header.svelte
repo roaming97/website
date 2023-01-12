@@ -2,13 +2,14 @@
 	import { ThemeToggle, scrollY } from 'fractils'
 	import Nav from './Nav.svelte'
 	import Menu from './Menu.svelte'
+	import { setContext } from 'svelte'
 
-	const links = [
+	setContext('links', [
 		['/', 'Home'],
 		['/about', 'About'],
 		['/contact', 'Contact'],
 		['/blog', 'Blog']
-	]
+	])
 
 	let headerHeight = '3rem'
 	// 3rem = 48px
@@ -19,10 +20,10 @@
 <template lang="pug">
 
 	header(class:scroll style="--height: {headerHeight};--scroll: {$scrollY}")
-		Menu({links})
+		Menu
 
 		span
-			Nav({links})
+			Nav
 
 		#theme.corner
 			ThemeToggle
@@ -36,13 +37,13 @@
 		position: relative;
 		display: flex;
 
-		background-color: rgba(var(--light-a-rgb), 0.9);
+		background-color: rgba(var(--bg-a-rgb), 0.9);
 		backdrop-filter: blur(8px);
 
 		width: 100vw;
 		height: var(--height);
 
-		z-index: 10000;
+		z-index: 1000;
 		&.scroll {
 			position: fixed;
 		}

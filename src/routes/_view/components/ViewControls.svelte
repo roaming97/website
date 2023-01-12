@@ -25,7 +25,7 @@
 		display: flex;
 
 		/*
-		background-color: rgba(var(--light-b-rgb), 0.5);
+		background-color: rgba(var(--bg-b-rgb), 0.5);
 		box-shadow: 0 0.5rem 32px rgba(0, 0, 0, 0.25);
 		border-radius: 16px;
 		*/
@@ -37,7 +37,7 @@
 			font-family: var(--font-mono);
 			font-size: 1.25rem;
 
-			color: var(--dark-b);
+			color: var(--fg-b);
 		}
 	}
 </style>

@@ -33,6 +33,7 @@
 			src!="{item.picture}"
 			alt!=`{item.title}`
 			on:click!="{toggleActive}"
+			on:keypress!="{() => {}}"
 			class:active!='{$thumbnailIsActive}'
 		)
 		p.hint Click on the image to {message}.
@@ -53,7 +54,7 @@
 	@use '../../../../styles/media' as *;
 	.view-container {
 		/*
-		background-color: rgba(var(--light-b-rgb), 0.3);
+		background-color: rgba(var(--bg-b-rgb), 0.3);
 		box-shadow: 0 0.5rem 16px rgba(0, 0, 0, 0.5);
 		border-radius: 24px;
 		*/
@@ -73,7 +74,7 @@
 		}
 		h3 {
 			font-family: var(--font-mono);
-			color: var(--light-d);
+			color: var(--bg-d);
 			font-weight: 400;
 		}
 		img {
@@ -95,13 +96,13 @@
 				font-size: 2rem;
 			}
 			p {
-				color: var(--dark-d);
+				color: var(--fg-d);
 				margin: 0.5rem 0;
 			}
 		}
 	}
 	hr {
-		color: var(--dark-b);
+		color: var(--fg-b);
 		width: 100%;
 	}
 	@include media('>desktop') {
@@ -122,7 +123,7 @@
 				&.hint {
 					display: block;
 
-					color: var(--dark-d);
+					color: var(--fg-d);
 					text-align: center;
 
 					margin-bottom: 1.5rem;

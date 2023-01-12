@@ -24,7 +24,7 @@
 				p {bio}
 			.logo
 				Logo(animate!='{false}')
-		hr(style="width:80vw;margin: 1rem auto;color:var(--light-d);")
+		hr(style="width:80vw;margin: 1rem auto;color:var(--bg-d);")
 		.section-content
 				+each("statsArray as s, i")
 					Stat(num!='{s.num}', stat!="{s.name}", suffix!=`{s.suffix}`, delay!='{i*100}')
@@ -35,21 +35,21 @@
 		+if('visible')
 			.section
 				h1 Clients
-				p(style="color:var(--dark-d);font-size:0.75rem;") (Some of them)
+				p(style="color:var(--fg-d);font-size:0.75rem;") (Some of them)
 				.client-list-transition(in:fly!='{{y: 50, duration: 500, easing: quintOut}}')
 					ClientList
 			.section
-				p(style="padding:1rem;color:var(--light-d)") Tip: {action} the icons for more information.
+				p(style="padding:1rem;color:var(--fg-d);font-weight:normal;") Tip: {action} the icons for more information.
 				h2 Creative skills
 				.bars
 					+each("creativeSkills as s, i")
 						ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i}')
-				hr(style="width:80vw;color:var(--light-d)")
+				hr(style="width:80vw;color:var(--bg-d)")
 				h2 Creative software experience 
 				.bars
 					+each("softwareSkills as s, i")
 						ProgressBar(name!="{s.caption}", icon!='{s.picture}', percent!=`{s.percent}`, index!='{i+10}')
-				hr(style="width:80vw;color:var(--light-d)")
+				hr(style="width:80vw;color:var(--bg-d)")
 				h2 Developing experience
 				.icons
 					+each("devSkills as s, i")
@@ -61,7 +61,7 @@
 <style lang="scss">
 	@use '../../../styles/media' as *;
 	.section {
-		background-color: rgba(var(--light-d-rgb), 0.1);
+		background-color: rgba(var(--bg-d-rgb), 0.1);
 		flex-direction: column;
 		text-align: center;
 		display: flex;
@@ -74,13 +74,10 @@
 		align-items: center;
 		display: flex;
 		.logo {
-			border-radius: 100%;
-
-			background-color: var(--light-b);
-			outline: solid 2px var(--light-d);
-
-			width: clamp(35vw, 3rem, 50vw);
-			padding: 2rem;
+			background-color: var(--bg-b);
+			border-radius: 2em;
+			padding: 1rem;
+			width: 40%;
 		}
 		.paragraphs {
 			text-align: 2rem center;
@@ -99,8 +96,15 @@
 	}
 	.icons {
 		justify-content: center;
+		align-items: center;
 		flex-wrap: wrap;
 		display: flex;
+		.icon {
+			background-color: var(--always-dark);
+			border-radius: 0.5em;
+			padding: 0.25rem;
+			margin: 0.25rem;
+		}
 	}
 	@include media('>desktop') {
 		.section-content {

@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { Tile } from '$lib/ui'
+	import { Tile, Button } from '$lib/ui'
 	export let title: string
 	export let thumbs: Anchor[]
 </script>
 
 <template lang="pug">
-
 	h1 {title}
 	.tiles 
 		+each('thumbs as thumb')
 			Tile("{thumb}")
-
 </template>
 
 <style lang="scss">

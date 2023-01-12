@@ -19,7 +19,7 @@
 <template lang="pug">
 	+key('animate')
 		+if('mounted')
-			.progress-bar-container(in:slide="{{duration: 1000, easing: quintOut}}")
+			.progress-bar-container(in:slide!="{{duration: 1000, easing: quintOut}}")
 				Icon(src!='{icon}', alt!="{name}", tipindex!=`{index}`, tip!="{name}" '--size'="5rem") 
 				.progress
 					.bar-container(style!="{direction}: {100 - percent}%")
@@ -54,7 +54,7 @@
 		width: 50vw;
 	}
 	.bar {
-		background-color: var(--light-b);
+		background-color: var(--bg-b);
 
 		border-radius: 0.8rem;
 		border-bottom-left-radius: 0;

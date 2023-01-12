@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { opacity } from '$lib/stores'
+	import { getContext } from 'svelte'
 	import { Hamburger } from 'svelte-hamburgers'
 	import { preloadData } from '$app/navigation'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
 	import Link from './Link.svelte'
 
-	export let links: []
+	let links: string[][] = getContext('links')
 	let open = false
 
 	const toggle = () => (open = !open)
@@ -15,7 +16,7 @@
 <template lang="pug">
 
 	.burg(style="z-index: 1; max-height: 3rem;" class:open)
-		Hamburger(bind:open "--color"="var(--dark-a)" "--padding"="0.7rem" type="squeeze")
+		Hamburger(bind:open "--color"="var(--fg-a)" "--padding"="0.7rem" type="squeeze")
 
 	nav(class:open)
 		ul
@@ -41,7 +42,7 @@
 		max-width: 1200px;
 		height: 100vh;
 
-		background: var(--light-a);
+		background: var(--bg-a);
 
 		transform: translateX(-100%);
 		transition: 0.5s;

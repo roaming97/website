@@ -17,6 +17,7 @@
 					class:inactive!=`{d!=$client_index}` 
 					style='--d: {$client_index - d}; --size: {size}rem'
 					on:click!='{() => { if (d == $client_index) {window.open(i.link, "_blank")} else $client_index = d}}'
+					on:keypress!="{() => {}}"
 				)
 	+key('$client_index')
 		h1(in:fly!='{{y: 10, duration: 500, easing: quintOut}}') {clientArray[$client_index].caption} 
@@ -57,7 +58,8 @@
 
 				cursor: pointer;
 				&.inactive {
-					filter: grayscale(100%) brightness(0.05);
+					filter: grayscale(100%);
+					opacity: 0.5;
 					transform: perspective(450px) scale(0.75)
 						rotateY(clamp(-90deg, calc(22.5deg * var(--d)), 90deg));
 				}

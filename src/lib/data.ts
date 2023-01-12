@@ -1,31 +1,34 @@
-import { page } from '$app/stores'
-import { get } from 'svelte/store'
 const year = 12 * 30 * 24 * 60 * 60 * 1000
 
 export const excludedURLs = ['/intro']
 
-/**
- * Parses the url pathname and returns just the capitalized page title.
- * @param path - The current url pathname.
- * @example ```svelte
- * <svelte:head>
- *   <title> {pageTitle($page.url.pathname)} <title>
- * </svelte:head>
- * ```
- */
-export const pageTitle = (path: string) => {
-	if (path === '/' || '/landing') return 'roaming97'
-	if (get(page).error) return `${get(page).status}`
-	const title = path.split('/')[1]
-	return title.charAt(0).toUpperCase() + title.slice(1) + ' - roaming97'
-}
+export const roles = [
+	[
+		'visual artist',
+		'#F0CC4D',
+		"I specialize in creating visually appealing graphics, illustrations, and designs. My goal is to create art that not only catches the eye, but also effectively communicates my clients' message and brand identity.",
+		'artist'
+	],
+	[
+		'designer',
+		'#45EC7D',
+		"Solving problems through effective and aesthetically pleasing design solutions. Whether it's creating a logo, or a marketing campaign, I strive to craft designs that not only look good, but also work well for my clients.",
+		'designer'
+	],
+	[
+		'developer',
+		'#EC4577',
+		"From building websites and apps to integrating custom functions and features, I work to ensure that my clients' projects are functional, user-friendly, and efficient.",
+		'developer'
+	]
+] satisfies string[][]
 
 export const bio = `Hi, I am roaming97, a visual artist and graphic designer who has been creating, designing, 
 developing, and producing content since 2016. Despite my work usually consisting of experimental, 
 abstract, geometric compositions in both static art and image sequences, I am very capable of approaching 
 different styles of design and art when creating.`
 
-export const artworkGallery: Anchor[] = [
+export const artworkGallery = [
 	{
 		caption: 'Trackway',
 		picture: '/artwork/trackway.webp',
@@ -106,8 +109,13 @@ export const artworkGallery: Anchor[] = [
 		picture: './artwork/mskdbanner.webp',
 		link: 'https://www.youtube.com/c/MSKDSounds/'
 	}
-]
-export const videoGallery: Anchor[] = [
+] satisfies Anchor[]
+export const videoGallery = [
+	{
+		caption: 'Demo Reel 2022',
+		picture: './videothumbs/dr2022.webp',
+		link: 'https://vimeo.com/788765773'
+	},
 	{
 		caption: 'Rezonator',
 		picture: './videothumbs/rezonator.webp',
@@ -193,8 +201,8 @@ export const videoGallery: Anchor[] = [
 		picture: './videothumbs/cap.webp',
 		link: 'https://vimeo.com/381550497'
 	}
-]
-export const everydayGallery: Anchor[] = [
+] satisfies Anchor[]
+export const everydayGallery = [
 	{
 		caption: 'Season 4',
 		picture: './everydays/season4.webp',
@@ -215,15 +223,15 @@ export const everydayGallery: Anchor[] = [
 		picture: './everydays/season1.webp',
 		link: '/view/1'
 	}
-]
-export const pictureGallery: Anchor[] = [
+] satisfies Anchor[]
+export const pictureGallery = [
 	{
 		caption: '2019',
 		picture: './photo/frog.webp',
 		link: '/view/367'
 	}
-]
-export const devGallery: Anchor[] = [
+] satisfies Anchor[]
+export const devGallery = [
 	{
 		caption: 'Almond',
 		picture: '/icons/almond.svg',
@@ -242,9 +250,9 @@ export const devGallery: Anchor[] = [
 		link: 'https://github.com/roaming97/website',
 		description: 'This website! Initially designed in Vue.js but remade in SvelteKit.'
 	}
-]
+] satisfies Anchor[]
 
-export const statsArray: StatType[] = [
+export const statsArray = [
 	{
 		num: Math.floor((Date.now() - new Date('2016/05/23').valueOf()) / year),
 		name: 'Years'
@@ -262,8 +270,8 @@ export const statsArray: StatType[] = [
 		num: 58,
 		name: 'Videos'
 	}
-]
-export const clientArray: Anchor[] = [
+] satisfies StatType[]
+export const clientArray = [
 	{
 		caption: '04 Collective',
 		picture: '/clients/04.jpg',
@@ -306,8 +314,8 @@ export const clientArray: Anchor[] = [
 		link: 'https://twitter.com/eccentricedm',
 		description: 'Electronic music artist'
 	}
-]
-export const creativeSkills: ProgressInterface[] = [
+] satisfies Anchor[]
+export const creativeSkills = [
 	{
 		caption: 'Video_Editing',
 		picture: '/icons/video.svg',
@@ -343,8 +351,8 @@ export const creativeSkills: ProgressInterface[] = [
 		picture: '/icons/pencil.svg',
 		percent: 40
 	}
-]
-export const softwareSkills: ProgressInterface[] = [
+] satisfies ProgressInterface[]
+export const softwareSkills = [
 	{
 		caption: 'Vegas_Pro',
 		picture: '/icons/vegas.svg',
@@ -405,8 +413,8 @@ export const softwareSkills: ProgressInterface[] = [
 		picture: '/icons/flash.svg',
 		percent: 100
 	}
-]
-export const devSkills: ProgressInterface[] = [
+] satisfies ProgressInterface[]
+export const devSkills = [
 	{
 		caption: 'Python',
 		picture: '/icons/python.svg'
@@ -459,9 +467,9 @@ export const devSkills: ProgressInterface[] = [
 		caption: 'Git',
 		picture: '/icons/git.svg'
 	}
-]
+] satisfies ProgressInterface[]
 
-export const linkSVGs: SVGAnchor[] = [
+export const linkSVGs = [
 	{
 		link: 'https://twitter.com/roaming98',
 		color: '#00acee',
@@ -495,9 +503,9 @@ export const linkSVGs: SVGAnchor[] = [
 		d: 'M60.39 0A60.4 60.4 0 0 0 41.3 117.69c3.02.56 4.13-1.31 4.13-2.91 0-1.44-.06-6.2-.08-11.24-16.8 3.65-20.34-7.12-20.34-7.12-2.75-6.98-6.7-8.84-6.7-8.84-5.48-3.75.41-3.67.41-3.67 6.06.43 9.26 6.22 9.26 6.22 5.39 9.23 14.13 6.56 17.57 5.02.54-3.9 2.11-6.57 3.83-8.08-13.41-1.53-27.51-6.71-27.51-29.84a23.4 23.4 0 0 1 6.22-16.21c-.63-1.52-2.69-7.66.58-15.98 0 0 5.07-1.62 16.61 6.19a57.68 57.68 0 0 1 30.25 0c11.53-7.81 16.59-6.19 16.59-6.19 3.29 8.32 1.22 14.46.59 15.98a23.34 23.34 0 0 1 6.21 16.21c0 23.19-14.13 28.3-27.57 29.8 2.17 1.87 4.1 5.55 4.1 11.18 0 8.08-.07 14.58-.07 16.57 0 1.61 1.09 3.49 4.15 2.9A60.39 60.39 0 0 0 60.39 0Z',
 		caption: 'GitHub'
 	}
-]
-export const linkSVGColors = linkSVGs.map((i) => i.color)
-export const linkSVGsAlt: SVGAnchor[] = [
+] satisfies SVGAnchor[]
+export const linkSVGColors = linkSVGs.map((i) => i.color) satisfies string[]
+export const linkSVGsAlt = [
 	{
 		link: 'https://twitter.com/roaming98',
 		color: '#fff',
@@ -517,9 +525,17 @@ export const linkSVGsAlt: SVGAnchor[] = [
 		size: 32,
 		viewY: -32,
 		d: 'M512 103c-2 50-37 118-104 205-70 90-129 135-177 135-30 0-55-27-76-82l-41-152c-16-55-32-83-50-83-4 0-17 8-32 24L0 119l75-66c33-29 59-45 76-46 39-4 64 23 73 81 10 63 17 103 21 118 11 52 24 78 38 78 11 0 27-17 48-51 22-34 33-59 35-77 3-29-9-44-35-44-12 0-25 3-38 8C318 38 367-2 437 1c53 1 78 35 75 102Z'
+	},
+	{
+		link: 'https://github.com/roaming97',
+		color: '#fff',
+		size: 32,
+		viewW: 120.78,
+		viewH: 117.79,
+		d: 'M60.39 0A60.4 60.4 0 0 0 41.3 117.69c3.02.56 4.13-1.31 4.13-2.91 0-1.44-.06-6.2-.08-11.24-16.8 3.65-20.34-7.12-20.34-7.12-2.75-6.98-6.7-8.84-6.7-8.84-5.48-3.75.41-3.67.41-3.67 6.06.43 9.26 6.22 9.26 6.22 5.39 9.23 14.13 6.56 17.57 5.02.54-3.9 2.11-6.57 3.83-8.08-13.41-1.53-27.51-6.71-27.51-29.84a23.4 23.4 0 0 1 6.22-16.21c-.63-1.52-2.69-7.66.58-15.98 0 0 5.07-1.62 16.61 6.19a57.68 57.68 0 0 1 30.25 0c11.53-7.81 16.59-6.19 16.59-6.19 3.29 8.32 1.22 14.46.59 15.98a23.34 23.34 0 0 1 6.21 16.21c0 23.19-14.13 28.3-27.57 29.8 2.17 1.87 4.1 5.55 4.1 11.18 0 8.08-.07 14.58-.07 16.57 0 1.61 1.09 3.49 4.15 2.9A60.39 60.39 0 0 0 60.39 0Z'
 	}
-]
-export const pricesA: Price[] = [
+] satisfies SVGAnchor[]
+export const pricesA = [
 	{
 		category: 'Short',
 		price: 40,
@@ -543,8 +559,8 @@ export const pricesA: Price[] = [
 		category: 'Artwork + Short',
 		price: 60
 	}
-]
-export const pricesB: Price[] = [
+] satisfies Price[]
+export const pricesB = [
 	{
 		category: 'Artwork',
 		price: 50,
@@ -555,9 +571,9 @@ export const pricesB: Price[] = [
 		price: 70,
 		description: 'For deadlines shorter than a week.'
 	}
-]
+] satisfies Price[]
 
-export const viewData: ViewItem[] = [
+export const viewData = [
 	{
 		title: 'JUICE',
 		collection: 'EVERYDAYS',
@@ -2871,7 +2887,7 @@ export const viewData: ViewItem[] = [
 		date: new Date('2022/11/05'),
 		picture: '/artwork/trackway.webp'
 	}
-]
+] satisfies ViewItem[]
 
 export const cardExclude = [
 	'31',
@@ -2899,9 +2915,9 @@ export const cardExclude = [
 	'349',
 	'366',
 	'mskdbanner'
-]
+] satisfies string[]
 
-export const osSVGs: SVGAnchor[] = [
+export const osSVGs = [
 	{
 		color: 'var(--dark-a)',
 		size: 96,
@@ -2922,8 +2938,8 @@ export const osSVGs: SVGAnchor[] = [
 		d: 'M231 142c-4 1-3 5-5 5-3 0-2-5 5-5zm14 1c4-1 4 3 7 2 2 0 0-5-7-2zm152 290c-14 7-32 22-38 28-5 5-26 7-37 2-14-7-6-18-27-19a856 856 0 0 0-57 1c-32 0-35 21-54 20-14-1-31-11-61-18-20-4-40-5-44-14-5-9 5-19 5-28 1-12-9-28-1-35 6-5 19-1 27-6 9-5 13-9 13-20 3 11-1 21-8 25-4 3-13 4-19 3-6 0-9 1-11 3s-1 7 2 13c2 6 5 10 5 18 0 7-9 16-7 23 0 2 3 4 8 6l43 9c19 4 38 13 50 11 36-5 15-43 10-52-30-47-50-78-66-66-4 3-5-8-4-13 0-15 8-21 13-33 9-22 16-48 29-62 10-13 26-34 29-45l-4-73c0-24 4-45 31-60 7-4 15-5 24-5 17 0 35 4 46 13 18 13 30 42 28 63-1 16 2 33 7 50 6 20 16 35 32 51 18 20 33 59 37 83 4 23-1 37-7 38-7 1-12 25-35 24-15-1-17-10-21-17-7-12-13-8-16 4-1 7 0 16 2 23 4 15 2 29 0 45-5 33 23 39 41 24 18-16 22-18 45-26 35-12 24-22 5-29-17-5-18-34-12-39 2 30 18 35 24 39 29 18-11 33-27 41zm-78-89c3-4 7-5 12-5 0-18 29-17 39-9 0-4-9-8-13-10 6-21 3-30-1-49-3-16-17-36-28-42 3 2 8 9 14 19 9 18 19 44 12 66-2 8-7 9-11 9-17 2-7-19-14-49-8-32-15-35-17-38-10-42-21-38-24-54-2-14 13-26-8-30-6-1-15-7-18-8-4 0-6-23 7-24s16 14 13 20c-4 7 0 9 7 7 5-2 2-15 3-17-3-20-12-23-20-24-32 2-18 38-21 34-5-5-18 0-18-3 0-18-6-29-15-29s-13 13-13 20c-1 7 4 22 7 21s6-5 2-5c-2 0-5-5-5-12-1-6 1-12 9-12 10 1 10 19 9 20l-8 7c-3 5-9 6-11 8-4 4-5 9-2 11 11 6 8 13 23 13 9 1 17-1 23-3s22-6 26-12c1-2 3-2 5-2 2 2 2 6-3 8-9 2-17 6-24 9l-17 6c-15 2-27-6-16 4 3 3 6 5 15 5 20-1 42-24 44-14 0 2-6 5-12 8-18 9-31 27-42 21s-21-32-21-20c0 18-24 34-13 54-7 2-23 37-26 55-1 10 1 22-1 30-4 10-20-10-15-35 1-4 0-5-1-3-6 11-3 28 3 39 2 5 7 7 11 11 8 10 41 33 46 39 7 7 5 23-10 25 8 14 16 15 15 39 9-4 6-15 2-21-2-5-6-7-5-8 0-1 5-5 8-2 8 9 23 11 39 9s33-8 41-21c4-6 6-8 8-7s3 5 2 12c0 8-3 16-5 22-2 7-3 12 4 12 2-13 6-26 7-39 1-15-10-43 2-56zm-99-212c0 3 0 5 2 5l1-1c1-6-2-10-3-11-3 0-3 4-1 4 0-1 2 1 1 3zm53-8c-3 0-2 2 0 2 2 1 3 4 4 7l2-1c0-5-4-8-6-8z',
 		caption: 'Linux'
 	}
-]
-export const osData: StatType[] = [
+] satisfies SVGAnchor[]
+export const osData = [
 	{
 		name: 'Windows',
 		num: 75.28
@@ -2936,4 +2952,4 @@ export const osData: StatType[] = [
 		name: 'Linux',
 		num: 4.24
 	}
-]
+] satisfies StatType[]

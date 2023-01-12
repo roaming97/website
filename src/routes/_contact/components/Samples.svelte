@@ -5,7 +5,7 @@
 <template lang="pug">
     .samples-container
         +each('samples as i')
-            a(href!='{i.link}' target="_blank")
+            a(href!='{i.link}' target="_blank" rel="noreferrer")
                 img(src!='{i.picture}' alt!="{i.caption}")
 </template>
 

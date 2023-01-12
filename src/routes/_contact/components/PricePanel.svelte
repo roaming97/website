@@ -33,9 +33,9 @@
 		margin: 0.5rem;
 		padding: 1rem;
 
-		outline: solid 2px var(--light-b);
-		background-color: var(--light-a);
-		color: var(--dark-a);
+		outline: solid 2px var(--bg-b);
+		background-color: var(--bg-a);
+		color: var(--fg-a);
 
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
 			0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
@@ -48,7 +48,7 @@
 
 		h3 {
 			font-family: var(--font-mono);
-			color: var(--dark-d);
+			color: var(--fg-d);
 			font-size: 2rem;
 		}
 
@@ -58,7 +58,7 @@
 			margin: 0 auto;
 			width: 75%;
 
-			color: var(--dark-c);
+			color: var(--fg-c);
 		}
 	}
 </style>

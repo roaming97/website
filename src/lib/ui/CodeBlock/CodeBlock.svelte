@@ -71,16 +71,16 @@
 		margin: 1rem auto;
 		width: 90vw;
 
-		outline: solid 2px var(--light-b);
-		background-color: var(--light-a);
-		color: var(--dark-a);
+		outline: solid 2px var(--bg-b);
+		background-color: var(--bg-a);
+		color: var(--fg-a);
 
 		white-space: pre-wrap;
 
 		box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
 
 		hr {
-			color: var(--light-b);
+			color: var(--bg-b);
 			margin: 0;
 		}
 
@@ -91,7 +91,7 @@
 			align-items: center;
 			display: flex;
 			span {
-				color: var(--dark-d);
+				color: var(--fg-d);
 				font-size: 0.75rem;
 			}
 			.icon {

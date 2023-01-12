@@ -12,32 +12,32 @@
 	--brand-a-rgb: 149, 160, 255;
 	--brand-b-rgb: 160, 119, 255;
 	--brand-c-rgb: 222, 139, 255;
-	--always-dark: #0b0e11;
+	--always-dark: #040305;
 	&[theme='light'] {
 		@include variables(
 			(
-				dark-a: #100e13,
-				dark-b: #18171b,
-				dark-c: #212427,
-				dark-d: #3a3a44,
-				light-a: #ffffff,
-				light-b: #cecbd4,
-				light-c: #95939b,
-				light-d: #565558
+				fg-a: #040305,
+				fg-b: #16131d,
+				fg-c: #1c1f25,
+				fg-d: #363047,
+				bg-a: #ffffff,
+				bg-b: #cecbd4,
+				bg-c: #95939b,
+				bg-d: #565558
 			)
 		);
 	}
 	&[theme='dark'] {
 		@include variables(
 			(
-				light-a: #100e13,
-				light-b: #18171b,
-				light-c: #212427,
-				light-d: #3a3a44,
-				dark-a: #ffffff,
-				dark-b: #cecbd4,
-				dark-c: #95939b,
-				dark-d: #565558
+				fg-a: #ffffff,
+				fg-b: #cecbd4,
+				fg-c: #95939b,
+				fg-d: #565558,
+				bg-a: #040305,
+				bg-b: #16131d,
+				bg-c: #1c1f25,
+				bg-d: #363047
 			)
 		);
 	}

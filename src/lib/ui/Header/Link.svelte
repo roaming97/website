@@ -42,6 +42,7 @@
 		on:mouseover!='{() => preloadData(path)}'
 		on:focus!='{() => preloadData(path)}'
 		on:click!="{() => navigate(path)}"
+		on:keypress!="{() => {}}"
 	) {title}
 </template>
 
@@ -57,7 +58,7 @@
 		font-size: 1rem;
 		font-weight: 300;
 
-		color: var(--dark-a);
+		color: var(--fg-a);
 
 		transition: background-color 0.2s linear;
 
@@ -67,7 +68,7 @@
 
 		cursor: pointer;
 		&:hover {
-			background-color: var(--light-b);
+			background-color: var(--bg-b);
 			color: var(--brand-b);
 		}
 	}

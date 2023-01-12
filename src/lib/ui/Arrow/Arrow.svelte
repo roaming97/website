@@ -56,6 +56,7 @@
 			on:mouseover!='{preloadData(link)}' 
 			on:focus!='{preloadData(link)}'
 			on:mouseenter!="{triggerSpring}"
+			on:keypress!="{() => {}}"
 			class:disabled)
 			p(style='{style}' class:disabled) {arrow}
 </template>
@@ -78,7 +79,7 @@
 		font-size: 1.5rem;
 	}
 	.disabled {
-		color: var(--light-d);
+		color: var(--bg-d);
 		opacity: 0.5;
 
 		cursor: default;

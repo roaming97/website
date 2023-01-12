@@ -1,4 +1,12 @@
 /// <reference types="@sveltejs/kit" />
+declare namespace App {
+	interface Locals {
+		theme: 'light' | 'dark' | 'system'
+	}
+	interface PageData {
+		theme: 'light' | 'dark' | 'system'
+	}
+}
 
 interface Anchor {
 	caption?: string

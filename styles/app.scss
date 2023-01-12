@@ -51,7 +51,7 @@ $breakpoints: (
 
 ::selection {
 	background-color: var(--brand-b) !important;
-	color: var(--light-a) !important;
+	color: var(--bg-a) !important;
 }
 
 :focus {
@@ -63,7 +63,7 @@ body {
 	min-height: 100vh;
 	margin: 0;
 
-	background-color: var(--light-a);
+	background-color: var(--bg-a);
 
 	transition: color 0.5s background 0.3s background-color 0.3s;
 }
@@ -80,8 +80,7 @@ h1,
 h2 {
 	font-family: var(--font-primary);
 	font-weight: 400;
-	letter-spacing: 1.2px;
-	color: var(--dark-a);
+	color: var(--fg-a);
 }
 
 .page-title {
@@ -95,9 +94,9 @@ u {
 	font-size: 1.2em;
 	font-weight: 300;
 	line-height: 1.5;
-	color: var(--dark-a, --text-color);
+	color: var(--fg-a, --text-color);
 	& a {
-		color: var(--dark-c);
+		color: var(--fg-c);
 	}
 }
 
@@ -105,13 +104,13 @@ sup {
 	font-family: var(--font-primary);
 	vertical-align: super;
 	font-size: 0.8em;
-	color: var(--dark-a, --text-color);
+	color: var(--fg-a, --text-color);
 }
 
 a {
 	text-decoration: underline;
-	text-decoration-color: var(--light-d);
-	color: var(--dark-a);
+	text-decoration-color: var(--bg-d);
+	color: var(--fg-a);
 }
 
 a:hover {
@@ -133,7 +132,7 @@ h4,
 h5,
 section {
 	font-family: var(--font-primary);
-	color: var(--dark-a);
+	color: var(--fg-a);
 }
 
 code,
@@ -145,7 +144,7 @@ code span {
 pre {
 	padding: 0.5em;
 	font-family: var(--font-mono);
-	color: var(--dark-a);
+	color: var(--fg-a);
 	border-radius: 3px;
 	overflow-x: auto;
 }

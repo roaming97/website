@@ -1,17 +1,29 @@
 <script lang="ts">
-	import { Fractils, mobileThreshold, initTheme } from 'fractils'
+	import type { PageData } from './$types'
+	import 'greset/greset.css'
+
+	import { Fractils, MacScrollbar, mobileThreshold, initTheme, theme } from 'fractils'
+	import { browser } from '$app/environment'
 	import { fade } from 'svelte/transition'
-	import { pageTitle, excludedURLs } from '$lib/data'
+	import { excludedURLs } from '$lib/data'
+	import { pageTitle } from '$lib/utils'
 	import { Header, Footer } from '$lib/ui'
 	import { opacity } from '$lib/stores'
 	import { page } from '$app/stores'
 	import { onMount } from 'svelte'
-	import 'greset/greset.css'
+	import { parse } from 'cookie'
 	import '../../styles/app.scss'
 
 	$: pathname = $page.url.pathname
 	$: title = pageTitle(pathname)
 	$: exclude = excludedURLs.includes(pathname)
+
+	export let data: PageData
+	let _theme = data.theme
+
+	$: if (browser && $theme !== parse(document.cookie).theme) {
+		document.cookie = `theme=${$theme}`
+	}
 
 	$mobileThreshold = 1024
 
@@ -22,6 +34,8 @@
 
 	svelte:head
 		title {title}
+
+	MacScrollbar
 
 	+if('!exclude && !$page.error')
 		Header

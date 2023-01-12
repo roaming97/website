@@ -34,13 +34,13 @@
 		display: flex;
 	}
 	.article-info .logo {
-		border-radius: 50%;
-
 		padding: 0.75rem;
 		margin: 1rem;
+		height: 64px;
 		width: 64px;
 
-		outline: solid 2px var(--light-d);
+		background-color: var(--bg-b);
+		border-radius: 1em;
 	}
 	.article-info .date {
 		justify-content: center;
@@ -61,7 +61,7 @@
 		margin: 0.5rem 1.5rem;
 	}
 	hr {
-		color: rgba(var(--dark-d-rgb), 0.25);
+		color: rgba(var(--fg-d-rgb), 0.25);
 		margin: 1.5rem 0;
 	}
 	@media (min-width: 1024px) {

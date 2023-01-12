@@ -2,17 +2,18 @@
 	import { Tooltip } from '$lib/ui'
 	export let src: string
 	export let alt: string
-	export let tip: string
-	export let tipindex: string
+	export let tip = ''
+	export let tipindex = '-1'
+	export let size = '5rem'
 </script>
 
 <template lang="pug">
-	+if('tip')
+	+if('tip != ""')
 		Tooltip(content!="{tip}" i!='{tipindex}')
-			.icon-container
+			.icon-container(style="--size: {size}")
 				img(src!='{src}', alt!="{alt}")
 		+else()
-			.icon-container
+			.icon-container(style="--size: {size}")
 				img(src!='{src}', alt!="{alt}")
 </template>
 
@@ -21,8 +22,8 @@
 		border: 0;
 
 		padding: 0.5rem;
-		height: var(--size, auto);
-		width: var(--size, 5rem);
+		height: var(--size, 5rem);
+		width: var(--size, auto);
 
 		img {
 			height: 100%;
