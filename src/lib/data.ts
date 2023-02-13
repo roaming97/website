@@ -24,9 +24,9 @@ export const roles = [
 ] satisfies string[][]
 
 // const oldbio = `Hi, I am roaming97, a visual artist and graphic designer who has been creating, designing, developing, and producing content since 2016. Despite my work usually consisting of experimental, abstract, geometric compositions in both static art and image sequences, I am very capable of approaching different styles of design and art when creating.`
-export const bio = `Hi, I am roaming97, a talented and passionate visual artist and graphic designer with a strong background in creating, designing, developing, and producing a wide range of content. With several years of experience under my belt, I have honed my skills and developed a unique style that is both experimental and abstract, often incorporating geometric compositions in my work. Whether I am creating a static piece of art or a dynamic image sequence, I am always striving to push the boundaries of design and art.
+export const bio = `Hi, I am roaming97, a passionate visual artist and graphic designer with a strong background in creating, designing, developing, and producing a wide range of content. With several years of experience under my belt, I have honed my skills and developed a unique style that is both experimental and abstract, often incorporating geometric compositions in my work. Whether I am creating a static piece of art or a dynamic image sequence, I am always striving to get the best out of both worlds.
 #
-While my work typically features an experimental and abstract aesthetic, I am also very versatile and capable of approaching different styles of design and art as the project demands. Whether I am working on a branding project, a website redesign, or a social media campaign, I always bring my creative expertise and passion for design to the table.`
+While my work typically features an experimental and abstract aesthetic, I am also very versatile and capable of approaching different styles of design and art as the project demands. Whether I am working on a branding project, music videos, or a social media campaign, I always bring my creative expertise and passion for design to the table.`
 
 export const artworkGallery = [
 	{
