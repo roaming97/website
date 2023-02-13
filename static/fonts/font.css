@@ -1,0 +1,35 @@
+/*	Work Sans */
+
+@font-face {
+	font-family: 'work-sans';
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+	src: url('/fonts/work-sans/worksans.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'work-sans-italic';
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: italic;
+	src: url('/fonts/work-sans/worksans-italic.ttf') format('truetype');
+}
+
+/* JetBrains Mono */
+
+@font-face {
+	font-family: 'jetbrains-mono';
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+	src: url('/fonts/jetbrains-mono/jetbrainsmono.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'jetbrains-mono-italic';
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: italic;
+	src: url('/fonts/jetbrains-mono/jetbrainsmono-italic.ttf') format('truetype');
+}

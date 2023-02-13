@@ -21,7 +21,8 @@
 		h2(style='font-size:3rem;font-weight:200') Who am I?
 		.section-content
 			.paragraphs
-				p {bio}
+				+each('bio.split("#") as p')
+					p {p}
 			.logo
 				Logo(animate!='{false}')
 		hr(style="width:80vw;margin: 1rem auto;color:var(--bg-d);")
@@ -100,7 +101,7 @@
 		flex-wrap: wrap;
 		display: flex;
 		.icon {
-			background-color: var(--always-dark);
+			background-color: var(--bg-a);
 			border-radius: 0.5em;
 			padding: 0.25rem;
 			margin: 0.25rem;
@@ -116,9 +117,6 @@
 			.paragraphs {
 				margin: 1rem 2rem;
 				text-align: left;
-				p {
-					font-size: 1.5rem;
-				}
 			}
 			.logo {
 				padding: 3.5rem;

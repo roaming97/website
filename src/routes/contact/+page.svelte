@@ -19,7 +19,7 @@
 
 	$: columns = $mobile ? 1 : 3
 	$: artworkList = [artworkGallery[0], artworkGallery[3], artworkGallery[4]].slice(0, columns)
-	$: videoList = [videoGallery[0], videoGallery[2], videoGallery[3]].slice(0, columns)
+	$: videoList = [videoGallery[0], videoGallery[3], videoGallery[4]].slice(0, columns)
 
 	const handleChange = (e: VisibilityEvent) => (visible = e.detail.isVisible)
 </script>

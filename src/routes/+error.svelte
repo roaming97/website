@@ -24,7 +24,7 @@
 		margin: 1rem 0;
 		font-size: 40vw;
 		font-weight: 100;
-		color: rgb(228, 48, 63);
+		color: #e4303f;
 		text-shadow: 60px 0 80px #f05, -60px 0 80px #f20;
 	}
 	pre {

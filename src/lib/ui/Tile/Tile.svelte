@@ -49,8 +49,7 @@
 
 		background-color: var(--bg-b);
 
-		filter: grayscale(50%) brightness(0.2);
-		//box-shadow: 0 0 8px black;
+		filter: grayscale(100%) brightness(0.5);
 
 		text-transform: uppercase;
 		font-weight: 100;
@@ -71,8 +70,6 @@
 		}
 		&:hover {
 			transform: scale(105%);
-
-			box-shadow: 0 0 16px black;
 			filter: grayscale(0%);
 			z-index: 1;
 		}

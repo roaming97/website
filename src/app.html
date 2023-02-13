@@ -7,13 +7,27 @@
 		<meta name="theme-color" content="#9b70ff" />
 
 		<!-- Icons -->
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="%sveltekit.assets%/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="%sveltekit.assets%/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="%sveltekit.assets%/favicon-16x16.png"
+		/>
 
 		<!-- PWA -->
-		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
 		<meta name="msapplication-config" content="/browserconfig.xml" />
 		<meta name="msapplication-TileColor" content="#1d1d1d" />
 
@@ -41,6 +55,40 @@
 			content="Visual Artist - Designer - Photographer - Developer"
 		/>
 		<meta property="twitter:image" content="https://roaming97.com/meta.png" />
+
+		<!-- Font -->
+		<link rel="stylesheet" href="%sveltekit.assets%/fonts/font.css" />
+		<link
+			rel="preload"
+			as="font"
+			crossorigin="true"
+			href="%sveltekit.assets%/fonts/work-sans/worksans.ttf"
+		/>
+		<link
+			rel="preload"
+			as="font"
+			crossorigin="true"
+			href="%sveltekit.assets%/fonts/work-sans/worksans-italic.ttf"
+		/>
+		<link
+			rel="preload"
+			as="font"
+			crossorigin="true"
+			href="%sveltekit.assets%/fonts/jetbrains-mono/jetbrainsmono.ttf"
+		/>
+		<link
+			rel="preload"
+			as="font"
+			crossorigin="true"
+			href="%sveltekit.assets%/fonts/jetbrains-mono/jetbrainsmono-italic.ttf"
+		/>
+
+		<style>
+			body {
+				background-color: var(--bg-a);
+			}
+		</style>
+
 		%sveltekit.head%
 	</head>
 
@@ -48,9 +96,3 @@
 		<div id="svelte" style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
-
-<style>
-	body {
-		background: var(--bg-a);
-	}
-</style>

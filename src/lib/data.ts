@@ -23,10 +23,10 @@ export const roles = [
 	]
 ] satisfies string[][]
 
-export const bio = `Hi, I am roaming97, a visual artist and graphic designer who has been creating, designing, 
-developing, and producing content since 2016. Despite my work usually consisting of experimental, 
-abstract, geometric compositions in both static art and image sequences, I am very capable of approaching 
-different styles of design and art when creating.`
+// const oldbio = `Hi, I am roaming97, a visual artist and graphic designer who has been creating, designing, developing, and producing content since 2016. Despite my work usually consisting of experimental, abstract, geometric compositions in both static art and image sequences, I am very capable of approaching different styles of design and art when creating.`
+export const bio = `Hi, I am roaming97, a talented and passionate visual artist and graphic designer with a strong background in creating, designing, developing, and producing a wide range of content. With several years of experience under my belt, I have honed my skills and developed a unique style that is both experimental and abstract, often incorporating geometric compositions in my work. Whether I am creating a static piece of art or a dynamic image sequence, I am always striving to push the boundaries of design and art.
+#
+While my work typically features an experimental and abstract aesthetic, I am also very versatile and capable of approaching different styles of design and art as the project demands. Whether I am working on a branding project, a website redesign, or a social media campaign, I always bring my creative expertise and passion for design to the table.`
 
 export const artworkGallery = [
 	{
@@ -115,6 +115,11 @@ export const videoGallery = [
 		caption: 'Demo Reel 2022',
 		picture: './videothumbs/dr2022.webp',
 		link: 'https://vimeo.com/788765773'
+	},
+	{
+		caption: 'Power Trip Teaser',
+		picture: './videothumbs/powertrip.webp',
+		link: 'https://twitter.com/noctvrnemusic/status/1619062362354618369'
 	},
 	{
 		caption: 'Rezonator',
@@ -254,11 +259,11 @@ export const devGallery = [
 
 export const statsArray = [
 	{
-		num: Math.floor((Date.now() - new Date('2016/05/23').valueOf()) / year),
+		num: Math.floor((Date.now() - new Date('2016/05/03').valueOf()) / year),
 		name: 'Years'
 	},
 	{
-		num: 20,
+		num: 22,
 		name: 'Clients'
 	},
 	{
@@ -267,7 +272,7 @@ export const statsArray = [
 		suffix: '+'
 	},
 	{
-		num: 58,
+		num: 59,
 		name: 'Videos'
 	}
 ] satisfies StatType[]
@@ -389,13 +394,13 @@ export const softwareSkills = [
 		percent: 70
 	},
 	{
-		caption: 'Illustrator',
-		picture: '/icons/illustrator.svg',
-		percent: 50
-	},
-	{
 		caption: 'Affinity_Designer',
 		picture: '/icons/designer.svg',
+		percent: 60
+	},
+	{
+		caption: 'Illustrator',
+		picture: '/icons/illustrator.svg',
 		percent: 50
 	},
 	{
