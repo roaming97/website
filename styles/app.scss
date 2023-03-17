@@ -30,6 +30,9 @@ small {
 pre,
 code {
 	font-family: var(--font-mono);
+	span {
+		font-family: var(--font-mono) !important;
+	}
 }
 
 ::selection {

@@ -49,13 +49,13 @@
 <style lang="scss">
 	@use '../../../../styles/media' as *;
 	.a {
-		display: flex;
 		align-items: center;
-		padding: 2rem 1rem;
+		display: flex;
 
+		padding: 2rem 1rem;
 		height: 100%;
 
-		font-size: 1rem;
+		font-size: 1.4rem;
 		font-weight: 300;
 
 		color: var(--fg-a);
@@ -75,6 +75,7 @@
 	@include media('>desktop') {
 		.a {
 			padding: 0 4rem;
+			font-size: 1rem;
 		}
 	}
 </style>

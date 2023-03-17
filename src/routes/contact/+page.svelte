@@ -37,9 +37,9 @@
 							.tr(in:fly!="{{y: 20, duration: 400, easing: quintOut, delay: i*100}}" style='background-color: {linkSVGColors[i]}')
 								IconSVG(svg!='{l}' ignoreColor=true)
 			p
-				b E-mail:
+				| E-mail:
 				|
-				| roaming98a@gmail.com
+				b contact@roaming97.com
 	.section
 		h2 Commissions pricing
 		p(style="color:var(--fg-d); font-weight: normal;") All prices are in USD.

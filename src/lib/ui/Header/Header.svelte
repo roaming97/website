@@ -3,6 +3,8 @@
 	import Nav from './Nav.svelte'
 	import Menu from './Menu.svelte'
 	import { setContext } from 'svelte'
+	import { excludedURLs } from '$lib/data'
+	import { page } from '$app/stores'
 
 	setContext('links', [
 		['/', 'Home'],
@@ -15,18 +17,20 @@
 	// 3rem = 48px
 	let scrollThreshold = 48
 	$: scroll = $scrollY > scrollThreshold
+	$: exclude = excludedURLs.includes($page.url.pathname)
 </script>
 
 <template lang="pug">
 
-	header(class:scroll style="--height: {headerHeight};--scroll: {$scrollY}")
-		Menu
+	+if('!exclude && !$page.error')
+		header(class:scroll style="--height: {headerHeight};--scroll: {$scrollY}")
+			Menu
 
-		span
-			Nav
+			span
+				Nav
 
-		#theme.corner
-			ThemeToggle
+			#theme.corner
+				ThemeToggle
 
 </template>
 

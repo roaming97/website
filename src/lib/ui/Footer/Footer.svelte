@@ -1,9 +1,17 @@
+<script lang="ts">
+	import { page } from '$app/stores'
+	import { excludedURLs } from '$lib/data'
+
+	$: exclude = excludedURLs.includes($page.url.pathname)
+</script>
+
 <template lang="pug">
 
-	footer
-		hr
-		p roaming97© 2016-2023
-		p(style="color:var(--fg-c);") Website 5.1 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank" rel="noreferrer") Frackit]
+	+if('!exclude && !$page.error')
+		footer
+			hr
+			p roaming97© 2016-2023
+			p(style="color:var(--fg-c);") Website 5.1 - Powered by #[a(href="https://github.com/FractalHQ/frackit/", target="_blank" rel="noreferrer") Frackit]
 
 </template>
 

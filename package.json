@@ -21,23 +21,23 @@
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
-        "@vercel/node": "^2.9.2"
+        "@vercel/node": "^2.9.13"
     },
     "devDependencies": {
         "@iconify/svelte": "^2.2.1",
         "@sveltejs/adapter-vercel": "1.0.0-next.88",
-        "@sveltejs/kit": "^1.5.6",
+        "@sveltejs/kit": "^1.12.0",
         "@types/cookie": "^0.5.1",
-        "@types/node": "^18.13.0",
+        "@types/node": "^18.15.3",
         "@types/remark-abbr": "^1.4.1",
-        "autoprefixer": "^10.4.13",
+        "autoprefixer": "^10.4.14",
         "cookie": "^0.5.0",
-        "cssnano": "^5.1.14",
+        "cssnano": "^5.1.15",
         "fractils": "^3.1.1",
         "greset": "^2.0.0",
         "highlight.js": "^11.7.0",
         "mdsvex": "^0.10.6",
-        "node-fetch": "^3.3.0",
+        "node-fetch": "^3.3.1",
         "postcss": "^8.4.21",
         "postcss-load-config": "^4.0.1",
         "prettier": "^2.8.4",
@@ -47,14 +47,14 @@
         "rehype-external-links": "^2.0.1",
         "rehype-slug": "^5.1.0",
         "remark-abbr": "^1.4.1",
-        "sass": "^1.58.0",
-        "svelte": "^3.55.1",
+        "sass": "^1.59.3",
+        "svelte": "^3.57.0",
         "svelte-hamburgers": "^4.0.1",
         "svelte-highlight": "^6.2.1",
         "svelte-preprocess": "^4.10.7",
         "tippy.js": "^6.3.7",
         "tslib": "^2.5.0",
         "typescript": "^4.9.5",
-        "vite": "^4.1.1"
+        "vite": "^4.2.0"
     }
 }

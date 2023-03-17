@@ -22,8 +22,8 @@
 		ul
 			+each('links as [path, title], i (title)')
 				li(class:active='{$page.url.pathname === path}')
-					Link({path} {title} on:closeMenu!='{() => open = false}')
 
+					Link({path} {title} on:closeMenu!='{() => open = false}')
 </template>
 
 <style lang="scss">
@@ -38,7 +38,7 @@
 
 		padding-left: 0.5rem;
 		padding-right: 2rem;
-		width: max-content;
+		width: 12rem;
 		max-width: 1200px;
 		height: 100vh;
 

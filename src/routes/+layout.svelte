@@ -5,18 +5,11 @@
 	import { Fractils, MacScrollbar, mobileThreshold, initTheme, theme } from 'fractils'
 	import { browser } from '$app/environment'
 	import { fade } from 'svelte/transition'
-	import { excludedURLs } from '$lib/data'
-	import { pageTitle } from '$lib/utils'
-	import { Header, Footer } from '$lib/ui'
+	import { Header, Footer, PageTitle } from '$lib/ui'
 	import { opacity } from '$lib/stores'
-	import { page } from '$app/stores'
 	import { onMount } from 'svelte'
 	import { parse } from 'cookie'
 	import '../../styles/app.scss'
-
-	$: pathname = $page.url.pathname
-	$: title = pageTitle(pathname)
-	$: exclude = excludedURLs.includes(pathname)
 
 	export let data: PageData
 	let _theme = data.theme
@@ -32,19 +25,16 @@
 
 <template lang="pug">
 
-	svelte:head
-		title {title}
+	PageTitle
 
 	MacScrollbar
 
-	+if('!exclude && !$page.error')
-		Header
+	Header
 
 	div(style='opacity:{$opacity};')
 		slot
 
-	+if('!exclude && !$page.error')
-		Footer
+	Footer
 
 	Fractils
 
