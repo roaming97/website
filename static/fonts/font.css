@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'unbounded';
+	font-weight: 100 900;
+	font-style: normal;
+	src: url('/fonts/unbounded/Unbounded-Variable.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'fira-code';
+	font-weight: 100 900;
+	font-style: monospace;
+	src: url('/fonts/fira-code/FiraCode-VF.ttf') format('truetype');
+}

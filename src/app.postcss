@@ -3,3 +3,49 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	@apply overflow-x-hidden;
+}
+
+body {
+	@apply text-black bg-white dark:bg-darkest dark:text-white selection:bg-brand-a selection:text-black overflow-x-hidden;
+}
+
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+span,
+a,
+label, li {
+	@apply font-primary;
+}
+
+pre,
+code,
+blockquote {
+	@apply font-mono;
+}
+
+h1 {
+	@apply text-4xl tracking-wide font-bold;
+}
+
+h2 {
+	@apply text-2xl tracking-wide font-bold;
+}
+
+h3 {
+	@apply text-xl font-bold;
+}
+
+hr {
+	@apply border-black dark:border-white;
+}
