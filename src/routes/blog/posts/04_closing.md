@@ -1,6 +1,7 @@
 ---
 title: '04 Collective Closing Thoughts'
 date_created: 2020/10/03
+tags: ['personal']
 ---
 
 ## This post was originally a Twitter thread, it has been copied to this blog in case anything happens to my Twitter account.

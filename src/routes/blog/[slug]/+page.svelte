@@ -16,43 +16,52 @@
 </script>
 
 <svelte:head>
+	<title>{post.title} - roaming97</title>
 	{#if image_url}
 		<meta name="description" content="" />
 		<meta property="og:image" content={image_url} />
 	{/if}
 </svelte:head>
 
-<div class="p-4 lg:w-[70vw] lg:p-0 lg:py-8 mx-auto">
-	<h1 class="lg:text-6xl" in:fly={{ x: -10, duration: 500, easing: quartOut }}>{post.title}</h1>
-	<div class="flex flex-col" in:fly={{ x: -10, delay: 100, duration: 300, easing: quartOut }}>
-		<p>Written by roaming97</p>
-		{#if post.legacy}
-			<p class="date-text">Originally written: {parse_date(post.date_created)}</p>
-		{:else}
-			<p class="date-text">Date created: {parse_date(post.date_created)}</p>
-		{/if}
-		{#if post.date_modified}
-			<p class="date-text">Last modified: {parse_date(post.date_modified)}</p>
-		{/if}
-		{#if post.rating?.toString()}
-			<h1
-				class="w-max p-4 mt-2 font-blond lg:text-4xl text-3xl text-black rounded-3xl progress"
-				style="--progress: {post.rating}"
-			>
-				{post.rating}/10
-			</h1>
-		{/if}
-	</div>
-	<hr class="my-6" />
-	<div in:fly={{ x: -10, delay: 250, duration: 500, easing: quartOut }} class="font-blond">
-		<svelte:component this={post.content} />
-	</div>
+<h1
+	class="text-4xl lg:text-5xl xl:text-6xl"
+	in:fly={{ x: -10, duration: 500, easing: quartOut, delay: 500 }}
+>
+	{post.title}
+</h1>
+<div class="flex flex-col mb-4" in:fly={{ x: -10, delay: 600, duration: 300, easing: quartOut }}>
+	<p>Written by roaming97</p>
+	{#if post.tags?.find((t) => t === 'legacy')}
+		<p class="date-text">Originally written: {parse_date(post.date_created)}</p>
+	{:else}
+		<p class="date-text">Date written: {parse_date(post.date_created)}</p>
+	{/if}
+	{#if post.date_modified}
+		<p class="date-text">Last modified: {parse_date(post.date_modified)}</p>
+	{/if}
+	{#if post.rating?.toString()}
+		<h1
+			class="w-max p-4 mt-2 font-blond lg:text-4xl text-3xl text-black rounded-3xl progress"
+			style="--progress: {post.rating}"
+		>
+			{post.rating}/10
+		</h1>
+	{/if}
+</div>
+{#if post.tags?.find((t) => t === 'legacy')}
+	<p class="p-2 rounded-xl bg-sky-500/20 border border-sky-400">
+		<span class="text-sky-500 font-bold">NOTE:</span>
+		This is a <b>legacy</b> post, it has been partially rewritten to improve clarity as well as to
+		fix grammatical and syntactic errors from the original. This article does not represent my current
+		views or opinions today.
+	</p>
+{/if}
+<hr class="my-6" />
+<div in:fly={{ x: -10, delay: 750, duration: 500, easing: quartOut }} class="font-blond">
+	<svelte:component this={post.content} />
 </div>
 
 <style lang="postcss">
-	p {
-		@apply italic;
-	}
 	.progress {
 		--start: 0;
 		--end: 130;
@@ -63,6 +72,6 @@
 		);
 	}
 	.date-text {
-		@apply text-xs opacity-50;
+		@apply text-xs opacity-50 italic;
 	}
 </style>

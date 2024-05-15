@@ -1,7 +1,7 @@
 ---
 title: 'End Of Month article (Aug 2018)'
 date_created: 2018/08/31
-legacy: true
+tags: ['legacy']
 ---
 
 It has been an _interesting_ month, and by that I mean uneventful.

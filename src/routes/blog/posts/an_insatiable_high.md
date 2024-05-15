@@ -2,6 +2,7 @@
 title: 'Masayoshi Takanaka - An Insatiable High'
 date_created: 2023/02/24
 date_modified: 2023/09/27
+tags: ['review']
 rating: 8
 ---
 

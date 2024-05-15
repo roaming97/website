@@ -1,10 +1,11 @@
 ---
 title: FAQ (Frequently asked questions)
 date_created: 2022/05/29
-date_modified: 2023/09/25
+date_modified: 2024/03/31
+tags: ['personal']
 ---
 
-This article is a homage to a very old version of this website (early 2019)
+This article is a homage to the first version of this website (early 2019)
 which had a frequently asked questions section even if they weren't many.
 
 <br />
@@ -37,18 +38,15 @@ because that would mean a complete rebranding, which I don't think is worth doin
 
 Back in 2017 I used to listen to vaporwave.
 
-As some of you may know it included 'Windows 9X' in its aesthetic. With that in mind, I used the old
-Windows flag as my legacy logo throughout 2017 and 2018 (even though it's clearly not mine), then proceeded to
-redesign that logo with some aspects from the Windows flag (which was still not very original). Finally, I
-designed the current logo from scratch to finally leave a dependency of another logo behind for good.
+As some of you may know it involved 'Windows 9X' and the rise of personal computing as one of its stylistic elements. With that in mind, I used the old Windows flag as my legacy logo throughout 2017 and 2018 (even though it's clearly not mine), then proceeded to redesign that logo with some aspects from the Windows flag (which was still not very original). Finally, I designed the current logo from scratch to finally leave a dependency of another logo behind for good, no more copyright infringment!
 
 <br />
 
 # What are your PC specifications?
 
--   CPU: AMD Ryzen 5 3400G with Radeon Vega Graphics
+-   CPU: AMD Ryzen 5 3400G
 -   RAM: 32GB DDR4
--   GPU: AMD Radeon Vega 11 Graphics (integrated)
+-   GPU: Radeon Vega 11 Graphics (integrated)
 -   Storage: 1TB HDD + 1TB SSD
 -   OS: Windows 10 Pro 64-bit
 

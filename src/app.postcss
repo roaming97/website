@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	@apply scroll-mt-20;
+}
+
 html {
 	@apply overflow-x-hidden;
 }
@@ -24,7 +28,9 @@ figure,
 p,
 span,
 a,
-label, li {
+label,
+li,
+button {
 	@apply font-primary;
 }
 
@@ -34,8 +40,12 @@ blockquote {
 	@apply font-mono;
 }
 
+b {
+	@apply font-bold;
+}
+
 h1 {
-	@apply text-4xl tracking-wide font-bold;
+	@apply text-3xl tracking-wide font-bold;
 }
 
 h2 {

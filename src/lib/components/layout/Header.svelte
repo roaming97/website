@@ -4,8 +4,10 @@
 	import ThemeSwitch from './ThemeSwitch.svelte';
 </script>
 
-<Menu />
-<div class="fixed flex items-center justify-between h-16 w-screen bg-black p-8 z-20">
+<div
+	class="fixed flex items-center justify-between h-16 w-screen bg-white/50 dark:bg-black/50 backdrop-blur-lg p-8 z-50"
+>
 	<MenuToggle />
 	<ThemeSwitch />
 </div>
+<Menu />

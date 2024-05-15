@@ -1,0 +1,18 @@
+<script lang="ts">
+	export let area: string;
+	export let period: string;
+	export let color: 'teal' | 'indigo';
+
+	const container_classes =
+		color === 'teal' ? 'border-teal-500 bg-teal-500/10' : 'border-indigo-500 bg-indigo-500/10';
+	const h2_class = color === 'teal' ? 'text-teal-500' : 'text-indigo-500';
+	const p_class = color === 'teal' ? 'text-teal-400' : 'text-indigo-400';
+</script>
+
+<div class="flex flex-col gap-2 p-4 rounded-xl border {container_classes} border-">
+	<div class="flex flex-col lg:flex-row lg:items-center justify-between">
+		<h2 class={h2_class}>{area}</h2>
+		<p class={p_class}>{period}</p>
+	</div>
+	<slot />
+</div>

@@ -5,7 +5,7 @@ export default {
 	theme: {
 		fontFamily: {
 			primary: ['unbounded', 'sans-serif'],
-			mono: ['fira-code', 'monospace']
+			mono: ['jetbrains-mono', 'monospace']
 		},
 		extend: {
 			colors: {
@@ -24,6 +24,9 @@ export default {
 			},
 			transitionTimingFunction: {
 				'quint-in-out': 'cubic-bezier(0.83, 0, 0.17, 1)'
+			},
+			dropShadow: {
+				glow: '0 0 8px rgba(154, 112, 255, 0.5)'
 			}
 		}
 	},

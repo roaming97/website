@@ -1,8 +1,10 @@
 export function find_cookie(query: string) {
-	return document.cookie
+	const cookie = document.cookie
 		.split('; ')
 		.find((row) => row.startsWith(`${query}=`))
 		?.split('=')[1];
+	console.log(cookie);
+	return cookie;
 }
 
 export function r97_age(): number {
@@ -46,4 +48,8 @@ export function parse_date(d: Date) {
 	const year = new_date.getFullYear();
 
 	return `${month} ${day}, ${year}`;
+}
+
+export function file_stem(filename: string) {
+	return filename.trim().toLowerCase().split('.')[0].split('_').pop()?.split('/').pop();
 }

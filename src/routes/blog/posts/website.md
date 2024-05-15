@@ -1,7 +1,7 @@
 ---
 title: 'The website is online now!'
 date_created: 2018/08/19
-legacy: true
+tags: ['legacy', 'first post']
 ---
 
 Hello there! It's pretty nice to finally release my own website, a space where I can do pretty much whatever I want, instead of trying to fit in the YouTube system which keeps getting worse by the day.

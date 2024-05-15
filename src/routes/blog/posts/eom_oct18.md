@@ -1,7 +1,7 @@
 ---
 title: 'End Of Month article (Oct 2018)'
-date_created: 2018/10/04
-legacy: true
+date_created: 2018/11/01
+tags: ['legacy']
 ---
 
 Hm, I have done plenty of things this month:

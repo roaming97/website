@@ -1,7 +1,7 @@
 ---
 title: 'End Of Month article (Sep 2018)'
 date_created: 2018/10/04
-legacy: true
+tags: ['legacy']
 ---
 
 I've been pretty much dead these past couple of months due to the reasons I have mentioned before taking up time of my life. I'll still try to write something in this space, though.
