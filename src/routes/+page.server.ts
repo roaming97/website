@@ -21,8 +21,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	return {
 		amount,
 		everydays: new Promise<LatestFilesResponse>((resolve) => {
-			const offset = Math.floor(Math.random() * 310 + 1);
-			fetch(`${LAVENDER_URL}/latest?relpath=/artwork/everydays&count=15&offset=${offset}`, {
+			fetch(`${LAVENDER_URL}/latest?relpath=/artwork/everydays&count=15&offset=40`, {
 				method: 'GET',
 				headers: {
 					'lav-api-key': LAVENDER_API_KEY
