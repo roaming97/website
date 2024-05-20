@@ -13,7 +13,7 @@
 	const projects = [
 		{
 			name: 'Almond',
-			url: '/almond',
+			url: 'https://github.com/roaming97/Almond',
 			description: 'Self-hosted YouTube video archiving app',
 			bg_color: '#e5cb89',
 			logo: '/img/ico/almond.svg',
@@ -21,19 +21,27 @@
 		},
 		{
 			name: 'Lavender',
-			url: '/lavender',
+			url: 'https://github.com/roaming97/Lavender',
 			description: 'File server as a backend for roaming97.com',
 			bg_color: '#af9de8',
 			logo: '/img/ico/lavender_placeholder.svg',
-			render: '/img/tangram.webp'
+			render: '/img/lavender.webp'
 		},
 		{
 			name: 'Tangram',
-			url: '/tangram',
+			url: 'https://github.com/roaming97/Tangram',
 			description: 'Minimal graphics engine for games and applications',
 			bg_color: '#9af9b2',
 			logo: '/img/ico/tangram_color.png',
 			render: '/img/tangram.webp'
+		},
+		{
+			name: 'vintran',
+			url: 'https://github.com/roaming97/vintran',
+			description: 'Vintage file transfer',
+			bg_color: '#93adf9',
+			logo: '/img/ico/network.png',
+			render: '/img/vintran.webp'
 		}
 	] satisfies Project[];
 

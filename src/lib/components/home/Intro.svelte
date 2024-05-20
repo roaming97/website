@@ -27,12 +27,10 @@
 		</p>
 	</div>
 	<div class="w-full lg:w-auto flex flex-col lg:flex-row items-center gap-3">
-		<!--
-			<Button href="/portfolio">
-				<img src="/img/ico/briefcase.svg" width="24" height="24" alt="briefcase icon" />
-				<span>Portfolio</span>
-			</Button>
-		-->
+		<Button href="/portfolio">
+			<img src="/img/ico/briefcase.svg" width="24" height="24" alt="briefcase icon" />
+			<span>Portfolio</span>
+		</Button>
 		<Button target="_blank" href="https://github.com/roaming97/">
 			<img
 				src="/img/ico/github.svg"

@@ -10,7 +10,7 @@
 		post = data;
 	}
 
-	const BLOG_TITLE_CHARS = 48;
+	const BLOG_TITLE_CHARS = 28;
 
 	function title_trim(title: string) {
 		if (title.length <= BLOG_TITLE_CHARS) return title;

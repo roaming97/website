@@ -1,19 +1,15 @@
 <script lang="ts">
-	import type { PageServerData } from './../../../../.svelte-kit/types/src/routes/vault/$types.d.ts';
+	import type { PageServerData } from './../../../../.svelte-kit/types/src/routes/alcove/$types.d.ts';
 	import Post from '../Post.svelte';
 
 	export let data: PageServerData;
 </script>
 
 <div class="flex flex-col w-full">
-	<h1 class="text-5xl lg:text-7xl mb-4 font-blond text-center xl:text-left">
-		<div class="hidden lg:block">
-			<span class="block">Newest</span>
-			<span class="block leading-10">posts</span>
-		</div>
-		<span class="block lg:hidden">Newest posts</span>
+	<h1 class="text-4xl lg:text-6xl font-blond text-center xl:text-left">
+		<span>Newest posts</span>
 	</h1>
-	<div class="py-8 grid grid-cols-1 lg:grid-cols-3 items-stretch justify-center gap-4">
+	<div class="py-2 grid grid-cols-1 lg:grid-cols-3 items-stretch justify-center gap-4">
 		{#await data.posts}
 			<Post />
 			<Post />

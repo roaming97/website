@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageServerData } from './../../../../.svelte-kit/types/src/routes/vault/$types.d.ts';
+	import type { PageServerData } from './../../../../.svelte-kit/types/src/routes/alcove/$types.d.ts';
 	import ImageTile from '$lib/components/ImageTile.svelte';
 
 	export let data: PageServerData;
@@ -19,7 +19,7 @@
 			{/await}
 		</div>
 		<div class="flex flex-row-reverse items-center w-full pt-10 pb-2 pr-2 lg:pr-0">
-			<a href="/vault" class="font-semibold text-lg tracking-wide text-right"
+			<a href="/alcove" class="font-semibold text-lg tracking-wide text-right"
 				>View more <span class="font-medium font-mono">&rightarrow;</span></a
 			>
 		</div>

@@ -58,18 +58,7 @@
 
 <div class="flex flex-col gap-16">
 	<article>
-		<p>
-			Hey! roaming97.com's owner real name is <b class="text-brand-a drop-shadow-glow"
-				>Edmundo</b
-			>! He is a very curious and resilient creative designer/developer who does a lot of
-			things during his free time, most of the time doing activities that teach him something,
-			he gets core deep into any topic that comes to his mind and learns as much as he can.
-		</p>
-		<p>
-			Started working at the young age of 16 on 04 Collective in 2019, and for four years he
-			worked professionally with a variety of clients from all around the world, then becoming
-			a full-time web developer in 2023.
-		</p>
+		<p>Todo</p>
 	</article>
 	<article>
 		<h1>Experience</h1>

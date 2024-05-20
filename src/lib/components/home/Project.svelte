@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="rounded-xl p-4 lg:w-[400px] h-[400px] border-2"
+	class="rounded-xl p-4 w-full lg:w-[400px] aspect-square border-2"
 	style="border-color: {border}"
 	style:background
 >
