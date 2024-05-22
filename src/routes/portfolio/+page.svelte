@@ -2,6 +2,7 @@
 	import Project from '$lib/components/home/Project.svelte';
 </script>
 
+<p>TODO: Explain each project</p>
 <div class="grid grid-cols-1 lg:grid-cols-2 p-2 gap-4 items-center w-screen lg:flex-row lg:w-auto">
 	<Project
 		border="rgb(254 182 0)"

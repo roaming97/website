@@ -15,11 +15,13 @@
 		{
 			name: 'Portfolio',
 			description: 'Showcase of my professional work.'
-		},
+		}
+		/*
 		{
 			name: 'Alcove',
 			description: 'My hobbies and personal projects.'
 		}
+		*/
 	];
 
 	$: link = (button: MenuButtonProps) => {
