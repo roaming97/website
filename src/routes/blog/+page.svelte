@@ -3,6 +3,7 @@
 	import Paginator from '$lib/components/Paginator.svelte';
 	import type { PageData } from './$types';
 	import type { BlogPost } from '$lib/types';
+	import Callout from '$lib/components/Callout.svelte';
 
 	export let data: PageData;
 
@@ -18,6 +19,12 @@
 <svelte:head>
 	<title>Blog - roaming97</title>
 </svelte:head>
+<Callout level="warning">
+	This section is under construction! Most blog posts are not finished. This has been an
+	excruciatingly long process that I have not been able to complete yet, but I don't want to wait
+	another three years before I could release this new version of my website only because of the
+	more informal sections of it.
+</Callout>
 <ul class="flex flex-col items-center lg:w-[70vw] lg:mx-auto">
 	<Paginator {pagination} />
 	<p>

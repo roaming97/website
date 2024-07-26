@@ -57,7 +57,7 @@
 			</div>
 		{:else}
 			<div class="pt-20 p-4 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
-				<h1 class="font-blond text-4xl lg:text-5xl xl:text-6xl">{capitalized}</h1>
+				<h1 class="font-normal text-4xl lg:text-5xl xl:text-6xl">{capitalized}</h1>
 				<hr class="opacity-10 w-full my-4" />
 				<slot />
 			</div>

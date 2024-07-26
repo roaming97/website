@@ -50,16 +50,16 @@ And from there on I've met a lot of cool people as well as pretty disgusting peo
 
 <br>
 
--   [@PaperSkies_Sc](https://twitter.com/PaperSkies_Sc) - giving me the chance to prove myself as a visual artist and that mini audience boost that I'll always thank.
--   [@FamousSpearCA](https://twitter.com/FamousSpearCA) - if I wasn't your fan I probably wouldn't have known this label ever, so uh yeah, thanks pear man.
--   [@infowlermusic](https://twitter.com/infowlermusic) - you and Izzy are pretty talented people, and even if I don't like to admit it you've gave me a good laugh from time to time.
--   [@wordsbynoble](https://twitter.com/wordsbynoble) - you and Iwo made by far my favorite release on the label, you're my favorite monkey.
--   [@mskdsounds](https://twitter.com/mskdsounds) - man have we done a lot of stuff together, hopefully we still work on wacky ideas you have!
--   [@eccentricedm](https://twitter.com/eccentricedm) - your music is so damn good, and I'm so glad you've given me the chance to work for you as well.
+-   [@PaperSkies_Sc](https://x.com/PaperSkies_Sc) - giving me the chance to prove myself as a visual artist and that mini audience boost that I'll always thank.
+-   [@FamousSpearCA](https://x.com/FamousSpearCA) - if I wasn't your fan I probably wouldn't have known this label ever, so uh yeah, thanks pear man.
+-   [@infowlermusic](https://x.com/infowlermusic) - you and Izzy are pretty talented people, and even if I don't like to admit it you've gave me a good laugh from time to time.
+-   [@wordsbynoble](https://x.com/wordsbynoble) - you and Iwo made by far my favorite release on the label, you're my favorite monkey.
+-   [@mskdsounds](https://x.com/mskdsounds) - man have we done a lot of stuff together, hopefully we still work on wacky ideas you have!
+-   [@eccentricedm](https://x.com/eccentricedm) - your music is so damn good, and I'm so glad you've given me the chance to work for you as well.
 
 <br>
 
-Sorry for the unnecessarily long thread, but I really wanted to express my enormous gratitude towards [@04Collective](https://twitter.com/04Collective)
+Sorry for the unnecessarily long thread, but I really wanted to express my enormous gratitude towards [@04Collective](https://x.com/04Collective)
 , and I won't hesitate to work again with the staff on another label in the (hopefully not) far future. Thank you.
 
 <style>

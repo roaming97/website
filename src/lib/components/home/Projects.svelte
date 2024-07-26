@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { theme } from '$lib/stores';
+	import { onMount } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+
 	interface Project {
 		name: string;
 		url: string;
@@ -10,6 +12,7 @@
 		logo: string;
 		render: string;
 	}
+
 	const projects = [
 		{
 			name: 'Almond',
@@ -45,23 +48,46 @@
 		}
 	] satisfies Project[];
 
-	$: i = 0;
-	$: current = projects[i];
+	let interval = 8000;
+	let time = performance.now();
+	let dt = 0;
+	$: index = 0;
+	$: current = projects[index];
 
-	let interval: NodeJS.Timeout;
+	function reset_time() {
+		time = performance.now();
+		dt = 0;
+	}
 
-	onMount(() => {
-		interval = setInterval(() => {
-			i = i >= projects.length - 1 ? 0 : i + 1;
-		}, 2000);
-	});
+	function step() {
+		const now = performance.now();
+		dt = Math.min((now - time) / interval, 1);
+		if (dt === 1) {
+			next(true);
+			reset_time();
+		}
+		requestAnimationFrame(step);
+	}
 
-	onDestroy(() => clearInterval(interval));
+	function next(autoplay: boolean) {
+		if (autoplay) {
+			index + 1 >= projects.length ? (index = 0) : index++;
+		} else {
+			if (index + 1 < projects.length) {
+				index++;
+				reset_time();
+			}
+		}
+	}
+
+	$: gradient_top = $theme === 'dark' ? '#02020100' : '#ffffff00';
+
+	onMount(() => step());
 </script>
 
 <div
-	class="w-full flex flex-col lg:flex-row items-center justify-around transition-colors duration-300"
-	style:background={current.bg_color}
+	class="w-full flex flex-col lg:flex-row items-center justify-around transition-all duration-300"
+	style:background="linear-gradient(180deg, {gradient_top} 0%, {current.bg_color} 30%)"
 >
 	<div class="flex py-4 lg:p-16 flex-col">
 		{#key current}
@@ -79,18 +105,32 @@
 					height="84"
 				/>
 				<div class="flex flex-col items-stretch">
-					<div
-						class="flex items-center justify-between p-2 my-2 bg-brand-c/50 font-black"
-					>
-						<h1>
+					<div class="flex items-center justify-between p-2 my-2 bg-brand-c/50">
+						<h1 class="font-black">
 							{current.name}
 						</h1>
-						<h1>&rightarrow;</h1>
+						<h1 class="font-black">&rightarrow;</h1>
 					</div>
-					<p class="text-sm">{current.description}</p>
+					<p>{current.description}</p>
 				</div>
 			</a>
 		{/key}
+		<div class="w-full h-1 bg-black/30 my-4">
+			<div class="w-full h-1 bg-black origin-left" style="scale: {dt} 1"></div>
+		</div>
+		<div class="w-full flex items-center justify-center gap-4">
+			{#each projects as _, idx}
+				<button
+					class:bg-black={idx === index}
+					class:bg-zinc-500={idx !== index}
+					class="w-4 h-4 rounded-full transition-colors duration-300"
+					on:click={() => {
+						reset_time();
+						index = idx;
+					}}
+				></button>
+			{/each}
+		</div>
 	</div>
 	{#key current}
 		<img

@@ -4,7 +4,7 @@ export default {
 	darkMode: 'class',
 	theme: {
 		fontFamily: {
-			primary: ['unbounded', 'sans-serif'],
+			primary: ['satoshi', 'sans-serif'],
 			mono: ['jetbrains-mono', 'monospace']
 		},
 		extend: {
@@ -27,6 +27,15 @@ export default {
 			},
 			dropShadow: {
 				glow: '0 0 8px rgba(154, 112, 255, 0.5)'
+			},
+			animation: {
+				bg_scroll: 'bg_scroll 20s ease infinite'
+			},
+			keyframes: {
+				bg_scroll: {
+					'0%, 100%': { 'background-position': '0% 50%' },
+					'50%': { 'background-position': '100% 50%' }
+				}
 			}
 		}
 	},

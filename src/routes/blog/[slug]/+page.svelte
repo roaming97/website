@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Callout from './../../../lib/components/Callout.svelte';
 	import { quartOut } from 'svelte/easing';
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
@@ -24,7 +25,7 @@
 </svelte:head>
 
 <h1
-	class="text-4xl lg:text-5xl xl:text-6xl"
+	class="text-4xl lg:text-5xl xl:text-6xl mb-2"
 	in:fly={{ x: -10, duration: 500, easing: quartOut, delay: 500 }}
 >
 	{post.title}
@@ -41,37 +42,43 @@
 	{/if}
 	{#if post.rating?.toString()}
 		<h1
-			class="w-max p-4 mt-2 font-blond lg:text-4xl text-3xl text-black rounded-3xl progress"
+			class="w-max px-4 py-3 mt-2 font-blond lg:text-4xl text-3xl text-black rounded-xl progress"
 			style="--progress: {post.rating}"
 		>
 			{post.rating}/10
 		</h1>
 	{/if}
+	<a href="/blog" class="mt-2">&leftarrow; Back to blog</a>
 </div>
 {#if post.tags?.find((t) => t === 'legacy')}
-	<p class="p-2 rounded-xl bg-sky-500/20 border border-sky-400">
-		<span class="text-sky-500 font-bold">NOTE:</span>
+	<Callout level="info">
 		This is a <b>legacy</b> post, it has been partially rewritten to improve clarity as well as to
 		fix grammatical and syntactic errors from the original. This article does not represent my current
 		views or opinions today.
-	</p>
+	</Callout>
 {/if}
-<hr class="my-6" />
+<hr class="mb-6" />
 <div in:fly={{ x: -10, delay: 750, duration: 500, easing: quartOut }} class="font-blond">
 	<svelte:component this={post.content} />
 </div>
 
 <style lang="postcss">
+	h1 {
+		@apply font-black;
+	}
+	:global(h1 > a) {
+		@apply font-extrabold;
+	}
 	.progress {
 		--start: 0;
-		--end: 130;
+		--end: 140;
 		background-color: hsl(
 			calc(var(--start) + (var(--end) - var(--start)) * var(--progress) * 0.1),
-			80%,
-			50%
+			85%,
+			60%
 		);
 	}
 	.date-text {
-		@apply text-xs opacity-50 italic;
+		@apply text-xs opacity-75 italic;
 	}
 </style>

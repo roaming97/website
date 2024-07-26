@@ -11,16 +11,20 @@
 	}
 </script>
 
-<div class="w-full lg:w-3/4">
+<div class="w-full">
 	<h1 id="updates">Updates</h1>
 	<hr class="my-2 border-gray-400 dark:border-darker" />
-	<LogEntry date={new Date('2024/5/5')}>
+	<LogEntry date={new Date('2024/7/25')}>
 		<p>Version 6 of this website is out, hopefully the last version I have to write.</p>
 		<p>
-			If you're curious about the development behind this new version, you can check out the <a
+			If you're curious about the development behind this new version, check out the <a
 				href="/blog/website6">article</a
 			> explaining those in more detail.
 		</p>
+	</LogEntry>
+
+	<LogEntry date={new Date('2024/5/20')}>
+		<p>Version 6 test released.</p>
 	</LogEntry>
 
 	<LogEntry date={new Date('2023/01/12')}>
@@ -32,8 +36,7 @@
 			<LogEntry date={new Date('2022/07/02')}>
 				<p>
 					Version 5 released. Here's the <a
-						href="https://twitter.com/roaming98/status/1543056677087354880"
-						>announcement</a
+						href="https://x.com/roaming98/status/1543056677087354880">announcement</a
 					> on Twitter.
 				</p>
 			</LogEntry>

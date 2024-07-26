@@ -9,7 +9,7 @@
 	{#if src}
 		<img {src} width="32" height="32" alt="{caption} icon" />
 	{/if}
-	<span>{caption}</span>
+	<span class="font-bold">{caption}</span>
 </a>
 
 <style lang="postcss">

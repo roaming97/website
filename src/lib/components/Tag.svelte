@@ -9,6 +9,7 @@
 
 	const tag_colors: TagColor[] = [
 		{ name: 'legacy', fill: '#6a6a6a', text: '#ddd' },
+		{ name: 'spanish', fill: '#84d620', text: '#000' },
 		{ name: 'first post', fill: '#f9d242', text: '#000' },
 		{ name: 'development', fill: '#a32916', text: '#fff' },
 		{
@@ -25,6 +26,6 @@
 	$: text = tag_colors.find((t) => t.name === tag)?.text;
 </script>
 
-<p class="p-1 px-3 rounded-2xl w-max text-xs font-normal" style="background: {fill}; color: {text}">
+<p class="p-1 px-3 rounded-2xl w-max text-xs" style="background: {fill}; color: {text}">
 	{tag}
 </p>

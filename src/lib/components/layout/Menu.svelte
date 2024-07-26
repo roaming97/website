@@ -10,18 +10,16 @@
 		},
 		{
 			name: 'About',
-			description: 'Get to know who am I.'
+			description: 'Get to know who I am.'
 		},
 		{
 			name: 'Portfolio',
 			description: 'Showcase of my professional work.'
-		}
-		/*
+		},
 		{
-			name: 'Alcove',
-			description: 'My hobbies and personal projects.'
+			name: 'Nook',
+			description: 'Fun space where my hobbies reside.'
 		}
-		*/
 	];
 
 	$: link = (button: MenuButtonProps) => {
@@ -34,7 +32,7 @@
 
 <menu
 	class="fixed flex flex-col justify-around pl-4 md:pl-6 pr-10 pb-16 pt-24
-	z-10 w-[70vw] md:w-[50vw] lg:w-auto bg-white/40 dark:bg-darkest/80
+	z-10 w-[70vw] md:w-[50vw] lg:w-[25vw] bg-white/40 dark:bg-darkest/80
 	backdrop-blur-lg h-full select-none transition-transform duration-500
 	ease-[cubic-bezier(0.22,1,0.36,1)] -translate-x-full"
 	class:translate-x-0={$menu_open}
@@ -42,29 +40,29 @@
 	{#each menu_buttons as button}
 		{#if is_current(button)}
 			<div class="opacity-30">
-				<h1 class="tracking-normal lg:leading-[4.5rem] font-semibold text-3xl md:text-5xl">
+				<h1 class="tracking-normal lg:leading-[4.5rem] font-bold text-3xl md:text-5xl">
 					{button.name}
 				</h1>
-				<p class="font-blond text-sm md:text-base">
+				<p class="text-sm md:text-base">
 					{button.description}
 				</p>
 			</div>
 		{:else}
-			<a href={link(button)} class="group" on:click={() => ($menu_open = false)}>
+			<a
+				href={link(button)}
+				class="group"
+				on:click={() => ($menu_open = false)}
+				data-sveltekit-preload-data
+			>
 				<h1
-					class="tracking-normal lg:leading-[4.5rem] font-semibold text-3xl md:text-5xl group-hover:text-brand-c"
+					class="tracking-normal lg:leading-[4.5rem] font-bold text-3xl md:text-5xl group-hover:text-brand-c"
 				>
 					{button.name}
 				</h1>
-				<p class="font-blond text-sm md:text-base group-hover:text-brand-c">
+				<p class="text-sm md:text-base group-hover:text-brand-c">
 					{button.description}
 				</p>
 			</a>
 		{/if}
 	{/each}
-	<enhanced:img
-		src="/static/img/r97LogoV3.png?w=80"
-		alt="roaming97 icon"
-		class="invert dark:invert-0"
-	/>
 </menu>

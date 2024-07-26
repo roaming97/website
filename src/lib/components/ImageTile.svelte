@@ -17,7 +17,7 @@
 <style lang="postcss">
 	.frame {
 		@apply outline outline-1 outline-black dark:outline-white w-[128px] 
-		lg:w-48 xl:w-80 aspect-square transition-all;
+		lg:w-48 xl:w-72 aspect-square transition-all;
 	}
 	.clickable {
 		@apply hover:outline-[6px] hover:outline-brand-c dark:hover:outline-brand-c 

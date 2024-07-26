@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Callout from '$lib/components/Callout.svelte';
 	import { Everyday, Projects, Intro, Hero } from '$lib/components/home';
 	import type { PageServerData } from './$types';
 	import Stat from '$lib/components/Stat.svelte';
@@ -12,20 +13,20 @@
 <div class="flex flex-col items-center lg:items-start gap-24 lg:gap-32 dark:bg-darkest bg-white">
 	<Intro />
 	<Projects />
-	<div class="flex flex-col gap-8">
-		<h1 class="w-screen text-5xl lg:text-7xl font-blond text-center">Everydays</h1>
-		{#await data.everydays}
-			<Everyday />
-		{:then everydays}
-			<Everyday images={everydays.thumbnails} />
-		{/await}
-		<div class="w-screen flex flex-col items-center">
-			<Button href="https://twitter.com/roaming98">
-				<span class="text-xl">View all</span>
-			</Button>
+	{#if !data.ok}
+		<div class="w-auto mx-auto">
+			<Callout level="critical"
+				>Failed to retrieve data from server. This is likely due to my Lavender instance not
+				working at the moment.</Callout
+			>
 		</div>
+	{/if}
+	<div class="flex flex-col items-center justify-around lg:flex-row lg:px-12 w-full">
+		<Stat amount={r97_age()} title="years" />
+		<Stat amount={data.amount} suffix="+" title="media pieces" />
+		<Stat amount={20} suffix="+" title="clients" />
 	</div>
-	<h1 class="w-screen text-5xl lg:text-7xl font-blond text-center">Motion reels</h1>
+	<h1 class="w-screen text-5xl lg:text-7xl text-center">Motion reels</h1>
 	<div class="w-full flex flex-col lg:flex-row items-center justify-center gap-8">
 		<iframe
 			width="560"
@@ -48,9 +49,17 @@
 			allowfullscreen
 		></iframe>
 	</div>
-	<div class="flex flex-col items-center justify-around lg:flex-row w-full">
-		<Stat amount={r97_age()} title="years" />
-		<Stat amount={data.amount} suffix="+" title="media pieces" />
-		<Stat amount={20} suffix="+" title="clients" />
+	<div class="flex flex-col gap-8">
+		<h1 class="w-screen text-5xl lg:text-7xl text-center">Everydays</h1>
+		{#await data.everydays}
+			<Everyday />
+		{:then everydays}
+			<Everyday images={everydays.thumbnails} />
+		{/await}
+		<div class="w-screen flex flex-col items-center">
+			<Button href="https://x.com/roaming98">
+				<span class="text-xl">View all</span>
+			</Button>
+		</div>
 	</div>
 </div>

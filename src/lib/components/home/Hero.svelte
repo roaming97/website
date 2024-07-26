@@ -21,15 +21,18 @@
 			<Model />
 		</Canvas>
 	</div>
-	<div class="p-2 xl:p-8">
+	<div class="flex flex-col">
 		<h1
-			class="text-3xl sm:text-5xl lg:text-8xl text-left font-normal tracking-tighter
-						drop-shadow-glow bg-clip-text text-transparent bg-gradient-to-br from-20%
-						from-brand-a via-brand-b to-70% to-brand-c"
+			class="text-3xl sm:text-5xl lg:text-8xl text-left tracking-tight drop-shadow-glow
+					bg-gradient-to-br bg-clip-text text-transparent from-20% from-brand-a
+					via-brand-b to-70% to-brand-c bg-[length:400%_400%] py-1 md:py-2
+					lg:py-3 xl:py-4 px-1 animate-bg_scroll"
 		>
 			roaming97
 		</h1>
-		<h2 class="text-xs sm:text-sm lg:text-xl text-left font-medium lg:mb-4 drop-shadow-glow">
+		<h2
+			class="text-xs sm:text-sm lg:text-xl text-left font-medium lg:mb-4 drop-shadow-glow px-1"
+		>
 			Digital creative.
 		</h2>
 	</div>

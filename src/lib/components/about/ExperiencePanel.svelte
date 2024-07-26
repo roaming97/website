@@ -8,8 +8,8 @@
 <div class="p-4 border-2 bg-white dark:bg-darkest border-gray-500 dark:border-dark rounded-lg mb-4">
 	<div class="flex flex-col md:flex-row justify-between">
 		<div>
-			<h2 class="leading-none">{user}</h2>
-			<h3 class="opacity-75 font-semibold text-base">{role}</h3>
+			<h2 class="leading-none">{role}</h2>
+			<h3 class="opacity-75 font-semibold text-base">{user}</h3>
 		</div>
 		<div class="md:text-right">
 			<p class="opacity-75">{location}</p>

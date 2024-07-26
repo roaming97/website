@@ -22,7 +22,7 @@
 <style lang="postcss">
 	.scroll {
 		animation-name: scroll;
-		animation-duration: 50s;
+		animation-duration: 60s;
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}

@@ -5,6 +5,7 @@
 		['Blender', 'blender'],
 		['Affinity Photo', 'affinity_photo'],
 		['Affinity Designer', 'affinity_designer'],
+		['Affinity Publisher', 'affinity_publisher'],
 		['Krita', 'krita'],
 		['Figma', 'figma'],
 		['Adobe Photoshop', 'photoshop'],
@@ -13,7 +14,8 @@
 		['Adobe After Effects', 'after-effects'],
 		['Adobe Animate', 'animate'],
 		['Adobe Flash', 'flash'],
-		['VEGAS Pro', 'vegas']
+		['VEGAS Pro', 'vegas'],
+		['DaVinci Resolve', 'resolve']
 	];
 	const language_icons = [
 		['HTML', 'html'],
@@ -25,7 +27,7 @@
 	];
 	const lib_icons = [
 		['Svelte', 'svelte'],
-		['Tailwind', 'tailwind'],
+		['Tailwind CSS', 'tailwind'],
 		['Bootstrap', 'bootstrap'],
 		['Sass', 'sass'],
 		['Supabase', 'supabase'],
@@ -58,28 +60,87 @@
 
 <div class="flex flex-col gap-16">
 	<article>
-		<p>Todo</p>
+		<p>
+			Now, who is this person who didn't want to introduce himself on the home page of his own
+			website?
+		</p>
+		<p>
+			Hi! I am <b class="text-brand-a font-bold">roaming97</b>, a terribly curious guy with
+			interest in terribly specific things. Throughout my whole life I've had a lot of
+			different hobbies, most of those involving a computer with the two purposes of learning
+			new stuff in the current digital world we live in and serve as a distraction from
+			school. I began creating videos in 2012 but only started to do so under this pseudonym
+			in late 2016. The creations from back then were made with no real purpose or direction
+			yet so it was more like experimental video art, all made for fun.
+		</p>
+		<p>
+			In 2018 I wanted to take graphic and visual design more seriously. Turns out this move
+			landed me a couple of jobs in the following years! My first one was at 04 Collective in
+			2019 helping with the visual material for releases as well as promotional material, it
+			was a pretty fun experience which I talk about in more detail <a href="/blog/04_closing"
+				>here</a
+			>. Nevertheless, thanks to that "small" gig I was able to make a pretty modest musical
+			artist network that I worked with as well via my freelance work. All of these
+			commissions ultimately motivated me to study a B.Des. in Multimedia Design and Digital
+			Art in 2020, and after 4 years I managed to successfully graduate.
+		</p>
+		<p>
+			Another skill I worked on improving during this period was programming, I learned HTML,
+			CSS, and JavaScript to make the first version of this website back in 2018 so I had a
+			place to host my videos outside of YouTube, which then became useful to also host my
+			professional portfolio once 2019 came around. After this I learned Python and Rust which
+			came in handy for some personal projects. This is what I currently work as, usually
+			frontend but I also know my way around backend web development.
+		</p>
+		<p>
+			I am currently working on improving my web developer portfolio as well as other creative
+			projects that have been in the works for the past years, but we'll see when will be the
+			right time to unveil them. Until then this is where it stands.
+		</p>
 	</article>
 	<article>
 		<h1>Experience</h1>
-		<WorkArea area="Web developer" period="2023-present" color="indigo">
+		<WorkArea area="Developer" period="2023-present" color="indigo">
 			<ExperiencePanel
 				user="Loopable"
 				role="Fullstack web developer"
-				period="Jul 2023 - Jan 2024"
+				period="2023 - 2024"
+				location="Melbourne, Australia (Remote)"
 			>
 				<p>
 					Loopable is a website for tracking the validation process in RTO operations,
-					made by Australian team <a target="_blank" href="https://pixeleducation.com.au"
-						>Pixel Education</a
-					>, a team focused on creating solutions for the education space.
+					created by education-focused Australian team <a
+						target="_blank"
+						href="https://pixeleducation.com.au">Pixel Education</a
+					>.
 				</p>
+				<ul>
+					<li>
+						<span aria-hidden="true" aria-label="hidden">🟣</span>
+						<span>
+							Transformed application UI designs into code by writing modular Svelte
+							components.</span
+						>
+					</li>
+					<li>
+						<span aria-hidden="true" aria-label="hidden">🟣</span>
+						<span>
+							Created a backend integration with Amazon Web Services (AWS)
+							interactions within the application.</span
+						>
+					</li>
+				</ul>
 			</ExperiencePanel>
 		</WorkArea>
 		<WorkArea area="Visual artist" period="2019-2023" color="teal">
-			<ExperiencePanel user="Freelance" role="Graphic/motion designer" period="2020 - 2023">
+			<ExperiencePanel
+				user="Freelance"
+				role="Graphic/motion designer"
+				period="2020 - 2023"
+				location="Worldwide"
+			>
 				<p>
-					For 3 years I helped several clients, mostly those on the electronic music
+					For 3 years I helped several clients, mostly those in the electronic music
 					scene, to both design cover art for their releases and to bring those designs to
 					life with motion graphics.
 				</p>
@@ -109,7 +170,8 @@
 			<ExperiencePanel
 				user="04 Collective"
 				role="Senior graphic designer"
-				period="Sep 2019 - Oct 2020"
+				period="2019 - 2020"
+				location="Toronto, ON, Canada (Remote)"
 			>
 				<p>
 					<a target="_blank" href="https://solo.to/04collective"> 04 collective </a>

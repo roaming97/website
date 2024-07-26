@@ -4,17 +4,16 @@
 	import Tag from './Tag.svelte';
 
 	export let data: BlogPost | null = null;
+	export let char_limit = 42;
 	let post: BlogPost;
 
 	$: if (data) {
 		post = data;
 	}
 
-	const BLOG_TITLE_CHARS = 28;
-
 	function title_trim(title: string) {
-		if (title.length <= BLOG_TITLE_CHARS) return title;
-		return `${title.slice(0, BLOG_TITLE_CHARS)}...`;
+		if (title.length <= char_limit) return title;
+		return `${title.slice(0, char_limit)}...`;
 	}
 </script>
 
@@ -58,7 +57,7 @@
 		ease-in-out z-0 drop-shadow-glow flex flex-col justify-center h-full;
 	}
 	h2 {
-		@apply lg:text-4xl mb-2 font-normal tracking-tight font-mono 
+		@apply lg:text-3xl mb-2 font-normal tracking-tight font-mono 
 		group-hover:text-brand-c transition-colors duration-200 ease-in-out;
 	}
 	p {
