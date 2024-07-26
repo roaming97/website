@@ -6,12 +6,15 @@
 </script>
 
 <div class="w-screen relative h-[240px] lg:h-[400px] xl:h-[600px] flex items-center justify-center">
-	<div class="absolute w-full h-full opacity-[0.25]">
+	<div class="absolute w-full h-full opacity-[0.25] hidden lg:block">
 		<Canvas>
 			<ShaderPlane />
 		</Canvas>
 	</div>
-	<div class="w-1/4 h-full drop-shadow-glow">
+	<div
+		class="absolute w-full h-full opacity-[0.25] lg:hidden bg-gradient-to-br from-brand-a"
+	></div>
+	<div class="w-2/5 md:w-1/3 h-full drop-shadow-glow">
 		<Canvas>
 			<Environment path="/img/hdr/" files="the_sky_is_on_fire_1k.hdr" />
 			<T.PerspectiveCamera makeDefault position={[5, 0, 7]} fov={30}>
