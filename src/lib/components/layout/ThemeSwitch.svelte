@@ -16,6 +16,9 @@
 
 	onMount(() => {
 		$theme = find_cookie('theme') as Theme | 'light';
+		$theme === 'dark'
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
 	});
 </script>
 
