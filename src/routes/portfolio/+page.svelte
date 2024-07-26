@@ -11,8 +11,9 @@
 <p>
 	While in my own words I am a "digital creative", what I truly mean by that is that I consider
 	myself a <b
-		>multidisciplinary creator of both interactive and non-interactive stuff on the internet</b
-	>, here are some samples divided into projects focused on (but not exclusively)
+		>multidisciplinary creator of both interactive and non-interactive online creative projects</b
+	>. Here are some samples divided into sections depending on the project's focus which could be
+	(not exclusively)
 	<b class="text-teal-400">programming</b>
 	or <b class="text-indigo-500">design</b>.
 </p>

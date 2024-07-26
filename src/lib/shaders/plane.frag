@@ -16,7 +16,7 @@ uniform float iTime;
 
 #define TOLERANCE.0001
 #define MAX_RAY_LENGTH 24.
-#define MAX_RAY_MARCHES 60
+#define MAX_RAY_MARCHES 10
 #define MAX_SHADOW_MARCHES 20
 #define NORM_OFF.001
 #define ROT(a)mat2(cos(a),sin(a),-sin(a),cos(a))

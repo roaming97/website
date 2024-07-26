@@ -12,7 +12,7 @@
 	let copied = false;
 </script>
 
-<div class="relative flex flex-col lg:flex-row items-center gap-2">
+<div class="relative flex flex-col lg:flex-row items-center gap-2 mt-4">
 	<button
 		class="flex items-center gap-2 w-max rounded-lg p-2 px-4 bg-white dark:bg-darkest transition-colors hover:bg-gray-200 hover:dark:bg-darker cursor-pointer border border-zinc-500 dark:border-dark"
 		on:click={copy}

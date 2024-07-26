@@ -15,11 +15,13 @@
 </Callout>
 <p>
 	Welcome to the nook! This is where suddenly my professional portfolio turns into a mess of a
-	2006 personal blog and website. This is a much more personal space dedicated to my hobbies and
-	passions and sharing anything that's interesting, old-school style.
+	2006 web portal. This is a much more personal space dedicated to my hobbies and passions and
+	sharing anything that's interesting, old-school style.
 </p>
 <div class="flex flex-col gap-16">
-	<div class="py-4 grid items-center justify-center grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+	<div
+		class="py-4 grid items-center justify-center gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+	>
 		<Category
 			href="/fs"
 			src="/img/ico/folders.svg"

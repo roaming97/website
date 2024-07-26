@@ -116,14 +116,12 @@
 				</p>
 				<ul>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span>
 							Transformed application UI designs into code by writing modular Svelte
 							components.</span
 						>
 					</li>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span>
 							Created a backend integration with Amazon Web Services (AWS)
 							interactions within the application.</span
@@ -146,21 +144,18 @@
 				</p>
 				<ul>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span
 							>Helped guide the vision for music artists from different countries
 							around the world into diverse designs for their music.</span
 						>
 					</li>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span
 							>Designed in a variety of styles for electronic music artists by
 							creating both 2D and 3D graphics.</span
 						>
 					</li>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span
 							>Collaborated with other visual artists to execute one artist's ideas.</span
 						>
@@ -180,21 +175,18 @@
 				</p>
 				<ul>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣</span>
 						<span>
 							Created animation videos for the label's releases mixing 2D and 3D
 							graphics.
 						</span>
 					</li>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣️</span>
 						<span>
 							Designed the cover art for the label's releases by helping with the
 							creation of 3D assets.
 						</span>
 					</li>
 					<li>
-						<span aria-hidden="true" aria-label="hidden">🟣️</span>
 						<span>
 							Enhanced the visual identity of the branding and promotional material.
 						</span>
@@ -245,7 +237,9 @@
 		@apply flex flex-col gap-4 lg:gap-1 text-sm;
 	}
 	li {
-		@apply flex gap-1;
+		@apply gap-1 list-item list-inside;
+		list-style: circle url('/img/bulletpoint.svg');
+		list-style-position: inside;
 	}
 	a {
 		@apply text-brand-a underline;

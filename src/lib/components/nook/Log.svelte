@@ -19,7 +19,7 @@
 		<p>
 			If you're curious about the development behind this new version, check out the <a
 				href="/blog/website6">article</a
-			> explaining those in more detail.
+			> sharing the experience in more detail.
 		</p>
 	</LogEntry>
 
