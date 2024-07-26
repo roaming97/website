@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Callout from './../../../lib/components/Callout.svelte';
+	import Callout from '$lib/components/Callout.svelte';
 	import { quartOut } from 'svelte/easing';
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
@@ -9,7 +9,7 @@
 	let image_url = '';
 
 	$: if ($page.url.pathname === '/blog/faq#were-you-born-in-1997') {
-		image_url = '/no.jpg';
+		image_url = 'https://roaming97.com/img/no.jpg';
 	}
 
 	export let data: PageData;
@@ -21,6 +21,7 @@
 	{#if image_url}
 		<meta name="description" content="" />
 		<meta property="og:image" content={image_url} />
+		<meta property="twitter:image" content={image_url} />
 	{/if}
 </svelte:head>
 
