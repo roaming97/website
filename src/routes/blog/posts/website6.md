@@ -1,7 +1,7 @@
 ---
-title: Website 6.0 online!
+title: Website 6.0 FINALLY online!
 date_created: 2024/01/01
-date_modified: 2024/07/24
+date_modified: 2024/07/27
 tags: ['update', 'development']
 ---
 
@@ -21,7 +21,9 @@ This is the culmination of **two years** of work since the release of version 5,
 
 # What did I change in this version?
 
-For one I aimed to balance between showcasing my professional work but also showing some of my personal hobbies and passions, recent versions had too much of the former and older too much of the latter, which makes sense considering the amount of portfolio work to show I had at the time.
+For one I aimed to balance between showcasing my professional work but also showing some of my personal hobbies and passions, recent versions had too much of the former and older too much of the latter, which makes sense considering the amount of portfolio work to show I had at the time. Leaving all my personal stuff in the **Nook** section.
+
+## Technical mumbo jumbo
 
 <br>
 

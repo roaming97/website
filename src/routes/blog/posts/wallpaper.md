@@ -8,12 +8,14 @@ I've made a wallpaper during the scarce free time I have in order to not get rus
 
 <br>
 
-(wallpaper preview goes here)
+<img src="/img/preview/wallpaper1_1280x720.webp" alt="Shattered icosphere wallpaper preview">
 
-**[Download ZIP](about:blank)**
+## ~~**Download ZIP**~~
 
-1.77 MB
+<small>1.77 MB</small>
 
 <br>
 
-Only available in 16:9. Again, I'll maybe release more later on, but for now there's that.
+<br>
+
+Only available in 16:9. Again, I'll maybe release more in the future, but for now there's that.

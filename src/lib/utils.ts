@@ -3,7 +3,7 @@ export function find_cookie(query: string) {
 		.split('; ')
 		.find((row) => row.startsWith(`${query}=`))
 		?.split('=')[1];
-	console.log(cookie);
+	// console.log(cookie);
 	return cookie;
 }
 
