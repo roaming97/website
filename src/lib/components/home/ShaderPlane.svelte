@@ -4,7 +4,6 @@
 	import fragmentShader from './../../shaders/plane.frag?raw';
 	import { PlaneGeometry, Vector3 } from 'three';
 	import { onDestroy, onMount } from 'svelte';
-	import { theme } from '$lib/stores';
 
 	const geometry = new PlaneGeometry(99, 99);
 	const uniforms = {

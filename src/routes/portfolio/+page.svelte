@@ -83,7 +83,7 @@
 				github="https://github.com/roaming97/ZipMyVid"
 			>
 				<div class="flex flex-col items-center md:flex-row md:items-stretch gap-2">
-					<!-- zip my vid screenshot -->
+					<img src="/img/screenshots/zipmyvid.png" alt="ZipMyVid form" />
 				</div>
 			</Project>
 			<Project
@@ -95,7 +95,7 @@
 				tools={['/img/ico/c.svg', '/img/ico/python.svg']}
 				github="https://github.com/roaming97/Tangram"
 			>
-				<div class="flex flex-col items-center md:flex-row md:items-stretch gap-2">
+				<div class="flex flex-col items-center gap-2">
 					<enhanced:img
 						src="/static/img/screenshots/tangram1.webp"
 						alt="Tangram example application"

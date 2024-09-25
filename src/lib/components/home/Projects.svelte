@@ -23,6 +23,22 @@
 			render: '/img/almond.webp'
 		},
 		{
+			name: 'ZipMyVid',
+			url: 'https://github.com/roaming97/ZipMyVid',
+			description: 'Compress your videos easily.',
+			bg_color: '#b5c730',
+			logo: '/img/ico/zmv.svg',
+			render: '/img/screenshots/zipmyvid.png'
+		},
+		{
+			name: 'vintran',
+			url: 'https://github.com/roaming97/vintran',
+			description: 'Vintage file transfer',
+			bg_color: '#93adf9',
+			logo: '/img/ico/network.png',
+			render: '/img/vintran.webp'
+		},
+		{
 			name: 'Lavender',
 			url: 'https://github.com/roaming97/Lavender',
 			description: 'File server as a backend for roaming97.com',
@@ -37,14 +53,6 @@
 			bg_color: '#9af9b2',
 			logo: '/img/ico/tangram_color.png',
 			render: '/img/tangram.webp'
-		},
-		{
-			name: 'vintran',
-			url: 'https://github.com/roaming97/vintran',
-			description: 'Vintage file transfer',
-			bg_color: '#93adf9',
-			logo: '/img/ico/network.png',
-			render: '/img/vintran.webp'
 		}
 	] satisfies Project[];
 
