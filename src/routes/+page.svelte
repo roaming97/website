@@ -21,10 +21,13 @@
 			>
 		</div>
 	{/if}
-	<div class="flex flex-col items-center justify-around lg:flex-row lg:px-12 w-full">
+	<div
+		class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-center justify-around lg:flex-row lg:px-12 w-full"
+	>
 		<Stat amount={r97_age()} title="years" />
-		<Stat amount={data.amount} suffix="+" title="media pieces" />
-		<Stat amount={20} suffix="+" title="clients" />
+		<Stat amount={data.amount} suffix="+" title="media pieces" delay={200} />
+		<Stat amount={data.repos} title="repositories" delay={400} />
+		<Stat amount={20} suffix="+" title="clients" delay={700} />
 	</div>
 	<h1 class="w-screen text-5xl lg:text-7xl text-center">Motion reels</h1>
 	<div class="w-full flex flex-col lg:flex-row items-center justify-center gap-8">

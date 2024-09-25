@@ -1,12 +1,25 @@
 <script>
 	import { page } from '$app/stores';
+	import { random_quote } from '$lib/utils';
 
 	import Contact from '../Contact.svelte';
+
+	let description =
+		'Deep passion for creative endeavors is what drives me to create and help people create.';
+	$: if (
+		$page.url.pathname !== '/' &&
+		$page.url.pathname !== '/about' &&
+		$page.url.pathname !== '/portfolio'
+	)
+		description = random_quote();
+	else
+		description =
+			'Deep passion for creative endeavors is what drives me to create and help people create.';
 </script>
 
 <hr class="invisible mt-12" />
 {#if $page.url.pathname === '/' || $page.url.pathname === '/portfolio'}
-	<Contact bg_class={$page.url.pathname === '/portfolio' ? 'bg-dark' : 'bg-brand-a'} />
+	<Contact />
 {/if}
 <footer class="flex flex-col w-screen bg-black text-white p-8 md:py-12 md:px-24 lg:px-48">
 	<div class="flex flex-col sm:flex-row items-center justify-between">
@@ -16,8 +29,7 @@
 				<div class="flex flex-col gap-2">
 					<p class="text-xl font-bold sm:text-2xl text-brand-a">roaming97</p>
 					<p class="text-sm md:max-w-80">
-						Deep passion for creative endeavors is what drives me to create and help
-						people create.
+						{description}
 					</p>
 				</div>
 			</div>
@@ -62,6 +74,6 @@
 	</div>
 	<p class="flex flex-col border-t border-dark pt-4 my-4">
 		<span class="text-xs text-dark font-semibold">&copy; 2024 roaming97</span>
-		<span class="text-xs text-dark font-black">Website 6.0</span>
+		<span class="text-xs text-dark font-black">Website 6.1</span>
 	</p>
 </footer>

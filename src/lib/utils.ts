@@ -53,3 +53,15 @@ export function parse_date(d: Date) {
 export function file_stem(filename: string) {
 	return filename.trim().toLowerCase().split('.')[0].split('_').pop()?.split('/').pop();
 }
+
+export function random_quote() {
+	const quotes = [
+		'Random quote #1: These quotes are randomly generated on some pages!',
+		'Random quote #2: You might have noticed that the text here is different from the main pages of my website.',
+		'Random quote #3: These quotes only appear when visiting more personal pages in the site.',
+		'Random quote #4: If you refresh this page you might get a different footer text!',
+		"Random quote #5: The contents of this footer might reveal some trivia about the website's author."
+	];
+	const index = Math.floor(Math.random() * quotes.length);
+	return quotes[index];
+}

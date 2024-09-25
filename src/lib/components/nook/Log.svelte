@@ -14,8 +14,12 @@
 <div class="w-full">
 	<h1 id="updates">Updates</h1>
 	<hr class="my-2 border-gray-400 dark:border-darker" />
+	<LogEntry date={new Date('2024/9/25')}>
+		<p>Version 6.1 released, polishing and archiving more content slowly but surely.</p>
+	</LogEntry>
+
 	<LogEntry date={new Date('2024/7/25')}>
-		<p>Version 6 of this website is out, hopefully the last version I have to write.</p>
+		<p>Version 6 of this website is out, hopefully the last major rewrite it will have.</p>
 		<p>
 			If you're curious about the development behind this new version, check out the <a
 				href="/blog/website6">article</a
