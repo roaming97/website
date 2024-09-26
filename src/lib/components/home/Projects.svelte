@@ -25,7 +25,7 @@
 		{
 			name: 'ZipMyVid',
 			url: 'https://github.com/roaming97/ZipMyVid',
-			description: 'Compress your videos easily.',
+			description: 'Video compressing web tool',
 			bg_color: '#b5c730',
 			logo: '/img/ico/zmv.svg',
 			render: '/img/screenshots/zipmyvid.png'
