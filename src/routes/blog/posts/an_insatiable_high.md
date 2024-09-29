@@ -56,4 +56,6 @@ Recomiendo este álbum para los aficionados del jazz fusion que se encuentran es
 
 <br>
 
-## <b>[Listen to this album!](https://www.youtube.com/playlist?list=OLAK5uy_kozn9GOpWYc9fm42BKHl9TYYA2ENlgQiY)</b>
+<a href="https://www.youtube.com/playlist?list=OLAK5uy_kozn9GOpWYc9fm42BKHl9TYYA2ENlgQiY" target="_blank">
+    ## Listen to this album!
+</a>

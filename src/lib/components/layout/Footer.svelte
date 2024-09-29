@@ -4,17 +4,19 @@
 
 	import Contact from '../Contact.svelte';
 
-	let description =
-		'Deep passion for creative endeavors is what drives me to create and help people create.';
-	$: if (
-		$page.url.pathname !== '/' &&
-		$page.url.pathname !== '/about' &&
-		$page.url.pathname !== '/portfolio'
-	)
-		description = random_quote();
-	else
-		description =
-			'Deep passion for creative endeavors is what drives me to create and help people create.';
+	let description = $state('');
+
+	$effect(() => {
+		if (
+			$page.url.pathname !== '/' &&
+			$page.url.pathname !== '/about' &&
+			$page.url.pathname !== '/portfolio'
+		)
+			description = random_quote();
+		else
+			description =
+				'Deep passion for creative endeavors is what drives me to create and help people create.';
+	});
 </script>
 
 <hr class="invisible mt-12" />
@@ -39,6 +41,7 @@
 				href="https://x.com/roaming98"
 				target="_blank"
 				class="transition-all hover:drop-shadow-glow"
+				aria-label="roaming97 twitter"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +59,7 @@
 				href="https://github.com/roaming97"
 				target="_blank"
 				class="transition-all hover:drop-shadow-glow"
+				aria-label="roaming97 github"
 			>
 				<svg
 					viewBox="0 0 256 250"
@@ -73,7 +77,7 @@
 		</div>
 	</div>
 	<p class="flex flex-col border-t border-dark pt-4 my-4">
-		<span class="text-xs text-dark font-semibold">&copy; 2024 roaming97</span>
-		<span class="text-xs text-dark font-black">Website 6.1</span>
+		<span class="text-xs text-white">&copy; 2024 roaming97</span>
+		<span class="text-xs text-brand-a font-black">Website 6.2</span>
 	</p>
 </footer>

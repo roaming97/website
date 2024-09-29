@@ -2,7 +2,6 @@
 	import Sun from '../../icons/Sun.svelte';
 	import Moon from '../../icons/Moon.svelte';
 	import type { Theme } from '$lib/types';
-	import { onMount } from 'svelte';
 	import { find_cookie } from '$lib/utils';
 	import { theme } from '$lib/stores';
 
@@ -14,7 +13,7 @@
 			: document.documentElement.classList.remove('dark');
 	}
 
-	onMount(() => {
+	$effect.pre(() => {
 		$theme = find_cookie('theme') as Theme | 'light';
 		$theme === 'dark'
 			? document.documentElement.classList.add('dark')
@@ -24,7 +23,7 @@
 
 <input
 	checked={$theme === 'dark'}
-	on:click={switch_mode}
+	onclick={switch_mode}
 	type="checkbox"
 	id="theme-toggle"
 	class="invisible h-0 w-0"

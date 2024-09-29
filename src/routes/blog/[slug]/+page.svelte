@@ -6,14 +6,16 @@
 	import { parse_date } from '$lib/utils';
 	import { page } from '$app/stores';
 
-	let image_url = '';
+	let image_url = $state('');
 
-	$: if ($page.url.pathname === '/blog/faq#were-you-born-in-1997') {
-		image_url = 'https://roaming97.com/img/no.jpg';
-	}
+	$effect.pre(() => {
+		if ($page.url.pathname === '/blog/faq#were-you-born-in-1997') {
+			image_url = 'https://roaming97.com/img/no.jpg';
+		}
+	});
 
-	export let data: PageData;
-	$: post = { ...data };
+	let { data }: { data: PageData } = $props();
+	let post = $derived({ ...data });
 </script>
 
 <svelte:head>
@@ -49,7 +51,8 @@
 			{post.rating}/10
 		</h1>
 	{/if}
-	<a href="/blog" class="mt-2">&leftarrow; Back to blog</a>
+	<a href="/blog" class="mt-2 hover:text-brand-c">&leftarrow; Back to blog</a>
+	<a href="/nook" class="hover:text-brand-c">&leftarrow; Back to nook</a>
 </div>
 {#if post.tags?.find((t) => t === 'legacy')}
 	<Callout level="info">
@@ -60,7 +63,7 @@
 {/if}
 <hr class="mb-6" />
 <div in:fly={{ x: -10, delay: 750, duration: 500, easing: quartOut }} class="font-blond">
-	<svelte:component this={post.content} />
+	{@render post.content()}
 </div>
 
 <style lang="postcss">

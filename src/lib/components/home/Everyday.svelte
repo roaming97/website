@@ -1,7 +1,8 @@
 <script lang="ts">
 	import ImageTile from '$lib/components/ImageTile.svelte';
 	import type { LavenderEntry } from '$lib/types';
-	export let images: LavenderEntry[] = [];
+
+	let { images = [] }: Partial<{ images: LavenderEntry[] }> = $props();
 </script>
 
 <div class="scroll flex items-center gap-8">

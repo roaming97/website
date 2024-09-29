@@ -28,26 +28,11 @@ export function relative_time(d: Date) {
 export function parse_date(d: Date) {
 	const new_date = new Date(Date.parse(d.toString()));
 
-	const months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December'
-	];
-
-	const month = months[new_date.getMonth()];
-	const day = new_date.getDate();
+	const month = String(new_date.getMonth() + 1).padStart(2, '0');
+	const day = String(new_date.getDate()).padStart(2, '0');
 	const year = new_date.getFullYear();
 
-	return `${month} ${day}, ${year}`;
+	return `${year}.${month}.${day}`;
 }
 
 export function file_stem(filename: string) {

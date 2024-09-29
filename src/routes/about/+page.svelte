@@ -58,7 +58,7 @@
 	];
 </script>
 
-<div class="flex flex-col gap-16">
+<div class="flex flex-col gap-16 text-justify hyphens-auto">
 	<article>
 		<p>
 			Now, who is this person who didn't want to introduce himself on the home page of his own
@@ -100,7 +100,7 @@
 	</article>
 	<article>
 		<h1>Experience</h1>
-		<WorkArea area="Developer" period="2023-present" color="indigo">
+		<WorkArea area="Developer" period="since 2023" color="indigo">
 			<ExperiencePanel
 				user="Loopable"
 				role="Fullstack web developer"
@@ -130,7 +130,7 @@
 				</ul>
 			</ExperiencePanel>
 		</WorkArea>
-		<WorkArea area="Visual artist" period="2019-2023" color="teal">
+		<WorkArea area="Visual artist" period="since 2019" color="teal">
 			<ExperiencePanel
 				user="Freelance"
 				role="Graphic/motion designer"
@@ -203,27 +203,27 @@
 			<Pane
 				title="Art & Design"
 				icons={design_icons}
-				class="text-indigo-500 border-indigo-600 to-indigo-600/40"
+				className="text-indigo-500 border-indigo-600 to-indigo-600/40"
 			/>
 			<Pane
 				title="Languages"
 				icons={language_icons}
-				class="text-teal-500 border-teal-600 to-teal-600/40"
+				className="text-teal-500 border-teal-600 to-teal-600/40"
 			/>
 			<Pane
 				title="Libraries & frameworks"
 				icons={lib_icons}
-				class="text-cyan-500 border-cyan-600 to-cyan-600/40"
+				className="text-cyan-500 border-cyan-600 to-cyan-600/40"
 			/>
 			<Pane
 				title="Tools"
 				icons={tool_icons}
-				class="text-pink-500 border-pink-600 to-pink-600/40"
+				className="text-pink-500 border-pink-600 to-pink-600/40"
 			/>
 			<Pane
 				title="Learning"
 				icons={learning_icons}
-				class="text-amber-500 border-amber-600 to-amber-600/40"
+				className="text-amber-500 border-amber-600 to-amber-600/40"
 			/>
 		</div>
 	</article>

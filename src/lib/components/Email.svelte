@@ -9,13 +9,13 @@
 		setTimeout(() => (copied = false), 3000);
 	}
 
-	let copied = false;
+	let copied = $state(false);
 </script>
 
 <div class="relative flex flex-col lg:flex-row items-center gap-3">
 	<button
 		class="flex items-center gap-2 w-max rounded-lg p-2 px-4 bg-white dark:bg-darkest transition-colors hover:bg-gray-200 hover:dark:bg-darker cursor-pointer border border-zinc-500 dark:border-dark"
-		on:click={copy}
+		onclick={copy}
 	>
 		<span class="font-mono">contact@roaming97.com</span>
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

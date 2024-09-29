@@ -26,7 +26,11 @@ export default {
 				'quint-in-out': 'cubic-bezier(0.83, 0, 0.17, 1)'
 			},
 			dropShadow: {
-				glow: '0 0 8px rgba(154, 112, 255, 0.5)'
+				glow: '0 0 8px rgba(154, 112, 255, 0.5)',
+				solid: '3px 3px 0 #C183FB99'
+			},
+			boxShadow: {
+				solid: '8px 8px 0 0 #C183FB'
 			},
 			animation: {
 				bg_scroll: 'bg_scroll 20s ease infinite'

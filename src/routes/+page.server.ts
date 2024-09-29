@@ -3,6 +3,7 @@ import type { LatestFilesResponse } from '$lib/types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch }) => {
+	const offset = Math.floor(Math.random() * (60 - 30) + 30);
 	let amount = 0;
 	let repos = 0;
 	const interval = 5;
@@ -36,7 +37,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		amount,
 		repos,
 		everydays: new Promise<LatestFilesResponse>((resolve) => {
-			fetch(`${LAVENDER_URL}/latest?relpath=/artwork/everydays&count=15&offset=90`, {
+			fetch(`${LAVENDER_URL}/latest?relpath=/artwork/everydays&count=20&offset=${offset}`, {
 				method: 'GET',
 				headers: {
 					'lav-api-key': LAVENDER_API_KEY

@@ -6,26 +6,28 @@
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
 	import { quintOut } from 'svelte/easing';
+	import type { Snippet } from 'svelte';
 
 	const options: FlyParams = {
 		x: -40,
-		duration: 400,
+		duration: 300,
 		easing: quintOut
 	};
 
-	$: pathname = $page.url.pathname;
-	$: capitalized =
-		pathname.split('/')[1].charAt(0).toUpperCase() + pathname.split('/')[1].slice(1);
+	let pathname = $derived($page.url.pathname);
+	let capitalized = $derived(
+		pathname.split('/')[1].charAt(0).toUpperCase() + pathname.split('/')[1].slice(1)
+	);
 
-	$: title = () => {
+	let title = $derived.by(() => {
 		if (pathname === '/') return 'roaming97';
 		if ($page.error) {
 			return `${$page.status}`;
 		} else {
 			return `${capitalized} - roaming97`;
 		}
-	};
-	$: visible = false;
+	});
+	let visible = $state(false);
 
 	function scroll_container() {
 		return document.documentElement || document.body;
@@ -36,12 +38,12 @@
 		visible = scroll_container().scrollTop > 300;
 	}
 
-	export let data: LayoutData;
+	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 </script>
 
-<svelte:window on:scroll={handle_scroll} />
+<svelte:window onscroll={handle_scroll} />
 <svelte:head>
-	<title>{title()}</title>
+	<title>{title}</title>
 </svelte:head>
 
 <Header />
@@ -49,17 +51,17 @@
 	<div in:fly={{ ...options, delay: 400 }} out:fly={options}>
 		{#if data.url === '/' || $page.error}
 			<div class="pt-16">
-				<slot />
+				{@render children()}
 			</div>
 		{:else if data.url.match('/blog/.+')}
 			<div class="pt-20 p-4 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
-				<slot />
+				{@render children()}
 			</div>
 		{:else}
 			<div class="pt-20 p-4 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
 				<h1 class="font-normal text-4xl lg:text-5xl xl:text-6xl">{capitalized}</h1>
 				<hr class="opacity-10 w-full my-4" />
-				<slot />
+				{@render children()}
 			</div>
 		{/if}
 	</div>
@@ -74,5 +76,5 @@
 	shadow-lg duration-300 z-[999]"
 	class:invisible={!visible}
 	class:opacity-0={!visible}
-	on:click={() => document.body.scrollIntoView({ behavior: 'smooth' })}>&uparrow;</button
+	onclick={() => document.body.scrollIntoView({ behavior: 'smooth' })}>&uparrow;</button
 >

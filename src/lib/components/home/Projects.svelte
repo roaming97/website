@@ -26,7 +26,7 @@
 			name: 'ZipMyVid',
 			url: 'https://github.com/roaming97/ZipMyVid',
 			description: 'Video compressing web tool',
-			bg_color: '#b5c730',
+			bg_color: '#c5c730',
 			logo: '/img/ico/zmv.svg',
 			render: '/img/screenshots/zipmyvid.png'
 		},
@@ -56,11 +56,11 @@
 		}
 	] satisfies Project[];
 
-	let interval = 8000;
-	let time = performance.now();
-	let dt = 0;
-	$: index = 0;
-	$: current = projects[index];
+	const interval = 8000;
+	let time = $state(performance.now());
+	let dt = $state(0);
+	let index = $state(0);
+	let current = $derived(projects[index]);
 
 	function reset_time() {
 		time = performance.now();
@@ -88,7 +88,7 @@
 		}
 	}
 
-	$: gradient_top = $theme === 'dark' ? '#02020100' : '#ffffff00';
+	let gradient_top = $derived($theme === 'dark' ? '#02020100' : '#ffffff00');
 
 	onMount(() => step());
 </script>
@@ -127,12 +127,13 @@
 			<div class="w-full h-1 bg-black origin-left" style="scale: {dt} 1"></div>
 		</div>
 		<div class="w-full flex items-center justify-center gap-4">
-			{#each projects as _, idx}
+			{#each projects as proj, idx}
 				<button
 					class:bg-black={idx === index}
 					class:bg-zinc-500={idx !== index}
 					class="w-4 h-4 rounded-full transition-colors duration-300"
-					on:click={() => {
+					aria-label={proj.name}
+					onclick={() => {
 						reset_time();
 						index = idx;
 					}}

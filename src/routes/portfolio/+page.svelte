@@ -1,11 +1,11 @@
 <script lang="ts">
 	import ImageTile from '$lib/components/ImageTile.svelte';
 	import WorkArea from '$lib/components/about/WorkArea.svelte';
-	import Callout from '$lib/components/Callout.svelte';
 	import Project from '$lib/components/portfolio/Project.svelte';
 	import type { PageServerData } from './$types';
 
-	export let data: PageServerData;
+	let { data }: { data: PageServerData } = $props();
+	let everydays = $derived(data?.everydays);
 </script>
 
 <p>
@@ -129,31 +129,22 @@
 				blog="/blog/day366"
 			>
 				<div class="flex flex-col items-center md:flex-row md:items-stretch gap-2">
-					{#await data.everydays}
-						<p>Fetching server data...</p>
-					{:then everydays}
-						{#if everydays.thumbnails}
-							<div
-								class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-center"
-							>
-								{#each everydays.thumbnails as thumbnail}
-									<ImageTile
-										src={thumbnail.b64}
-										class="rounded-lg drop-shadow-glow"
-									/>
-								{/each}
-							</div>
-						{/if}
-					{:catch}
-						<div class="w-auto mx-auto">
-							<Callout level="critical"
-								>Failed to retrieve data from server. This is likely due to my
-								Lavender instance not working at the moment.</Callout
-							>
-						</div>
-					{/await}
-				</div>
-			</Project>
+					<div
+						class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-center"
+					>
+						{#each everydays as promise}
+							{#await promise}
+								<ImageTile />
+							{:then thumbnail}
+								<ImageTile
+									src={thumbnail.b64}
+									className="rounded-lg drop-shadow-glow"
+								/>
+							{/await}
+						{/each}
+					</div>
+				</div></Project
+			>
 		</div>
 	</WorkArea>
 </div>
