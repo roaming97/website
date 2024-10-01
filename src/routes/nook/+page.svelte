@@ -105,8 +105,8 @@
 		<hr class="my-2 border-gray-400 dark:border-darker" />
 		<LogItem date={new Date('2024/10/01')}>
 			<p>
-				Version 6.2 released by ported this website to Svelte 5. It was a slightly tedious
-				process but it's finally done.
+				Version 6.2 released by porting the website to Svelte 5. It was slightly tedious but
+				it's finally done.
 			</p>
 		</LogItem>
 		<LogItem date={new Date('2024/9/25')}>
