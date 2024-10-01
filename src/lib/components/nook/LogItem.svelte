@@ -6,6 +6,6 @@
 </script>
 
 <article class="py-2">
-	<h2 class="text-xl font-light">{parse_date(date)}</h2>
+	<h2 class="text-xl font-normal">{parse_date(date)}</h2>
 	{@render children()}
 </article>
