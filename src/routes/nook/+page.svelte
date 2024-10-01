@@ -103,7 +103,7 @@
 	<div class="w-full">
 		<h1 id="updates">Update log</h1>
 		<hr class="my-2 border-gray-400 dark:border-darker" />
-		<LogItem date={new Date('2024/9/30')}>
+		<LogItem date={new Date('2024/10/01')}>
 			<p>
 				Version 6.2 released by ported this website to Svelte 5. It was a slightly tedious
 				process but it's finally done.
