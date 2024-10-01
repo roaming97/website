@@ -5,7 +5,10 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [enhancedImages(), sveltekit()],
 	server: {
-		port: 3000
+		port: 3000,
+		hmr: {
+			overlay: false
+		}
 	},
 	ssr: {
 		noExternal: ['three']

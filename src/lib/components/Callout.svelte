@@ -1,7 +1,10 @@
 <script lang="ts">
-	export let level: 'info' | 'warning' | 'critical';
+	import type { Snippet } from 'svelte';
 
-	$: title = () => {
+	let { children, level }: { children: Snippet; level: 'info' | 'warning' | 'critical' } =
+		$props();
+
+	let title = $derived.by(() => {
 		switch (level) {
 			case 'info':
 				return 'ℹ️ NOTE';
@@ -10,9 +13,9 @@
 			case 'critical':
 				return '❌ ERROR';
 		}
-	};
+	});
 
-	$: bg = () => {
+	let bg = $derived.by(() => {
 		switch (level) {
 			case 'info':
 				return 'bg-sky-500/20';
@@ -21,9 +24,9 @@
 			case 'critical':
 				return 'bg-red-500/20';
 		}
-	};
+	});
 
-	$: border = () => {
+	let border = $derived.by(() => {
 		switch (level) {
 			case 'info':
 				return 'border-sky-400';
@@ -32,10 +35,11 @@
 			case 'critical':
 				return 'border-red-400';
 		}
-	};
+	});
 </script>
 
-<p class="p-2 my-2 rounded-xl {bg()} border {border()}">
-	<span class="font-black">{title()}:</span>
-	<slot>This is a callout!</slot>
-</p>
+<div class="flex flex-col p-2 my-2 rounded-xl {bg} border {border}">
+	<span class="font-black">{title}</span>
+	<hr class="my-2 opacity-20" />
+	{@render children()}
+</div>

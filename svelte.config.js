@@ -30,8 +30,11 @@ const config = {
 			]
 		})
 	],
-
-	kit: { adapter: adapter() }
+	kit: {
+		adapter: adapter({
+			runtime: 'nodejs20.x'
+		})
+	}
 };
 
 export default config;

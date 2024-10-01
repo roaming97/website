@@ -1,15 +1,35 @@
 <script lang="ts">
 	import { file_stem } from '$lib/utils';
+	import type { Snippet } from 'svelte';
 
-	export let border = '#555555';
-	export let background = '#444444';
-	export let name: string;
-	export let src: string;
-	export let description: string;
-	export let tools: string[] = [];
-	export let href: string | null = null;
-	export let blog: string | null = null;
-	export let github: string | null = null;
+	interface RequiredProps {
+		border: string;
+		background: string;
+		name: string;
+		src: string;
+		description: string;
+	}
+
+	interface OptionalProps {
+		children: Snippet;
+		tools: string[];
+		href: string;
+		blog: string;
+		github: string;
+	}
+
+	let {
+		children,
+		border = '#555555',
+		background = '#444444',
+		name,
+		src,
+		description,
+		tools,
+		href,
+		blog,
+		github
+	}: Required<RequiredProps> & Partial<OptionalProps> = $props();
 </script>
 
 <div class="rounded-xl p-4 w-full border-2" style="border-color: {border}" style:background>
@@ -18,10 +38,12 @@
 			<img class="tile" width="64" height="64" {src} alt="{name} icon" />
 			<h2 class="font-mono tracking-normal">{name}</h2>
 			<p class="mb-4">{description}</p>
-			<slot />
+			{#if children}
+				{@render children()}
+			{/if}
 			<hr class="opacity-20 my-2" />
-			{#if tools.length > 0}
-				<h3 class="text-base font-mono font-semibold leading-3">Tools used</h3>
+			{#if tools && tools.length > 0}
+				<h3 class="text-base font-mono leading-3">Tools used</h3>
 				<div class="flex flex-row items-center gap-2">
 					{#each tools as src}
 						<img

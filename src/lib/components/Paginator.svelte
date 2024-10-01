@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { Pagination } from '$lib/types';
-	export let pagination: Pagination;
+	let { pagination }: { pagination: Pagination } = $props();
 </script>
 
 <div class="flex items-center justify-evenly gap-2 p-2">

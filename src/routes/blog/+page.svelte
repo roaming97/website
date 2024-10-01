@@ -5,15 +5,17 @@
 	import type { BlogPost } from '$lib/types';
 	import Callout from '$lib/components/Callout.svelte';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 
-	$: posts = data.posts.map((p) => {
-		return {
-			...p,
-			path: `/blog/${p.path}`
-		} satisfies BlogPost;
-	});
-	$: pagination = data.pagination;
+	let posts = $derived(
+		data.posts.map((p) => {
+			return {
+				...p,
+				path: `/blog/${p.path}`
+			} satisfies BlogPost;
+		})
+	);
+	let pagination = $derived(data.pagination);
 </script>
 
 <svelte:head>

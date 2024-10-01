@@ -1,8 +1,15 @@
 <script lang="ts">
-	export let user: string;
-	export let role: string;
-	export let period: string;
-	export let location = 'Remote';
+	import type { Snippet } from 'svelte';
+
+	interface Props {
+		children: Snippet;
+		user: string;
+		role: string;
+		period: string;
+		location: string;
+	}
+
+	let { children, user, role, period, location = 'Remote' }: Props = $props();
 </script>
 
 <div class="p-4 border-2 bg-white dark:bg-darkest border-gray-500 dark:border-dark rounded-lg mb-4">
@@ -17,5 +24,5 @@
 		</div>
 	</div>
 	<hr class="mt-2 p-2 opacity-20" />
-	<slot />
+	{@render children()}
 </div>

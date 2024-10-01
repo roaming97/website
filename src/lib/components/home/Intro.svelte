@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Email from './Email.svelte';
+	import Email from '../Email.svelte';
 	import Button from '../Button.svelte';
 </script>
 
@@ -10,19 +10,25 @@
 		>
 			Hello!
 		</h1>
-		<p class="w-full xl:text-xl">
+		<p class="w-full xl:text-xl px-4 md:p-0">
 			Welcome to my website, and just to be different, allow me to show before telling!
 		</p>
 	</div>
-	<div class="w-full lg:w-auto flex flex-col lg:flex-row items-center gap-3">
+	<div class="w-full px-4 md:p-0 md:w-auto flex flex-col md:flex-row items-center gap-3">
 		<Button href="/portfolio">
-			<img src="/img/ico/briefcase.svg" width="24" height="24" alt="briefcase icon" />
+			<img
+				src="/img/ico/briefcase.svg"
+				class="invert dark:invert-0"
+				width="24"
+				height="24"
+				alt="briefcase icon"
+			/>
 			<span>Portfolio</span>
 		</Button>
 		<Button target="_blank" href="https://github.com/roaming97/">
 			<img
 				src="/img/ico/github.svg"
-				class="invert"
+				class="dark:invert"
 				width="24"
 				height="24"
 				alt="github icon"

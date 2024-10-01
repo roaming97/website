@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { menu_open, theme } from '$lib/stores';
+	import { theme } from '$lib/stores';
 
-	function handle_click() {
-		$menu_open = !$menu_open;
-	}
+	let { open, onclick }: { open: boolean; onclick: () => void } = $props();
 
-	$: stroke = $theme === 'dark' ? 'white' : 'black';
+	let stroke = $derived($theme === 'dark' ? 'white' : 'black');
 </script>
 
-<button aria-label="Menu toggle" class="z-[100] outline-none" on:click={handle_click}>
+<button aria-label="Menu toggle" class="z-[100] outline-none" {onclick}>
 	<svg
 		width="32"
 		height="32"
@@ -16,11 +14,11 @@
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 		class="transition"
-		class:rotate-45={$menu_open}
+		class:rotate-45={open}
 	>
 		<path
 			d="M0 6H32"
-			class:left={$menu_open}
+			class:left={open}
 			{stroke}
 			stroke-width="2"
 			stroke-linecap="square"
@@ -29,7 +27,7 @@
 		<path d="M0 16H32" {stroke} stroke-width="2" stroke-linecap="square" class="transition" />
 		<path
 			d="M0 26H32"
-			class:right={$menu_open}
+			class:right={open}
 			{stroke}
 			stroke-width="2"
 			stroke-linecap="square"

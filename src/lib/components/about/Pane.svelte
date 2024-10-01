@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Tooltip from '../Tooltip.svelte';
 
-	export let title: string;
-	export let icons: string[][];
+	let { title, icons, className }: { title: string; icons: string[][]; className: string } =
+		$props();
 </script>
 
 <div
-	class="flex flex-col gap-4 rounded-xl p-4 border-2 bg-gradient-to-tl dark:bg-gradient-to-br from-darkest/10 {$$props.class}"
+	class="flex flex-col gap-4 rounded-xl p-4 border-2 bg-gradient-to-tl dark:bg-gradient-to-br from-darkest/10 {className}"
 >
-	<h3 class="font-normal {$$props.class}">{title}</h3>
+	<h3 class="font-normal {className}">{title}</h3>
 	<div class="grid grid-cols-3 lg:grid-cols-4 gap-4 justify-evenly">
 		{#each icons as ico, i}
 			<Tooltip content={ico[0]} {i}>

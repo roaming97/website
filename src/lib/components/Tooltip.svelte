@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { Instance, PopperElement } from 'tippy.js';
 	import tippy, { sticky } from 'tippy.js';
-	import { onMount } from 'svelte';
+	import type { Snippet } from 'svelte';
 
-	export let content = 'Tooltip';
-	export let i = -1;
-
+	let {
+		children,
+		content = 'Tooltip',
+		i = -1
+	}: { children: Snippet; content: string; i: number } = $props();
 	const delay: [number, number] = [300, 100];
 
 	let instance: Instance;
@@ -13,7 +15,7 @@
 
 	const id = `${content.toLowerCase().replace(/[^A-Z0-9]+/gi, '_')}-${i.toString()}`;
 
-	onMount(() => {
+	$effect(() => {
 		tippy.setDefaultProps({
 			moveTransition: 'transform 0.2s ease-out',
 			animation: 'shift-away-subtle',
@@ -29,20 +31,20 @@
 		});
 		container = document.querySelector(`#${id}`) as PopperElement;
 		instance = container?._tippy as Instance;
-	});
 
-	$: if (container && instance) instance.setContent(content.split('_').join(' '));
+		if (container && instance) instance.setContent(content.split('_').join(' '));
+	});
 </script>
 
 <div {id} tabindex="-1" class="w-max h-max">
-	<slot />
+	{@render children()}
 </div>
 
 <style lang="postcss">
 	:global(.tippy-box[data-animation='fade'][data-state='hidden']) {
 		opacity: 0;
 	}
-	:global(.tippy-box) {
+	:global(.tippy-box) :global {
 		@apply relative font-mono rounded-md outline-none text-sm text-black 
         dark:text-white bg-white dark:bg-darkest shadow-md transition-all;
 	}
