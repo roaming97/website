@@ -7,6 +7,7 @@
 	import type { LayoutData } from './$types';
 	import { quintOut } from 'svelte/easing';
 	import type { Snippet } from 'svelte';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
 	const options: FlyParams = {
 		x: -40,
@@ -39,6 +40,8 @@
 	}
 
 	let { children, data }: { children: Snippet; data: LayoutData } = $props();
+
+	injectSpeedInsights();
 </script>
 
 <svelte:window onscroll={handle_scroll} />
