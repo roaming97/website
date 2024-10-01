@@ -1,10 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	let {
-		children,
-		level
-	}: Partial<{ children: Snippet }> & { level: 'info' | 'warning' | 'critical' } = $props();
+	let { children, level }: { children: Snippet; level: 'info' | 'warning' | 'critical' } =
+		$props();
 
 	let title = $derived.by(() => {
 		switch (level) {
@@ -40,9 +38,8 @@
 	});
 </script>
 
-<p class="p-2 my-2 rounded-xl {bg} border {border}">
-	<span class="font-black">{title}:</span>
-	{#if children}
-		{@render children()}
-	{/if}
-</p>
+<div class="flex flex-col p-2 my-2 rounded-xl {bg} border {border}">
+	<span class="font-black">{title}</span>
+	<hr class="my-2 opacity-20" />
+	{@render children()}
+</div>

@@ -63,7 +63,7 @@
 						class="text-3xl sm:text-4xl lg:text-7xl text-left tracking-tight
 								bg-gradient-to-br white from-20% from-brand-a pr-4 md:pr-8 lg:pr-12
 								via-brand-b to-70% to-brand-c bg-[length:400%_400%]
-								pt-4 pb-6 px-1 animate-bg_scroll shadow-solid"
+								pt-2 pb-4 md:pt-4 md:pb-6 px-1 animate-bg_scroll shadow-solid"
 					>
 						roaming97
 					</h1>

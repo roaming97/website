@@ -37,6 +37,7 @@
 		This section is under construction! Some pages currently lead to 404's and blog posts are
 		not finished being written.
 	</p>
+	<hr class="invisible" />
 	<p>
 		Since this is more of a personal corner for me, I'm not too worried about deploying it in an
 		unfinished state, unlike other pages related to my professional work.

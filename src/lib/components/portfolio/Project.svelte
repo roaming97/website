@@ -43,7 +43,7 @@
 			{/if}
 			<hr class="opacity-20 my-2" />
 			{#if tools && tools.length > 0}
-				<h3 class="text-base font-mono font-semibold leading-3">Tools used</h3>
+				<h3 class="text-base font-mono leading-3">Tools used</h3>
 				<div class="flex flex-row items-center gap-2">
 					{#each tools as src}
 						<img

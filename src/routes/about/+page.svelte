@@ -58,40 +58,33 @@
 	];
 </script>
 
-<div class="flex flex-col gap-16 text-justify hyphens-auto">
-	<article>
+<div class="flex flex-col items-center gap-16">
+	<article class="text-balance max-w-3/4">
 		<p>
-			Now, who is this person who didn't want to introduce himself on the home page of his own
-			website?
+			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
+			specific things. Throughout my whole life I've had a lot of different hobbies, most of
+			these involving a computer. I began creating videos in
+			<b>2012</b>
+			but only started to do so under this pseudonym in late <b>2016</b>. The creations from
+			back then were made with no real purpose or direction yet so it was more like
+			experimental video art, all made for fun.
 		</p>
 		<p>
-			Hi! I am <b class="text-brand-a font-bold">roaming97</b>, a terribly curious guy with
-			interest in terribly specific things. Throughout my whole life I've had a lot of
-			different hobbies, most of those involving a computer with the two purposes of learning
-			new stuff in the current digital world we live in and serve as a distraction from
-			school. I began creating videos in 2012 but only started to do so under this pseudonym
-			in late 2016. The creations from back then were made with no real purpose or direction
-			yet so it was more like experimental video art, all made for fun.
+			In <b>2018</b>, I decided to take my fascination with graphic and visual design
+			seriously. Turns out this decision landed me a couple of jobs in the following years! My
+			first one was at a music label in <b>2019</b> helping with promotional material and
+			music videos. This gig helped me build a network of musical artists for freelance
+			collaborations. All of these commissions ultimately motivated me to pursue a B.Des. In
+			Multimedia Design and Digital Art in <b>2020</b> which I graduated from in <b>2024</b>.
 		</p>
 		<p>
-			In 2018 I wanted to take graphic and visual design more seriously. Turns out this move
-			landed me a couple of jobs in the following years! My first one was at 04 Collective in
-			2019 helping with the visual material for releases as well as promotional material, it
-			was a pretty fun experience which I talk about in more detail <a href="/blog/04_closing"
-				>here</a
-			>. Nevertheless, thanks to that "small" gig I was able to make a pretty modest musical
-			artist network that I worked with as well via my freelance work. All of these
-			commissions ultimately motivated me to study a B.Des. in Multimedia Design and Digital
-			Art in 2020, and after 4 years I managed to successfully graduate.
+			During this time, I enhanced my programming skills, learning HTML, CSS, and JavaScript
+			to create my website several years ago, initially aimed to host my videos outside of
+			YouTube but later also served as my professional portfolio. I also explored several
+			other languages and tools for personal projects, which were invaluable learning
+			experiences.
 		</p>
-		<p>
-			Another skill I worked on improving during this period was programming, I learned HTML,
-			CSS, and JavaScript to make the first version of this website back in 2018 so I had a
-			place to host my videos outside of YouTube, which then became useful to also host my
-			professional portfolio once 2019 came around. After this I learned Python and Rust which
-			came in handy for some personal projects. This is what I currently work as, usually
-			frontend but I also know my way around backend web development.
-		</p>
+
 		<p>
 			I am currently working on improving my web developer portfolio as well as other creative
 			projects that have been in the works for the past years, but we'll see when will be the
@@ -243,6 +236,12 @@
 	}
 	a {
 		@apply text-brand-a underline;
+	}
+	b {
+		@apply text-brand-b;
+	}
+	strong {
+		@apply text-brand-a;
 	}
 	article {
 		@apply flex flex-col gap-4;
