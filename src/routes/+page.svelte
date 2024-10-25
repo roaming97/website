@@ -7,6 +7,8 @@
 	import Button from '$lib/components/Button.svelte';
 
 	let { data }: { data: PageServerData } = $props();
+
+	let everydays = $derived(data.everydays);
 </script>
 
 {#snippet yt_embed(src: string)}
@@ -25,10 +27,10 @@
 	<Intro />
 	<Projects />
 	{#if !data.ok}
-		<div class="w-auto mx-auto">
+		<div class="p-2 w-full md:w-96 lg:w-1/2 mx-auto">
 			<Callout level="critical"
-				>Failed to retrieve data from server. This is likely due to my Lavender instance not
-				working at the moment.</Callout
+				>Failed to retrieve data from server. This is likely due to your internet connection
+				or a Lavender related issue.</Callout
 			>
 		</div>
 	{/if}
@@ -48,11 +50,7 @@
 	</div>
 	<div class="flex flex-col gap-8">
 		<h1 class="w-full lg:w-screen text-5xl lg:text-7xl text-center">Everydays</h1>
-		{#await data.everydays}
-			<Everyday />
-		{:then everydays}
-			<Everyday images={everydays.thumbnails} />
-		{/await}
+		<Everyday {everydays} />
 		<div class="w-full lg:w-screen flex flex-col items-center">
 			<Button href="https://x.com/roaming98">
 				<span class="text-xl">View all</span>

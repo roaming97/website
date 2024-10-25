@@ -27,7 +27,7 @@
 	];
 	const lib_icons = [
 		['Svelte', 'svelte'],
-		['Tailwind CSS', 'tailwind'],
+		['TailwindCSS', 'tailwind'],
 		['Bootstrap', 'bootstrap'],
 		['Sass', 'sass'],
 		['Supabase', 'supabase'],
@@ -59,7 +59,7 @@
 </script>
 
 <div class="flex flex-col items-center gap-16">
-	<article class="text-balance max-w-3/4">
+	<article class="max-w-3/4">
 		<p>
 			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
 			specific things. Throughout my whole life I've had a lot of different hobbies, most of
@@ -95,9 +95,37 @@
 		<h1>Experience</h1>
 		<WorkArea area="Developer" period="since 2023" color="indigo">
 			<ExperiencePanel
+				user="infraregistry"
+				role="Frontend web developer"
+				period="Oct 2024 - Present"
+				location="United States (Remote)"
+			>
+				<p>
+					<a
+						href="http://app.infraregistry.com/"
+						target="_blank"
+						rel="noopener noreferrer">infraregistry</a
+					> is a self-service platform that enables you to catalog, track, and manage your
+					services and resources.
+				</p>
+				<ul>
+					<li>
+						<span>
+							Translated Figma designs to functional and modular Svelte components.</span
+						>
+					</li>
+					<li>
+						<span
+							>Implemented functionality that makes components across the application
+							interact with a Go backend.</span
+						>
+					</li>
+				</ul>
+			</ExperiencePanel>
+			<ExperiencePanel
 				user="Loopable"
 				role="Fullstack web developer"
-				period="2023 - 2024"
+				period="Jul 2023 - Jan 2024"
 				location="Melbourne, Australia (Remote)"
 			>
 				<p>
@@ -127,7 +155,7 @@
 			<ExperiencePanel
 				user="Freelance"
 				role="Graphic/motion designer"
-				period="2020 - 2023"
+				period="Feb 2020 - Feb 2023"
 				location="Worldwide"
 			>
 				<p>
@@ -158,7 +186,7 @@
 			<ExperiencePanel
 				user="04 Collective"
 				role="Senior graphic designer"
-				period="2019 - 2020"
+				period="Sep 2019 - Oct 2020"
 				location="Toronto, ON, Canada (Remote)"
 			>
 				<p>

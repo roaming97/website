@@ -1,9 +1,9 @@
 import { LAVENDER_URL, LAVENDER_API_KEY, GITHUB_URL } from '$env/static/private';
-import type { LatestFilesResponse } from '$lib/types';
+import { requestEveryday } from '$lib/utils';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch }) => {
-	const offset = Math.floor(Math.random() * (60 - 30) + 30);
+	const numbers = [1, 64, 117, 60, 61, 307, 156, 273, 177, 219, 236, 365];
 	let amount = 0;
 	let repos = 0;
 	const interval = 5;
@@ -36,24 +36,9 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	return {
 		amount,
 		repos,
-		everydays: new Promise<LatestFilesResponse>((resolve) => {
-			fetch(`${LAVENDER_URL}/latest?relpath=/artwork/everydays&count=20&offset=${offset}`, {
-				method: 'GET',
-				headers: {
-					'lav-api-key': LAVENDER_API_KEY
-				}
-			})
-				.then((res) => {
-					res.json().then((json) => {
-						resolve(json as LatestFilesResponse);
-					});
-				})
-				.catch((e) => {
-					ok = false;
-					console.error(e);
-					return '';
-				});
-		}),
+		everydays: numbers.map((num) =>
+			requestEveryday(LAVENDER_URL, LAVENDER_API_KEY, `day${num}.webp`)
+		),
 		ok
 	};
 };

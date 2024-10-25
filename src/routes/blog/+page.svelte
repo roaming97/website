@@ -21,6 +21,7 @@
 <svelte:head>
 	<title>Blog - roaming97</title>
 </svelte:head>
+<a href="/nook" class="hover:text-brand-c">&leftarrow; Back to nook</a>
 <Callout level="warning">
 	This section is under construction! Most blog posts are not finished. This has been an
 	excruciatingly long process that I have not been able to complete yet, but I don't want to wait

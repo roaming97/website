@@ -33,7 +33,7 @@
 		return document.documentElement || document.body;
 	}
 
-	function handle_scroll() {
+	function onscroll() {
 		if (!scroll_container()) return;
 		visible = scroll_container().scrollTop > 300;
 	}
@@ -41,7 +41,7 @@
 	let { children, data }: { children: Snippet; data: LayoutData } = $props();
 </script>
 
-<svelte:window onscroll={handle_scroll} />
+<svelte:window {onscroll} />
 <svelte:head>
 	<title>{title}</title>
 </svelte:head>
@@ -49,7 +49,7 @@
 <Header />
 {#key data.url}
 	<div in:fly={{ ...options, delay: 400 }} out:fly={options}>
-		{#if data.url === '/' || $page.error}
+		{#if data.url === '/' || data.url === '/fs' || $page.error}
 			<div class="pt-16">
 				{@render children()}
 			</div>

@@ -1,3 +1,5 @@
+import type { LavenderEntry } from './types';
+
 export function find_cookie(query: string) {
 	const cookie = document.cookie
 		.split('; ')
@@ -49,4 +51,28 @@ export function random_quote() {
 	];
 	const index = Math.floor(Math.random() * quotes.length);
 	return quotes[index];
+}
+
+export function requestEveryday(url: string, api_key: string, filename: string) {
+	return new Promise<LavenderEntry>((resolve, reject) => {
+		fetch(`${url}/file?path=artwork/everydays/thumbnails/${filename}`, {
+			method: 'GET',
+			headers: {
+				'lav-api-key': api_key
+			}
+		})
+			.then((res) => {
+				if (!res.ok) {
+					return reject(new Error(`${res.status}: ${res.statusText}`));
+				}
+				return res.json();
+			})
+			.then((json) => {
+				resolve(json as LavenderEntry);
+			})
+			.catch((e) => {
+				console.error(e);
+				reject(e);
+			});
+	});
 }

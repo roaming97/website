@@ -38,8 +38,10 @@
 	});
 </script>
 
-<div class="flex flex-col p-2 my-2 rounded-xl {bg} border {border}">
-	<span class="font-black">{title}</span>
+<div class="flex flex-col p-2 my-2 rounded-xl {bg} border {border} font-primary">
+	<span class="font-black text-lg">{title}</span>
 	<hr class="my-2 opacity-20" />
-	{@render children()}
+	<div>
+		{@render children()}
+	</div>
 </div>

@@ -2,28 +2,23 @@
 	import ImageTile from '$lib/components/ImageTile.svelte';
 	import type { LavenderEntry } from '$lib/types';
 
-	let { images = [] }: Partial<{ images: LavenderEntry[] }> = $props();
+	let { everydays }: { everydays: Promise<LavenderEntry>[] } = $props();
 </script>
 
 <div class="scroll flex items-center gap-8">
-	{#if images.length > 0}
-		{#each images as img}
-			<ImageTile src={img.b64} />
-		{/each}
-		{#each images as img}
-			<ImageTile src={img.b64} />
-		{/each}
-	{:else}
-		{#each Array(12) as _}
+	{#each everydays as promise}
+		{#await promise}
 			<ImageTile />
-		{/each}
-	{/if}
+		{:then thumbnail}
+			<ImageTile src={thumbnail.b64} />
+		{/await}
+	{/each}
 </div>
 
 <style lang="postcss">
 	.scroll {
 		animation-name: scroll;
-		animation-duration: 60s;
+		animation-duration: 40s;
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}
