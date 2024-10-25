@@ -102,7 +102,7 @@
 			>
 				<p>
 					<a
-						href="http://app.infraregistry.com/"
+						href="http://github.com/infraregistry"
 						target="_blank"
 						rel="noopener noreferrer">infraregistry</a
 					> is a self-service platform that enables you to catalog, track, and manage your
