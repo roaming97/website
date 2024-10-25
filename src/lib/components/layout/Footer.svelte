@@ -79,6 +79,5 @@
 	<p class="flex flex-col border-t border-dark pt-4 my-4">
 		<span class="text-xs text-white">&copy; 2024 roaming97</span>
 		<span class="text-xs text-brand-a font-black">Website 6.3</span>
-		<span class="text-xs text-white opacity-50">October 2024</span>
 	</p>
 </footer>
