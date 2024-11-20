@@ -28,10 +28,10 @@
 	id="theme-toggle"
 	class="invisible h-0 w-0"
 />
-<div class="relative flex items-center h-6 w-16 bg-darker rounded-xl drop-shadow-glow">
-	<label for="theme-toggle" class="inline-block absolute">
+<div class="relative flex h-6 w-16 items-center rounded-xl bg-darker drop-shadow-glow">
+	<label for="theme-toggle" class="absolute inline-block">
 		<div
-			class="flex items-center justify-center bg-white dark:bg-dark dark:translate-x-full cursor-pointer rounded-full h-8 w-8 transition-all duration-200 ease-in-out"
+			class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white transition-all duration-200 ease-in-out dark:translate-x-full dark:bg-dark"
 		>
 			<Moon class="hidden dark:inline-block" />
 			<Sun class="inline-block dark:hidden" />

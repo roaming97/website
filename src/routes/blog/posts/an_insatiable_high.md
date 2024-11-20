@@ -11,7 +11,7 @@ rating: 8
 </script>
 
 <Callout level="info">
-Hey, I haven't been able to translate this entire review to English yet, but I might as well let it be known that Spanish is actually my first language.
+    Hey, I haven't been able to translate this entire review to English yet, but I might as well let it be known that Spanish is actually my first language.
 </Callout>
 
 <br>
@@ -56,6 +56,8 @@ Recomiendo este álbum para los aficionados del jazz fusion que se encuentran es
 
 <br>
 
-<a href="https://www.youtube.com/playlist?list=OLAK5uy_kozn9GOpWYc9fm42BKHl9TYYA2ENlgQiY" target="_blank">
-    ## Listen to this album!
-</a>
+## Listen to the album!
+
+<br>
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/videoseries?si=YUZPvxygArjoBL3N&amp;list=OLAK5uy_kozn9GOpWYc9fm42BKHl9TYYA2ENlgQiY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

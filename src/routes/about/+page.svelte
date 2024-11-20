@@ -219,7 +219,7 @@
 	<article>
 		<h1>Skills</h1>
 		<div
-			class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch justify-center"
+			class="grid grid-cols-1 items-stretch justify-center gap-4 sm:grid-cols-2 md:grid-cols-3"
 		>
 			<Pane
 				title="Art & Design"
@@ -255,10 +255,10 @@
 		@apply font-semibold text-brand-a;
 	}
 	ul {
-		@apply flex flex-col gap-4 lg:gap-1 text-sm;
+		@apply flex flex-col gap-4 text-sm lg:gap-1;
 	}
 	li {
-		@apply gap-1 list-item list-inside;
+		@apply list-item list-inside gap-1;
 		list-style: circle url('/img/bulletpoint.svg');
 		list-style-position: inside;
 	}

@@ -20,7 +20,7 @@
 <hr class="my-3" />
 <div class="flex flex-col items-stretch gap-8">
 	<WorkArea area="Software/Web development" color="teal" period="">
-		<div class="grid grid-cols-1 xl:grid-cols-2 p-2 gap-4 items-stretch">
+		<div class="grid grid-cols-1 items-stretch gap-4 p-2 xl:grid-cols-2">
 			<Project
 				border="rgb(254 182 0)"
 				background="linear-gradient(306deg, rgba(226,147,36,0.6) 35%, rgba(166,79,12,0.4) 97%)"
@@ -82,7 +82,7 @@
 				tools={['/img/ico/svelte.svg', '/img/ico/tailwind.svg', '/img/ico/ffmpeg.svg']}
 				github="https://github.com/roaming97/ZipMyVid"
 			>
-				<div class="flex flex-col items-center md:flex-row md:items-stretch gap-2">
+				<div class="flex flex-col items-center gap-2 md:flex-row md:items-stretch">
 					<img src="/img/screenshots/zipmyvid.png" alt="ZipMyVid form" />
 				</div>
 			</Project>
@@ -118,7 +118,17 @@
 		</div>
 	</WorkArea>
 	<WorkArea area="Graphic/Motion design" color="indigo" period="">
-		<div class="flex flex-col p-2 gap-4 items-stretch">
+		<div class="flex flex-col items-stretch gap-4 p-2">
+			<Project
+				border="#001"
+				background="linear-gradient(120deg, rgba(237,237,247,0.2) 9%, rgba(197,198,208,0.2) 82%)"
+				name="04 Collective"
+				description="Electronic music label"
+				src="/img/ico/calendar.svg"
+				href="https://solo.to/04collective"
+			>
+				hi
+			</Project>
 			<Project
 				border="#e93390"
 				background="linear-gradient(300deg, rgba(235,171,67,1) 0%, rgba(231,68,99,1) 61%)"
@@ -128,9 +138,9 @@
 				href="https://x.com/roaming98/media"
 				blog="/blog/day366"
 			>
-				<div class="flex flex-col items-center md:flex-row md:items-stretch gap-2">
+				<div class="flex flex-col items-center gap-2 md:flex-row md:items-stretch">
 					<div
-						class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-center"
+						class="grid w-full grid-cols-1 items-center justify-center gap-4 sm:grid-cols-3"
 					>
 						{#each everydays as promise}
 							{#await promise}

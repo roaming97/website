@@ -32,8 +32,8 @@
 	}: Required<RequiredProps> & Partial<OptionalProps> = $props();
 </script>
 
-<div class="rounded-xl p-4 w-full border-2" style="border-color: {border}" style:background>
-	<div class="flex flex-col justify-between h-full gap-4">
+<div class="w-full rounded-xl border-2 p-4" style="border-color: {border}" style:background>
+	<div class="flex h-full flex-col justify-between gap-4">
 		<div class="flex flex-col gap-2">
 			<img class="tile" width="64" height="64" {src} alt="{name} icon" />
 			<h2 class="font-mono tracking-normal">{name}</h2>
@@ -41,9 +41,9 @@
 			{#if children}
 				{@render children()}
 			{/if}
-			<hr class="opacity-20 my-2" />
+			<hr class="my-2 opacity-20" />
 			{#if tools && tools.length > 0}
-				<h3 class="text-base font-mono leading-3">Tools used</h3>
+				<h3 class="font-mono text-base leading-3">Tools used</h3>
 				<div class="flex flex-row items-center gap-2">
 					{#each tools as src}
 						<img
@@ -58,7 +58,7 @@
 			{/if}
 		</div>
 		<hr class="invisible" />
-		<div class="flex items-center flex-row-reverse gap-2">
+		<div class="flex flex-row-reverse items-center gap-2">
 			{#if href}
 				<a {href} class="tile clickable" aria-label="Link that takes to {href}">
 					<svg
@@ -154,7 +154,7 @@
 
 <style lang="postcss">
 	.tile {
-		@apply p-2 rounded-lg bg-white/40 shadow-lg;
+		@apply rounded-lg bg-white/40 p-2 shadow-lg;
 	}
 	.clickable {
 		@apply transition-all duration-200 ease-out hover:scale-[1.2] hover:bg-white/60;

@@ -16,8 +16,8 @@
 	const p_class = $derived(color === 'teal' ? 'text-teal-400' : 'text-indigo-400');
 </script>
 
-<div class="flex flex-col gap-2 p-4 rounded-xl border {container_classes} border-">
-	<div class="flex flex-col lg:flex-row lg:items-center justify-between">
+<div class="flex flex-col gap-2 rounded-xl border p-4 {container_classes} border-">
+	<div class="flex flex-col justify-between lg:flex-row lg:items-center">
 		<h2 class={h2_class}>{area}</h2>
 		<p class={p_class}>{period}</p>
 	</div>

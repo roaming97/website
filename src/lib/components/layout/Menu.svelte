@@ -33,16 +33,16 @@
 </script>
 
 <menu
-	class="fixed flex flex-col justify-around pl-4 md:pl-6 pr-10 pb-16 pt-24
-	z-10 w-[70vw] md:w-[50vw] lg:w-[25vw] bg-white/40 dark:bg-darkest/80
-	backdrop-blur-lg h-full select-none transition-transform duration-500
-	ease-[cubic-bezier(0.22,1,0.36,1)] -translate-x-full"
+	class="fixed z-10 flex h-full w-[70vw] -translate-x-full select-none flex-col justify-around
+	bg-white/40 pb-16 pl-4 pr-10 pt-24 backdrop-blur-lg
+	transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] dark:bg-darkest/80 md:w-[50vw]
+	md:pl-6 lg:w-[25vw]"
 	class:translate-x-0={open}
 >
 	{#each menu_buttons as button}
 		{#if is_current(button)}
 			<div class="opacity-30">
-				<h1 class="tracking-normal lg:leading-[4.5rem] font-bold text-3xl md:text-5xl">
+				<h1 class="text-3xl font-bold tracking-normal md:text-5xl lg:leading-[4.5rem]">
 					{button.name}
 				</h1>
 				<p class="text-sm md:text-base">
@@ -52,14 +52,14 @@
 		{:else}
 			<a href={parse_link(button)} class="group" {onclick} data-sveltekit-preload-data>
 				<h1
-					class="tracking-normal lg:leading-[4.5rem] font-bold text-3xl
-					md:text-5xl transition-all duration-100
-				  group-hover:text-brand-c group-hover:drop-shadow-solid"
+					class="text-3xl font-bold tracking-normal transition-all
+					duration-100 group-hover:text-brand-c group-hover:drop-shadow-solid
+				  md:text-5xl lg:leading-[4.5rem]"
 				>
 					{button.name}
 				</h1>
 				<p
-					class="text-sm md:text-base group-hover:text-brand-c transition-all duration-100"
+					class="text-sm transition-all duration-100 group-hover:text-brand-c md:text-base"
 				>
 					{button.description}
 				</p>

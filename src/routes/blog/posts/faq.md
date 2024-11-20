@@ -59,7 +59,7 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
     h1 > a {
         text-decoration: none;
     }
-    li {
+    ul > li {
         margin-left: 1.5rem;
         list-style-type: disc; 
     }

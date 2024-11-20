@@ -54,13 +54,13 @@
 				{@render children()}
 			</div>
 		{:else if data.url.match('/blog/.+')}
-			<div class="pt-20 p-4 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
+			<div class="p-4 pt-20 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-96">
 				{@render children()}
 			</div>
 		{:else}
-			<div class="pt-20 p-4 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
-				<h1 class="font-normal text-4xl lg:text-5xl xl:text-6xl">{capitalized}</h1>
-				<hr class="opacity-10 w-full my-4" />
+			<div class="p-4 pt-20 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
+				<h1 class="text-4xl font-normal lg:text-5xl xl:text-6xl">{capitalized}</h1>
+				<hr class="my-4 w-full opacity-10" />
 				{@render children()}
 			</div>
 		{/if}
@@ -70,10 +70,10 @@
 	<Footer />
 {/if}
 <button
-	class="w-10 h-10 text-xl font-blond flex items-center
-	justify-center transition-all fixed bottom-5 right-5
-	select-nonetext-white bg-brand-a rounded-xl
-	shadow-lg duration-300 z-[999]"
+	class="select-nonetext-white fixed bottom-5 right-5 z-[999] flex
+	h-10 w-10 items-center justify-center rounded-xl
+	bg-brand-a text-xl font-blond
+	shadow-lg transition-all duration-300"
 	class:invisible={!visible}
 	class:opacity-0={!visible}
 	onclick={() => document.body.scrollIntoView({ behavior: 'smooth' })}>&uparrow;</button

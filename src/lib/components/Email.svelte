@@ -12,9 +12,9 @@
 	let copied = $state(false);
 </script>
 
-<div class="relative flex flex-col lg:flex-row items-center gap-3">
+<div class="relative flex flex-col items-center gap-3 lg:flex-row">
 	<button
-		class="flex items-center gap-2 w-max rounded-lg p-2 px-4 bg-white dark:bg-darkest transition-colors hover:bg-gray-200 hover:dark:bg-darker cursor-pointer border border-zinc-500 dark:border-dark"
+		class="flex w-max cursor-pointer items-center gap-2 rounded-lg border border-zinc-500 bg-white p-2 px-4 transition-colors hover:bg-gray-200 dark:border-dark dark:bg-darkest hover:dark:bg-darker"
 		onclick={copy}
 	>
 		<span class="font-mono">contact@roaming97.com</span>
@@ -38,7 +38,7 @@
 		<span
 			in:fly={{ y: 10, easing: quintOut, duration: 300 }}
 			out:fly={{ y: 10, easing: quintIn, duration: 300 }}
-			class="w-max text-xs rounded-lg py-2 px-4 bg-green-500 text-white"
+			class="w-max rounded-lg bg-green-500 px-4 py-2 text-xs text-white"
 		>
 			Copied!
 		</span>

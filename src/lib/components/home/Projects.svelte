@@ -94,26 +94,26 @@
 </script>
 
 <div
-	class="w-full flex flex-col lg:flex-row items-center justify-around transition-all duration-300"
+	class="flex w-full flex-col items-center justify-around transition-all duration-300 lg:flex-row"
 	style:background="linear-gradient(180deg, {gradient_top} 0%, {current.bg_color} 30%)"
 >
-	<div class="flex py-4 lg:p-16 flex-col">
+	<div class="flex flex-col py-4 lg:p-16">
 		{#key current}
 			<a
 				href={current.url}
-				class="flex flex-col justify-around drop-shadow-glow bg-white/90 text-black
-				p-8 lg:p-16 xl:p-24 md:aspect-square h-64 md:h-[320px] lg:h-[400px] xl:h-[480px]"
+				class="flex h-64 flex-col justify-around bg-white/90 p-8
+				text-black drop-shadow-glow md:aspect-square md:h-[320px] lg:h-[400px] lg:p-16 xl:h-[480px] xl:p-24"
 				in:fly={{ x: -30, duration: 800, easing: quintOut }}
 			>
 				<img
 					src={current.logo}
 					alt="{current.name} icon"
-					class="p-2 rounded-lg bg-white/30 shadow-lg"
+					class="rounded-lg bg-white/30 p-2 shadow-lg"
 					width="84"
 					height="84"
 				/>
 				<div class="flex flex-col items-stretch">
-					<div class="flex items-center justify-between p-2 my-2 bg-brand-c/50">
+					<div class="my-2 flex items-center justify-between bg-brand-c/50 p-2">
 						<h1 class="font-black">
 							{current.name}
 						</h1>
@@ -123,15 +123,15 @@
 				</div>
 			</a>
 		{/key}
-		<div class="w-full h-1 bg-black/30 my-4">
-			<div class="w-full h-1 bg-black origin-left" style="scale: {dt} 1"></div>
+		<div class="my-4 h-1 w-full bg-black/30">
+			<div class="h-1 w-full origin-left bg-black" style="scale: {dt} 1"></div>
 		</div>
-		<div class="w-full flex items-center justify-center gap-4">
+		<div class="flex w-full items-center justify-center gap-4">
 			{#each projects as proj, idx}
 				<button
 					class:bg-black={idx === index}
 					class:bg-zinc-500={idx !== index}
-					class="w-4 h-4 rounded-full transition-colors duration-300"
+					class="h-4 w-4 rounded-full transition-colors duration-300"
 					aria-label={proj.name}
 					onclick={() => {
 						reset_time();

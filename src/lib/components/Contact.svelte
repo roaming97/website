@@ -3,8 +3,8 @@
 </script>
 
 <div
-	class="flex flex-col md:flex-row items-center
-	justify-between p-8 md:p-32 lg:px-48 xl:px-60 2xl:px-80 w-full gap-8 bg-brand-a/50"
+	class="flex w-full flex-col items-center
+	justify-between gap-8 bg-brand-a/50 p-8 md:flex-row md:p-32 lg:px-48 xl:px-60 2xl:px-80"
 >
 	<div class="flex flex-col">
 		<h2>Did anything catch your eye?</h2>

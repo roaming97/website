@@ -14,7 +14,7 @@
 	},
 
 	"[svelte]": {
-		"editor.defaultFormatter": "svelte.svelte-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"editor.bracketPairColorization.enabled": true,
 	"editor.guides.bracketPairs": "active",

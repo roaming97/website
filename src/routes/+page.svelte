@@ -23,11 +23,11 @@
 {/snippet}
 
 <Hero />
-<div class="flex flex-col items-center lg:items-start gap-24 lg:gap-32 dark:bg-darkest bg-white">
+<div class="flex flex-col items-center gap-24 bg-white dark:bg-darkest lg:items-start lg:gap-32">
 	<Intro />
 	<Projects />
 	{#if !data.ok}
-		<div class="p-2 w-full md:w-96 lg:w-1/2 mx-auto">
+		<div class="mx-auto w-full p-2 md:w-96 lg:w-1/2">
 			<Callout level="critical"
 				>Failed to retrieve data from server. This is likely due to your internet connection
 				or a Lavender related issue.</Callout
@@ -35,23 +35,23 @@
 		</div>
 	{/if}
 	<div
-		class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-center
-		p-4 md:p-12 w-full md:w-4/5 mx-auto bg-dark/10 rounded-xl border-2 border-dark"
+		class="mx-auto grid w-full grid-cols-2 items-center justify-center gap-8
+		rounded-xl border-2 border-dark bg-dark/10 p-4 sm:grid-cols-3 md:w-4/5 md:grid-cols-4 md:p-12"
 	>
 		<Stat amount={r97_age()} title="years" />
 		<Stat amount={data.amount} suffix="+" title="media pieces" delay={200} />
 		<Stat amount={data.repos} title="repositories" delay={400} />
 		<Stat amount={20} suffix="+" title="clients" delay={600} />
 	</div>
-	<h1 class="w-screen text-5xl lg:text-7xl text-center">Motion reels</h1>
-	<div class="w-full flex flex-col lg:flex-row items-center justify-center gap-8">
+	<h1 class="w-screen text-center text-5xl lg:text-7xl">Motion reels</h1>
+	<div class="flex w-full flex-col items-center justify-center gap-8 lg:flex-row">
 		{@render yt_embed('https://www.youtube.com/embed/_R3Ml1tboYA?si=8B-_J1zfkyd-VNRw')}
 		{@render yt_embed('https://www.youtube.com/embed/MjEqbqaJeEk?si=M7V00qDmeYMTwAdY')}
 	</div>
 	<div class="flex flex-col gap-8">
-		<h1 class="w-full lg:w-screen text-5xl lg:text-7xl text-center">Everydays</h1>
+		<h1 class="w-full text-center text-5xl lg:w-screen lg:text-7xl">Everydays</h1>
 		<Everyday {everydays} />
-		<div class="w-full lg:w-screen flex flex-col items-center">
+		<div class="flex w-full flex-col items-center lg:w-screen">
 			<Button href="https://x.com/roaming98">
 				<span class="text-xl">View all</span>
 			</Button>
@@ -61,6 +61,6 @@
 
 <style lang="postcss">
 	iframe {
-		@apply md:w-1/3 aspect-video;
+		@apply aspect-video md:w-1/3;
 	}
 </style>

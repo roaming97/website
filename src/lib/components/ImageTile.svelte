@@ -17,11 +17,9 @@
 
 <style lang="postcss">
 	.frame :global {
-		@apply outline outline-1 outline-black dark:outline-white w-[128px] 
-		lg:w-48 xl:w-72 aspect-square transition-all;
+		@apply aspect-square w-[128px] outline outline-1 outline-black transition-all dark:outline-white lg:w-48 xl:w-72;
 	}
 	.clickable :global {
-		@apply hover:outline-[6px] hover:outline-brand-c dark:hover:outline-brand-c 
-		duration-200 ease-quint-in-out;
+		@apply duration-200 ease-quint-in-out hover:outline-[6px] hover:outline-brand-c dark:hover:outline-brand-c;
 	}
 </style>

@@ -23,14 +23,14 @@
 {#if $page.url.pathname === '/' || $page.url.pathname === '/portfolio'}
 	<Contact />
 {/if}
-<footer class="flex flex-col w-screen bg-black text-white p-8 md:py-12 md:px-24 lg:px-48">
-	<div class="flex flex-col sm:flex-row items-center justify-between">
-		<div class="flex flex-col mb-6 sm:m-0">
+<footer class="flex w-screen flex-col bg-black p-8 text-white md:px-24 md:py-12 lg:px-48">
+	<div class="flex flex-col items-center justify-between sm:flex-row">
+		<div class="mb-6 flex flex-col sm:m-0">
 			<div class="flex items-center gap-4">
 				<enhanced:img src="/static/img/r97LogoV3.png?w=80" alt="roaming97 icon" />
 				<div class="flex flex-col gap-2">
-					<p class="text-xl font-bold sm:text-2xl text-brand-a">roaming97</p>
-					<p class="text-sm md:max-w-80">
+					<p class="text-xl font-bold text-brand-a sm:text-2xl">roaming97</p>
+					<p class="text-xs md:text-sm md:max-w-80">
 						{description}
 					</p>
 				</div>
@@ -76,8 +76,8 @@
 			</a>
 		</div>
 	</div>
-	<p class="flex flex-col border-t border-dark pt-4 my-4">
+	<p class="my-4 flex flex-col border-t border-dark pt-4">
 		<span class="text-xs text-white">&copy; 2024 roaming97</span>
-		<span class="text-xs text-brand-a font-black">Website 6.3</span>
+		<span class="text-xs font-black text-brand-a">Website 6.4</span>
 	</p>
 </footer>

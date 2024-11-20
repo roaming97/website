@@ -38,7 +38,7 @@
 
 <style lang="postcss">
 	.left {
-		@apply translate-y-full -rotate-90 translate-x-[10px];
+		@apply translate-x-[10px] translate-y-full -rotate-90;
 	}
 	.right {
 		@apply translate-y-4;
