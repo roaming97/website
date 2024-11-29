@@ -52,7 +52,7 @@
 	const learning_icons = [
 		['C', 'c'],
 		['C#', 'csharp'],
-		['x86 Assembly', 'assembly'],
+		['Go', 'go'],
 		['Zig', 'zig'],
 		['Docker', 'docker']
 	];
@@ -68,6 +68,39 @@
 {/snippet}
 
 <div class="flex flex-col items-center gap-16">
+	<article class="text-pretty">
+		<h1>About me, personally</h1>
+		<p>
+			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
+			specific things. Throughout my whole life I've had a lot of different hobbies, most of
+			these involving a computer. I began creating videos in
+			<b>2012</b>
+			but only started to do so under this pseudonym in late <b>2016</b>. The creations from
+			back then were made with no real purpose or direction yet so it was more like
+			experimental video art, all made for fun.
+		</p>
+		<p>
+			In <b>2018</b>, I decided to take my fascination with graphic and visual design
+			seriously. Turns out this decision landed me a couple of jobs in the following years! My
+			first one was at a music label in <b>2019</b> helping with promotional material and
+			music videos. This gig helped me build a network of musical artists for freelance
+			collaborations. All of these commissions ultimately motivated me to pursue a B.Des. In
+			Multimedia Design and Digital Art in <b>2020</b> which I graduated from in <b>2024</b>.
+		</p>
+		<p>
+			During this time, I enhanced my programming skills, learning HTML, CSS, and JavaScript
+			to create my website several years ago, initially aimed to host my videos outside of
+			YouTube but later also served as my professional portfolio. I also explored several
+			other languages and tools for personal projects, which were invaluable learning
+			experiences.
+		</p>
+
+		<p>
+			I am currently working on improving my web developer portfolio as well as other creative
+			projects that have been in the works for the past years, but we'll see when will be the
+			right time to unveil them. Until then this is where it stands.
+		</p>
+	</article>
 	<article>
 		<h1>Experience</h1>
 		<div class="mb-4 flex flex-col gap-1">
@@ -227,39 +260,6 @@
 				className="text-amber-500 border-amber-600 to-amber-600/40"
 			/>
 		</div>
-	</article>
-	<article class="text-pretty">
-		<h1>About me, personally</h1>
-		<p>
-			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
-			specific things. Throughout my whole life I've had a lot of different hobbies, most of
-			these involving a computer. I began creating videos in
-			<b>2012</b>
-			but only started to do so under this pseudonym in late <b>2016</b>. The creations from
-			back then were made with no real purpose or direction yet so it was more like
-			experimental video art, all made for fun.
-		</p>
-		<p>
-			In <b>2018</b>, I decided to take my fascination with graphic and visual design
-			seriously. Turns out this decision landed me a couple of jobs in the following years! My
-			first one was at a music label in <b>2019</b> helping with promotional material and
-			music videos. This gig helped me build a network of musical artists for freelance
-			collaborations. All of these commissions ultimately motivated me to pursue a B.Des. In
-			Multimedia Design and Digital Art in <b>2020</b> which I graduated from in <b>2024</b>.
-		</p>
-		<p>
-			During this time, I enhanced my programming skills, learning HTML, CSS, and JavaScript
-			to create my website several years ago, initially aimed to host my videos outside of
-			YouTube but later also served as my professional portfolio. I also explored several
-			other languages and tools for personal projects, which were invaluable learning
-			experiences.
-		</p>
-
-		<p>
-			I am currently working on improving my web developer portfolio as well as other creative
-			projects that have been in the works for the past years, but we'll see when will be the
-			right time to unveil them. Until then this is where it stands.
-		</p>
 	</article>
 </div>
 

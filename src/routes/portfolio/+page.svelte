@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ImageTile from '$lib/components/ImageTile.svelte';
-	import WorkArea from '$lib/components/about/WorkArea.svelte';
+	import WorkArea from '$lib/components/WorkArea.svelte';
 	import Project from '$lib/components/portfolio/Project.svelte';
 	import type { PageServerData } from './$types';
 
