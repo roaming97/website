@@ -42,7 +42,7 @@
 					<b>Please note:</b> all pages except for the blog are a work in progress.
 				</p>
 			</LogItem>
-			<LogItem date={new Date('2024/11/04')}>
+			<LogItem date={new Date('2024/12/01')}>
 				<p>
 					Version 6.4 released, I changed the formatting of the entire codebase and I've
 					given the blog a fresh coat of paint, which also includes (at last) finish

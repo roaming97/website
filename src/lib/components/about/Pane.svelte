@@ -9,7 +9,7 @@
 	class="flex flex-col gap-4 rounded-xl border-2 bg-gradient-to-tl from-darkest/10 p-4 dark:bg-gradient-to-br {className}"
 >
 	<h3 class="font-normal {className}">{title}</h3>
-	<div class="grid grid-cols-3 justify-evenly gap-4 lg:grid-cols-4">
+	<div class="grid grid-cols-3 justify-evenly gap-4 md:grid-cols-4">
 		{#each icons as ico, i}
 			<Tooltip content={ico[0]} {i}>
 				<img

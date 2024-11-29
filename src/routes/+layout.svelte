@@ -54,11 +54,11 @@
 				{@render children()}
 			</div>
 		{:else if data.url.match('/blog/.+')}
-			<div class="p-4 pt-20 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-96">
+			<div class="p-4 pt-20 lg:mx-auto lg:max-w-[1020px] lg:p-16 xl:p-24">
 				{@render children()}
 			</div>
 		{:else}
-			<div class="p-4 pt-20 lg:p-16 lg:px-24 xl:p-24 xl:px-48 2xl:px-64">
+			<div class="p-4 pt-20 lg:mx-auto lg:max-w-[75vw] lg:p-16 xl:p-24">
 				<h1 class="text-4xl font-normal lg:text-5xl xl:text-6xl">{capitalized}</h1>
 				<hr class="my-4 w-full opacity-10" />
 				{@render children()}

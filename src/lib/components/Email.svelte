@@ -14,7 +14,7 @@
 
 <div class="relative flex flex-col items-center gap-3 lg:flex-row">
 	<button
-		class="flex w-max cursor-pointer items-center gap-2 rounded-lg border border-zinc-500 bg-white p-2 px-4 transition-colors hover:bg-gray-200 dark:border-dark dark:bg-darkest hover:dark:bg-darker"
+		class="flex w-max cursor-pointer items-center gap-2 rounded-lg border border-zinc-500 bg-white p-2 px-4 transition-colors hover:bg-neutral-200 dark:border-dark dark:bg-darkest hover:dark:bg-darker"
 		onclick={copy}
 	>
 		<span class="font-mono">contact@roaming97.com</span>

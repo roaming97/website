@@ -96,7 +96,7 @@
 
 <style lang="postcss">
 	.post :global {
-		@apply z-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-xl bg-white p-4 drop-shadow-glow transition-colors duration-200 ease-in-out group-hover:bg-gray-100 dark:bg-darkest dark:group-hover:bg-darker;
+		@apply z-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-xl bg-white p-4 drop-shadow-glow transition-colors duration-200 ease-in-out group-hover:bg-neutral-100 dark:bg-darkest dark:group-hover:bg-darker;
 	}
 	h2 {
 		@apply mb-2 font-mono font-normal tracking-tight transition-colors duration-200 ease-in-out group-hover:text-brand-c lg:text-3xl;

@@ -41,7 +41,7 @@
 				{Math.round($count)}{suffix}
 			</h1>
 			<p
-				class="text-base text-gray-500 lg:text-xl"
+				class="text-base text-neutral-500 lg:text-xl"
 				transition:fly={{ y: 20, duration: 350, delay: delay + 100, easing: quintOut }}
 			>
 				{title}
