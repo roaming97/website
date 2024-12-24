@@ -11,12 +11,19 @@
 	}
 </script>
 
-{#snippet category(href: string, caption: string, src: string, background = '#4e2')}
+{#snippet category(
+	href: string,
+	caption: string,
+	src: string,
+	background = '#4e2',
+	disabled = false
+)}
 	<a
-		class="flex w-full text-sm items-center justify-start gap-2 rounded-sm
-			p-2 shadow-black/10 dark:shadow-white/10 shadow-md hover:shadow-lg
-			hover:shadow-black/30 hover:dark:shadow-white/20 text-black
-			transition-all hover:scale-105 ease-out duration-200 text-center"
+		class="flex w-full items-center justify-start gap-2 rounded-sm p-2
+			text-center text-sm text-black shadow-md shadow-black/10
+			transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg
+			hover:shadow-black/30 dark:shadow-white/10 hover:dark:shadow-white/20"
+		class:disabled
 		{href}
 		style:background
 	>
@@ -39,8 +46,15 @@
 				</p>
 				<hr class="my-2 opacity-50" />
 				<p>
-					<b>Please note:</b> this page is under construction, most pages return 404's and
-					blog posts are yet to be finished being written.
+					<b>Please note:</b> all pages except for the blog are a work in progress.
+				</p>
+			</LogItem>
+			<LogItem date={new Date('2024/12/23')}>
+				<p>
+					Version 6.4 released, I changed the formatting of the entire codebase and I've
+					given the blog a fresh coat of paint, which also includes (at last) finish
+					writing all articles. Migration from Vercel to a private server for next year is
+					under consideration in order to create the remaining Nook pages.
 				</p>
 			</LogItem>
 			<LogItem date={new Date('2024/10/24')}>
@@ -210,7 +224,7 @@
 				</div>
 			{/if}
 		</ul>
-		<div class="flex flex-row-reverse mt-3">
+		<div class="mt-3 flex flex-row-reverse">
 			<button
 				onclick={() => {
 					show_all = !show_all;
@@ -221,9 +235,9 @@
 	</div>
 {/snippet}
 
-<div class="w-full flex flex-col md:flex-row gap-16">
+<div class="flex w-full flex-col gap-16 md:flex-row">
 	{@render log()}
-	<div class="w-full md:w-2/3 py-2 flex flex-col gap-3">
+	<div class="flex w-full flex-col gap-3 py-2 md:w-2/3">
 		<h2>Categories</h2>
 		{@render category(
 			'/blog',
@@ -235,25 +249,35 @@
 			'/fs',
 			'File explorer',
 			'img/ico/folders.svg',
-			'linear-gradient(275deg, rgba(67,149,255,1) 0%, rgba(68,184,255,1) 61%)'
+			'linear-gradient(275deg, rgba(67,149,255,1) 0%, rgba(68,184,255,1) 61%)',
+			true
 		)}
 		{@render category(
 			'/quake',
 			'Quake',
 			'img/ico/quake.svg',
-			'linear-gradient(104deg, rgba(217,176,70,1) 30%, rgba(135,106,0,1) 85%)'
+			'linear-gradient(104deg, rgba(217,176,70,1) 30%, rgba(135,106,0,1) 85%)',
+			true
 		)}
 		{@render category(
 			'/flash',
 			'Flash',
 			'img/ico/flash.svg',
-			'linear-gradient(31deg, rgba(255,142,142,1) 5%, rgba(255,103,57,1) 36%, rgba(251,43,43,1) 100%)'
+			'linear-gradient(31deg, rgba(255,142,142,1) 5%, rgba(255,103,57,1) 36%, rgba(251,43,43,1) 100%)',
+			true
 		)}
 		{@render category(
 			'/fumo',
 			'Fumo',
 			'img/ico/patchy.png',
-			'linear-gradient(275deg, rgba(176,67,239,1) 0%, rgba(182,145,227,1) 100%)'
+			'linear-gradient(275deg, rgba(176,67,239,1) 0%, rgba(182,145,227,1) 100%)',
+			true
 		)}
 	</div>
 </div>
+
+<style lang="postcss">
+	.disabled {
+		@apply pointer-events-none opacity-65 saturate-[0.2];
+	}
+</style>

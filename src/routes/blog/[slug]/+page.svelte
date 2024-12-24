@@ -4,13 +4,14 @@
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
 	import { parse_date } from '$lib/utils';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let image_url = $state('');
 
 	$effect.pre(() => {
-		if ($page.url.pathname === '/blog/faq#were-you-born-in-1997') {
+		if (page.url.pathname === '/blog/faq#were-you-born-in-1997') {
 			image_url = 'https://roaming97.com/img/no.jpg';
+			document.body.style['backgroundImage'] = image_url;
 		}
 	});
 
@@ -28,12 +29,12 @@
 </svelte:head>
 
 <h1
-	class="text-4xl lg:text-5xl xl:text-6xl mb-2"
+	class="mb-2 text-4xl lg:text-5xl xl:text-6xl"
 	in:fly={{ x: -10, duration: 500, easing: quartOut, delay: 500 }}
 >
 	{post.title}
 </h1>
-<div class="flex flex-col mb-4" in:fly={{ x: -10, delay: 600, duration: 300, easing: quartOut }}>
+<div class="mb-4 flex flex-col" in:fly={{ x: -10, delay: 600, duration: 300, easing: quartOut }}>
 	<p>Written by roaming97</p>
 	{#if post.tags?.find((t) => t === 'legacy')}
 		<p class="date-text">Originally written: {parse_date(post.date_created)}</p>
@@ -41,27 +42,28 @@
 		<p class="date-text">Date written: {parse_date(post.date_created)}</p>
 	{/if}
 	{#if post.date_modified}
-		<p class="date-text">Last modified: {parse_date(post.date_modified)}</p>
+		<p class="date-text">Last updated: {parse_date(post.date_modified)}</p>
 	{/if}
 	{#if post.rating?.toString()}
-		<h1
-			class="w-max px-4 py-3 mt-2 font-blond lg:text-4xl text-3xl text-black rounded-xl progress"
+		<p
+			class="progress mt-2 w-max rounded-lg px-3 py-2 text-3xl font-normal text-black lg:text-4xl"
 			style="--progress: {post.rating}"
 		>
 			{post.rating}/10
-		</h1>
+		</p>
 	{/if}
 	<a href="/blog" class="mt-2 hover:text-brand-c">&leftarrow; Back to blog</a>
 	<a href="/nook" class="hover:text-brand-c">&leftarrow; Back to nook</a>
 </div>
+<hr class="mb-4" />
 {#if post.tags?.find((t) => t === 'legacy')}
 	<Callout level="info">
 		This is a <b>legacy</b> post, it has been partially rewritten to improve clarity as well as to
 		fix grammatical and syntactic errors from the original. This article does not represent my current
 		views or opinions today.
 	</Callout>
+	<hr class="invisible mb-4" />
 {/if}
-<hr class="mb-6" />
 <div in:fly={{ x: -10, delay: 750, duration: 500, easing: quartOut }} class="font-blond">
 	{@render post.content()}
 </div>
@@ -73,6 +75,10 @@
 	:global(h1 > a) {
 		@apply font-extrabold;
 	}
+	:global(blockquote) {
+		@apply border-l-4 border-gray-500/50 bg-dark/20 p-4;
+	}
+
 	.progress {
 		--start: 0;
 		--end: 140;
@@ -83,6 +89,6 @@
 		);
 	}
 	.date-text {
-		@apply text-xs opacity-75 italic;
+		@apply text-xs italic opacity-75;
 	}
 </style>

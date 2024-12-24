@@ -36,7 +36,7 @@
 	});
 </script>
 
-<div {id} tabindex="-1" class="w-max h-max">
+<div {id} tabindex="-1" class="h-max w-max">
 	{@render children()}
 </div>
 
@@ -45,8 +45,7 @@
 		opacity: 0;
 	}
 	:global(.tippy-box) :global {
-		@apply relative font-mono rounded-md outline-none text-sm text-black 
-        dark:text-white bg-white dark:bg-darkest shadow-md transition-all;
+		@apply relative rounded-md bg-white font-mono text-sm text-black shadow-md outline-none transition-all dark:bg-darkest dark:text-white;
 	}
 	:global(.tippy-box[data-placement^='top'] > .tippy-arrow) {
 		bottom: 0;

@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="fixed flex items-center justify-between h-16 w-screen bg-white/50 dark:bg-black/50 backdrop-blur-lg p-8 z-50"
+	class="fixed z-50 flex h-16 w-screen items-center justify-between bg-white/50 p-8 backdrop-blur-lg dark:bg-black/50"
 >
 	<MenuToggle {open} onclick={() => (open = !open)} />
 	<ThemeSwitch />

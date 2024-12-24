@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 </script>
 
 {#snippet svg()}
@@ -16,14 +16,14 @@
 {/snippet}
 
 <div class="flex flex-col items-center p-8 pb-0">
-	<h1 class="text-9xl font-black lg:text-[200px] text-error">
-		{$page.status}
+	<h1 class="text-9xl font-black text-error lg:text-[200px]">
+		{page.status}
 	</h1>
-	<h2 class="text-4xl font-normal text-error">{$page.error?.message}</h2>
+	<h2 class="text-4xl font-normal text-error">{page.error?.message}</h2>
 	<p class="mt-8">
-		You might want to go <a href="/" class="underline text-error">back</a>.
+		You might want to go <a href="/" class="text-error underline">back</a>.
 	</p>
-	<div class="flex items-center scroll mt-8">
+	<div class="scroll mt-8 flex items-center">
 		{@render svg()}
 		{@render svg()}
 		{@render svg()}

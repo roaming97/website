@@ -2,7 +2,12 @@
 	import type { BlogPost } from '$lib/types';
 	import { relative_time } from '$lib/utils';
 
-	let { data, char_limit = 42 }: Partial<{ data: BlogPost; char_limit: number }> = $props();
+	interface Props {
+		data?: BlogPost;
+		char_limit?: number;
+	}
+
+	let { data, char_limit = 42 }: Props = $props();
 	let post: BlogPost | null = $state(null);
 
 	interface TagColor {
@@ -23,6 +28,7 @@
 		},
 		{ name: 'personal', fill: '#312a6b', text: '#fff' },
 		{ name: 'review', fill: '#37c4cc', text: '#151b1c' },
+		{ name: 'in process', fill: '#f3ba0f', text: '#000' },
 		{ name: 'update', fill: '#8216e9', text: '#fff' }
 	];
 
@@ -48,7 +54,7 @@
 
 {#snippet tag_snippet(tag: string)}
 	<p
-		class="p-1 px-3 rounded-2xl w-max text-xs"
+		class="w-max rounded-2xl p-1 px-3 text-xs"
 		style="background: {tag_fill_color(tag)}; color: {tag_text_color(tag)}"
 	>
 		{tag}
@@ -56,7 +62,7 @@
 {/snippet}
 
 {#if post}
-	<a href={post.path} class="p-4 group">
+	<a href={post.path} class="group p-4">
 		<li class="post">
 			<h2>{title_trim(post.title)}</h2>
 			<div class="flex flex-col">
@@ -69,13 +75,13 @@
 				{/if}
 				{#if post.date_modified}
 					<p class="date">
-						{relative_time(post.date_created)}, updated {relative_time(
+						posted {relative_time(post.date_created)}, updated {relative_time(
 							post.date_modified
 						)}
 					</p>
 				{:else}
 					<p class="date">
-						{relative_time(post.date_created)}
+						posted {relative_time(post.date_created)}
 					</p>
 				{/if}
 			</div>
@@ -90,15 +96,12 @@
 
 <style lang="postcss">
 	.post :global {
-		@apply p-4 rounded-xl bg-white group-hover:bg-gray-100 dark:bg-darkest 
-	  dark:group-hover:bg-darker w-full cursor-pointer transition-colors duration-200 
-		ease-in-out z-0 drop-shadow-glow flex flex-col justify-center h-full;
+		@apply z-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-xl bg-white p-4 drop-shadow-glow transition-colors duration-200 ease-in-out group-hover:bg-neutral-100 dark:bg-darkest dark:group-hover:bg-darker;
 	}
 	h2 {
-		@apply lg:text-3xl mb-2 font-normal tracking-tight font-mono 
-		group-hover:text-brand-c transition-colors duration-200 ease-in-out;
+		@apply mb-2 font-mono font-normal tracking-tight transition-colors duration-200 ease-in-out group-hover:text-brand-c lg:text-3xl;
 	}
 	.date :global {
-		@apply opacity-50 text-sm text-black dark:text-white;
+		@apply text-sm text-black opacity-50 dark:text-white;
 	}
 </style>

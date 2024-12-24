@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { random_quote } from '$lib/utils';
 
 	import Contact from '../Contact.svelte';
@@ -8,9 +8,9 @@
 
 	$effect(() => {
 		if (
-			$page.url.pathname !== '/' &&
-			$page.url.pathname !== '/about' &&
-			$page.url.pathname !== '/portfolio'
+			page.url.pathname !== '/' &&
+			page.url.pathname !== '/about' &&
+			page.url.pathname !== '/portfolio'
 		)
 			description = random_quote();
 		else
@@ -20,17 +20,17 @@
 </script>
 
 <hr class="invisible mt-12" />
-{#if $page.url.pathname === '/' || $page.url.pathname === '/portfolio'}
+{#if page.url.pathname === '/' || page.url.pathname === '/portfolio'}
 	<Contact />
 {/if}
-<footer class="flex flex-col w-screen bg-black text-white p-8 md:py-12 md:px-24 lg:px-48">
-	<div class="flex flex-col sm:flex-row items-center justify-between">
-		<div class="flex flex-col mb-6 sm:m-0">
+<footer class="flex w-screen flex-col bg-black p-8 text-white md:px-24 md:py-12 lg:px-48">
+	<div class="flex flex-col items-center justify-between sm:flex-row">
+		<div class="mb-6 flex flex-col sm:m-0">
 			<div class="flex items-center gap-4">
 				<enhanced:img src="/static/img/r97LogoV3.png?w=80" alt="roaming97 icon" />
 				<div class="flex flex-col gap-2">
-					<p class="text-xl font-bold sm:text-2xl text-brand-a">roaming97</p>
-					<p class="text-sm md:max-w-80">
+					<p class="text-xl font-bold text-brand-a sm:text-2xl">roaming97</p>
+					<p class="text-xs md:max-w-80 md:text-sm">
 						{description}
 					</p>
 				</div>
@@ -47,12 +47,24 @@
 					xmlns="http://www.w3.org/2000/svg"
 					width="30"
 					height="32"
-					fill="none"
 					viewBox="0 0 1200 1227"
 					><path
 						fill="#fff"
 						d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
 					/></svg
+				>
+			</a>
+			<a
+				href="https://youtube.com/@roaming97"
+				target="_blank"
+				class="transition-all hover:drop-shadow-glow"
+				aria-label="roaming97 youtube channel"
+			>
+				<svg viewBox="0 0 256 180" width="46" height="32" xmlns="http://www.w3.org/2000/svg"
+					><path
+						fill="white"
+						d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z"
+					/><path d="m102.421 128.06 66.328-38.418-66.328-38.418z" /></svg
 				>
 			</a>
 			<a
@@ -63,8 +75,8 @@
 			>
 				<svg
 					viewBox="0 0 256 250"
-					width="32"
-					height="29"
+					width="34"
+					height="32"
 					fill="#fff"
 					xmlns="http://www.w3.org/2000/svg"
 					preserveAspectRatio="xMidYMid"
@@ -76,8 +88,8 @@
 			</a>
 		</div>
 	</div>
-	<p class="flex flex-col border-t border-dark pt-4 my-4">
+	<p class="my-4 flex flex-col border-t border-dark pt-4">
 		<span class="text-xs text-white">&copy; 2024 roaming97</span>
-		<span class="text-xs text-brand-a font-black">Website 6.3</span>
+		<span class="text-xs font-black text-brand-a">Website 6.4</span>
 	</p>
 </footer>

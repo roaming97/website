@@ -43,11 +43,13 @@ export function file_stem(filename: string) {
 
 export function random_quote() {
 	const quotes = [
-		'Random quote #1: These quotes are randomly generated on some pages!',
+		'Random quote #1: These quotes are randomly generated in some pages!',
 		'Random quote #2: You might have noticed that the text here is different from the main pages of my website.',
 		'Random quote #3: These quotes only appear when visiting more personal pages in the site.',
 		'Random quote #4: If you refresh this page you might get a different footer text!',
-		"Random quote #5: The contents of this footer might reveal some trivia about the website's author."
+		'Random quote #5: This random quote concept is a throwback to the first two versions of my website.',
+		"Random quote #6: The contents of this footer might reveal some trivia about the website's author.",
+		'Random quote #7: This website was mainly written using SvelteKit.'
 	];
 	const index = Math.floor(Math.random() * quotes.length);
 	return quotes[index];

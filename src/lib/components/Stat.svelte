@@ -26,23 +26,22 @@
 		if (amount && !isNaN(amount) && intersecting) {
 			$count = amount;
 		}
-		$inspect(intersecting);
 	});
 </script>
 
 <IntersectionObserver once bind:intersecting {element}>
-	<div bind:this={element} class="flex flex-col gap-2 items-center justify-center cursor-default">
+	<div bind:this={element} class="flex cursor-default flex-col items-center justify-center gap-2">
 		{#if intersecting}
 			<h1
-				class="flex items-center justify-center text-6xl tracking-normal font-mono
-				 font-light lg:text-8xl transition-all duration-300 hover:text-brand-b
-				 hover:drop-shadow-glow leading-none"
+				class="flex items-center justify-center font-mono text-6xl font-light
+				 leading-none tracking-normal transition-all duration-300 hover:text-brand-b
+				 hover:drop-shadow-glow lg:text-8xl"
 				transition:fly={{ y: 20, duration: 300, delay, easing: quintOut }}
 			>
 				{Math.round($count)}{suffix}
 			</h1>
 			<p
-				class="text-base lg:text-xl text-gray-500"
+				class="text-base text-neutral-500 lg:text-xl"
 				transition:fly={{ y: 20, duration: 350, delay: delay + 100, easing: quintOut }}
 			>
 				{title}

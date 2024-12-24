@@ -12,7 +12,7 @@ html {
 }
 
 body {
-	@apply text-black bg-white dark:bg-darkest dark:text-white selection:bg-brand-a selection:text-black overflow-x-hidden;
+	@apply overflow-x-hidden bg-white text-black selection:bg-brand-a selection:text-black dark:bg-darkest dark:text-white;
 }
 
 dl,
@@ -30,7 +30,8 @@ span,
 a,
 label,
 li,
-button, small {
+button,
+small {
 	@apply font-primary font-medium;
 }
 
@@ -40,16 +41,17 @@ blockquote {
 	@apply font-mono;
 }
 
-b, strong {
+b,
+strong {
 	@apply font-bold;
 }
 
 h1 {
-	@apply text-3xl tracking-wide font-bold;
+	@apply text-3xl font-bold tracking-wide;
 }
 
 h2 {
-	@apply text-2xl tracking-wide font-bold;
+	@apply text-2xl font-bold tracking-wide;
 }
 
 h3 {
@@ -58,4 +60,56 @@ h3 {
 
 hr {
 	@apply border-black dark:border-white;
+}
+
+.shiki {
+	@apply rounded-lg border-2 border-black p-4 shadow-lg dark:border-dark;
+}
+
+.shiki span {
+	@apply font-mono font-medium;
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* Optional, if you also want font styles */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.toc {
+	@apply p-4 my-4 bg-neutral-200 dark:bg-darker 
+	border border-black dark:border-dark rounded-md;
+}
+
+.toc ol {
+	@apply list-decimal ml-5 pl-0;
+}
+
+.toc li {
+	@apply my-1;
+}
+
+.toc ol > li {
+	counter-increment: root;
+}
+
+.toc ol > li > ol {
+	counter-reset: subsection;
+}
+
+.toc ol > li > ol > li {
+	counter-increment: subsection;
+	@apply list-none;
+}
+
+.toc ol > li > ol > li:before {
+	content: counter(root) "." counter(subsection) " ";
+}
+
+.toc ol li a {
+	@apply hover:text-brand-c transition-colors duration-100;
 }

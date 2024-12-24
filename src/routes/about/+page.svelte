@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Pane, ExperiencePanel, WorkArea } from '$lib/components/about';
+	import { Pane, TimelineItem } from '$lib/components/about';
+	import Button from '$lib/components/Button.svelte';
 
 	const design_icons = [
 		['Blender', 'blender'],
@@ -52,14 +53,24 @@
 	const learning_icons = [
 		['C', 'c'],
 		['C#', 'csharp'],
-		['x86 Assembly', 'assembly'],
+		['Go', 'go'],
 		['Zig', 'zig'],
 		['Docker', 'docker']
 	];
 </script>
 
+{#snippet area_tag(label: string, cn = 'border-indigo-900 bg-indigo-500')}
+	<div
+		class="flex select-none items-center gap-1 rounded-md bg-neutral-200 px-2 py-1 text-xs dark:bg-dark"
+	>
+		<div class="h-4 w-4 rounded-full border {cn}"></div>
+		<span class="font-semibold">{label}</span>
+	</div>
+{/snippet}
+
 <div class="flex flex-col items-center gap-16">
-	<article class="max-w-3/4">
+	<article class="text-pretty">
+		<h1>About me, personally</h1>
 		<p>
 			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
 			specific things. Throughout my whole life I've had a lot of different hobbies, most of
@@ -90,17 +101,33 @@
 			projects that have been in the works for the past years, but we'll see when will be the
 			right time to unveil them. Until then this is where it stands.
 		</p>
+		<Button href="/portfolio">
+			<img
+				src="/img/ico/briefcase.svg"
+				class="invert dark:invert-0"
+				width="24"
+				height="24"
+				alt="briefcase icon"
+			/>
+			<span>Portfolio</span>
+		</Button>
 	</article>
 	<article>
 		<h1>Experience</h1>
-		<WorkArea area="Developer" period="since 2023" color="indigo">
-			<ExperiencePanel
-				user="infraregistry"
+		<div class="mb-4 flex flex-col gap-1">
+			<div class="flex items-center gap-1">
+				{@render area_tag('Web development')}
+				{@render area_tag('Motion/graphic design', 'border-teal-900 bg-teal-500')}
+			</div>
+		</div>
+		<div class="flex flex-col">
+			<TimelineItem
+				work_area="web"
 				role="Frontend web developer"
-				period="Oct 2024 - Present"
-				location="United States (Remote)"
+				period="October 2024 - Present"
+				client="infraregistry"
 			>
-				<p>
+				<p class="mb-3">
 					<a
 						href="http://github.com/infraregistry"
 						target="_blank"
@@ -121,14 +148,14 @@
 						>
 					</li>
 				</ul>
-			</ExperiencePanel>
-			<ExperiencePanel
-				user="Loopable"
+			</TimelineItem>
+			<TimelineItem
+				work_area="web"
 				role="Fullstack web developer"
-				period="Jul 2023 - Jan 2024"
-				location="Melbourne, Australia (Remote)"
+				period="July 2023 - January 2024"
+				client="Loopable"
 			>
-				<p>
+				<p class="mb-3">
 					Loopable is a website for tracking the validation process in RTO operations,
 					created by education-focused Australian team <a
 						target="_blank"
@@ -149,19 +176,17 @@
 						>
 					</li>
 				</ul>
-			</ExperiencePanel>
-		</WorkArea>
-		<WorkArea area="Visual artist" period="since 2019" color="teal">
-			<ExperiencePanel
-				user="Freelance"
-				role="Graphic/motion designer"
-				period="Feb 2020 - Feb 2023"
-				location="Worldwide"
+			</TimelineItem>
+			<TimelineItem
+				work_area="design"
+				role="Freelance graphic/motion designer"
+				period="February 2020 - February 2023"
+				client="Various clients"
 			>
-				<p>
-					For 3 years I helped several clients, mostly those in the electronic music
-					scene, to both design cover art for their releases and to bring those designs to
-					life with motion graphics.
+				<p class="mb-3">
+					Independently worked with mostly artists in the electronic music scene, to both
+					create cover art designs for their releases and to bring those designs to life
+					with motion graphics.
 				</p>
 				<ul>
 					<li>
@@ -182,45 +207,44 @@
 						>
 					</li>
 				</ul>
-			</ExperiencePanel>
-			<ExperiencePanel
-				user="04 Collective"
+			</TimelineItem>
+			<TimelineItem
+				work_area="design"
 				role="Senior graphic designer"
-				period="Sep 2019 - Oct 2020"
-				location="Toronto, ON, Canada (Remote)"
+				period="September 2019 - October 2020"
+				client="04 Collective"
+				bottom
 			>
-				<p>
-					<a target="_blank" href="https://solo.to/04collective"> 04 collective </a>
-					was a Canadian independent recording label founded by musical artist &OpenCurlyQuote;Paper
-					Skies&CloseCurlyQuote; in June 2019.
+				<p class="mb-3">
+					Independently worked with mostly artists in the electronic music scene, to both
+					create cover art designs for their releases and to bring those designs to life
+					with motion graphics.
 				</p>
 				<ul>
 					<li>
-						<span>
-							Created animation videos for the label's releases mixing 2D and 3D
-							graphics.
-						</span>
+						<span
+							>Helped guide the vision for music artists from different countries
+							around the world into diverse designs for their music.</span
+						>
 					</li>
 					<li>
-						<span>
-							Designed the cover art for the label's releases by helping with the
-							creation of 3D assets.
-						</span>
+						<span
+							>Designed in a variety of styles for electronic music artists by
+							creating both 2D and 3D graphics.</span
+						>
 					</li>
 					<li>
-						<span>
-							Enhanced the visual identity of the branding and promotional material.
-						</span>
+						<span
+							>Collaborated with other visual artists to execute one artist's ideas.</span
+						>
 					</li>
 				</ul>
-			</ExperiencePanel>
-		</WorkArea>
+			</TimelineItem>
+		</div>
 	</article>
 	<article>
 		<h1>Skills</h1>
-		<div
-			class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch justify-center"
-		>
+		<div class="grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			<Pane
 				title="Art & Design"
 				icons={design_icons}
@@ -255,10 +279,10 @@
 		@apply font-semibold text-brand-a;
 	}
 	ul {
-		@apply flex flex-col gap-4 lg:gap-1 text-sm;
+		@apply flex flex-col gap-4 text-sm lg:gap-1;
 	}
 	li {
-		@apply gap-1 list-item list-inside;
+		@apply list-item list-inside gap-1;
 		list-style: circle url('/img/bulletpoint.svg');
 		list-style-position: inside;
 	}
@@ -273,8 +297,5 @@
 	}
 	article {
 		@apply flex flex-col gap-4;
-	}
-	p {
-		@apply mb-4;
 	}
 </style>

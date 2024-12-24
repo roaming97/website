@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import { Config } from 'tailwindcss';
+
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'class',
@@ -20,7 +21,7 @@ export default {
 				error: '#F14545'
 			},
 			fontWeight: {
-				blond: 250
+				blond: '250'
 			},
 			transitionTimingFunction: {
 				'quint-in-out': 'cubic-bezier(0.83, 0, 0.17, 1)'
@@ -44,4 +45,4 @@ export default {
 		}
 	},
 	plugins: []
-};
+} satisfies Config;

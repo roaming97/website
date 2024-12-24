@@ -11,7 +11,8 @@ export const load = (async ({ params }) => {
 			...(file.metadata as BlogPostMetadata),
 			content
 		};
-	} catch {
-		error(404, 'Blog post not found');
+	} catch (e) {
+		console.error(e);
+		error(500, 'Error fetching post data');
 	}
 }) satisfies PageLoad;

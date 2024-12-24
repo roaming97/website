@@ -42,7 +42,7 @@
 		);
 	};
 
-	const cleanup = $effect.root(() => {
+	$effect.root(() => {
 		$effect(() => initialize());
 
 		return () => {

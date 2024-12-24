@@ -3,18 +3,18 @@
 	import Button from '../Button.svelte';
 </script>
 
-<div class="flex flex-col gap-4 mx-auto justify-center lg:w-3/4 pt-24">
-	<div class="flex flex-col items-center gap-2 lg:items-start justify-between">
+<div class="mx-auto flex flex-col justify-center gap-4 pt-24 lg:w-3/4">
+	<div class="flex flex-col items-center justify-between gap-2 lg:items-start">
 		<h1
-			class="text-5xl xl:text-7xl tracking-tight text-center bg-brand-c w-max text-black p-3 drop-shadow-glow"
+			class="w-max bg-brand-c p-3 text-center text-5xl tracking-tight text-black drop-shadow-glow xl:text-7xl"
 		>
 			Hello!
 		</h1>
-		<p class="w-full xl:text-xl px-4 md:p-0">
+		<p class="w-full px-4 md:p-0 xl:text-xl">
 			Welcome to my website, and just to be different, allow me to show before telling!
 		</p>
 	</div>
-	<div class="w-full px-4 md:p-0 md:w-auto flex flex-col md:flex-row items-center gap-3">
+	<div class="flex w-full flex-col items-center gap-3 px-4 md:w-auto md:flex-row md:p-0">
 		<Button href="/portfolio">
 			<img
 				src="/img/ico/briefcase.svg"

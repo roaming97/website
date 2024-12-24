@@ -14,8 +14,8 @@
 </script>
 
 <li
-	class="py-3 px-2 bg-opacity-30 dark:bg-opacity-10
-	border-b border-black dark:border-white"
+	class="border-b border-black bg-opacity-30 px-2
+	py-3 dark:border-white dark:bg-opacity-10"
 	class:bg-brand-b={pinned}
 	class:rounded-lg={pinned}
 >

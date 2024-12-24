@@ -35,8 +35,8 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<div class="w-screen relative h-[240px] lg:h-[400px] xl:h-[600px] flex items-center justify-center">
-	<div class="absolute w-full h-full -z-10">
+<div class="relative flex h-[240px] w-screen items-center justify-center lg:h-[400px] xl:h-[600px]">
+	<div class="absolute -z-10 h-full w-full">
 		<Canvas>
 			<T.Mesh {geometry}>
 				<T.ShaderMaterial
@@ -46,7 +46,7 @@
 					{uniforms}
 				/>
 			</T.Mesh>
-			<Environment path="/img/hdr/" files="kloppenheim_06_puresky_1k.hdr" />
+			<Environment url="/img/hdr/kloppenheim_06_puresky_1k.hdr" isBackground />
 			<T.PerspectiveCamera makeDefault filmOffset={6} position={[5, 0, 4]} fov={30}>
 				<OrbitControls
 					autoRotate
@@ -58,19 +58,19 @@
 			</T.PerspectiveCamera>
 			<T.AmbientLight />
 			<HTML position={[0, 0.5, 0]}>
-				<div class="flex flex-col select-none text-black translate-x-1/2">
+				<div class="flex translate-x-1/2 flex-col text-black">
 					<h1
-						class="text-3xl sm:text-4xl lg:text-7xl text-left tracking-tight
-								bg-gradient-to-br white from-20% from-brand-a pr-4 md:pr-8 lg:pr-12
-								via-brand-b to-70% to-brand-c bg-[length:400%_400%]
-								pt-2 pb-4 md:pt-4 md:pb-6 px-1 animate-bg_scroll shadow-solid"
+						class="white animate-bg_scroll bg-gradient-to-br from-brand-a from-20%
+								via-brand-b to-brand-c to-70% bg-[length:400%_400%] px-1 pb-4 pr-4
+								pt-2 text-left text-3xl tracking-tight
+								shadow-solid sm:text-4xl md:pb-6 md:pr-8 md:pt-4 lg:pr-12 lg:text-7xl"
 					>
 						roaming97
 					</h1>
 					<h2
-						class="text-xs sm:text-sm lg:text-xl font-mono text-left
-							font-medium lg:pb-2 p-1 bg-brand-a w-max shadow-solid
-							pr-4 md:pr-8 lg:pr-12"
+						class="w-max bg-brand-a p-1 pr-4 text-left
+							font-mono text-xs font-medium shadow-solid sm:text-sm md:pr-8
+							lg:pb-2 lg:pr-12 lg:text-xl"
 					>
 						Digital creative.
 					</h2>
