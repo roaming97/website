@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { random_quote } from '$lib/utils';
 
 	import Contact from '../Contact.svelte';
@@ -8,9 +8,9 @@
 
 	$effect(() => {
 		if (
-			$page.url.pathname !== '/' &&
-			$page.url.pathname !== '/about' &&
-			$page.url.pathname !== '/portfolio'
+			page.url.pathname !== '/' &&
+			page.url.pathname !== '/about' &&
+			page.url.pathname !== '/portfolio'
 		)
 			description = random_quote();
 		else
@@ -20,7 +20,7 @@
 </script>
 
 <hr class="invisible mt-12" />
-{#if $page.url.pathname === '/' || $page.url.pathname === '/portfolio'}
+{#if page.url.pathname === '/' || page.url.pathname === '/portfolio'}
 	<Contact />
 {/if}
 <footer class="flex w-screen flex-col bg-black p-8 text-white md:px-24 md:py-12 lg:px-48">
@@ -30,7 +30,7 @@
 				<enhanced:img src="/static/img/r97LogoV3.png?w=80" alt="roaming97 icon" />
 				<div class="flex flex-col gap-2">
 					<p class="text-xl font-bold text-brand-a sm:text-2xl">roaming97</p>
-					<p class="text-xs md:text-sm md:max-w-80">
+					<p class="text-xs md:max-w-80 md:text-sm">
 						{description}
 					</p>
 				</div>

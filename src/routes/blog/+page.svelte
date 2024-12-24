@@ -3,7 +3,6 @@
 	import Paginator from '$lib/components/Paginator.svelte';
 	import type { PageData } from './$types';
 	import type { BlogPost } from '$lib/types';
-	import Callout from '$lib/components/Callout.svelte';
 
 	let { data }: { data: PageData } = $props();
 

@@ -28,7 +28,7 @@
 		},
 		{ name: 'personal', fill: '#312a6b', text: '#fff' },
 		{ name: 'review', fill: '#37c4cc', text: '#151b1c' },
-		{ name: 'unfinished', fill: '#f3ba0f', text: '#000' },
+		{ name: 'in process', fill: '#f3ba0f', text: '#000' },
 		{ name: 'update', fill: '#8216e9', text: '#fff' }
 	];
 

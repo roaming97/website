@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+	import IntersectionObserver from '../IntersectionObserver.svelte';
 
 	interface Project {
 		name: string;
@@ -68,13 +69,14 @@
 	}
 
 	function step() {
+		requestAnimationFrame(step);
+		if (!intersecting) return;
 		const now = performance.now();
 		dt = Math.min((now - time) / interval, 1);
 		if (dt === 1) {
 			next(true);
 			reset_time();
 		}
-		requestAnimationFrame(step);
 	}
 
 	function next(autoplay: boolean) {
@@ -89,66 +91,72 @@
 	}
 
 	let gradient_top = $derived($theme === 'dark' ? '#02020100' : '#ffffff00');
+	let element = $state<HTMLElement>();
+	let intersecting = $state(false);
 
 	onMount(() => step());
 </script>
 
-<div
-	class="flex w-full flex-col items-center justify-around transition-all duration-300 lg:flex-row"
-	style:background="linear-gradient(180deg, {gradient_top} 0%, {current.bg_color} 30%)"
->
-	<div class="flex flex-col py-4 lg:p-16">
-		{#key current}
-			<a
-				href={current.url}
-				class="flex h-64 flex-col justify-around bg-white/90 p-8
-				text-black drop-shadow-glow md:aspect-square md:h-[320px] lg:h-[400px] lg:p-16 xl:h-[480px] xl:p-24"
-				in:fly={{ x: -30, duration: 800, easing: quintOut }}
-			>
-				<img
-					src={current.logo}
-					alt="{current.name} icon"
-					class="rounded-lg bg-white/30 p-2 shadow-lg"
-					width="84"
-					height="84"
-				/>
-				<div class="flex flex-col items-stretch">
-					<div class="my-2 flex items-center justify-between bg-brand-c/50 p-2">
-						<h1 class="font-black">
-							{current.name}
-						</h1>
-						<h1 class="font-black">&rightarrow;</h1>
+<IntersectionObserver bind:intersecting {element} threshold={0.5}>
+	<div
+		bind:this={element}
+		class="flex w-full flex-col items-center justify-around transition-all duration-300 lg:flex-row"
+		style:background="linear-gradient(180deg, {gradient_top} 0%, {current.bg_color} 30%)"
+	>
+		<div class="flex flex-col py-4 lg:p-16">
+			{#key current}
+				<a
+					href={current.url}
+					class="flex h-64 flex-col justify-around bg-white/90 p-8
+					text-black drop-shadow-glow md:aspect-square md:h-[320px] lg:h-[400px] lg:p-16 xl:h-[480px] xl:p-24"
+					in:fly={{ x: -30, duration: 800, easing: quintOut }}
+				>
+					<img
+						src={current.logo}
+						alt="{current.name} icon"
+						class="rounded-lg bg-white/30 p-2 shadow-lg"
+						width="84"
+						height="84"
+					/>
+					<div class="flex flex-col items-stretch">
+						<div class="my-2 flex items-center justify-between bg-brand-c/50 p-2">
+							<h1 class="font-black">
+								{current.name}
+							</h1>
+							<h1 class="font-black">&rightarrow;</h1>
+						</div>
+						<p>{current.description}</p>
 					</div>
-					<p>{current.description}</p>
-				</div>
-			</a>
+				</a>
+			{/key}
+			<div class="my-4 h-1 w-full bg-black/30">
+				<div class="h-1 w-full origin-left bg-black" style="scale: {dt} 1"></div>
+			</div>
+			<div class="flex w-full items-center justify-center gap-4">
+				{#each projects as proj, idx}
+					<button
+						class:bg-black={idx === index}
+						class:bg-zinc-500={idx !== index}
+						class="h-4 w-4 rounded-full transition-colors duration-300"
+						aria-label={proj.name}
+						onclick={() => {
+							reset_time();
+							index = idx;
+						}}
+					></button>
+				{/each}
+			</div>
+		</div>
+		{#key current}
+			<img
+				class="drop-shadow-glow"
+				src={current.render}
+				alt="Render for {current.name}"
+				in:fly={{ y: -30, delay: 200, duration: 800, easing: quintOut }}
+				width="480"
+				height="480"
+				data-sveltekit-preload-data
+			/>
 		{/key}
-		<div class="my-4 h-1 w-full bg-black/30">
-			<div class="h-1 w-full origin-left bg-black" style="scale: {dt} 1"></div>
-		</div>
-		<div class="flex w-full items-center justify-center gap-4">
-			{#each projects as proj, idx}
-				<button
-					class:bg-black={idx === index}
-					class:bg-zinc-500={idx !== index}
-					class="h-4 w-4 rounded-full transition-colors duration-300"
-					aria-label={proj.name}
-					onclick={() => {
-						reset_time();
-						index = idx;
-					}}
-				></button>
-			{/each}
-		</div>
 	</div>
-	{#key current}
-		<img
-			class="drop-shadow-glow"
-			src={current.render}
-			alt="Render for {current.name}"
-			in:fly={{ y: -30, delay: 200, duration: 800, easing: quintOut }}
-			width="480"
-			height="480"
-		/>
-	{/key}
-</div>
+</IntersectionObserver>

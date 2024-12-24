@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { MenuButtonProps } from '$lib/types';
 
 	let { open, onclick }: { open: boolean; onclick: () => void } = $props();
@@ -28,7 +28,7 @@
 	}
 
 	function is_current(button: MenuButtonProps) {
-		return $page.url.pathname === parse_link(button);
+		return page.url.pathname === parse_link(button);
 	}
 </script>
 

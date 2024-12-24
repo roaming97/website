@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly, type FlyParams } from 'svelte/transition';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import '../app.postcss';
@@ -14,15 +14,15 @@
 		easing: quintOut
 	};
 
-	let pathname = $derived($page.url.pathname);
+	let pathname = $derived(page.url.pathname);
 	let capitalized = $derived(
 		pathname.split('/')[1].charAt(0).toUpperCase() + pathname.split('/')[1].slice(1)
 	);
 
 	let title = $derived.by(() => {
 		if (pathname === '/') return 'roaming97';
-		if ($page.error) {
-			return `${$page.status}`;
+		if (page.error) {
+			return `${page.status}`;
 		} else {
 			return `${capitalized} - roaming97`;
 		}
@@ -49,7 +49,7 @@
 <Header />
 {#key data.url}
 	<div in:fly={{ ...options, delay: 400 }} out:fly={options}>
-		{#if data.url === '/' || data.url === '/fs' || $page.error}
+		{#if data.url === '/' || data.url === '/fs' || page.error}
 			<div class="pt-16">
 				{@render children()}
 			</div>
@@ -66,13 +66,13 @@
 		{/if}
 	</div>
 {/key}
-{#if !$page.error}
+{#if !page.error}
 	<Footer />
 {/if}
 <button
-	class="select-nonetext-white fixed bottom-5 right-5 z-[999] flex
-	h-10 w-10 items-center justify-center rounded-xl
-	bg-brand-a text-xl font-blond
+	class="fixed bottom-5 right-5 z-[999] flex h-10 w-10
+	select-none items-center justify-center rounded-xl bg-brand-a
+	text-xl font-blond text-white
 	shadow-lg transition-all duration-300"
 	class:invisible={!visible}
 	class:opacity-0={!visible}

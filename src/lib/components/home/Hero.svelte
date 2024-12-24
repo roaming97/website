@@ -46,7 +46,7 @@
 					{uniforms}
 				/>
 			</T.Mesh>
-			<Environment path="/img/hdr/" files="kloppenheim_06_puresky_1k.hdr" />
+			<Environment url="/img/hdr/kloppenheim_06_puresky_1k.hdr" isBackground />
 			<T.PerspectiveCamera makeDefault filmOffset={6} position={[5, 0, 4]} fov={30}>
 				<OrbitControls
 					autoRotate
@@ -58,7 +58,7 @@
 			</T.PerspectiveCamera>
 			<T.AmbientLight />
 			<HTML position={[0, 0.5, 0]}>
-				<div class="flex translate-x-1/2 select-none flex-col text-black">
+				<div class="flex translate-x-1/2 flex-col text-black">
 					<h1
 						class="white animate-bg_scroll bg-gradient-to-br from-brand-a from-20%
 								via-brand-b to-brand-c to-70% bg-[length:400%_400%] px-1 pb-4 pr-4

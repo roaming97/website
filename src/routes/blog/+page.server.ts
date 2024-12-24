@@ -4,7 +4,7 @@ import type { PageServerLoad } from './$types';
 export const load = (async ({ url }) => {
 	const pageParam = url.searchParams.get('page');
 	const page = pageParam !== null ? Math.max(0, parseInt(pageParam) - 1) : 0;
-	const perPage = 8;
+	const perPage = 5;
 
 	const posts = Object.entries(
 		import.meta.glob<BlogPostMetadata>('./posts/*.md', {

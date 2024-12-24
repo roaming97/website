@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Pane, TimelineItem } from '$lib/components/about';
+	import Button from '$lib/components/Button.svelte';
 
 	const design_icons = [
 		['Blender', 'blender'],
@@ -100,6 +101,16 @@
 			projects that have been in the works for the past years, but we'll see when will be the
 			right time to unveil them. Until then this is where it stands.
 		</p>
+		<Button href="/portfolio">
+			<img
+				src="/img/ico/briefcase.svg"
+				class="invert dark:invert-0"
+				width="24"
+				height="24"
+				alt="briefcase icon"
+			/>
+			<span>Portfolio</span>
+		</Button>
 	</article>
 	<article>
 		<h1>Experience</h1>

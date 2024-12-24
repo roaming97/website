@@ -1,7 +1,7 @@
 ---
 title: FAQ (Frequently asked questions)
 date_created: 2022/05/29
-date_modified: 2024/05/29
+date_modified: 2024/12/23
 tags: ['personal']
 ---
 
@@ -44,11 +44,15 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
 
 # What are your PC specifications?
 
--   CPU: AMD Ryzen 5 3400G
--   RAM: 32GB DDR4
--   GPU: Radeon Vega 11 Graphics (integrated)
--   Storage: 1TB HDD + 1TB SSD
--   OS: Windows 10 Pro 64-bit
+- CPU: AMD Ryzen 5 3400G with Radeon Vega 11 Integrated Graphics
+- RAM: 2x ADATA DDR4 2666MHz 16GB
+- GPU: None!
+- Storage:
+-   - Seagate BarraCuda 1TB Internal HDD
+-   - Kingston A400 960GB Internal SSD
+-   - Kingston A400 480GB External SSD
+-   - ADATA HD710 Pro 4TB External HDD
+- Operating system: Manjaro Linux 24.2.1 Yonada
 
 <style>
     h1 {
@@ -59,8 +63,16 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
     h1 > a {
         text-decoration: none;
     }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
     ul > li {
         margin-left: 1.5rem;
         list-style-type: disc; 
+    }
+    ul > li:has(li) {
+        list-style-type: none;
     }
 </style>

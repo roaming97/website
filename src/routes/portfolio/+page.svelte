@@ -119,16 +119,18 @@
 	</WorkArea>
 	<WorkArea area="Graphic/Motion design" color="indigo" period="">
 		<div class="flex flex-col items-stretch gap-4 p-2">
-			<Project
-				border="#001"
-				background="linear-gradient(120deg, rgba(237,237,247,0.2) 9%, rgba(197,198,208,0.2) 82%)"
-				name="04 Collective"
-				description="Electronic music label"
-				src="/img/ico/calendar.svg"
-				href="https://solo.to/04collective"
-			>
-				hi
-			</Project>
+			<!--
+				<Project
+					border="#112"
+					background="linear-gradient(120deg, rgba(237,237,247,0.2) 9%, rgba(197,198,208,0.2) 82%)"
+					name="04 Collective"
+					description="Electronic music label"
+					src="/img/04.svg"
+					href="https://solo.to/04collective"
+				>
+					hi
+				</Project>
+			-->
 			<Project
 				border="#e93390"
 				background="linear-gradient(300deg, rgba(235,171,67,1) 0%, rgba(231,68,99,1) 61%)"

@@ -4,12 +4,12 @@
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
 	import { parse_date } from '$lib/utils';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let image_url = $state('');
 
 	$effect.pre(() => {
-		if ($page.url.pathname === '/blog/faq#were-you-born-in-1997') {
+		if (page.url.pathname === '/blog/faq#were-you-born-in-1997') {
 			image_url = 'https://roaming97.com/img/no.jpg';
 			document.body.style['backgroundImage'] = image_url;
 		}
@@ -42,7 +42,7 @@
 		<p class="date-text">Date written: {parse_date(post.date_created)}</p>
 	{/if}
 	{#if post.date_modified}
-		<p class="date-text">Last modified: {parse_date(post.date_modified)}</p>
+		<p class="date-text">Last updated: {parse_date(post.date_modified)}</p>
 	{/if}
 	{#if post.rating?.toString()}
 		<p
@@ -75,6 +75,10 @@
 	:global(h1 > a) {
 		@apply font-extrabold;
 	}
+	:global(blockquote) {
+		@apply border-l-4 border-gray-500/50 bg-dark/20 p-4;
+	}
+
 	.progress {
 		--start: 0;
 		--end: 140;
