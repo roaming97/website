@@ -15,7 +15,7 @@
 	</svg>
 {/snippet}
 
-<div class="flex flex-col items-center p-8 pb-0">
+<div class="flex flex-col items-center p-8 pb-0 selection:bg-error">
 	<h1 class="text-9xl font-black text-error lg:text-[200px]">
 		{page.status}
 	</h1>

@@ -28,8 +28,8 @@ void mainImage(out vec4 fragColor,vec2 fragCoord){
     float t=iTime*.2;
     
     float a=1.;
-    float b=3.;
-    float c=1.;
+    float b=4.;
+    float c=.8;
     for(float i=0.;i<8.;++i){
         a=sin(-b*b-uv.y);
         b=cos(-a*a+c*c-uv.y-cos(t-a*b*c+uv.x));
@@ -44,7 +44,7 @@ void mainImage(out vec4 fragColor,vec2 fragCoord){
     
     if(iDarkMode){
         col=vec3(1.4-col.r,1.3-col.g,1.8-col.b);
-        col*=.5;
+        col*=.6;
         col=rgb2hsv(col);
         col.r-=.05;
         col.g-=.1;

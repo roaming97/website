@@ -9,7 +9,7 @@ Command: npx @threlte/gltf@3.0.0-next.7 ./static/models/logo24.gltf --transform 
 	import type { Snippet } from 'svelte';
 	import { T, type Props } from '@threlte/core';
 	import { useGltf, useDraco, useMeshopt } from '@threlte/extras';
-	import { theme } from '$lib/stores';
+	import { mode } from 'mode-watcher';
 
 	let {
 		fallback,
@@ -41,7 +41,7 @@ Command: npx @threlte/gltf@3.0.0-next.7 ./static/models/logo24.gltf --transform 
 		meshoptDecoder
 	});
 
-	let color = $derived($theme === 'dark' ? '#FFFFFF' : '#040309');
+	let color = $derived($mode === 'dark' ? '#FFFFFF' : '#040309');
 </script>
 
 <T.Group bind:ref dispose={false} {...props}>

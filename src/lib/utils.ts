@@ -1,14 +1,5 @@
 import type { LavenderEntry } from './types';
 
-export function find_cookie(query: string) {
-	const cookie = document.cookie
-		.split('; ')
-		.find((row) => row.startsWith(`${query}=`))
-		?.split('=')[1];
-	// console.log(cookie);
-	return cookie;
-}
-
 export function r97_age(): number {
 	const year = 365.25 * 24 * 60 * 60 * 1000; // 366 days every four years
 	return Math.floor((Date.now() - new Date('2016/05/03').valueOf()) / year);
@@ -55,7 +46,7 @@ export function random_quote() {
 	return quotes[index];
 }
 
-export function requestEveryday(url: string, api_key: string, filename: string) {
+export function request_everyday(url: string, api_key: string, filename: string) {
 	return new Promise<LavenderEntry>((resolve, reject) => {
 		fetch(`${url}/file?path=artwork/everydays/thumbnails/${filename}`, {
 			method: 'GET',

@@ -7,6 +7,7 @@
 	import type { LayoutData } from './$types';
 	import { quintOut } from 'svelte/easing';
 	import type { Snippet } from 'svelte';
+	import { ModeWatcher } from 'mode-watcher';
 
 	const options: FlyParams = {
 		x: -40,
@@ -46,6 +47,7 @@
 	<title>{title}</title>
 </svelte:head>
 
+<ModeWatcher defaultMode="dark" disableTransitions={false} />
 <Header />
 {#key data.url}
 	<div in:fly={{ ...options, delay: 400 }} out:fly={options}>

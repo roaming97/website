@@ -1,5 +1,3 @@
-export type Theme = 'dark' | 'light' | 'system';
-
 export interface MenuButtonProps {
 	name: string;
 	description: string;

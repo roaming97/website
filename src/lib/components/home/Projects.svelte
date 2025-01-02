@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from '$lib/stores';
+	import { mode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
@@ -90,7 +90,7 @@
 		}
 	}
 
-	let gradient_top = $derived($theme === 'dark' ? '#02020100' : '#ffffff00');
+	let gradient_top = $derived($mode === 'dark' ? '#02020100' : '#ffffff00');
 	let element = $state<HTMLElement>();
 	let intersecting = $state(false);
 

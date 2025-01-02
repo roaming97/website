@@ -49,6 +49,14 @@
 					<b>Please note:</b> all pages except for the blog are a work in progress.
 				</p>
 			</LogItem>
+			<LogItem date={new Date('2025/01/03')}>
+				<p>
+					Version 6.5 released, it gives the home page a slight redesign and compresses
+					about and portfolio into a single page, leaving the vacant space for an entire
+					projects section which actually shows some of my personal creative projects
+					outside of programming.
+				</p>
+			</LogItem>
 			<LogItem date={new Date('2024/12/23')}>
 				<p>
 					Version 6.4 released, I changed the formatting of the entire codebase and I've

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Pane, TimelineItem } from '$lib/components/about';
+	import Pane from '$lib/components/about/Pane.svelte';
+	import TimelineItem from '$lib/components/about/TimelineItem.svelte';
 	import Button from '$lib/components/Button.svelte';
 
 	const design_icons = [
@@ -244,7 +245,7 @@
 	</article>
 	<article>
 		<h1>Skills</h1>
-		<div class="grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 2xl:grid-cols-3">
 			<Pane
 				title="Art & Design"
 				icons={design_icons}
@@ -256,7 +257,7 @@
 				className="text-teal-500 border-teal-600 to-teal-600/40"
 			/>
 			<Pane
-				title="Libraries & frameworks"
+				title="Libraries/Frameworks"
 				icons={lib_icons}
 				className="text-cyan-500 border-cyan-600 to-cyan-600/40"
 			/>

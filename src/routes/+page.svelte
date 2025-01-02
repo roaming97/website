@@ -1,6 +1,9 @@
 <script lang="ts">
+	import Everyday from '$lib/components/home/Everyday.svelte';
+	import Projects from '$lib/components/home/Projects.svelte';
+	import Intro from '$lib/components/home/Intro.svelte';
+	import Hero from '$lib/components/home/Hero.svelte';
 	import Callout from '$lib/components/Callout.svelte';
-	import { Everyday, Projects, Intro, Hero } from '$lib/components/home';
 	import type { PageServerData } from './$types';
 	import Stat from '$lib/components/Stat.svelte';
 	import { r97_age } from '$lib/utils';
@@ -8,19 +11,16 @@
 
 	let { data }: { data: PageServerData } = $props();
 
+	let youtubeLite = $state();
 	let everydays = $derived(data.everydays);
-</script>
 
-{#snippet yt_embed(src: string)}
-	<iframe
-		{src}
-		title="youtube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-		referrerpolicy="strict-origin-when-cross-origin"
-		allowfullscreen
-	></iframe>
-{/snippet}
+	$effect(() => {
+		async function importLiteYT() {
+			youtubeLite = import('@justinribeiro/lite-youtube');
+		}
+		importLiteYT();
+	});
+</script>
 
 <Hero />
 <div class="flex flex-col items-center gap-24 bg-white dark:bg-darkest lg:items-start lg:gap-32">
@@ -45,8 +45,8 @@
 	</div>
 	<h1 class="w-screen text-center text-5xl lg:text-7xl">Motion reels</h1>
 	<div class="flex w-full flex-col items-center justify-center gap-8 lg:flex-row">
-		{@render yt_embed('https://www.youtube.com/embed/_R3Ml1tboYA?si=8B-_J1zfkyd-VNRw')}
-		{@render yt_embed('https://www.youtube.com/embed/MjEqbqaJeEk?si=M7V00qDmeYMTwAdY')}
+		<lite-youtube videoid="_R3Ml1tboYA"></lite-youtube>
+		<lite-youtube videoid="MjEqbqaJeEk"></lite-youtube>
 	</div>
 	<div class="flex flex-col gap-8">
 		<h1 class="w-full text-center text-5xl lg:w-screen lg:text-7xl">Everydays</h1>
@@ -60,7 +60,7 @@
 </div>
 
 <style lang="postcss">
-	iframe {
+	lite-youtube {
 		@apply aspect-video md:w-1/3;
 	}
 </style>

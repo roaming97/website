@@ -9,7 +9,7 @@
 </script>
 
 <a
-	class="select-none; flex w-full items-center justify-center gap-4
+	class="flex w-full select-none items-center justify-center gap-4
 		rounded-lg bg-brand-a/60 p-2 text-center text-sm text-black
 		shadow-black/10 drop-shadow-glow transition-all duration-200 ease-out
 		hover:scale-110 hover:bg-brand-a/80 dark:text-white dark:shadow-white/10 lg:w-40"
