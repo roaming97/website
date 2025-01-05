@@ -23,7 +23,7 @@
 	<p class="mt-8">
 		You might want to go <a href="/" class="text-error underline">back</a>.
 	</p>
-	<div class="scroll mt-8 flex items-center">
+	<div class="scroll mt-8 hidden items-center lg:flex">
 		{@render svg()}
 		{@render svg()}
 		{@render svg()}

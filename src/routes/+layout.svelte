@@ -51,11 +51,11 @@
 <Header />
 {#key data.url}
 	<div in:fly={{ ...options, delay: 400 }} out:fly={options}>
-		{#if data.url === '/' || data.url === '/fs' || page.error}
-			<div class="pt-16">
+		{#if data.url === '/'}
+			<div>
 				{@render children()}
 			</div>
-		{:else if data.url.match('/blog/.+')}
+		{:else if data.url.match('/blog/.+') || page.error}
 			<div class="p-4 pt-20 lg:mx-auto lg:max-w-[1020px] lg:p-16 xl:p-24">
 				{@render children()}
 			</div>

@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { mode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-	import IntersectionObserver from '../IntersectionObserver.svelte';
 
 	interface Project {
 		name: string;
@@ -57,7 +55,7 @@
 		}
 	] satisfies Project[];
 
-	const interval = 8000;
+	const interval = 6000;
 	let time = $state(performance.now());
 	let dt = $state(0);
 	let index = $state(0);
@@ -70,7 +68,6 @@
 
 	function step() {
 		requestAnimationFrame(step);
-		if (!intersecting) return;
 		const now = performance.now();
 		dt = Math.min((now - time) / interval, 1);
 		if (dt === 1) {
@@ -90,25 +87,25 @@
 		}
 	}
 
-	let gradient_top = $derived($mode === 'dark' ? '#02020100' : '#ffffff00');
-	let element = $state<HTMLElement>();
-	let intersecting = $state(false);
-
 	onMount(() => step());
 </script>
 
-<IntersectionObserver bind:intersecting {element} threshold={0.5}>
+<div class="relative flex w-full flex-col">
+	<h2
+		class="absolute left-6 top-4 hidden select-none text-8xl font-light tracking-tight opacity-30 lg:inline-block"
+	>
+		Software
+	</h2>
 	<div
-		bind:this={element}
-		class="flex w-full flex-col items-center justify-around transition-all duration-300 lg:flex-row"
-		style:background="linear-gradient(180deg, {gradient_top} 0%, {current.bg_color} 30%)"
+		class="dotted flex w-full flex-col items-center justify-around py-4 transition-all duration-300 lg:flex-row lg:pt-16"
 	>
 		<div class="flex flex-col py-4 lg:p-16">
 			{#key current}
 				<a
 					href={current.url}
-					class="flex h-64 flex-col justify-around bg-white/90 p-8
-					text-black drop-shadow-glow md:aspect-square md:h-[320px] lg:h-[400px] lg:p-16 xl:h-[480px] xl:p-24"
+					class="flex h-64 min-w-[320px] flex-col justify-around p-8 text-black
+						drop-shadow-glow sm:min-w-[480px] md:aspect-square md:h-[320px] lg:h-[400px] lg:w-auto lg:p-16 xl:h-[480px] xl:p-24"
+					style:background={current.bg_color}
 					in:fly={{ x: -30, duration: 800, easing: quintOut }}
 				>
 					<img
@@ -119,7 +116,7 @@
 						height="84"
 					/>
 					<div class="flex flex-col items-stretch">
-						<div class="my-2 flex items-center justify-between bg-brand-c/50 p-2">
+						<div class="my-2 flex items-center justify-between bg-neutral-800/30 p-2">
 							<h1 class="font-black">
 								{current.name}
 							</h1>
@@ -129,14 +126,19 @@
 					</div>
 				</a>
 			{/key}
-			<div class="my-4 h-1 w-full bg-black/30">
-				<div class="h-1 w-full origin-left bg-black" style="scale: {dt} 1"></div>
+			<div class="my-4 h-1 w-full bg-black/30 dark:bg-white/30">
+				<div
+					class="h-1 w-full origin-left bg-black dark:bg-white"
+					style="scale: {dt} 1"
+				></div>
 			</div>
 			<div class="flex w-full items-center justify-center gap-4">
 				{#each projects as proj, idx}
 					<button
 						class:bg-black={idx === index}
+						class:dark:bg-white={idx === index}
 						class:bg-zinc-500={idx !== index}
+						class:bg-opacity-50={idx !== index}
 						class="h-4 w-4 rounded-full transition-colors duration-300"
 						aria-label={proj.name}
 						onclick={() => {
@@ -159,4 +161,4 @@
 			/>
 		{/key}
 	</div>
-</IntersectionObserver>
+</div>

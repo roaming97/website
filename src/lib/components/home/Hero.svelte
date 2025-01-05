@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Socials from '../Socials.svelte';
 	import * as THREE from 'three';
-	import vertexShader from './../../shaders/plane.vert?raw';
-	import fragmentShader from './../../shaders/plane.frag?raw';
+	// import vertexShader from './../../shaders/plane.vert?raw';
+	// import fragmentShader from './../../shaders/plane.frag?raw';
 	import { Canvas, T } from '@threlte/core';
 	import { Environment, OrbitControls, HTML } from '@threlte/extras';
 	import Model from './Model.svelte';
@@ -10,53 +10,42 @@
 	import { SphereGeometry, Vector3 } from 'three';
 	import { mode } from 'mode-watcher';
 	import Email from '../Email.svelte';
+	import { degToRad } from 'three/src/math/MathUtils.js';
+	import { onDestroy, onMount } from 'svelte';
 
 	let innerWidth = $state(1);
 	let innerHeight = $state(1);
 
 	const geometry = new SphereGeometry(15);
 	geometry.computeVertexNormals();
-	let uniforms = $state({
-		iTime: { value: 0 },
-		iResolution: { value: new Vector3(1, 1, 1.0) },
-		iDarkMode: { value: $mode === 'dark' }
-	});
 
-	$effect(() => {
-		let frame = requestAnimationFrame(function update() {
-			uniforms.iResolution.value.set(innerWidth, innerHeight, 1.0);
-			uniforms.iTime.value += 0.01;
-			uniforms.iDarkMode.value = $mode === 'dark';
-			frame = requestAnimationFrame(update);
-		});
-		return () => {
-			cancelAnimationFrame(frame);
-		};
+	const url = '/img/panorama/kloofendal_48d_partly_cloudy_puresky_1k.hdr';
+
+	onDestroy(() => {
+		geometry.dispose();
 	});
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<div class="relative flex h-[240px] w-screen items-center justify-center lg:h-[400px] xl:h-[600px]">
+<div class="relative flex h-[240px] w-screen items-center justify-center lg:h-[480px] xl:h-[640px]">
 	<Canvas>
-		<T.Mesh {geometry}>
-			<T.ShaderMaterial side={THREE.DoubleSide} {vertexShader} {fragmentShader} {uniforms} />
-		</T.Mesh>
-		<Environment url="/img/hdr/kloppenheim_06_puresky_1k.hdr" isBackground />
-		<T.PerspectiveCamera makeDefault filmOffset={6.5} position={[5, 0, 4]} fov={30}>
+		<Environment {url} isBackground />
+		<T.PerspectiveCamera makeDefault filmOffset={6.5} position={[5, 0, 5.5]} fov={30}>
 			<OrbitControls
 				autoRotate
 				enableDamping
 				enablePan={false}
 				enableZoom={false}
-				autoRotateSpeed={4}
-				maxPolarAngle={Math.PI}
+				autoRotateSpeed={1}
+				minPolarAngle={Math.PI / 2 - degToRad(20)}
+				maxPolarAngle={Math.PI / 2 + degToRad(20)}
 			/>
 		</T.PerspectiveCamera>
 		<T.AmbientLight />
-		<HTML position={[0, 0.75, 0]}>
-			<div class="flex translate-x-1/2 flex-col gap-2">
-				<div class="mb-3 flex flex-col text-black">
+		<HTML position={[0, 0.65, 0]}>
+			<div class=" flex translate-x-1/2 flex-col gap-2">
+				<div class="mb-3 flex flex-col text-black drop-shadow-glow">
 					<h1
 						class="white animate-bg_scroll select-none bg-gradient-to-br from-brand-a
 										from-20% via-brand-b to-brand-c to-70% bg-[length:400%_400%] px-1 pb-4

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	type WorkArea = 'web' | 'yellow' | 'design';
+	type Skill = 'web' | 'yellow' | 'design';
 
 	interface Props {
-		work_area: WorkArea;
+		work_area: Skill;
 		period: string;
 		role: string;
 		client: string;

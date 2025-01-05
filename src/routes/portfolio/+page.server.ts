@@ -1,13 +1,36 @@
-import { LAVENDER_API_KEY, LAVENDER_URL } from '$env/static/private';
-import { request_everyday } from '$lib/utils';
 import type { PageServerLoad } from './$types';
+import { LAVENDER_URL, LAVENDER_API_KEY, GITHUB_URL } from '$env/static/private';
 
-export const load = (async () => {
-	const numbers = [1, 64, 117, 60, 61, 307, 156, 273, 177, 219, 236, 365];
+export const load = (async ({ fetch }) => {
+	let amount = 0;
+	let repos = 0;
+	const interval = 50;
+
+	try {
+		const response = await fetch(`${LAVENDER_URL}/amount`, {
+			method: 'GET',
+			headers: {
+				'lav-api-key': LAVENDER_API_KEY
+			}
+		});
+		const text = await response.text();
+		amount = Math.round(Number(text) / interval) * interval;
+	} catch (e) {
+		amount = -1;
+	}
+
+	try {
+		const response = await fetch(GITHUB_URL, {
+			method: 'GET'
+		});
+		const json = await response.json();
+		repos = json.length;
+	} catch (e) {
+		repos = -1;
+	}
 
 	return {
-		everydays: numbers.map((num) =>
-			request_everyday(LAVENDER_URL, LAVENDER_API_KEY, `day${num}.webp`)
-		)
+		amount,
+		repos
 	};
 }) satisfies PageServerLoad;

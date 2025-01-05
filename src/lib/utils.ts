@@ -1,4 +1,10 @@
 import type { LavenderEntry } from './types';
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
+}
 
 export function r97_age(): number {
 	const year = 365.25 * 24 * 60 * 60 * 1000; // 366 days every four years
@@ -46,9 +52,9 @@ export function random_quote() {
 	return quotes[index];
 }
 
-export function request_everyday(url: string, api_key: string, filename: string) {
+export function request_lavender_file(url: string, api_key: string, path: string) {
 	return new Promise<LavenderEntry>((resolve, reject) => {
-		fetch(`${url}/file?path=artwork/everydays/thumbnails/${filename}`, {
+		fetch(`${url}/file?path=${path}`, {
 			method: 'GET',
 			headers: {
 				'lav-api-key': api_key

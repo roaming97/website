@@ -7,7 +7,10 @@
 		navigator.clipboard.writeText('contact@roaming97.com');
 		copied = true;
 
-		setTimeout(() => (copied = false), 3000);
+		const timeout = setTimeout(() => {
+			copied = false;
+			clearTimeout(timeout);
+		}, 3000);
 	}
 
 	let copied = $state(false);
@@ -18,7 +21,9 @@
 		class="flex w-max cursor-pointer items-center gap-2 rounded-lg border border-zinc-500 bg-white p-2 px-4 transition-colors hover:bg-neutral-200 dark:border-dark dark:bg-darkest hover:dark:bg-darker"
 		onclick={copy}
 	>
-		<span class="select-none font-mono">contact@roaming97.com</span>
+		<span class="font-mono selection:bg-transparent selection:text-white"
+			>contact@roaming97.com</span
+		>
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
 			><path
 				class="stroke-black dark:stroke-white"
@@ -39,7 +44,7 @@
 		<span
 			in:fly={{ y: 10, easing: quintOut, duration: 300 }}
 			out:fly={{ y: 10, easing: quintIn, duration: 300 }}
-			class="w-max select-none rounded-lg bg-green-500 px-4 py-2 text-xs text-white"
+			class="w-max rounded-lg bg-green-500 px-4 py-2 text-xs text-white selection:bg-transparent selection:text-white"
 		>
 			Copied!
 		</span>

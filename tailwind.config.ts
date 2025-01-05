@@ -34,13 +34,27 @@ export default {
 				solid: '8px 8px 0 0 #C183FB'
 			},
 			animation: {
-				bg_scroll: 'bg_scroll 20s ease infinite'
+				bg_scroll: 'bg_scroll 20s ease infinite',
+				slight_bounce: 'slight_bounce 1s infinite'
 			},
 			keyframes: {
 				bg_scroll: {
 					'0%, 100%': { 'background-position': '0% 50%' },
 					'50%': { 'background-position': '100% 50%' }
+				},
+				slight_bounce: {
+					'0%, 100%': {
+						transform: 'translateY(-10%)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'none',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
 				}
+			},
+			zIndex: {
+				max: '99999999'
 			}
 		}
 	},
