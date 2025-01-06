@@ -50,12 +50,12 @@
 					constraints.
 				</p>
 			</LogItem>
-			<LogItem date={new Date('2025/01/05')}>
+			<LogItem date={new Date('2025/01/06')}>
 				<p>
 					Version 6.5 released, it's the 2025 update and with it a lot of major changes
-					arrive, mainly to the website's layout and the home page. Most of the missing
-					content is part of plans of possibly moving all of this into a self-hosted
-					pipeline, but I'm still deciding on that.
+					arrive, mainly to the website's layout and home page. One big addition has been
+					the <a href="/theater">theater</a>, which is still at a proof of concept phase,
+					hopefully it'll bloom into something bigger in the future.
 				</p>
 			</LogItem>
 			<LogItem date={new Date('2024/12/23')}>

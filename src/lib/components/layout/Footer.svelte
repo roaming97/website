@@ -10,8 +10,8 @@
 	$effect(() => {
 		if (
 			page.url.pathname !== '/' &&
-			page.url.pathname !== '/about' &&
-			page.url.pathname !== '/portfolio'
+			page.url.pathname !== '/portfolio' &&
+			page.url.pathname !== '/theater'
 		)
 			description = random_quote();
 		else
