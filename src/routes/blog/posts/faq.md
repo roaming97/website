@@ -1,7 +1,7 @@
 ---
 title: FAQ (Frequently asked questions)
 date_created: 2022/05/29
-date_modified: 2024/12/23
+date_modified: 2025/01/05
 tags: ['personal']
 ---
 
@@ -9,6 +9,21 @@ This article is a homage to the first version of this website (early 2019)
 which had a frequently asked questions section even if there weren't many.
 
 <br />
+
+# Who are you?
+
+I am **roaming97**, a terribly curious guy with interest in terribly specific things. Throughout my whole life I've had a lot of different hobbies, most of these involving a computer. I began creating videos in **2012** but only started to do so under this pseudonym on late **2016**.
+
+My creations from back then could be described as aimless experimental video art, all made for fun. In **2018**, I decided to take my fascination with graphic and visual design seriously. Fortunately this decision landed me a couple of jobs in the following years! My first one was at a music label in **2019** helping with promotional material and music videos. This gig helped me build a network of musical artists for freelance collaborations. All of these commissions ultimately motivated me to pursue a B.Des. In Multimedia Design and Digital Art _(rough translation)_ in **2020** which I graduated from in **2024**.
+
+<br />
+
+During that time I learned HTML, CSS, and JavaScript to create my website several years ago, initially aimed to host my videos outside of YouTube but later also served as my professional portfolio. I also explored several other languages and tools for personal projects, which were invaluable learning experiences and currently help me make a living. :)
+
+<br />
+
+I'm still at a pretty volatile state when it comes to balancing my hobbies and professional work, so I can't promise this question will remain answered like this forever.
+
 <br />
 
 # Were you born in 1997?

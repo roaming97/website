@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { theme } from '$lib/stores';
+	import { mode } from 'mode-watcher';
 
 	let { open, onclick }: { open: boolean; onclick: () => void } = $props();
 
-	let stroke = $derived($theme === 'dark' ? 'white' : 'black');
+	let stroke = $derived($mode === 'dark' ? 'white' : 'black');
 </script>
 
 <button aria-label="Menu toggle" class="z-[100] outline-none" {onclick}>

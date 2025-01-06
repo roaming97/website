@@ -34,7 +34,7 @@
 		{#if intersecting}
 			<h1
 				class="flex items-center justify-center font-mono text-6xl font-light
-				 leading-none tracking-normal transition-all duration-300 hover:text-brand-b
+				 leading-none tracking-normal transition-all duration-200 hover:text-brand-b
 				 hover:drop-shadow-glow lg:text-8xl"
 				transition:fly={{ y: 20, duration: 300, delay, easing: quintOut }}
 			>

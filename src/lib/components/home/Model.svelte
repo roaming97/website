@@ -6,10 +6,10 @@ Command: npx @threlte/gltf@3.0.0-next.7 ./static/models/logo24.gltf --transform 
 <script lang="ts">
 	import * as THREE from 'three';
 
-	import type { Snippet } from 'svelte';
+	import { onDestroy, type Snippet } from 'svelte';
 	import { T, type Props } from '@threlte/core';
 	import { useGltf, useDraco, useMeshopt } from '@threlte/extras';
-	import { theme } from '$lib/stores';
+	import { mode } from 'mode-watcher';
 
 	let {
 		fallback,
@@ -41,7 +41,7 @@ Command: npx @threlte/gltf@3.0.0-next.7 ./static/models/logo24.gltf --transform 
 		meshoptDecoder
 	});
 
-	let color = $derived($theme === 'dark' ? '#FFFFFF' : '#040309');
+	let color = $derived($mode === 'dark' ? '#FFFFFF' : '#040309');
 </script>
 
 <T.Group bind:ref dispose={false} {...props}>
@@ -49,7 +49,7 @@ Command: npx @threlte/gltf@3.0.0-next.7 ./static/models/logo24.gltf --transform 
 		{@render fallback?.()}
 	{:then gltf}
 		<T.Mesh geometry={gltf.nodes.Detailed.geometry} scale={0.75}>
-			<T.MeshPhysicalMaterial {color} ior={1.4} metalness={1.0} roughness={0.001} />
+			<T.MeshPhysicalMaterial {color} ior={1.333} metalness={1.2} roughness={0.00001} />
 		</T.Mesh>
 	{:catch err}
 		{@render error?.({ error: err })}

@@ -1,12 +1,9 @@
 import type { LavenderEntry } from './types';
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-export function find_cookie(query: string) {
-	const cookie = document.cookie
-		.split('; ')
-		.find((row) => row.startsWith(`${query}=`))
-		?.split('=')[1];
-	// console.log(cookie);
-	return cookie;
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
 }
 
 export function r97_age(): number {
@@ -55,9 +52,9 @@ export function random_quote() {
 	return quotes[index];
 }
 
-export function requestEveryday(url: string, api_key: string, filename: string) {
+export function request_lavender_file(url: string, api_key: string, path: string) {
 	return new Promise<LavenderEntry>((resolve, reject) => {
-		fetch(`${url}/file?path=artwork/everydays/thumbnails/${filename}`, {
+		fetch(`${url}/file?path=${path}`, {
 			method: 'GET',
 			headers: {
 				'lav-api-key': api_key

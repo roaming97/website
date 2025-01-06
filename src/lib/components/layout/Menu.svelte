@@ -10,12 +10,12 @@
 			description: 'The starting point.'
 		},
 		{
-			name: 'About',
-			description: 'Get to know who I am.'
+			name: 'Portfolio',
+			description: 'Get to know me professionally.'
 		},
 		{
-			name: 'Portfolio',
-			description: 'Showcase of my professional work.'
+			name: 'Theater',
+			description: 'In-house multimedia projects.'
 		},
 		{
 			name: 'Nook',

@@ -15,7 +15,7 @@
 	</svg>
 {/snippet}
 
-<div class="flex flex-col items-center p-8 pb-0">
+<div class="flex flex-col items-center p-8 pb-0 selection:bg-error">
 	<h1 class="text-9xl font-black text-error lg:text-[200px]">
 		{page.status}
 	</h1>
@@ -23,7 +23,7 @@
 	<p class="mt-8">
 		You might want to go <a href="/" class="text-error underline">back</a>.
 	</p>
-	<div class="scroll mt-8 flex items-center">
+	<div class="scroll mt-8 hidden items-center lg:flex">
 		{@render svg()}
 		{@render svg()}
 		{@render svg()}

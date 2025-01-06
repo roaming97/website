@@ -1,66 +1,38 @@
 <script lang="ts">
-	import Callout from '$lib/components/Callout.svelte';
-	import { Everyday, Projects, Intro, Hero } from '$lib/components/home';
+	import Software from '$lib/components/home/Software.svelte';
+	import Design from '$lib/components/home/Design.svelte';
+	import Hero from '$lib/components/home/Hero.svelte';
 	import type { PageServerData } from './$types';
-	import Stat from '$lib/components/Stat.svelte';
-	import { r97_age } from '$lib/utils';
-	import Button from '$lib/components/Button.svelte';
+	import Animation from '$lib/components/home/Animation.svelte';
+	import { onMount } from 'svelte';
 
 	let { data }: { data: PageServerData } = $props();
 
-	let everydays = $derived(data.everydays);
+	let images = $derived(data.images);
+
+	onMount(() => {
+		async function importLiteYT() {
+			import('@justinribeiro/lite-youtube');
+		}
+		importLiteYT();
+	});
 </script>
 
-{#snippet yt_embed(src: string)}
-	<iframe
-		{src}
-		title="youtube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-		referrerpolicy="strict-origin-when-cross-origin"
-		allowfullscreen
-	></iframe>
-{/snippet}
-
 <Hero />
-<div class="flex flex-col items-center gap-24 bg-white dark:bg-darkest lg:items-start lg:gap-32">
-	<Intro />
-	<Projects />
-	{#if !data.ok}
-		<div class="mx-auto w-full p-2 md:w-96 lg:w-1/2">
-			<Callout level="critical"
-				>Failed to retrieve data from server. This is likely due to your internet connection
-				or a Lavender related issue.</Callout
+<div class="flex flex-col items-center gap-20 bg-white dark:bg-darkest lg:gap-28">
+	<div class="mx-auto flex animate-slight_bounce flex-col justify-center gap-4 pt-24">
+		<div class="flex flex-col items-center justify-between drop-shadow-glow">
+			<h1
+				class="w-max bg-brand-c p-3 text-center text-2xl tracking-tight text-black sm:text-3xl lg:text-5xl"
 			>
-		</div>
-	{/if}
-	<div
-		class="mx-auto grid w-full grid-cols-2 items-center justify-center gap-8
-		rounded-xl border-2 border-dark bg-dark/10 p-4 sm:grid-cols-3 md:w-4/5 md:grid-cols-4 md:p-12"
-	>
-		<Stat amount={r97_age()} title="years" />
-		<Stat amount={data.amount} suffix="+" title="media pieces" delay={200} />
-		<Stat amount={data.repos} title="repositories" delay={400} />
-		<Stat amount={20} suffix="+" title="clients" delay={600} />
-	</div>
-	<h1 class="w-screen text-center text-5xl lg:text-7xl">Motion reels</h1>
-	<div class="flex w-full flex-col items-center justify-center gap-8 lg:flex-row">
-		{@render yt_embed('https://www.youtube.com/embed/_R3Ml1tboYA?si=8B-_J1zfkyd-VNRw')}
-		{@render yt_embed('https://www.youtube.com/embed/MjEqbqaJeEk?si=M7V00qDmeYMTwAdY')}
-	</div>
-	<div class="flex flex-col gap-8">
-		<h1 class="w-full text-center text-5xl lg:w-screen lg:text-7xl">Everydays</h1>
-		<Everyday {everydays} />
-		<div class="flex w-full flex-col items-center lg:w-screen">
-			<Button href="https://x.com/roaming98">
-				<span class="text-xl">View all</span>
-			</Button>
+				Here's what I like to create!
+			</h1>
+			<div
+				class="h-0 w-0 border-x-[24px] border-t-[24px] border-x-transparent border-y-brand-c"
+			></div>
 		</div>
 	</div>
+	<Design {images} />
+	<Animation />
+	<Software />
 </div>
-
-<style lang="postcss">
-	iframe {
-		@apply aspect-video md:w-1/3;
-	}
-</style>

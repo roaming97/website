@@ -1,44 +1,39 @@
-import { LAVENDER_URL, LAVENDER_API_KEY, GITHUB_URL } from '$env/static/private';
-import { requestEveryday } from '$lib/utils';
+import { LAVENDER_URL, LAVENDER_API_KEY } from '$env/static/private';
+import type { LavenderEntry } from '$lib/types';
+import { request_lavender_file } from '$lib/utils';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ fetch }) => {
-	const numbers = [1, 64, 117, 60, 61, 307, 156, 273, 177, 219, 236, 365];
-	let amount = 0;
-	let repos = 0;
-	const interval = 5;
-	let ok = true;
-	try {
-		const response = await fetch(`${LAVENDER_URL}/amount`, {
-			method: 'GET',
-			headers: {
-				'lav-api-key': LAVENDER_API_KEY
-			}
-		});
-		const text = await response.text();
-		amount = Math.round(Number(text) / interval) * interval;
-	} catch (e) {
-		amount = -1;
-		ok = false;
-	}
+export const load = (async () => {
+	const numbers = [1, 64, 117, 60, 61, 156, 273, 177, 219, 236, 365];
+	const artworks = [
+		'trackway',
+		'lapse',
+		'parallélisme_inhérent',
+		'headspace_w',
+		'everlastingsaturation',
+		'myopia',
+		'out'
+	];
 
-	try {
-		const response = await fetch(GITHUB_URL, {
-			method: 'GET'
-		});
-		const json = await response.json();
-		repos = json.length;
-	} catch (e) {
-		repos = -1;
-		ok = false;
-	}
+	let everydays: Promise<LavenderEntry>[] = [];
+	let artwork: Promise<LavenderEntry>[] = [];
+
+	everydays = numbers.map((num) =>
+		request_lavender_file(
+			LAVENDER_URL,
+			LAVENDER_API_KEY,
+			`artwork/everydays/thumbnails/day${num}.webp`
+		)
+	);
+
+	artwork = artworks.map((fn) =>
+		request_lavender_file(LAVENDER_URL, LAVENDER_API_KEY, `artwork/thumbnails/${fn}.webp`)
+	);
 
 	return {
-		amount,
-		repos,
-		everydays: numbers.map((num) =>
-			requestEveryday(LAVENDER_URL, LAVENDER_API_KEY, `day${num}.webp`)
-		),
-		ok
+		images: {
+			everydays,
+			artwork
+		}
 	};
-};
+}) satisfies PageServerLoad;

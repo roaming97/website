@@ -38,15 +38,24 @@
 	<!-- Log -->
 	<div class="w-full">
 		<ul id="log">
-			<LogItem date={new Date('2024/01/01')} pinned>
+			<LogItem date={new Date('2025/01/01')} pinned>
 				<p>
-					Welcome to the nook! This is where suddenly my professional portfolio turns into
-					a mess of a 2006 web portal. This is a much more personal space dedicated to my
-					hobbies and passions and sharing anything that's interesting, old-school style.
+					Welcome to the nook! This is where suddenly my website turns into a post-modern
+					Neocities hybrid mess. This is a much more personal space dedicated to my
+					hobbies, interests, and anything that I find worth sharing.
 				</p>
 				<hr class="my-2 opacity-50" />
 				<p>
-					<b>Please note:</b> all pages except for the blog are a work in progress.
+					<b>Please note:</b> all pages except for the blog are a work in progress due to server
+					constraints.
+				</p>
+			</LogItem>
+			<LogItem date={new Date('2025/01/06')}>
+				<p>
+					Version 6.5 released, it's the 2025 update and with it a lot of major changes
+					arrive, mainly to the website's layout and home page. One big addition has been
+					the <a href="/theater">theater</a>, which is still at a proof of concept phase,
+					hopefully it'll bloom into something bigger in the future.
 				</p>
 			</LogItem>
 			<LogItem date={new Date('2024/12/23')}>
@@ -72,33 +81,34 @@
 			<LogItem date={new Date('2024/9/25')}>
 				<p>Version 6.1 released, polishing and archiving more content slowly but surely.</p>
 			</LogItem>
-			<LogItem date={new Date('2024/7/25')}>
-				<p>
-					Version 6 of this website is out, hopefully the last major rewrite it will have.
-				</p>
-				<p>
-					If you're curious about the development behind this new version, check out the <a
-						href="/blog/website6"
-						class="text-brand-a underline">article</a
-					> sharing the experience in more detail.
-				</p>
-			</LogItem>
-
-			<LogItem date={new Date('2024/5/20')}>
-				<p>Version 6 test released.</p>
-			</LogItem>
-
-			<LogItem date={new Date('2023/01/12')}>
-				<p>
-					Version 5.1 released. More info <a
-						href="/blog/website5point1"
-						class="text-brand-a underline">on this article</a
-					>.
-				</p>
-			</LogItem>
 
 			{#if show_all}
 				<div transition:slide={{ duration: 500 }}>
+					<LogItem date={new Date('2024/7/25')}>
+						<p>
+							Version 6 of this website is out, hopefully the last major rewrite it
+							will have.
+						</p>
+						<p>
+							If you're curious about the development behind this new version, check
+							out the <a href="/blog/website6" class="text-brand-a underline"
+								>article</a
+							> sharing the experience in more detail.
+						</p>
+					</LogItem>
+
+					<LogItem date={new Date('2024/5/20')}>
+						<p>Version 6 test released.</p>
+					</LogItem>
+
+					<LogItem date={new Date('2023/01/12')}>
+						<p>
+							Version 5.1 released. More info <a
+								href="/blog/website5point1"
+								class="text-brand-a underline">on this article</a
+							>.
+						</p>
+					</LogItem>
 					<LogItem date={new Date('2022/07/02')}>
 						<p>
 							Version 5 released. Here's the <a
@@ -246,13 +256,6 @@
 			'linear-gradient(275deg, rgb(146, 160, 204) 0%, rgb(175, 153, 239) 61%)'
 		)}
 		{@render category(
-			'/fs',
-			'File explorer',
-			'img/ico/folders.svg',
-			'linear-gradient(275deg, rgba(67,149,255,1) 0%, rgba(68,184,255,1) 61%)',
-			true
-		)}
-		{@render category(
 			'/quake',
 			'Quake',
 			'img/ico/quake.svg',
@@ -273,6 +276,14 @@
 			'linear-gradient(275deg, rgba(176,67,239,1) 0%, rgba(182,145,227,1) 100%)',
 			true
 		)}
+		<hr class="border-neutral-600 dark:border-dark" />
+		<div class="grid grid-cols-3 items-center gap-2 lg:grid-cols-4">
+			<img
+				src="/img/badge.png"
+				alt="roaming97 website badge"
+				title="Free to use badge for roaming97.com"
+			/>
+		</div>
 	</div>
 </div>
 
