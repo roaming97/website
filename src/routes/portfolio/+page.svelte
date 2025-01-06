@@ -3,8 +3,10 @@
 	import Stats from '$lib/components/portfolio/Stats.svelte';
 	import TimelineItem from '$lib/components/portfolio/TimelineItem.svelte';
 	import Callout from '$lib/components/Callout.svelte';
-	import Project from '$lib/components/portfolio/Project.svelte';
 	import type { PageServerData } from './$types';
+	import BentoGrid from '$lib/components/ui/bento-grid/BentoGrid.svelte';
+	import BentoGridItem from '$lib/components/ui/bento-grid/BentoGridItem.svelte';
+	import { cn } from '$lib/utils';
 
 	const design_icons = [
 		['Blender', 'blender'],
@@ -67,180 +69,104 @@
 	let { amount, repos } = $derived(data);
 </script>
 
-{#snippet area_tag(label: string, cn = 'border-indigo-900 bg-indigo-500')}
+{#snippet tag(label: string, className = 'border-indigo-900 bg-indigo-500', src = '')}
 	<div
-		class="flex select-none items-center gap-1 rounded-md bg-neutral-200 px-2 py-1 text-xs dark:bg-dark"
+		class="flex w-max select-none items-center gap-1 rounded-md bg-brand-a/30 px-2 py-1 text-xs"
 	>
-		<div class="h-4 w-4 rounded-full border {cn}"></div>
+		{#if src}
+			<img class="h-4" {src} alt="{label} icon" />
+		{:else}
+			<div class={cn('h-4 w-4 rounded-full border', className)}></div>
+		{/if}
 		<span class="font-semibold">{label}</span>
 	</div>
 {/snippet}
 
-<div class="flex flex-col items-center gap-16">
-	<article>
-		<!--
-			<p>
-				While in my own words I am a "digital creative", what I truly mean by that is that I
-				consider myself a <b
-					>multidisciplinary creator of both interactive and non-interactive online creative
-					projects</b
-				>. Here are some samples divided into sections depending on the project's focus which
-				could be (not exclusively)
-				<b class="text-teal-400">programming</b>
-				or <b class="text-indigo-500">design</b>.
-			</p>
-			<div class="flex flex-col items-stretch gap-8">
-				<WorkArea area="Software/Web development" color="teal" period="">
-				<div class="grid grid-cols-1 items-stretch gap-4 p-2 xl:grid-cols-2">
-					<Project
-						border="rgb(254 182 0)"
-						background="linear-gradient(306deg, rgba(226,147,36,0.6) 35%, rgba(166,79,12,0.4) 97%)"
-						name="Almond"
-						description="Video archiving app to download YouTube videos into a local database. It's self-hosted, so anyone can host and run their own instance."
-						src="/img/ico/almond.svg"
-						tools={[
-							'/img/ico/python.svg',
-							'/img/ico/flask.svg',
-							'/img/ico/html.svg',
-							'/img/ico/css.svg',
-							'/img/ico/sqlite.svg'
-						]}
-						github="https://github.com/roaming97/Almond"
-					>
-						<div class="flex flex-col gap-2">
-							<enhanced:img
-								src="/static/img/screenshots/almond3.webp?w=800"
-								alt="Almond archived video page"
-							/>
-							<enhanced:img
-								src="/static/img/screenshots/almond2.webp"
-								alt="Almond home page options"
-							/>
-						</div>
-					</Project>
-					<Project
-						border="#48caf9"
-						background="linear-gradient(130deg, rgba(169,195,252,0.4) 0%, rgba(68,115,231,0.4) 100%)"
-						name="vintran"
-						description="Free web file transfer tool made with compatibility in mind. It is meant to allow file transfers from older software and hardware."
-						src="/img/ico/network.png"
-						tools={[
-							'/img/ico/python.svg',
-							'/img/ico/flask.svg',
-							'/img/ico/html.svg',
-							'/img/ico/css.svg',
-							'/img/ico/tailwind.svg'
-						]}
-						github="https://github.com/roaming97/vintran"
-					>
-						<div class="flex flex-col items-center gap-2">
-							<enhanced:img
-								src="/static/img/screenshots/vintran1.webp"
-								alt="vintran upload form"
-							/>
-							<enhanced:img
-								src="/static/img/screenshots/vintran2.webp"
-								alt="vintran upload success"
-							/>
-						</div>
-					</Project>
-					<Project
-						border="#c8f32f"
-						background="linear-gradient(135deg, rgba(187, 238, 60, 0.4) 0%, rgba(234, 247, 51, 0.4) 100%)"
-						name="ZipMyVid"
-						description="Compress your videos easily."
-						src="/img/ico/zmv.svg"
-						tools={[
-							'/img/ico/svelte.svg',
-							'/img/ico/tailwind.svg',
-							'/img/ico/ffmpeg.svg'
-						]}
-						github="https://github.com/roaming97/ZipMyVid"
-					>
-						<div class="flex flex-col items-center gap-2 md:flex-row md:items-stretch">
-							<img src="/img/screenshots/zipmyvid.png" alt="ZipMyVid form" />
-						</div>
-					</Project>
-					<Project
-						border="rgb(94 202 175)"
-						background="linear-gradient(16deg, rgba(176,229,95,0.5) 11%, rgba(70,209,199,0.4) 57%)"
-						name="Tangram"
-						description="Minimal graphics engine for games and applications with the help of SDL2."
-						src="/img/ico/tangram_color.png"
-						tools={['/img/ico/c.svg', '/img/ico/python.svg']}
-						github="https://github.com/roaming97/Tangram"
-					>
-						<div class="flex flex-col items-center gap-2">
-							<enhanced:img
-								src="/static/img/screenshots/tangram1.webp"
-								alt="Tangram example application"
-							/>
-							<enhanced:img
-								src="/static/img/screenshots/tangram2.webp"
-								alt="Tangram tetris game example"
-							/>
-						</div>
-					</Project>
-					<Project
-						border="rgb(154 112 255)"
-						background="linear-gradient(106deg, rgba(181,160,229,0.3) 11%, rgba(160,174,229,0.4) 71%)"
-						name="Lavender"
-						description="The backend for this website that functions as a modular file server."
-						src="/img/ico/lavender_placeholder.svg"
-						tools={['/img/ico/rust.svg']}
-						github="https://github.com/roaming97/Lavender"
-					/>
-				</div>
-			</WorkArea>
+{#snippet grid_item(
+	name: string,
+	description: string,
+	icon_src: string,
+	url: string,
+	screenshot: string,
+	tags: string[]
+)}
+	<BentoGridItem className={name === 'Almond' ? 'md:col-span-2' : ''} title={name} {description}>
+		{#snippet icon()}
+			<div class="rounded-lg bg-neutral-400/50 p-2 shadow-lg">
+				<img src={icon_src} width="32" height="32" alt="{name.toLowerCase()} icon" />
+			</div>
+		{/snippet}
+		{#snippet header()}
+			<a
+				href={url}
+				target="_blank"
+				class="bg-dot-black/[0.2] dark:bg-dot-white/[0.2] flex w-full flex-1 rounded-lg border border-transparent bg-neutral-100 dark:border-white/[0.2] dark:bg-black"
+				aria-label="picture"
+			>
+				<img
+					class="rounded-lg"
+					src="/img/screenshots/{screenshot}.webp"
+					alt="{name} preview screenshot"
+				/>
+			</a>
+		{/snippet}
+		<hr class="my-3 border-neutral-400 dark:border-dark" />
+		<div class="flex flex-wrap items-center gap-1">
+			{#each tags as item}
+				{@render tag(item, '', `/img/ico/${item.toLowerCase()}.svg`)}
+			{/each}
 		</div>
-		-->
-	</article>
-	<article class="text-pretty">
-		<h1>About me</h1>
-		<p>
-			I am <strong>roaming97</strong>, a terribly curious guy with interest in terribly
-			specific things. Throughout my whole life I've had a lot of different hobbies, most of
-			these involving a computer. I began creating videos in
-			<b>2012</b>
-			but only started to do so under this pseudonym in late <b>2016</b>. The creations from
-			back then were made with no real purpose or direction yet so it was more like
-			experimental video art, all made for fun.
-		</p>
-		<p>
-			In <b>2018</b>, I decided to take my fascination with graphic and visual design
-			seriously. Turns out this decision landed me a couple of jobs in the following years! My
-			first one was at a music label in <b>2019</b> helping with promotional material and
-			music videos. This gig helped me build a network of musical artists for freelance
-			collaborations. All of these commissions ultimately motivated me to pursue a B.Des. In
-			Multimedia Design and Digital Art in <b>2020</b> which I graduated from in <b>2024</b>.
-		</p>
-		<p>
-			During this time, I enhanced my programming skills, learning HTML, CSS, and JavaScript
-			to create my website several years ago, initially aimed to host my videos outside of
-			YouTube but later also served as my professional portfolio. I also explored several
-			other languages and tools for personal projects, which were invaluable learning
-			experiences.
-		</p>
+	</BentoGridItem>
+{/snippet}
 
-		<p>
-			I am currently working on improving my web developer portfolio as well as other creative
-			projects that have been in the works for the past years, but we'll see when will be the
-			right time to unveil them. Until then this is where it stands.
-		</p>
+<div class="flex flex-col items-center gap-12">
+	<article class="dotted p-4 py-8">
+		<BentoGrid>
+			{@render grid_item(
+				'Almond',
+				"Video archiving app to download YouTube videos into a local database. It's self-hosted, so anyone can host and run their own instance.",
+				'/img/ico/almond.svg',
+				'https://github.com/roaming97/Almond',
+				'almond3',
+				['Python', 'Flask', 'SQLite', 'HTML', 'CSS', 'Bootstrap']
+			)}
+			{@render grid_item(
+				'ZipMyVid',
+				'Compress your videos easily. This is my own take on 8mb.video that aims to be much more customizable while preserving the ease of use of that application.',
+				'/img/ico/zmv.svg',
+				'https://github.com/roaming97/ZipMyVid',
+				'zipmyvid',
+				['Svelte', 'Tailwind', 'FFmpeg']
+			)}
+			{@render grid_item(
+				'vintran',
+				'Free web file transfer tool made with compatibility in mind. It is meant to allow file transfers from older browsers and computers.',
+				'/img/ico/network.png',
+				'https://github.com/roaming97/vintran',
+				'vintran1',
+				['Python', 'Flask', 'SQLite', 'HTML', 'CSS', 'Tailwind']
+			)}
+			{@render grid_item(
+				'Tangram',
+				'Minimal graphics engine for games and applications with the help of SDL2.',
+				'/img/ico/tangram_color.png',
+				'https://github.com/roaming97/Tangram',
+				'tangram1',
+				['C', 'Python']
+			)}
+			<div class="flex items-center justify-center">
+				<p class="text-xl font-bold text-brand-c drop-shadow-glow">
+					More soon to be added...
+				</p>
+			</div>
+		</BentoGrid>
 	</article>
 	<article>
 		<h1>Experience</h1>
-		{#if amount > -1 && repos > -1}
-			<Stats {amount} {repos} />
-		{:else}
-			<div class="mx-auto w-max">
-				<Callout level="critical">Failed to retrieve data from server.</Callout>
-			</div>
-		{/if}
 		<div class="mb-4 flex flex-col gap-1">
 			<div class="flex items-center gap-1">
-				{@render area_tag('Web development')}
-				{@render area_tag('Motion/graphic design', 'border-teal-900 bg-teal-500')}
+				{@render tag('Web development')}
+				{@render tag('Motion/graphic design', 'border-teal-900 bg-teal-500')}
 			</div>
 		</div>
 		<div class="flex flex-col">
@@ -364,6 +290,13 @@
 				</ul>
 			</TimelineItem>
 		</div>
+		{#if amount > -1 && repos > -1}
+			<Stats {amount} {repos} />
+		{:else}
+			<div class="mx-auto w-max">
+				<Callout level="critical">Failed to retrieve data from server.</Callout>
+			</div>
+		{/if}
 	</article>
 	<article>
 		<h1>Skills</h1>
@@ -411,12 +344,6 @@
 	}
 	a {
 		@apply text-brand-a underline;
-	}
-	b {
-		@apply text-brand-b;
-	}
-	strong {
-		@apply text-brand-a;
 	}
 	article {
 		@apply flex flex-col gap-4;

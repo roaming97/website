@@ -8,9 +8,10 @@
 		description?: string | HTMLElement;
 		icon?: Snippet;
 		header?: Snippet;
+		children?: Snippet;
 	}
 
-	let { className, title, description, icon, header }: Props = $props();
+	let { className, title, description, icon, header, children }: Props = $props();
 </script>
 
 <div
@@ -20,17 +21,20 @@
 	)}
 >
 	{@render header?.()}
-	<div class="transition duration-200 group-hover/bento:text-brand-a">
-		{@render icon?.()}
-		{#if title}
-			<div class="mb-2 mt-2 font-primary font-bold">
-				{title}
-			</div>
-		{/if}
+	<div class="transition duration-200">
+		<div class="flex items-center gap-2 py-2">
+			{@render icon?.()}
+			{#if title}
+				<div class="mb-2 mt-2 font-primary font-bold">
+					{title}
+				</div>
+			{/if}
+		</div>
 		{#if description}
 			<div class="font-primary text-xs font-normal">
 				{description}
 			</div>
 		{/if}
+		{@render children?.()}
 	</div>
 </div>
