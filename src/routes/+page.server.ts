@@ -9,7 +9,7 @@ export const load = (async () => {
 		'trackway',
 		'lapse',
 		'parallélisme_inhérent',
-		'headspace_w',
+		'corridor',
 		'everlastingsaturation',
 		'myopia',
 		'out'

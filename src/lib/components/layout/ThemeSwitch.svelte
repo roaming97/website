@@ -33,15 +33,15 @@
 	</svg>
 {/snippet}
 
-<input
-	checked={$mode === 'dark'}
-	onclick={toggleMode}
-	type="checkbox"
-	id="theme-toggle"
-	class="sr-only"
-/>
-<div class="relative flex h-6 w-16 items-center rounded-xl bg-darker drop-shadow-glow">
-	<label for="theme-toggle" class="absolute inline-block">
+<label for="theme-toggle">
+	<input
+		checked={$mode === 'dark'}
+		onclick={toggleMode}
+		type="checkbox"
+		id="theme-toggle"
+		class="sr-only"
+	/>
+	<div class="relative flex h-6 w-16 items-center rounded-xl bg-darker drop-shadow-glow">
 		<div
 			class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white transition-all duration-200 ease-in-out dark:translate-x-full dark:bg-dark"
 		>
@@ -51,5 +51,5 @@
 				{@render sun()}
 			{/if}
 		</div>
-	</label>
-</div>
+	</div>
+</label>
