@@ -2,7 +2,7 @@
 	import Pane from '$lib/components/portfolio/Pane.svelte';
 	import Stats from '$lib/components/portfolio/Stats.svelte';
 	import TimelineItem from '$lib/components/portfolio/TimelineItem.svelte';
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '$lib/components/ui/Callout.svelte';
 	import type { PageServerData } from './$types';
 	import BentoGrid from '$lib/components/ui/bento-grid/BentoGrid.svelte';
 	import BentoGridItem from '$lib/components/ui/bento-grid/BentoGridItem.svelte';

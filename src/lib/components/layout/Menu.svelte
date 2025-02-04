@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import type { MenuButtonProps } from '$lib/types';
+
+	interface MenuButton {
+		name: string;
+		description: string;
+	}
 
 	let { open, onclick }: { open: boolean; onclick: () => void } = $props();
 
-	const menu_buttons: MenuButtonProps[] = [
+	const menu_buttons: MenuButton[] = [
 		{
 			name: 'Home',
 			description: 'The starting point.'
@@ -23,11 +27,11 @@
 		}
 	];
 
-	function parse_link(button: MenuButtonProps) {
+	function parse_link(button: MenuButton) {
 		return button.name === 'Home' ? '/' : `/${button.name.toLowerCase()}`;
 	}
 
-	function is_current(button: MenuButtonProps) {
+	function is_current(button: MenuButton) {
 		return page.url.pathname === parse_link(button);
 	}
 </script>

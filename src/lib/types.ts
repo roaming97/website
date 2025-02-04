@@ -1,8 +1,3 @@
-export interface MenuButtonProps {
-	name: string;
-	description: string;
-}
-
 export interface BlogPostMetadata {
 	title: string;
 	date_created: Date;
