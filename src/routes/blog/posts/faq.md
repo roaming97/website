@@ -1,7 +1,7 @@
 ---
 title: FAQ (Frequently asked questions)
 date_created: 2022/05/29
-date_modified: 2025/01/05
+date_modified: 2025/02/16
 tags: ['personal']
 ---
 
@@ -67,7 +67,7 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
 -   - Kingston A400 960GB Internal SSD
 -   - Kingston A400 480GB External SSD
 -   - ADATA HD710 Pro 4TB External HDD
-- Operating system: Manjaro Linux 24.2.1 Yonada
+- Operating system: Manjaro Linux 25.0.0 Zetar
 
 <style>
     h1 {

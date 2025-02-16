@@ -172,7 +172,7 @@
 		<div class="flex flex-col">
 			<TimelineItem
 				work_area="web"
-				role="Frontend web developer"
+				role="Full-stack web developer"
 				period="October 2024 - Present"
 				client="infraregistry"
 			>
