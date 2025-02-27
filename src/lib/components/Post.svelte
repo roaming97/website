@@ -20,7 +20,7 @@
 		{ name: 'legacy', fill: '#6a6a6a', text: '#ddd' },
 		{ name: 'spanish', fill: '#84d620', text: '#000' },
 		{ name: 'first post', fill: '#f9d242', text: '#000' },
-		{ name: 'development', fill: '#a32916', text: '#fff' },
+		{ name: 'software', fill: '#a32916', text: '#fff' },
 		{
 			name: 'art',
 			fill: 'linear-gradient(160deg, rgba(131,58,180,1) 5%, rgba(29,78,253,1) 62%, rgba(69,252,247,1) 100%)',
@@ -99,7 +99,7 @@
 		@apply z-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-xl bg-white p-4 drop-shadow-glow transition-colors duration-200 ease-in-out group-hover:bg-neutral-100 dark:bg-darkest dark:group-hover:bg-darker;
 	}
 	h2 {
-		@apply mb-2 font-mono font-normal tracking-tight transition-colors duration-200 ease-in-out group-hover:text-brand-c lg:text-3xl;
+		@apply mb-2 font-mono tracking-tight transition-colors duration-200 ease-in-out group-hover:text-brand-c lg:text-3xl;
 	}
 	.date :global {
 		@apply text-sm text-black opacity-50 dark:text-white;

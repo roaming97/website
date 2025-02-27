@@ -1,7 +1,7 @@
 ---
 title: FAQ (Frequently asked questions)
 date_created: 2022/05/29
-date_modified: 2025/01/05
+date_modified: 2025/02/27
 tags: ['personal']
 ---
 
@@ -22,7 +22,7 @@ During that time I learned HTML, CSS, and JavaScript to create my website severa
 
 <br />
 
-I'm still at a pretty volatile state when it comes to balancing my hobbies and professional work, so I can't promise this question will remain answered like this forever.
+I'm still at a pretty volatile state when it comes to balancing my hobbies and professional work, so I can't promise this answer will be definitive, I might change it in the future.
 
 <br />
 
@@ -59,15 +59,15 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
 
 # What are your PC specifications?
 
-- CPU: AMD Ryzen 5 3400G with Radeon Vega 11 Integrated Graphics
-- RAM: 2x ADATA DDR4 2666MHz 16GB
-- GPU: None!
+- CPU: **AMD Ryzen 5 3400G** (8 Cores, 3.70GHz)
+- RAM: **2x ADATA DDR4 2666MHz 16GB** (32GB)
+- GPU: **AMD Radeon Vega 11 Graphics** (Integrated)
 - Storage:
--   - Seagate BarraCuda 1TB Internal HDD
--   - Kingston A400 960GB Internal SSD
--   - Kingston A400 480GB External SSD
--   - ADATA HD710 Pro 4TB External HDD
-- Operating system: Manjaro Linux 24.2.1 Yonada
+-   - **Seagate BarraCuda Internal HDD** - 1TB
+-   - **Kingston A400 Internal SSD** - 960GB
+-   - **Kingston A400 External SSD** - 480GB
+-   - **ADATA HD710 Pro External HDD** - 4TB
+- Operating system: EndeavourOS Mercury x86_64
 
 <style>
     h1 {

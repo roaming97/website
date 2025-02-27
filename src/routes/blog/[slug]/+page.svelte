@@ -4,16 +4,6 @@
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
 	import { parse_date } from '$lib/utils';
-	import { page } from '$app/state';
-
-	let image_url = $state('');
-
-	$effect.pre(() => {
-		if (page.url.pathname === '/blog/faq#were-you-born-in-1997') {
-			image_url = 'https://roaming97.com/img/no.jpg';
-			document.body.style['backgroundImage'] = image_url;
-		}
-	});
 
 	let { data }: { data: PageData } = $props();
 	let post = $derived({ ...data });
@@ -21,15 +11,16 @@
 
 <svelte:head>
 	<title>{post.title} - roaming97</title>
-	{#if image_url}
-		<meta name="description" content="" />
-		<meta property="og:image" content={image_url} />
-		<meta property="twitter:image" content={image_url} />
-	{/if}
 </svelte:head>
 
+{#snippet tag_snippet(tag: string)}
+	<p class="w-max select-none rounded-xl bg-slate-500/30 p-1 px-3 text-xs">
+		{tag}
+	</p>
+{/snippet}
+
 <h1
-	class="mb-2 text-4xl lg:text-5xl xl:text-6xl"
+	class="mb-2 text-4xl font-black lg:text-5xl xl:text-6xl"
 	in:fly={{ x: -10, duration: 500, easing: quartOut, delay: 500 }}
 >
 	{post.title}
@@ -52,6 +43,13 @@
 			{post.rating}/10
 		</p>
 	{/if}
+	{#if post.tags}
+		<div class="flex items-center gap-1 py-2">
+			{#each post.tags as tag}
+				{@render tag_snippet(tag)}
+			{/each}
+		</div>
+	{/if}
 	<a href="/blog" class="mt-2 hover:text-brand-c">&leftarrow; Back to blog</a>
 	<a href="/nook" class="hover:text-brand-c">&leftarrow; Back to nook</a>
 </div>
@@ -69,14 +67,14 @@
 </div>
 
 <style lang="postcss">
-	h1 {
-		@apply font-black;
+	:global(h1:has(a)) {
+		@apply mb-1;
 	}
 	:global(h1 > a) {
 		@apply font-extrabold;
 	}
 	:global(blockquote) {
-		@apply border-l-4 border-gray-500/50 bg-dark/20 p-4;
+		@apply border-l-4 border-gray-500/50 bg-dark/20 p-4 text-sm;
 	}
 
 	.progress {
