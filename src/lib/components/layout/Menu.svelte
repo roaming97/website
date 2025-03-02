@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import type { MenuButtonProps } from '$lib/types';
+
+	interface MenuButton {
+		name: string;
+		description: string;
+	}
 
 	let { open, onclick }: { open: boolean; onclick: () => void } = $props();
 
-	const menu_buttons: MenuButtonProps[] = [
+	const menu_buttons: MenuButton[] = [
 		{
 			name: 'Home',
 			description: 'The starting point.'
@@ -23,17 +27,17 @@
 		}
 	];
 
-	function parse_link(button: MenuButtonProps) {
+	function parse_link(button: MenuButton) {
 		return button.name === 'Home' ? '/' : `/${button.name.toLowerCase()}`;
 	}
 
-	function is_current(button: MenuButtonProps) {
+	function is_current(button: MenuButton) {
 		return page.url.pathname === parse_link(button);
 	}
 </script>
 
 <menu
-	class="fixed z-10 flex h-full w-[70vw] -translate-x-full select-none flex-col justify-around
+	class="fixed z-[99999990] flex h-full w-[70vw] -translate-x-full select-none flex-col justify-around
 	bg-white/40 pb-16 pl-4 pr-10 pt-24 backdrop-blur-lg
 	transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] dark:bg-darkest/80 md:w-[50vw]
 	md:pl-6 lg:w-[25vw]"

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '$lib/components/ui/Callout.svelte';
 	import { quartOut } from 'svelte/easing';
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';

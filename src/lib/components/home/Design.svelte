@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LavenderEntry } from '$lib/types';
-	import Callout from '../Callout.svelte';
+	import Callout from '../ui/Callout.svelte';
 	import BentoGrid from '../ui/bento-grid/BentoGrid.svelte';
 	import BentoGridItem from '../ui/bento-grid/BentoGridItem.svelte';
 	import Button from '../ui/Button.svelte';
