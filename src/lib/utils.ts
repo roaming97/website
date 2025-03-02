@@ -1,6 +1,8 @@
-import type { LavenderEntry } from './types';
 import { type ClassValue, clsx } from 'clsx';
+
 import { twMerge } from 'tailwind-merge';
+
+import type { LavenderEntry } from './types';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -40,21 +42,26 @@ export function file_stem(filename: string) {
 
 export function random_quote() {
 	const quotes = [
-		'Random quote #1: These quotes are randomly generated in some pages!',
-		'Random quote #2: You might have noticed that the text here is different from the main pages of my website.',
-		'Random quote #3: These quotes only appear when visiting more personal pages in the site.',
-		'Random quote #4: If you refresh this page you might get a different footer text!',
-		'Random quote #5: This random quote concept is a throwback to the first two versions of my website.',
-		"Random quote #6: The contents of this footer might reveal some trivia about the website's author.",
-		'Random quote #7: This website was mainly written using SvelteKit.'
+		'These quotes are randomly generated in some pages within the nook!',
+		'You might have noticed that the text here is different from the main pages of my website.',
+		'These quotes only appear when visiting more personal pages in the site.',
+		'If you refresh this page you might get a different footer text!',
+		'This random quote concept is a throwback to the first two versions of my website.',
+		"The contents of this footer might reveal some trivia about the website's author.",
+		'This website was mainly written using SvelteKit.',
+		"I began with this 'project' by making meme videos back in 2016-2017.",
+		'I own the plush version of a smart ice fairy.',
+		'My nickname actually dates back to 2017, but my 2016 alias stuck along for historical purposes.',
+		'I currently run Linux on my machine.',
+		"My favorite music album is 'Random Access Memories' by Daft Punk."
 	];
 	const index = Math.floor(Math.random() * quotes.length);
 	return quotes[index];
 }
 
-export function request_lavender_file(url: string, api_key: string, path: string) {
+export function request_lavender_file(server_url: string, api_key: string, path: string) {
 	return new Promise<LavenderEntry>((resolve, reject) => {
-		fetch(`${url}/file?path=${path}`, {
+		fetch(`${server_url}/file?path=${path}`, {
 			method: 'GET',
 			headers: {
 				'lav-api-key': api_key
@@ -74,4 +81,8 @@ export function request_lavender_file(url: string, api_key: string, path: string
 				reject(e);
 			});
 	});
+}
+
+export function b64_to_image(b64: string, format = 'png') {
+	return `data:image/${format};base64,${b64}`;
 }

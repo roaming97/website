@@ -100,7 +100,7 @@
 			<a
 				href={url}
 				target="_blank"
-				class="bg-dot-black/[0.2] dark:bg-dot-white/[0.2] flex w-full flex-1 rounded-lg border border-transparent bg-neutral-100 dark:border-white/[0.2] dark:bg-black"
+				class="flex w-full flex-1 rounded-lg border border-transparent bg-neutral-100 dark:border-white/[0.2] dark:bg-black"
 				aria-label="picture"
 			>
 				<img
@@ -174,17 +174,21 @@
 				work_area="web"
 				role="Full-stack web developer"
 				period="October 2024 - Present"
-				client="infraregistry"
+				client="nvr.ai"
 			>
 				<p class="mb-3">
-					<a
-						href="http://github.com/infraregistry"
-						target="_blank"
-						rel="noopener noreferrer">infraregistry</a
-					> is a self-service platform that enables you to catalog, track, and manage your
-					services and resources.
+					<a href="https://nvr.ai" target="_blank" rel="noopener noreferrer">nvr.ai</a> is
+					a real-time surveillance camera platform, its center of operations is in New York,
+					NY.
 				</p>
 				<ul>
+					<li>
+						<span>
+							Built several interfaces for the new version of the platform's frontend
+							application by porting the work done in the previous version, improving
+							performance and code readability.</span
+						>
+					</li>
 					<li>
 						<span>
 							Translated Figma designs to functional and modular Svelte components.</span
@@ -200,7 +204,7 @@
 			</TimelineItem>
 			<TimelineItem
 				work_area="web"
-				role="Fullstack web developer"
+				role="Full-stack web developer"
 				period="July 2023 - January 2024"
 				client="Loopable"
 			>
@@ -339,7 +343,7 @@
 	}
 	li {
 		@apply list-item list-inside gap-1;
-		list-style: circle url('/img/bulletpoint.svg');
+		list-style: circle;
 		list-style-position: inside;
 	}
 	a {

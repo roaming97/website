@@ -15,7 +15,7 @@
 	href: string,
 	caption: string,
 	src: string,
-	background = '#4e2',
+	background = '#acacac',
 	disabled = false
 )}
 	<a
@@ -44,10 +44,12 @@
 					Neocities hybrid mess. This is a much more personal space dedicated to my
 					hobbies, interests, and anything that I find worth sharing.
 				</p>
-				<hr class="my-2 opacity-50" />
+			</LogItem>
+			<LogItem date={new Date('2025/03/01')}>
 				<p>
-					<b>Please note:</b> all pages except for the blog are a work in progress due to server
-					constraints.
+					Version 6.6 released, started writing a new article and finally unlocked the
+					rest of categories besides the blog, I upgraded my server so I'm able to host
+					and serve many more files.
 				</p>
 			</LogItem>
 			<LogItem date={new Date('2025/01/06')}>
@@ -72,18 +74,21 @@
 					progress on some of the content across the website.
 				</p>
 			</LogItem>
-			<LogItem date={new Date('2024/10/01')}>
-				<p>
-					Version 6.2 released by porting the website to Svelte 5. It was slightly tedious
-					but it's finally done.
-				</p>
-			</LogItem>
-			<LogItem date={new Date('2024/9/25')}>
-				<p>Version 6.1 released, polishing and archiving more content slowly but surely.</p>
-			</LogItem>
-
 			{#if show_all}
 				<div transition:slide={{ duration: 500 }}>
+					<LogItem date={new Date('2024/10/01')}>
+						<p>
+							Version 6.2 released by porting the website to Svelte 5. It was slightly
+							tedious but it's finally done.
+						</p>
+					</LogItem>
+					<LogItem date={new Date('2024/9/25')}>
+						<p>
+							Version 6.1 released, polishing and archiving more content slowly but
+							surely.
+						</p>
+					</LogItem>
+
 					<LogItem date={new Date('2024/7/25')}>
 						<p>
 							Version 6 of this website is out, hopefully the last major rewrite it
@@ -259,22 +264,19 @@
 			'/quake',
 			'Quake',
 			'img/ico/quake.svg',
-			'linear-gradient(104deg, rgba(217,176,70,1) 30%, rgba(135,106,0,1) 85%)',
-			true
+			'linear-gradient(104deg, rgba(217,156,40,1) 30%, rgba(135,96,20,1) 85%)'
 		)}
 		{@render category(
-			'/flash',
-			'Flash',
-			'img/ico/flash.svg',
-			'linear-gradient(31deg, rgba(255,142,142,1) 5%, rgba(255,103,57,1) 36%, rgba(251,43,43,1) 100%)',
-			true
+			'/minecraft',
+			'Minecraft',
+			'img/ico/minecraft.png',
+			'linear-gradient(85deg, rgba(135,200,90,1) 20%, rgba(99,206,83,1) 100%)'
 		)}
 		{@render category(
 			'/fumo',
 			'Fumo',
 			'img/ico/patchy.png',
-			'linear-gradient(275deg, rgba(176,67,239,1) 0%, rgba(182,145,227,1) 100%)',
-			true
+			'linear-gradient(275deg, rgba(176,67,239,1) 0%, rgba(182,145,227,1) 100%)'
 		)}
 		<hr class="border-neutral-600 dark:border-dark" />
 		<div class="grid grid-cols-3 items-center gap-2 lg:grid-cols-4">

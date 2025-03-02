@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
-	import '../app.postcss';
+	import '../app.css';
 	import type { LayoutData } from './$types';
 	import { quintOut } from 'svelte/easing';
 	import type { Snippet } from 'svelte';
@@ -72,10 +72,10 @@
 	<Footer />
 {/if}
 <button
-	class="fixed bottom-5 right-5 z-[999] flex h-10 w-10
-	select-none items-center justify-center rounded-xl bg-brand-a
-	text-xl font-blond text-white
-	shadow-lg transition-all duration-300"
+	class="bg-brand-a font-blond fixed right-5 bottom-5 z-[999] flex
+	h-10 w-10 items-center justify-center rounded-xl
+	text-xl text-white shadow-lg
+	transition-all duration-300 select-none"
 	class:invisible={!visible}
 	class:opacity-0={!visible}
 	onclick={() => document.body.scrollIntoView({ behavior: 'smooth' })}>&uparrow;</button

@@ -10,6 +10,6 @@
 	let { className, children }: Props = $props();
 </script>
 
-<div class={cn('mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3 ', className)}>
+<div class={cn('mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3', className)}>
 	{@render children()}
 </div>

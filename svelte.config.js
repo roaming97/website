@@ -1,11 +1,16 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
 import { escapeSvelte, mdsvex } from 'mdsvex';
+
 import { createHighlighter } from 'shiki';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
 import rehypeExternalLinks from 'rehype-external-links';
+
 import rehypeSlugCustomID from 'rehype-slug-custom-id';
+
 import rehypeTOC from 'rehype-toc';
 
 const highlighter = await createHighlighter({
@@ -41,7 +46,7 @@ const rehypeTOCOptions = {
 				{
 					type: 'element',
 					tagName: 'p',
-					properties: { className: 'text-3xl font-black mb-2' },
+					properties: {},
 					children: [
 						{
 							type: 'text',

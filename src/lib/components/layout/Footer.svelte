@@ -13,7 +13,7 @@
 			page.url.pathname !== '/portfolio' &&
 			page.url.pathname !== '/theater'
 		)
-			description = random_quote();
+			description = `Random quote #${Math.round(Math.random() * 10000)}: ${random_quote()}`;
 		else
 			description =
 				'Deep passion for creative endeavors is what drives me to create and help people create.';
@@ -41,6 +41,6 @@
 	</div>
 	<p class="my-4 flex flex-col border-t border-dark pt-4">
 		<span class="text-xs text-white">&copy; 2025 roaming97</span>
-		<span class="text-xs font-black text-brand-a">Website 6.5</span>
+		<span class="text-xs font-black text-brand-a">Website 6.6</span>
 	</p>
 </footer>
