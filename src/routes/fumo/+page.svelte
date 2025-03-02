@@ -67,7 +67,7 @@
 		<h1>Fumo list</h1>
 		<blockquote>
 			You can see a list of all the currently existing official fumos <a
-				href="https://fumo.website/fumo_table.html"
+				href="https://www.amiami.com/eng/search/list/?s_keywords=fumofumo%20plush%20touhou"
 				target="_blank"
 			>
 				<b>here</b>
