@@ -5,7 +5,7 @@
 	import BentoGrid from '$lib/components/ui/bento-grid/BentoGrid.svelte';
 	import { b64_to_image, relative_time } from '$lib/utils';
 	import type { PageServerData } from './$types';
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '$lib/components/ui/Callout.svelte';
 
 	const LAST_EDIT = '2025-03-01';
 
