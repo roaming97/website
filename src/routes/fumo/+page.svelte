@@ -129,7 +129,7 @@
 			{:then thumb}
 				<img
 					class="rounded-lg drop-shadow-glow"
-					src={b64_to_image(thumb.b64, 'jpg')}
+					src={b64_to_image(thumb.b64, 'webp')}
 					alt={thumb.filename}
 				/>
 			{/await}
