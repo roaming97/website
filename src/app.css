@@ -31,13 +31,13 @@ a,
 label,
 li,
 button,
-small {
+small, 
+blockquote {
 	@apply font-primary font-medium;
 }
 
 pre,
-code,
-blockquote {
+code {
 	@apply font-mono;
 }
 
@@ -47,7 +47,7 @@ strong {
 }
 
 h1 {
-	@apply text-3xl font-bold tracking-wide;
+	@apply text-3xl font-extrabold tracking-wide;
 }
 
 h2 {
@@ -60,6 +60,10 @@ h3 {
 
 hr {
 	@apply border-black dark:border-white;
+}
+
+blockquote {
+	@apply border-l-4 border-gray-500/50 bg-dark/20 p-4 text-sm;
 }
 
 .shiki {
@@ -83,6 +87,10 @@ html.dark .shiki span {
 .toc {
 	@apply p-4 my-4 bg-neutral-200 dark:bg-darker 
 	border border-black dark:border-dark rounded-md;
+}
+
+.toc p {
+	@apply text-2xl font-black mb-2;
 }
 
 .toc ol {

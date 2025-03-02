@@ -4,8 +4,8 @@
 
 	interface Props {
 		className?: string;
-		title?: string | HTMLElement;
-		description?: string | HTMLElement;
+		title?: string;
+		description?: string;
 		icon?: Snippet;
 		header?: Snippet;
 		children?: Snippet;
@@ -16,7 +16,7 @@
 
 <div
 	class={cn(
-		'group/bento shadow-input row-span-1 flex flex-col justify-between space-y-2 rounded-xl border border-black/[0.2] bg-white p-4 drop-shadow-glow transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
+		'group/bento row-span-1 flex flex-col justify-between space-y-2 rounded-xl border border-black/[0.2] bg-white p-4 drop-shadow-glow transition duration-200 hover:shadow-xl dark:border-white/[0.2] dark:bg-black dark:shadow-none',
 		className
 	)}
 >
@@ -25,9 +25,9 @@
 		<div class="flex items-center gap-2 py-2">
 			{@render icon?.()}
 			{#if title}
-				<div class="mb-2 mt-2 font-primary font-bold">
+				<p class="my-2 font-bold">
 					{title}
-				</div>
+				</p>
 			{/if}
 		</div>
 		{#if description}

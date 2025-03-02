@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	import { fly } from 'svelte/transition';
 	import { parse_date } from '$lib/utils';
+	import GoBack from '$lib/components/nook/GoBack.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let post = $derived({ ...data });
@@ -50,8 +51,8 @@
 			{/each}
 		</div>
 	{/if}
-	<a href="/blog" class="mt-2 hover:text-brand-c">&leftarrow; Back to blog</a>
-	<a href="/nook" class="hover:text-brand-c">&leftarrow; Back to nook</a>
+	<GoBack name="blog" />
+	<GoBack />
 </div>
 <hr class="mb-4" />
 {#if post.tags?.find((t) => t === 'legacy')}
@@ -72,9 +73,6 @@
 	}
 	:global(h1 > a) {
 		@apply font-extrabold;
-	}
-	:global(blockquote) {
-		@apply border-l-4 border-gray-500/50 bg-dark/20 p-4 text-sm;
 	}
 
 	.progress {

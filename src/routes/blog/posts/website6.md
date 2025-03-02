@@ -1,7 +1,7 @@
 ---
 title: Website 6.0 FINALLY online!
 date_created: 2024/01/01
-date_modified: 2024/12/23
+date_modified: 2025/03/01
 tags: ['update']
 ---
 
@@ -25,15 +25,9 @@ For one I aimed to arrive at a balance between showcasing my professional work b
 
 <br>
 
-# Now...
+# Technical mumbo jumbo
 
-As for the more technical details, I was planning to write them all out here, but figured that while I'm at it I may as well write a Svelte guide or write an article about my experience with the framework, should give people a good idea of what went in the making of my website, but that'll be for the future.
-
-<!--
-
-I will write a separate article for this!
-
-## Technical mumbo jumbo
+As for the more technical details, I'd like to write them all out here, but figured that it'd be better to write a separate Svelte guide or article sharing my experience with the framework. In the meantime though, the broad strokes are:
 
 I'm using [SvelteKit](https://kit.svelte.dev/) (a meta framework for [Svelte](https://svelte.dev/)) as the main dependency of my website. This is a web framework that lets you write reusable components in its own language which is compiled to vanilla JavaScript. Its syntax looks like this:
 
@@ -57,11 +51,19 @@ I'm using [SvelteKit](https://kit.svelte.dev/) (a meta framework for [Svelte](ht
 <small>An example of a counter that increments every time the user clicks the + button.</small>
 
 <br>
+<br>
 
 All of this is to say that it was a framework I could learn in a fairly quick manner and it didn't have too large of a boilerplate compared to all the copy-pasting I was doing in vanilla HTML/CSS/JS. In fact, I started using it since version 5 of this website.
 
 <br>
--->
+
+Would I recommend it? If you're making a static blog with little interactivity, it's probably overkill to go with a meta-framework like SvelteKit. There are some useful static site generators (or SSG's) that will help you get to production in less time such as [11ty](https://www.11ty.dev/). Even if you had a more interactive website in mind, I would suggest learning the basics of HTML/CSS/JS before hopping on any of the JavaScript frameworks that exist out there.
+
+<br>
+
+# Definitive
+
+Version 6 should be the last time I have to redesign and recode my website from scratch **ever**, so any following updates will be briefly reported on the nook's changelog instead of dedicated blog posts. Therefore, this _should_ be the last one of my 'update' posts for a very long time, unless I release a huge content update, albeit unlikely. I've been trying to lean more towards smaller chunks of content being released more frequently to avoid another two-year long period of radio silence.
 
 <style>
     a {

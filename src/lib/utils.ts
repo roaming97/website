@@ -59,9 +59,9 @@ export function random_quote() {
 	return quotes[index];
 }
 
-export function request_lavender_file(url: string, api_key: string, path: string) {
+export function request_lavender_file(server_url: string, api_key: string, path: string) {
 	return new Promise<LavenderEntry>((resolve, reject) => {
-		fetch(`${url}/file?path=${path}`, {
+		fetch(`${server_url}/file?path=${path}`, {
 			method: 'GET',
 			headers: {
 				'lav-api-key': api_key
@@ -81,4 +81,8 @@ export function request_lavender_file(url: string, api_key: string, path: string
 				reject(e);
 			});
 	});
+}
+
+export function b64_to_image(b64: string, format = 'png') {
+	return `data:image/${format};base64,${b64}`;
 }

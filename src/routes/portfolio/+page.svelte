@@ -100,7 +100,7 @@
 			<a
 				href={url}
 				target="_blank"
-				class="bg-dot-black/[0.2] dark:bg-dot-white/[0.2] flex w-full flex-1 rounded-lg border border-transparent bg-neutral-100 dark:border-white/[0.2] dark:bg-black"
+				class="flex w-full flex-1 rounded-lg border border-transparent bg-neutral-100 dark:border-white/[0.2] dark:bg-black"
 				aria-label="picture"
 			>
 				<img

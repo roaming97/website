@@ -19,16 +19,15 @@
 	const tag_colors: TagColor[] = [
 		{ name: 'legacy', fill: '#6a6a6a', text: '#ddd' },
 		{ name: 'spanish', fill: '#84d620', text: '#000' },
-		{ name: 'first post', fill: '#f9d242', text: '#000' },
-		{ name: 'software', fill: '#a32916', text: '#fff' },
+		{ name: 'software', fill: '#434986', text: '#fff' },
 		{
 			name: 'art',
-			fill: 'linear-gradient(160deg, rgba(131,58,180,1) 5%, rgba(29,78,253,1) 62%, rgba(69,252,247,1) 100%)',
+			fill: 'linear-gradient(160deg, rgb(131,58,180) 5%, rgb(226, 88, 145) 45%, rgb(228, 175, 51) 100%)',
 			text: '#000'
 		},
 		{ name: 'personal', fill: '#312a6b', text: '#fff' },
 		{ name: 'review', fill: '#37c4cc', text: '#151b1c' },
-		{ name: 'in process', fill: '#f3ba0f', text: '#000' },
+		{ name: 'work in progress', fill: '#777742', text: '#fff' },
 		{ name: 'update', fill: '#8216e9', text: '#fff' }
 	];
 
@@ -63,7 +62,11 @@
 
 {#if post}
 	<a href={post.path} class="group p-4">
-		<li class="post">
+		<li
+			class="z-0 flex cursor-pointer flex-col justify-center rounded-xl bg-white p-4
+			drop-shadow-glow ease-in-out group-hover:bg-neutral-100
+			dark:bg-darkest dark:group-hover:bg-darker"
+		>
 			<h2>{title_trim(post.title)}</h2>
 			<div class="flex flex-col">
 				{#if post.tags}
@@ -95,13 +98,10 @@
 {/if}
 
 <style lang="postcss">
-	.post :global {
-		@apply z-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-xl bg-white p-4 drop-shadow-glow transition-colors duration-200 ease-in-out group-hover:bg-neutral-100 dark:bg-darkest dark:group-hover:bg-darker;
-	}
 	h2 {
-		@apply mb-2 font-mono tracking-tight transition-colors duration-200 ease-in-out group-hover:text-brand-c lg:text-3xl;
+		@apply mb-2 font-mono tracking-tight transition-colors ease-in-out group-hover:text-brand-c lg:text-3xl;
 	}
 	.date :global {
-		@apply text-sm text-black opacity-50 dark:text-white;
+		@apply text-xs opacity-50;
 	}
 </style>

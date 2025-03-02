@@ -67,7 +67,7 @@ As some of you may know it involved 'Windows 9X' and the rise of personal comput
 -   - **Kingston A400 Internal SSD** - 960GB
 -   - **Kingston A400 External SSD** - 480GB
 -   - **ADATA HD710 Pro External HDD** - 4TB
-- Operating system: EndeavourOS Mercury x86_64
+- Operating system: **EndeavourOS 64-bit**
 
 <style>
     h1 {

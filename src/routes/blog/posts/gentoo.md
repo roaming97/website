@@ -1,7 +1,7 @@
 ---
 title: 'Tackling Gentoo Linux'
 date_created: 2025/02/27
-tags: ['personal', 'software']
+tags: ['personal', 'software', 'work in progress']
 ---
 
 ```
@@ -36,3 +36,7 @@ Year: 2021. I was making some improvements to my creative workflow by switching 
 Despite all the angst that Windows provoked me, it was just too comfortable to outright leave. I was also still in college and working as a freelance designer simultaneously so I wasn't going to jump ship anytime soon due to my heavy reliance on proprietary software and some Windows-exclusive programs.
 
 Eventually, I gave in and thanks to the magic of virtualization and a copy of Oracle's VirtualBox filled with old Windows machines, I dared to give Linux a try.
+
+<br>
+
+> Work in progress...
