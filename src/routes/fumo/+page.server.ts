@@ -12,7 +12,7 @@ export const load = (async () => {
 	);
 	let gallery = Array.from(Array(14).keys())
 		.map((i) => {
-			const path = `/fumo/thumbnails/fumo${i + 1}.webp`;
+			const path = `/fumo/fumo${i + 1}.jpg`;
 			return request_lavender_file(LAVENDER_URL, LAVENDER_API_KEY, path);
 		})
 		.reverse();
