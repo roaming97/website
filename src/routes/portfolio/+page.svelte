@@ -174,10 +174,10 @@
 				work_area="web"
 				role="Full-stack web developer"
 				period="October 2024 - Present"
-				client="nvr-ai"
+				client="nvr.ai"
 			>
 				<p class="mb-3">
-					<a href="https://nvr.ai" target="_blank" rel="noopener noreferrer">nvr-ai</a> is
+					<a href="https://nvr.ai" target="_blank" rel="noopener noreferrer">nvr.ai</a> is
 					a real-time surveillance camera platform, its center of operations is in New York,
 					NY.
 				</p>
