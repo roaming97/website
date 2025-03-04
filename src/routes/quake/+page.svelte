@@ -175,7 +175,7 @@
 					'Koshta Belorn',
 					'Challenging map with infinite replay value, has an unusual combat style while still feeling like vanilla. Shipped alongside other maps in a pack which are pretty fun too.',
 					jam2_tronyn,
-					'https://www.slipseer.com/index.php?resources/q1sp-cerulean-tears.416/',
+					'https://www.quaddicted.com/db/v1/maps/4e61db36d87d1a11d2afe713ce48c9c80a9057ddac1f821d2250485c8017d9ac',
 					'Tronyn'
 				)}
 				{@render map_item(
